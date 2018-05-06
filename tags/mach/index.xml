@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mach on Searching for the Shmoo</title>
-    <link>https://ahal.ca/tags/mach/</link>
+    <link>https://ahal.github.io/tags/mach/</link>
     <description>Recent content in Mach on Searching for the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Fri, 12 Feb 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ahal.ca/tags/mach/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ahal.github.io/tags/mach/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Zen of Mach</title>
-      <link>https://ahal.ca/blog/2016/zen-of-mach/</link>
+      <link>https://ahal.github.io/blog/2016/zen-of-mach/</link>
       <pubDate>Fri, 12 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2016/zen-of-mach/</guid>
+      <guid>https://ahal.github.io/blog/2016/zen-of-mach/</guid>
       <description>&lt;p&gt;Mach is the Mozilla developer&amp;rsquo;s swiss army knife. It gathers all the important commands you&amp;rsquo;ll ever
 need to run, and puts them in one convenient place. Instead of hunting down documentation, or asking
 for help on irc, often a simple |mach help| is all that&amp;rsquo;s needed to get you started. Mach is great.
@@ -33,10 +33,10 @@ with having a toolbox?&lt;/p&gt;
     
     <item>
       <title>Add more mach to your B2G</title>
-      <link>https://ahal.ca/blog/2014/b2g-commands/</link>
+      <link>https://ahal.github.io/blog/2014/b2g-commands/</link>
       <pubDate>Thu, 06 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2014/b2g-commands/</guid>
+      <guid>https://ahal.github.io/blog/2014/b2g-commands/</guid>
       <description>&lt;h4 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h4&gt;
 
 &lt;p&gt;tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:&lt;/p&gt;
@@ -61,10 +61,10 @@ bootstrapping your environment, running builds and tests, and generating diagnos
     
     <item>
       <title>A Workflow for using Mach with multiple Object Directories</title>
-      <link>https://ahal.ca/blog/2014/mach-workflow/</link>
+      <link>https://ahal.github.io/blog/2014/mach-workflow/</link>
       <pubDate>Mon, 03 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2014/mach-workflow/</guid>
+      <guid>https://ahal.github.io/blog/2014/mach-workflow/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Developer_Guide/mach&#34;&gt;Mach&lt;/a&gt; is an amazing tool which facilitates a large number of common user stories in the mozilla
 source tree. You can perform initial setup, execute a build, run tests, examine diagnostics, even
 search Google. Many of these things require an object directory. This can potentially lead to some
@@ -76,10 +76,10 @@ which object directory to operate on?&lt;/p&gt;
     
     <item>
       <title>Running B2G unittests with Mach</title>
-      <link>https://ahal.ca/blog/2013/running-b2g-unittests-mach/</link>
+      <link>https://ahal.github.io/blog/2013/running-b2g-unittests-mach/</link>
       <pubDate>Mon, 16 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2013/running-b2g-unittests-mach/</guid>
+      <guid>https://ahal.github.io/blog/2013/running-b2g-unittests-mach/</guid>
       <description>&lt;p&gt;Before now running &amp;lsquo;classic&amp;rsquo; unittests (mochitest, reftest, xpcshell, etc.) on B2G emulators has
 been a massive pain. The new recommended way of running them is through mach.&lt;/p&gt;
 

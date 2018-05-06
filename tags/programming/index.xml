@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on Searching for the Shmoo</title>
-    <link>https://ahal.ca/tags/programming/</link>
+    <link>https://ahal.github.io/tags/programming/</link>
     <description>Recent content in Programming on Searching for the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Sat, 24 May 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ahal.ca/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ahal.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>When would you use a Python mixin?</title>
-      <link>https://ahal.ca/blog/2014/when-would-you-use-python-mixin/</link>
+      <link>https://ahal.github.io/blog/2014/when-would-you-use-python-mixin/</link>
       <pubDate>Sat, 24 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2014/when-would-you-use-python-mixin/</guid>
+      <guid>https://ahal.github.io/blog/2014/when-would-you-use-python-mixin/</guid>
       <description>&lt;p&gt;That&amp;rsquo;s not a rhetorical question. I&amp;rsquo;d like to know in which scenarios a mixin in python really is
 the best option. I can&amp;rsquo;t seem to think of any, but maybe I&amp;rsquo;m not thinking outside the box enough.&lt;/p&gt;
 
@@ -34,10 +34,10 @@ place. What&amp;rsquo;s more is that most people use python mixins improperly.&l
     
     <item>
       <title>Part 2: How to deal with IFFY requirements</title>
-      <link>https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/</link>
+      <link>https://ahal.github.io/blog/2014/part-2-how-deal-iffy-requirements/</link>
       <pubDate>Fri, 11 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/</guid>
+      <guid>https://ahal.github.io/blog/2014/part-2-how-deal-iffy-requirements/</guid>
       <description>&lt;p&gt;My last post was basically a very long winded way of saying, &amp;ldquo;we have a problem&amp;rdquo;. It kind of did a
 little dance around &amp;ldquo;why is there a problem&amp;rdquo; and &amp;ldquo;how do we fix it&amp;rdquo;, but I want to explore these two
 questions in a bit more detail. Specifically, I want to return to the two case studies and explore
@@ -50,10 +50,10 @@ test harness design.&lt;/p&gt;
     
     <item>
       <title>Part 1: Sharing code is not always a good thing</title>
-      <link>https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/</link>
+      <link>https://ahal.github.io/blog/2014/part-1-sharing-code-not-always-good-thing/</link>
       <pubDate>Fri, 21 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/</guid>
+      <guid>https://ahal.github.io/blog/2014/part-1-sharing-code-not-always-good-thing/</guid>
       <description>&lt;h3 id=&#34;dry-versus-wet&#34;&gt;Dry versus Wet&lt;/h3&gt;
 
 &lt;p&gt;As programmers, we are taught early on that code duplication is bad and should be avoided at all

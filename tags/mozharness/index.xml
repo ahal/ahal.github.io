@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mozharness on Searching for the Shmoo</title>
-    <link>https://ahal.ca/tags/mozharness/</link>
+    <link>https://ahal.github.io/tags/mozharness/</link>
     <description>Recent content in Mozharness on Searching for the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Wed, 24 Jul 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ahal.ca/tags/mozharness/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ahal.github.io/tags/mozharness/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to Push a Custom Test Command Line to Try</title>
-      <link>https://ahal.ca/blog/2013/push-custom-test-command-line-try/</link>
+      <link>https://ahal.github.io/blog/2013/push-custom-test-command-line-try/</link>
       <pubDate>Wed, 24 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2013/push-custom-test-command-line-try/</guid>
+      <guid>https://ahal.github.io/blog/2013/push-custom-test-command-line-try/</guid>
       <description>&lt;h3 id=&#34;outdated&#34;&gt;OUTDATED&lt;/h3&gt;
 
 &lt;p&gt;The steps in this article are no longer accurate. Pushing a custom command line is easier now. See
