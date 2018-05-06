@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bookbinder on Searching for the Shmoo</title>
+    <link>https://ahal.ca/tags/bookbinder/</link>
+    <description>Recent content in Bookbinder on Searching for the Shmoo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Andrew Halberstadt</copyright>
+    <lastBuildDate>Mon, 30 Mar 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ahal.ca/tags/bookbinder/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Making mercurial bookmarks more git-like</title>
+      <link>https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/</link>
+      <pubDate>Mon, 30 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/</guid>
+      <description>&lt;p&gt;I mentioned in my previous post a mercurial extension I wrote for making bookmarks easier to
+manipulate. Since then it has undergone a large overhaul, and I believe it is now stable and
+intuitive enough to advertise a bit more widely.&lt;/p&gt;
+
+&lt;h2 id=&#34;introducing-bookbinder&#34;&gt;Introducing bookbinder&lt;/h2&gt;
+
+&lt;p&gt;When working with bookmarks (or anonymous heads) I often wanted to operate on the
+entire series of commits within the feature I was working on. I often found myself digging out
+revision numbers to find the first commit in a bookmark to do things like rebasing, grafting or
+diffing. This was annoying. I wanted bookmarks to work more like a git-style branch, that has a
+definite start as well as an end. And I wanted to be able to easily refer to the set of commits
+contained within. Enter &lt;a href=&#34;https://bitbucket.org/halbersa/bookbinder&#34;&gt;bookbinder&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Ateam" />
+<meta property="og:description" content="Ramblings related to my work at Mozilla and other projects." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ahal.ca/tags/ateam/" />
+
+
+
+<meta property="og:updated_time" content="2017-08-02T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ateam"/>
+<meta name="twitter:description" content="Ramblings related to my work at Mozilla and other projects."/>
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+    
+      
+    
+
+    <link rel="canonical" href="https://ahal.ca/tags/ateam/">
+
+    <title>Searching for the Shmoo</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-ZwlQQbzhEPf3PrXZ3h/XKT/4UHafQ/TYI72AL&#43;7WOJ8D6JmpGC8JMMse6xX7cyeI" crossorigin="anonymous">
+
+    
+    <!-- RSS 2.0 feed -->
+    <link href="https://ahal.ca/tags/ateam/index.xml" rel="alternate" type="application/rss+xml" title="Searching for the Shmoo" />
+    
+
+    
+
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+  <div class="container">
+    <nav class="nav blog-nav">
+      <a class="nav-link" href="https://ahal.ca/"></a>
+      
+      <a class="nav-link" href="/blog/" title="">Blog</a>
+      
+    </nav>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-08-02T00:00:00Z">Aug 02, 2017</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/fzf" rel="tag">fzf</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/try" rel="tag">try</a>
+
+</p>
+  </header>
+  <p>It&rsquo;s no secret that I&rsquo;m not a fan of try syntax, it&rsquo;s a topic I&rsquo;ve blogged about on <a href="https://ahal.ca/blog/2015/try-syntax/">several</a>
+<a href="https://ahal.ca/blog/2017/fuzzy-try-chooser/">occasions</a> before. Today, I&rsquo;m pleased to announce that there&rsquo;s a real alternative now landed on
+mozilla-central. It works on all platforms with mercurial and git. For those who just like to dive in:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach mercurial-setup --update  <span style="color:#75715e"># only if using hg
+</span><span style="color:#75715e"></span>$ mach try fuzzy</code></pre></div>
+<p>This will prompt you to install <a href="https://github.com/junegunn/fzf">fzf</a>. After bootstrapping is finished, you&rsquo;ll enter an interface
+populated with a list of all possible taskcluster tasks. Start typing and the list will be filtered
+down using a fuzzy matching algorithm. I won&rsquo;t go into details on how to use this tool in this blog
+post, for that see:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach try fuzzy --help  <span style="color:#75715e"># or
+</span><span style="color:#75715e"></span>$ man fzf</code></pre></div>
+<p></p>
+  <a href='https://ahal.ca/blog/2017/mach-try-fuzzy/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-02-23T00:00:00Z">Feb 23, 2017</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/fzf" rel="tag">fzf</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/try" rel="tag">try</a>
+
+</p>
+  </header>
+  <p>I&rsquo;ve previously <a href="https://ahal.ca/blog/2015/try-syntax/">blogged</a> about why I believe try syntax is an antiquated development process
+that should be replaced with something more modern and flexible. What follows is a series of ideas
+that I&rsquo;m trying to convert into a concrete plan of action to bring this about. This is not an
+<em>Intent to Implement</em> or anything like that, but my hope is that this outline is detailed enough
+that it could be used as a solid starting point by someone with enough time and motivation to
+work on it.</p>
+
+<p></p>
+  <a href='https://ahal.ca/blog/2017/fuzzy-try-chooser/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></h2>
+    <p class="blog-post-meta"><time datetime="2016-08-04T00:00:00Z">Aug 04, 2016</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/taskcluster" rel="tag">taskcluster</a>
+
+</p>
+  </header>
+  <p>One of the most painful aspects of a developer&rsquo;s work cycle is trying to fix failures that show up
+on try, but which can&rsquo;t be reproduced locally. When this happens, there were really only two
+options (neither of them nice):</p>
+
+<ol>
+<li>You could spam try with print debugging. But this isn&rsquo;t very powerful, and takes forever to get
+feedback.</li>
+<li>You could request a loaner from releng. But this is a heavy handed process, and once you have the
+loaner it is very hard to get tests up and running.</li>
+</ol>
+
+<p>I&rsquo;m pleased to announce there is now a third option, which is easy, powerful and 100% self-serve.
+Rather than trying to explain it in words, here is a ~5 minute demo:</p>
+
+<video width="100%" height="100%" controls>
+<source src="/static/vid/blog/2016/taskcluster-interactive-loaner.mp4" type="video/mp4">
+</video>
+
+<p></p>
+  <a href='https://ahal.ca/blog/2016/taskcluster-interactive-loaner/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2016/zen-of-mach/">The Zen of Mach</a></h2>
+    <p class="blog-post-meta"><time datetime="2016-02-12T00:00:00Z">Feb 12, 2016</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mach" rel="tag">mach</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
+
+</p>
+  </header>
+  <p>Mach is the Mozilla developer&rsquo;s swiss army knife. It gathers all the important commands you&rsquo;ll ever
+need to run, and puts them in one convenient place. Instead of hunting down documentation, or asking
+for help on irc, often a simple |mach help| is all that&rsquo;s needed to get you started. Mach is great.
+But lately, mach is becoming more like the Mozilla developer&rsquo;s toolbox. It still has everything you
+need but it weighs a ton, and it takes a good deal of rummaging around to find anything.</p>
+
+<p>Frankly, a good deal of the mach commands that exist now are either poorly written, confusing to use,
+or even have no business being mach commands in the first place. Why is this important? What&rsquo;s wrong
+with having a toolbox?</p>
+
+<p></p>
+  <a href='https://ahal.ca/blog/2016/zen-of-mach/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2015/try-syntax/">Looking beyond Try Syntax</a></h2>
+    <p class="blog-post-meta"><time datetime="2015-08-28T00:00:00Z">Aug 28, 2015</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/try" rel="tag">try</a>
+
+</p>
+  </header>
+  <p>Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
+you put into your commit message which a <a href="http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py">parser</a> then uses to determine the set of builds and
+tests to run on your try push. A common try syntax might look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">try: -b o -p linux -u mochitest -t none</code></pre></div>
+<p>Since inception, it has been a core part of the Mozilla development workflow.
+For many years it has served us well, and even today it serves us passably. But it is almost time
+for try syntax to don the wooden overcoat, and this post will explain why.</p>
+
+<p></p>
+  <a href='https://ahal.ca/blog/2015/try-syntax/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/consume-structured-test-results/">How to Consume Structured Test Results</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-12-18T00:00:00Z">Dec 18, 2014</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
+
+</p>
+  </header>
+  <p>You may not know that most of our test harnesses are now outputting structured logs (thanks in large
+part to :chmanchester&rsquo;s tireless work). Saying a log is structured simply means that it is in a
+machine readable format, in our case each log line is a JSON object. When streamed to a terminal or
+treeherder log, these JSON objects are first formatted into something that is human readable, aka
+the same log format you&rsquo;re already familiar with (which is why you may not have noticed this).</p>
+
+<p></p>
+  <a href='https://ahal.ca/blog/2014/consume-structured-test-results/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-11-09T00:00:00Z">Nov 09, 2014</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mercurial" rel="tag">mercurial</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
+
+</p>
+  </header>
+  <p>There&rsquo;s a good chance you&rsquo;ve heard something about a new review tool coming to Mozilla and how it will <em>change
+everything</em>. There&rsquo;s an even better chance you&rsquo;ve stumbled across one of gps&rsquo; <a href="http://gregoryszorc.com/blog/category/mercurial/">blog posts</a> on how
+we use mercurial at Mozilla.</p>
+
+<p>With <a href="https://groups.google.com/forum/#!topic/mozilla.dev.platform/RMkSXq2ckFk">mozreview entering beta</a>, I decided to throw out my old mq based workflow and
+try to use all the latest and greatest tools. That means <a href="http://mercurial.selenic.com/wiki/Bookmarks">mercurial bookmarks</a>, a <a href="http://gregoryszorc.com/blog/2014/06/30/track-firefox-repositories-with-local-only-mercurial-tags/">unified
+mozilla-central</a>, using <a href="http://mozilla-version-control-tools.readthedocs.org/en/latest/mozreview.html">mozreview</a> and completely <a href="http://gregoryszorc.com/blog/2014/06/23/please-stop-using-mq/">expunging mq</a> from my workflow.</p>
+
+<p></p>
+  <a href='https://ahal.ca/blog/2014/new-mercurial-workflow/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/how-many-tests-are-disabled/">How many tests are disabled?</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-10-01T00:00:00Z">Oct 01, 2014</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/test-informant" rel="tag">test-informant</a>
+
+</p>
+  </header>
+  <p>tl;dr Look for <a href="http://people.mozilla.org/~ahalberstadt/informant-reports/daily/2014-09-29.informant-report.html">reports like this</a> in the near future!</p>
+
+<p>At Mozilla, platform developers are culturally bound to <a href="http://tbpl.mozilla.org">tbpl</a>. We spend a lot of time staring at
+those bright little letters, and their colour can mean the difference between hours, days or even
+weeks of work. With so many people performing over <a href="http://relengofthenerds.blogspot.ca/2014/09/mozilla-pushes-august-2014.html">420 pushes per day</a>, all watching,
+praying, rejoicing and cursing, it&rsquo;s paramount that the whole process operates like a well oiled
+machine.</p>
+
+<p></p>
+  <a href='https://ahal.ca/blog/2014/how-many-tests-are-disabled/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/when-would-you-use-python-mixin/">When would you use a Python mixin?</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-05-24T00:00:00Z">May 24, 2014</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/programming" rel="tag">programming</a>, <a href="/tags/python" rel="tag">python</a>
+
+</p>
+  </header>
+  <p>That&rsquo;s not a rhetorical question. I&rsquo;d like to know in which scenarios a mixin in python really is
+the best option. I can&rsquo;t seem to think of any, but maybe I&rsquo;m not thinking outside the box enough.</p>
+
+<p>The basic idea of a mixin is to create a small re-usable class that can &ldquo;plug-in&rdquo; to other larger
+classes. From the <a href="http://en.wikipedia.org/wiki/Mixin">wikipedia definition</a>, a mixin is a way to compose classes together <em>without</em>
+using inheritance. The problem is unlike ruby, python mixins are a purely conceptual construct.
+Python mixins <em>are</em> inheritance (the only difference is that the class name usually contains
+&lsquo;Mixin&rsquo;). It is up to the developer to remember this, and to manually avoid all of the common
+pitfalls of multiple inheritance. This kind of defeats the whole purpose of the mixin in the first
+place. What&rsquo;s more is that most people use python mixins improperly.</p>
+
+<p></p>
+  <a href='https://ahal.ca/blog/2014/when-would-you-use-python-mixin/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/">Part 2: How to deal with IFFY requirements</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-04-11T00:00:00Z">Apr 11, 2014</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/programming" rel="tag">programming</a>
+
+</p>
+  </header>
+  <p>My last post was basically a very long winded way of saying, &ldquo;we have a problem&rdquo;. It kind of did a
+little dance around &ldquo;why is there a problem&rdquo; and &ldquo;how do we fix it&rdquo;, but I want to explore these two
+questions in a bit more detail. Specifically, I want to return to the two case studies and explore
+why our test harnesses don&rsquo;t work and why mozharness does work even though both have IFFY (in flux
+for years) requirements. Then I will explore how to use the lessons learned to improve our general
+test harness design.</p>
+
+<p></p>
+  <a href='https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/'>Read more →</a>
+</article> 
+
+
+
+
+
+<nav class="blog-pagination">
+  
+  
+  
+  <a class="btn btn-outline-primary disabled" href="#" role="button" aria-disabled="true">Previous page</a>
+  <a class="btn btn-outline-primary" href="/tags/ateam/page/2/" rel="next" role="button">Next page</a>
+  
+</nav>
+
+
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+
+<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+
+<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+
+<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+
+<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
+
+<li><a href="/blog/2015/try-syntax/">Looking beyond Try Syntax</a></li>
+
+<li><a href="/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></li>
+
+<li><a href="/blog/2015/new-mercurial-workflow-part-2/">The New Mercurial Workflow - Part 2</a></li>
+
+<li><a href="/blog/2014/consume-structured-test-results/">How to Consume Structured Test Results</a></li>
+
+<li><a href="/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+  <p>
+  
+  Andrew Halberstadt
+  
+  </p>
+  <p>
+  <a href="#">Back to top</a>
+  </p>
+</footer>
+
+    
+  </body>
+
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="State of Reftests on B2G" />
+<meta property="og:description" content="This quarter I&rsquo;ve been focusing on getting reftests running on B2G, triaging them and fixing various
+issues. The purpose of this post is to outline their status, go over the work that still needs to be
+done and point out where I will need some help.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2012/state-reftest-b2g/" />
+
+
+
+<meta property="article:published_time" content="2012-09-12T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2012-09-12T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="State of Reftests on B2G"/>
+<meta name="twitter:description" content="This quarter I&rsquo;ve been focusing on getting reftests running on B2G, triaging them and fixing various
+issues. The purpose of this post is to outline their status, go over the work that still needs to be
+done and point out where I will need some help.
+
+"/>
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "State of Reftests on B2G",
+  "url": "https://ahal.ca/blog/2012/state-reftest-b2g/",
+  "wordCount": "713",
+  "datePublished": "2012-09-12T00:00:00&#43;00:00",
+  "dateModified": "2012-09-12T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "b2g, mozilla, reftest"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2012/state-reftest-b2g/">
+
+    <title>State of Reftests on B2G | Searching for the Shmoo</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-ZwlQQbzhEPf3PrXZ3h/XKT/4UHafQ/TYI72AL&#43;7WOJ8D6JmpGC8JMMse6xX7cyeI" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+  <div class="container">
+    <nav class="nav blog-nav">
+      <a class="nav-link" href="https://ahal.ca/"></a>
+      
+      <a class="nav-link active" href="/blog/" title="">Blog</a>
+      
+    </nav>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2012/state-reftest-b2g/">State of Reftests on B2G</a></h2>
+    <p class="blog-post-meta"><time datetime="2012-09-12T00:00:00Z">Sep 12, 2012</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/b2g" rel="tag">b2g</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/reftest" rel="tag">reftest</a>
+
+</p>
+  </header>
+  <p>This quarter I&rsquo;ve been focusing on getting reftests running on B2G, triaging them and fixing various
+issues. The purpose of this post is to outline their status, go over the work that still needs to be
+done and point out where I will need some help.</p>
+
+<p></p>
+
+<h2 id="what-is-finished">What is Finished</h2>
+
+<p>Reftests currently run on B2G. I put up some <a href="https://developer.mozilla.org/docs/Mozilla/Boot_to_Gecko/B2G_Reftests">instructions on how to run them</a> on MDN. If these
+instructions don&rsquo;t work for you for whatever reason, please let me know.</p>
+
+<p>Reftests are also being <a href="http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;amp;source=autolog">reported to autolog</a> (a tbpl look-alike that is maintained by the
+ateam). The tests are only being run against nightly B2G builds by a stand alone desktop machine
+that sits under my desk. This is hopefully only a very temporary solution. There are also massive
+amounts of tests that are currently disabled on B2G for various reasons which I will talk about in
+the next section.</p>
+
+<h2 id="what-needs-to-be-done">What Needs to be Done</h2>
+
+<p>There is still a lot of work to be done before reftests will enjoy a similar level of stability and
+exposure they receive on desktop Firefox.</p>
+
+<h3 id="triaging-and-fixing-tests">Triaging and Fixing Tests</h3>
+
+<p>The main tracking bug I&rsquo;m using is <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=773482">bug 773482</a>.  I haven&rsquo;t had a lot of time to look into all of
+the various causes of failure, but some of the main ones I&rsquo;ve already filed include:</p>
+
+<ul>
+<li>Several failures in reftest sanity: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=774396">bug 774396</a></li>
+<li>Broken link images in encoders-lossless: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=783621">bug 783621</a></li>
+<li>pngsuite-* images rendered in top left instead of center: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=783632">bug 783632</a></li>
+<li>Many failures in editor/reftest: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=783658">bug 783658</a></li>
+<li>Running reftests oop means the tests don&rsquo;t get rendered to the canvas: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=784810">bug 784810</a></li>
+<li>Using &lt;iframe mozbrowser&gt; instead of &lt;browser&gt; introduces additional failures: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=785074">bug 785074</a></li>
+</ul>
+
+<p>There are many more failures that I haven&rsquo;t bothered filing bugs for yet. I figure that the bugs
+above will account for most of the failures and should be fixed before too much time is spent
+triaging/filing additional bugs. I plan on looking into these issues when I have some time, but I
+have exactly 0 graphics/layout experience. So if you think you know why some of the tests are
+failing, or want to tackle one of the aforementioned bugs, please ping me (ahal) on irc. I&rsquo;d
+certainly appreciate it.</p>
+
+<h3 id="changing-the-default-resolution">Changing the Default Resolution</h3>
+
+<p>Reftests require a resolution of 800x1000 to run. However the development boards we will be using to
+run them (pandaboards) only have a height of 720. This means that there are a lot of tests that will
+lose coverage since they will be cut off. On Firefox for Android, we&rsquo;ve noticed that using a large
+resolution like 800x1000 consumes too much memory and causes many failures/timeouts/random oranges.</p>
+
+<p>I&rsquo;ve done some work to identify affected tests in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=737961">bug 737961</a> and posted to dev platform a few
+times. The current consensus seems to be that we need to work with W3C and other browser vendors to
+get the default resolution changed from 800x1000 to something smaller like 600x600. If you have any
+contacts, please let myself or jmaher know.</p>
+
+<h3 id="getting-reftests-running-on-pandaboards">Getting Reftests Running on Pandaboards</h3>
+
+<p>Currently reftests are running against the emulator. I need to make a few changes (such as using our
+SUTAgent instead of adb) to get them running on the pandaboards (as well as other dev boards and
+phones). This shouldn&rsquo;t be too hard and I simply haven&rsquo;t had time to do it yet.  Expect this to be
+finished within a week or two.</p>
+
+<h3 id="getting-reftests-running-in-continuous-integration">Getting Reftests Running in Continuous Integration</h3>
+
+<p>Like I mentioned above, reftests are only running on emulators and being reported to autolog. I&rsquo;ll
+need to do some work to get them running in production, per checkin and reported to tbpl.
+Unfortunately this is blocked on several things:</p>
+
+<ul>
+<li>Getting them running on pandaboards</li>
+<li>The ability to flash B2G on pandas</li>
+<li>Infrastructure (getting enough pandas to support load)</li>
+<li>Releng (for build support, git repo support etc.)</li>
+</ul>
+
+<p>As such, there is no timetable for this and it is likely a month or two out at the least.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>There is still a lot of work to do before reftests are running at 100% coverage and in C-I for B2G.
+I would appreciate any help I can get, especially with regards to fixing and triaging the tests. If
+you have any questions, you can post in comments or ping ahal on irc.</p>
+
+<p>Thanks!</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2012%2fstate-reftest-b2g%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2012%2fstate-reftest-b2g%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2012%2fstate-reftest-b2g%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2012%2fstate-reftest-b2g%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+
+<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+
+<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+
+<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+
+<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
+
+<li><a href="/blog/2015/try-syntax/">Looking beyond Try Syntax</a></li>
+
+<li><a href="/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></li>
+
+<li><a href="/blog/2015/new-mercurial-workflow-part-2/">The New Mercurial Workflow - Part 2</a></li>
+
+<li><a href="/blog/2014/consume-structured-test-results/">How to Consume Structured Test Results</a></li>
+
+<li><a href="/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+  <p>
+  
+  Andrew Halberstadt
+  
+  </p>
+  <p>
+  <a href="#">Back to top</a>
+  </p>
+</footer>
+
+    
+  </body>
+
+</html>

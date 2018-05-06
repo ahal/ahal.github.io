@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Part 2: How to deal with IFFY requirements" />
+<meta property="og:description" content="My last post was basically a very long winded way of saying, &ldquo;we have a problem&rdquo;. It kind of did a
+little dance around &ldquo;why is there a problem&rdquo; and &ldquo;how do we fix it&rdquo;, but I want to explore these two
+questions in a bit more detail. Specifically, I want to return to the two case studies and explore
+why our test harnesses don&rsquo;t work and why mozharness does work even though both have IFFY (in flux
+for years) requirements. Then I will explore how to use the lessons learned to improve our general
+test harness design.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/" />
+
+
+
+<meta property="article:published_time" content="2014-04-11T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2014-04-11T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Part 2: How to deal with IFFY requirements"/>
+<meta name="twitter:description" content="My last post was basically a very long winded way of saying, &ldquo;we have a problem&rdquo;. It kind of did a
+little dance around &ldquo;why is there a problem&rdquo; and &ldquo;how do we fix it&rdquo;, but I want to explore these two
+questions in a bit more detail. Specifically, I want to return to the two case studies and explore
+why our test harnesses don&rsquo;t work and why mozharness does work even though both have IFFY (in flux
+for years) requirements. Then I will explore how to use the lessons learned to improve our general
+test harness design.
+
+"/>
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Part 2: How to deal with IFFY requirements",
+  "url": "https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/",
+  "wordCount": "1476",
+  "datePublished": "2014-04-11T00:00:00&#43;00:00",
+  "dateModified": "2014-04-11T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "ateam, mozilla, programming"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/">
+
+    <title>Part 2: How to deal with IFFY requirements | Searching for the Shmoo</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-ZwlQQbzhEPf3PrXZ3h/XKT/4UHafQ/TYI72AL&#43;7WOJ8D6JmpGC8JMMse6xX7cyeI" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+  <div class="container">
+    <nav class="nav blog-nav">
+      <a class="nav-link" href="https://ahal.ca/"></a>
+      
+      <a class="nav-link active" href="/blog/" title="">Blog</a>
+      
+    </nav>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/">Part 2: How to deal with IFFY requirements</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-04-11T00:00:00Z">Apr 11, 2014</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/programming" rel="tag">programming</a>
+
+</p>
+  </header>
+  <p>My last post was basically a very long winded way of saying, &ldquo;we have a problem&rdquo;. It kind of did a
+little dance around &ldquo;why is there a problem&rdquo; and &ldquo;how do we fix it&rdquo;, but I want to explore these two
+questions in a bit more detail. Specifically, I want to return to the two case studies and explore
+why our test harnesses don&rsquo;t work and why mozharness does work even though both have IFFY (in flux
+for years) requirements. Then I will explore how to use the lessons learned to improve our general
+test harness design.</p>
+
+<p></p>
+
+<h3 id="dry-is-not-everything">DRY is not everything</h3>
+
+<p>I talked a lot about the <a href="http://en.wikipedia.org/wiki/DRY_principle">DRY  principle</a> in the last article. Basically the conclusion about it
+was that it is very useful, but that we tend to fixate on it to the point where we ignore other
+equally useful principles. Having reached this conclusion, I did a quick internet search and found
+<a href="http://joelabrahamsson.com/the-dry-obsession">an article</a> by Joel Abrahamsson arguing the exact same point (albeit much more succinctly than
+me). Through his article I found out about the <a href="http://en.wikipedia.org/wiki/SOLID">SOLID principles</a> of object oriented design (have
+I been living under a rock?). They are all very useful guidelines, but there are two that
+immediately made me think of our test harnesses in a bad way. The first is the <a href="http://en.wikipedia.org/wiki/Single_responsibility_principle">single
+responsibility principle</a> (which I was delighted to find is meant to mitigate requirement
+changes) and the second is the <a href="http://en.wikipedia.org/wiki/Open/closed_principle">open/closed principle</a>.</p>
+
+<p>The single responsibility principle states that a class should only be responsible for one thing,
+and responsibility for that thing should not be shared with other classes. What is a responsibility?
+A responsibility is defined as a <em>reason to change</em>. To use the wikipedia example, a class that
+prints a block of text can undergo two changes. The content of the text can change, or the format of
+the text can change. These are two different responsibilities that should be split out into
+different classes.</p>
+
+<p>The open/closed principle states that software should be open for extension, but closed for
+modification. In other words, it should be possible to change the behaviour of the software only by
+adding new code without needing to modify any existing code. A popular way of implementing this is
+through abstract base classes. Here the interface is closed for modification, and each new
+implementation is an extension of that.</p>
+
+<p>Our test harnesses fail miserably at both of these principles. Instead of having several classes
+each with a well defined responsibility, we have a single class responsible for everything. Instead
+of being able to add some functionality without worrying about breaking something else, you have to
+take great pains that your change won&rsquo;t affect some other platform you don&rsquo;t even care about!</p>
+
+<p>Mozharness on the other hand, while not perfect, does a much better job at both principles. The
+concept of actions makes it easy to extend functionality without modifying existing code. Just add a
+new action to the list! The core library is also much better separated by responsibility. There is a
+clear separation between general script, build, and testing related functionality.</p>
+
+<h3 id="inheritance-is-evil">Inheritance is evil</h3>
+
+<p>This is probably old news to many people, but this is something that I&rsquo;m just starting to figure out
+on my own. I like Zed Shaw&rsquo;s <a href="http://learnpythonthehardway.org/book/ex44.html">analogy from <em>Learn Python the Hard Way</em></a> the best. Instead of
+butchering it, here it is in its entirety.</p>
+
+<blockquote>
+<p>In the fairy tales about heroes defeating evil villains there&rsquo;s always a dark forest of some kind.
+It could be a cave, a forest, another planet, just some place that everyone knows the hero
+shouldn&rsquo;t go. Of course, shortly after the villain is introduced you find out, yes, the hero has
+to go to that stupid forest to kill the bad guy. It seems the hero just keeps getting into
+situations that require him to risk his life in this evil forest.</p>
+
+<p>You rarely read fairy tales about the heroes who are smart enough to just avoid the whole situation
+entirely. You never hear a hero say, &ldquo;Wait a minute, if I leave to make my fortunes on the high seas
+leaving Buttercup behind I could die and then she&rsquo;d have to marry some ugly prince named Humperdink.
+Humperdink! I think I&rsquo;ll stay here and start a Farm Boy for Rent business.&rdquo; If he did that there&rsquo;d
+be no fire swamp, dying, reanimation, sword fights, giants, or any kind of story really. Because of
+this, the forest in these stories seems to exist like a black hole that drags the hero in no matter
+what they do.</p>
+
+<p>In object-oriented programming, Inheritance is the evil forest. Experienced programmers know to
+avoid this evil because they know that deep inside the Dark Forest Inheritance is the Evil Queen
+Multiple Inheritance. She likes to eat software and programmers with her massive complexity teeth,
+chewing on the flesh of the fallen. But the forest is so powerful and so tempting that nearly every
+programmer has to go into it, and try to make it out alive with the Evil Queen&rsquo;s head before they
+can call themselves real programmers. You just can&rsquo;t resist the Inheritance Forest&rsquo;s pull, so you go
+in. After the adventure you learn to just stay out of that stupid forest and bring an army if you
+are ever forced to go in again.</p>
+
+<p>This is basically a funny way to say that I&rsquo;m going to teach you something you should avoid called
+Inheritance. Programmers who are currently in the forest battling the Queen will probably tell you
+that you have to go in. They say this because they need your help since what they&rsquo;ve created is
+probably too much for them to handle. But you should always remember this:</p>
+
+<p>Most of the uses of inheritance can be simplified or replaced with composition, and multiple
+inheritance should be avoided at all costs.</p>
+</blockquote>
+
+<p>I had never heard the (apparently popular) term &ldquo;composition over inheritance&rdquo;. Basically, unless
+you really really mean it, always go for &ldquo;X has a Y&rdquo; instead of &ldquo;X is a Y&rdquo;. Never do &ldquo;X is a Y&rdquo;
+for the sole purpose of avoiding code duplication. This is exactly the mistake we made in our test
+harnesses. The Android and B2G runners just inherited everything from the desktop runner, but oops,
+turns out all three are actually quite different from one another.
+Mozharness, while again not perfect, does a better job at avoiding inheritance. While it makes heavy
+use of the mixin pattern (which, yes, is still inheritance) at least it promotes separation of
+concerns more than classic inheritance.</p>
+
+<h3 id="practical-lessons">Practical Lessons</h3>
+
+<p>So this is all well and great, but how can we apply all of this to our automation code base?</p>
+
+<p>A smarter way to approach our test harness design would have been to have most of the shared code
+between the three platforms in a single (relatively) bare-bones runner that <em>has a</em> target
+environment (e.g desktop Firefox, Fennec or B2G in this case). In this model there is no
+inheritance, and no code duplication. It is easy to extend without modifying (just add a new target
+environment) and there are clear and distinct responsibilities between managing tests/results and
+actually launching them. In fact this how the gaia team implemented their <a href="https://github.com/mozilla-b2g/marionette-js-runner">marionette-js-runner</a>.
+I&rsquo;m not sure if that pattern is common to node&rsquo;s <a href="http://visionmedia.github.io/mocha">mocha runner</a> or something of their design, but
+I like it.</p>
+
+<p>I&rsquo;d also like our test harnesses to employ mozharness&rsquo; concept of actions. Each action could be
+an atomic as possible setup step. For example, setting preferences in the profile is a single action.
+Setting environment is another. Parsing a manifest could be a third. Each target environment would
+consist of a list of actions that are run in a particular order. If code needs to be shared, simply
+add the corresponding action to whichever targets need it. If not, just don&rsquo;t include the
+action in the list for targets that don&rsquo;t need it.</p>
+
+<p>My dream end state here is that there is no distinction between test runners and mozharness scripts.
+They are both trying to do the same thing (perform setup, launch some code, collect results) so why
+bother wrapping one around the other? The test harness should just <em>be</em> a mozharness script and vice
+versa. This would bring actions into test harnesses, and allow mozharness scripts to live in-tree.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Is it possible to avoid code duplication with a project that has IFFY requirements? I think yes. But
+I still maintain it is exceptionally hard. It wasn&rsquo;t until after it was too late and I had a lot of
+time to think about it that I realized the mistakes we made. And even with what I know now, I don&rsquo;t
+think I would have fared much better given the urgency and time constraints we were under. Though
+next time, I think I&rsquo;ll at least have a better chance.</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+
+<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+
+<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+
+<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+
+<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
+
+<li><a href="/blog/2015/try-syntax/">Looking beyond Try Syntax</a></li>
+
+<li><a href="/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></li>
+
+<li><a href="/blog/2015/new-mercurial-workflow-part-2/">The New Mercurial Workflow - Part 2</a></li>
+
+<li><a href="/blog/2014/consume-structured-test-results/">How to Consume Structured Test Results</a></li>
+
+<li><a href="/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+  <p>
+  
+  Andrew Halberstadt
+  
+  </p>
+  <p>
+  <a href="#">Back to top</a>
+  </p>
+</footer>
+
+    
+  </body>
+
+</html>

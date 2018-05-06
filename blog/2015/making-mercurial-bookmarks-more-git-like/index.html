@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Making mercurial bookmarks more git-like" />
+<meta property="og:description" content="I mentioned in my previous post a mercurial extension I wrote for making bookmarks easier to
+manipulate. Since then it has undergone a large overhaul, and I believe it is now stable and
+intuitive enough to advertise a bit more widely.
+
+Introducing bookbinder
+
+When working with bookmarks (or anonymous heads) I often wanted to operate on the
+entire series of commits within the feature I was working on. I often found myself digging out
+revision numbers to find the first commit in a bookmark to do things like rebasing, grafting or
+diffing. This was annoying. I wanted bookmarks to work more like a git-style branch, that has a
+definite start as well as an end. And I wanted to be able to easily refer to the set of commits
+contained within. Enter bookbinder.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/" />
+
+
+
+<meta property="article:published_time" content="2015-03-30T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2015-03-30T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Making mercurial bookmarks more git-like"/>
+<meta name="twitter:description" content="I mentioned in my previous post a mercurial extension I wrote for making bookmarks easier to
+manipulate. Since then it has undergone a large overhaul, and I believe it is now stable and
+intuitive enough to advertise a bit more widely.
+
+Introducing bookbinder
+
+When working with bookmarks (or anonymous heads) I often wanted to operate on the
+entire series of commits within the feature I was working on. I often found myself digging out
+revision numbers to find the first commit in a bookmark to do things like rebasing, grafting or
+diffing. This was annoying. I wanted bookmarks to work more like a git-style branch, that has a
+definite start as well as an end. And I wanted to be able to easily refer to the set of commits
+contained within. Enter bookbinder.
+
+"/>
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Making mercurial bookmarks more git-like",
+  "url": "https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/",
+  "wordCount": "787",
+  "datePublished": "2015-03-30T00:00:00&#43;00:00",
+  "dateModified": "2015-03-30T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "bookbinder, mercurial, mozilla"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/">
+
+    <title>Making mercurial bookmarks more git-like | Searching for the Shmoo</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-ZwlQQbzhEPf3PrXZ3h/XKT/4UHafQ/TYI72AL&#43;7WOJ8D6JmpGC8JMMse6xX7cyeI" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+  <div class="container">
+    <nav class="nav blog-nav">
+      <a class="nav-link" href="https://ahal.ca/"></a>
+      
+      <a class="nav-link active" href="/blog/" title="">Blog</a>
+      
+    </nav>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></h2>
+    <p class="blog-post-meta"><time datetime="2015-03-30T00:00:00Z">Mar 30, 2015</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/bookbinder" rel="tag">bookbinder</a>, <a href="/tags/mercurial" rel="tag">mercurial</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
+
+</p>
+  </header>
+  <p>I mentioned in my previous post a mercurial extension I wrote for making bookmarks easier to
+manipulate. Since then it has undergone a large overhaul, and I believe it is now stable and
+intuitive enough to advertise a bit more widely.</p>
+
+<h2 id="introducing-bookbinder">Introducing bookbinder</h2>
+
+<p>When working with bookmarks (or anonymous heads) I often wanted to operate on the
+entire series of commits within the feature I was working on. I often found myself digging out
+revision numbers to find the first commit in a bookmark to do things like rebasing, grafting or
+diffing. This was annoying. I wanted bookmarks to work more like a git-style branch, that has a
+definite start as well as an end. And I wanted to be able to easily refer to the set of commits
+contained within. Enter <a href="https://bitbucket.org/halbersa/bookbinder">bookbinder</a>.</p>
+
+<p></p>
+
+<p>First, you can install bookbinder by cloning:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg clone https://bitbucket.org/halbersa/bookbinder</code></pre></div>
+<p>Then add the following to your hgrc:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extensions]</span>
+<span style="color:#a6e22e">bookbinder</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">path/to/bookbinder</span></code></pre></div>
+<p>Usage is simple. Any command that accepts a revset with &ndash;rev, will be wrapped so that bookmark
+labels are replaced with the series of commits contained within the bookmark.</p>
+
+<p>For example, let&rsquo;s say we create a bookmark to work on a feature called foo and make two commits:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -f
+changeset:   <span style="color:#ae81ff">2</span>:fcd3bdafbc88
+bookmark:    foo 
+summary:     Modify foo
+
+changeset:   <span style="color:#ae81ff">1</span>:8dec92fc1b1c
+summary:     Implement foo
+
+changeset:   <span style="color:#ae81ff">0</span>:165467d1f143
+summary:     Initial commit</code></pre></div>
+<p>Without bookbinder, bookmarks are only labels to a commit:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r foo
+changeset:   <span style="color:#ae81ff">2</span>:fcd3bdafbc88
+bookmark:    foo 
+summary:     Modify foo</code></pre></div>
+<p>But with bookbinder, bookmarks become a logical series of related commits. They are more similar
+to git-style branches:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r foo
+changeset:   <span style="color:#ae81ff">2</span>:fcd3bdafbc88
+bookmark:    foo 
+summary:     Modify foo
+
+changeset:   <span style="color:#ae81ff">1</span>:8dec92fc1b1c
+summary:     Implement foo</code></pre></div>
+<p>Remember <code>hg log</code> is just one example. Bookbinder automatically detects and wraps all commands that have a &ndash;rev option and that can
+receive a series of commits. It even finds commands from arbitrary extensions that may be installed!
+Here are few examples that I&rsquo;ve found handy in addition to <code>hg log</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg rebase -r &lt;bookbark&gt; -d &lt;dest&gt;
+$ hg diff -r &lt;bookmark&gt;
+$ hg graft -r &lt;bookmark&gt;
+$ hg grep -r &lt;bookmark&gt;
+$ hg fold -r &lt;bookmark&gt;
+$ hg prune -r &lt;bookmark&gt;
+# etc.</code></pre></div>
+<p>They all replace the single commit pointed to by the bookmark with the series of commits within the
+bookmark. But what if you actually only want the single commit pointed to by the bookmark label?
+Bookbinder uses &lsquo;.&rsquo; as an escape character, so using the example above:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r .foo
+changeset:   <span style="color:#ae81ff">2</span>:fcd3bdafbc88
+bookmark:    foo 
+summary:     Modify foo</code></pre></div>
+<p>Bookbinder will also detect if bookmarks are based on top of one another:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg rebase -r my_bookmark_2 -d my_bookmark_1</code></pre></div>
+<p>Running <code>hg log -r my_bookmark_2</code> will not print any of the commits contained by <code>my_bookmark_1</code>.</p>
+
+<h2 id="the-gory-details">The gory details</h2>
+
+<p>But how does bookbinder know where one feature ends, and another begins? Bookbinder implements a new
+revset called &ldquo;feature&rdquo;. The feature revset is roughly equivalent to the following alias
+(kudos to smacleod for coming up with it):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[revsetalias]</span>
+<span style="color:#a6e22e">feature($1)</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">($1 or (ancestors($1) and not (excludemarks($1) or hg ancestors(excludemarks($1))))) and not public() and not merge()</span>
+<span style="color:#a6e22e">excludemarks($1)</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">ancestors(parents($1)) and bookmark()</span></code></pre></div>
+<p>Here is a formal definition. A commit C is &ldquo;within&rdquo; a feature branch ending at revision R if all of
+the following statements are true:</p>
+
+<ol>
+<li>C is R or C is an ancestor of R</li>
+<li>C is not public</li>
+<li>C is not a merge commit</li>
+<li>no bookmarks exist in [C, R) for C != R</li>
+<li>all commits in (C, R) are also within R for C != R</li>
+</ol>
+
+<p>In easier to understand terms, this means all ancestors of a revision that aren&rsquo;t public, a merge
+commit or part of a different bookmark, are within that revision&rsquo;s &lsquo;feature&rsquo;. One thing to be aware
+of, is that this definition allows empty bookmarks. For example, if you create a new bookmark on a
+public commit and haven&rsquo;t made any changes yet, that bookmark is &ldquo;empty&rdquo;. Running <code>hg log -r</code> with
+an empty bookmark won&rsquo;t have any output.</p>
+
+<p>The feature revset that bookbinder exposes, works just as well on revisions that don&rsquo;t have any
+associated bookmark. For example, if you are working with an anonymous head, you could do:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r <span style="color:#e6db74">&#39;feature(&lt;rev&gt;)&#39;</span></code></pre></div>
+<p>In fact, when you pass in a bookmark label to a supported command, bookbinder is literally just
+substituting <code>-r &lt;bookmark&gt;</code> with <code>-r feature(&lt;bookmark&gt;)</code>. All the hard work is happening in the
+feature revset.</p>
+
+<p>In closing, bookbinder has helped me make a lot more sense out of my bookmark based workflow. It&rsquo;s solving a
+problem I think should be handled in mercurial core, maybe one day I&rsquo;ll attempt to submit a patch
+upstream. But until then, I hope it can be useful to others as well.</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2015%2fmaking-mercurial-bookmarks-more-git-like%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2015%2fmaking-mercurial-bookmarks-more-git-like%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2015%2fmaking-mercurial-bookmarks-more-git-like%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2015%2fmaking-mercurial-bookmarks-more-git-like%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+
+<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+
+<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+
+<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+
+<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
+
+<li><a href="/blog/2015/try-syntax/">Looking beyond Try Syntax</a></li>
+
+<li><a href="/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></li>
+
+<li><a href="/blog/2015/new-mercurial-workflow-part-2/">The New Mercurial Workflow - Part 2</a></li>
+
+<li><a href="/blog/2014/consume-structured-test-results/">How to Consume Structured Test Results</a></li>
+
+<li><a href="/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+  <p>
+  
+  Andrew Halberstadt
+  
+  </p>
+  <p>
+  <a href="#">Back to top</a>
+  </p>
+</footer>
+
+    
+  </body>
+
+</html>

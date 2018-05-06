@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on Searching for the Shmoo</title>
+    <link>https://ahal.ca/tags/android/</link>
+    <description>Recent content in Android on Searching for the Shmoo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Andrew Halberstadt</copyright>
+    <lastBuildDate>Fri, 24 Jun 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ahal.ca/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Android ExpandablePanel</title>
+      <link>https://ahal.ca/blog/2011/android-expandablepanel/</link>
+      <pubDate>Fri, 24 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://ahal.ca/blog/2011/android-expandablepanel/</guid>
+      <description>&lt;p&gt;While developing an Android app for my final design project, Taedium, I came across what seemed like
+a trivial problem. I needed to have a text view (like that in the Android market) that can expand or
+collapse whenever a user presses a &amp;lsquo;More&amp;rsquo; or &amp;lsquo;Less&amp;rsquo; button. It turned out that the problem was more
+difficult than I thought and I had to make my own custom widget to accomplish the task. I based it
+off a partial solution by Peteris Caune over on &lt;a href=&#34;http://stackoverflow.com/questions/5165682/how-to-implement-expandable-panels-in-android&#34;&gt;Stack Overflow&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

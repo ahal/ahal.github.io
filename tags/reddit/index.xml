@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reddit on Searching for the Shmoo</title>
+    <link>https://ahal.ca/tags/reddit/</link>
+    <description>Recent content in Reddit on Searching for the Shmoo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Andrew Halberstadt</copyright>
+    <lastBuildDate>Fri, 30 Mar 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ahal.ca/tags/reddit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reddit History</title>
+      <link>https://ahal.ca/blog/2012/reddit-history/</link>
+      <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://ahal.ca/blog/2012/reddit-history/</guid>
+      <description>&lt;p&gt;Sometimes I&amp;rsquo;d remember this awesome thing that I saw on Reddit awhile back and want to share it with
+someone. I&amp;rsquo;d try to find it through browser history or reddit search, but I wasn&amp;rsquo;t usually
+successful. Reddit search isn&amp;rsquo;t very good and I use Reddit &lt;em&gt;a lot&lt;/em&gt; so my browser history for
+reddit.com is huge and unwieldy.&lt;/p&gt;
+
+&lt;p&gt;So in my spare time I decided to write &lt;a href=&#34;https://github.com/ahal/userscripts/tree/master/reddit-history&#34;&gt;Reddit History&lt;/a&gt;. It basically just keeps track of all the
+submissions you&amp;rsquo;ve viewed, and lets you filter them by sub-reddit and text search (regex).&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

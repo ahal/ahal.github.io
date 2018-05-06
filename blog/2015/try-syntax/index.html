@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Looking beyond Try Syntax" />
+<meta property="og:description" content="Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
+you put into your commit message which a parser then uses to determine the set of builds and
+tests to run on your try push. A common try syntax might look like this:
+try: -b o -p linux -u mochitest -t none
+Since inception, it has been a core part of the Mozilla development workflow.
+For many years it has served us well, and even today it serves us passably. But it is almost time
+for try syntax to don the wooden overcoat, and this post will explain why.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2015/try-syntax/" />
+
+
+
+<meta property="article:published_time" content="2015-08-28T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2015-08-28T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Looking beyond Try Syntax"/>
+<meta name="twitter:description" content="Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
+you put into your commit message which a parser then uses to determine the set of builds and
+tests to run on your try push. A common try syntax might look like this:
+try: -b o -p linux -u mochitest -t none
+Since inception, it has been a core part of the Mozilla development workflow.
+For many years it has served us well, and even today it serves us passably. But it is almost time
+for try syntax to don the wooden overcoat, and this post will explain why.
+
+"/>
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Looking beyond Try Syntax",
+  "url": "https://ahal.ca/blog/2015/try-syntax/",
+  "wordCount": "1587",
+  "datePublished": "2015-08-28T00:00:00&#43;00:00",
+  "dateModified": "2015-08-28T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "ateam, mozilla, try"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2015/try-syntax/">
+
+    <title>Looking beyond Try Syntax | Searching for the Shmoo</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-ZwlQQbzhEPf3PrXZ3h/XKT/4UHafQ/TYI72AL&#43;7WOJ8D6JmpGC8JMMse6xX7cyeI" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+  <div class="container">
+    <nav class="nav blog-nav">
+      <a class="nav-link" href="https://ahal.ca/"></a>
+      
+      <a class="nav-link active" href="/blog/" title="">Blog</a>
+      
+    </nav>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2015/try-syntax/">Looking beyond Try Syntax</a></h2>
+    <p class="blog-post-meta"><time datetime="2015-08-28T00:00:00Z">Aug 28, 2015</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/try" rel="tag">try</a>
+
+</p>
+  </header>
+  <p>Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
+you put into your commit message which a <a href="http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py">parser</a> then uses to determine the set of builds and
+tests to run on your try push. A common try syntax might look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">try: -b o -p linux -u mochitest -t none</code></pre></div>
+<p>Since inception, it has been a core part of the Mozilla development workflow.
+For many years it has served us well, and even today it serves us passably. But it is almost time
+for try syntax to don the wooden overcoat, and this post will explain why.</p>
+
+<p></p>
+
+<h2 id="a-brief-history-on-try-syntax">A brief history on try syntax</h2>
+
+<p>In the old days, pushing to try involved a web interface called <a href="https://github.com/jrmuizel/mozilla-cvs-history/blob/master/webtools/buildbot-try/sendchange.cgi"><code>sendchange.cgi</code></a>. Pushing is
+probably the wrong word to use, as at no point did the process involve version control. Instead, patches
+were uploaded to the web service, which in turn invoked a buildbot sendchange with all the
+required arguments. Like today try server was often overloaded, sometimes taking over 4 hours for
+results to come back. Unlike today there was no way to pick and choose which builds and tests you
+wanted, every try push ran the full set.</p>
+
+<p>The obvious solution was to create a mechanism for people to do that. It was while brainstorming
+this problem that ted, bhearsum and jorendorff came up with the idea of encoding this information
+in the commit message. Try syntax was first implemented by lsblakk in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=473184">bug 473184</a> and landed
+on August 27th, 2010. It was a simple time; the list of valid builders could fit into a
+<a href="http://hg.mozilla.org/build/buildbotcustom/file/f3e7d89cae13/valid_builders.py">single 30 line config file</a>; Fennec still hadn&rsquo;t picked up full steam; and B2G wasn&rsquo;t even
+a figment of anyone&rsquo;s wildest imagination.</p>
+
+<p>It&rsquo;s probably not a surprise to anyone that as time went on, things got more complicated. As more
+build types, platforms and test jobs were added, the try syntax got harder to memorize. To help
+deal with this, lsblakk created the <a href="http://trychooser.pub.build.mozilla.org/">trychooser syntax builder</a> just a few months later. In
+2011, pbiggar created the <a href="https://github.com/pbiggar/trychooser">trychooser mercurial extension</a> (which was later
+<a href="https://bitbucket.org/sfink/trychooser">forked and improved</a> by sfink). These tools were (and still are) the canonical way to
+build a try syntax string. Little has changed since then, with the exception of the <a href="http://chmanchester.github.io/blog/2015/07/26/introducing-mach-try/">mach try</a>
+command that chmanchester implemented around June 2015.</p>
+
+<h2 id="one-step-forward-two-steps-back">One step forward, two steps back</h2>
+
+<p>Since around 2013, the number of platforms and test configurations have grown at an unprecendented
+rate. So much so, that the various trychooser tools have been perpetually out of date. Any time
+someone got around to adding a new job to the tools, two other jobs had already sprung up in its
+place. Another problem caused by this rapid growth, was that try syntax became finicky.
+There were a lot of edge cases, exceptions to the rule and arbitrary aliases. Often jobs would
+mysteriously not show up when they should, or mysteriously show up when they shouldn&rsquo;t.</p>
+
+<p>Both of those problems were exacerbated by the fact that the actual <a href="http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py">try parser</a> code has never
+had a definite owner. Since it was first created, there have never been more than 11 commits in a
+year. There have been only two commits to date in 2015.</p>
+
+<h2 id="two-key-insights">Two key insights</h2>
+
+<p>At this point, there are two things that are worth calling out:</p>
+
+<ol>
+<li>Generating try strings from memory is getting harder and harder, and for many cases is nigh
+impossible. We rely more and more on tools like trychooser.</li>
+<li>Try syntax is sort of like an API on which these tools are built on top of.</li>
+</ol>
+
+<p>What this means is that primary generators of try syntax have shifted from humans to tools. A
+command line encoded in a commit message is convenient if you&rsquo;re a human generating the syntax
+manually. But as far as tooling goes, try syntax is one god awful API. Not only do the tools need to
+figure out the magic strings, they need to interact with version control, create an empty commit and
+push it to a remote repository.</p>
+
+<p>There is also tooling on the other side of the see saw, things that process the try syntax post
+push. We&rsquo;ve already seen buildbot&rsquo;s <a href="http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py">try parser</a> but taskcluster has a <a href="http://hg.mozilla.org/mozilla-central/file/tip/testing/taskcluster/taskcluster_graph/commit_parser.py">separate try parser</a> as
+well. This means that your try push has different behaviour, depending on whether the jobs are scheduled
+in buildbot or taskcluster. There are other one off tools that do some try syntax parsing as well, including but
+not limited to <a href="https://dxr.mozilla.org/mozilla-central/source/testing/mozharness/mozharness/mozilla/testing/try_tools.py#16">try tools</a> in mozharness, the try re-trigger bot and the <a href="https://areweslimyet.com/">AWSY</a> dashboard. These
+tools are all forced to share and parse the same try syntax string, so they have to be careful not to
+step on each other&rsquo;s toes.</p>
+
+<p>The takeaway here is that for tools, a string encoded as a commit message is quite limiting and a lot less
+convenient than say, calling a function in a library.</p>
+
+<h2 id="despair-not-young-padawan">Despair not, young Padawan</h2>
+
+<p>So far we&rsquo;ve seen how try syntax is finicky, how the tools that use it are often outdated and how
+it fails as an API. But what is the alternative? Fortunately, over the course of 2015 a lot of
+progress has been made on projects that for the first time, give us a viable alternative to try
+syntax.</p>
+
+<p>First and foremost, is <a href="http://mozilla-ci-tools.readthedocs.org/en/latest/">mozci</a>. Mozci, created by <a href="http://armenzg.blogspot.ca/">armenzg</a> and <a href="http://explique.me/">adusca</a>, is a tool that hooks into
+the build api (with early support for taskcluster as well). It can do things like schedule builds and
+tests against any arbitrary pushes, and is being used on the backend for tools like adusca&rsquo;s
+<a href="http://try-extender.herokuapp.com/">try-extender</a> with integration directly into treeherder planned.</p>
+
+<p>Another project that improves the situation is <a href="http://docs.taskcluster.net/">taskcluster</a> itself. With taskcluster, job
+configuration and scheduling all lives in tree. Thanks to bhearsum&rsquo;s <a href="https://github.com/mozilla/buildbot-bridge">buildbot bridge</a>, we can even use
+taskcluster to schedule jobs that still live in buildbot. There&rsquo;s an opportunity here to leverage
+these new tools in conjunction with mozci to gain complete and total control over how jobs are
+scheduled on try.</p>
+
+<p>Finally I&rsquo;d like to call out <a href="http://chmanchester.github.io/blog/2015/07/26/introducing-mach-try/">mach try</a> once more. It is more than a thin wrapper around try
+syntax that handles your push for you. It actually lets you control <em>how the harness gets run within
+a job</em>. For now this is limited to test paths and tags, but there is a lot of potential to do some cool
+things here. One of the current limiting factors is the unexpressiveness of the try syntax API.
+Hopefully this won&rsquo;t be a problem too much longer. Oh yeah, and <a href="http://chmanchester.github.io/blog/2015/07/26/introducing-mach-try/">mach try</a> also works with git.</p>
+
+<h2 id="a-glimpse-into-the-crystal-ball">A glimpse into the crystal ball</h2>
+
+<p>So we have several different projects all coming together at once. The hard part is figuring out how they
+all tie in together. What do we want to tackle first? How might the future look? I want to be clear
+that none of this is imminent. This is a look into what might be, not what will be.</p>
+
+<p>There are two places we mainly care about scheduling jobs on try.</p>
+
+<p>First imagine you push your change to try. You open up treeherder, except no jobs are scheduled.
+Instead you see every possible job in a distinct greyed out colour. Scheduling what you want is as
+simple as clicking the desired job icons. Hold on a sec, you don&rsquo;t have to imagine it. Adusca
+already has a <a href="https://drive.google.com/folderview?id=0B7rHgvgC7s4ZflY4cmtSSUJjcHVqQktIMGljcE5nLW9jaWx5T21CQ3F5QllSVGtDQl9sSGM&amp;usp=sharing">prototype</a> of what this might look like. Being able to schedule your try jobs
+this way has a huge benefit: you don&rsquo;t need to mentally correlate job symbols to job names. It&rsquo;s as
+easy as point and click.</p>
+
+<p>Second, is pushing a predefined set of jobs to try from the command line, similar to how things work
+now. It&rsquo;s often handy to have the try command for a specific job set in your shell history and it&rsquo;s
+a pain to open up treeherder for a simple push that you&rsquo;ve memorized and run dozens of times. There are
+a few improvements we can do here:</p>
+
+<ul>
+<li>We can move the curses ui feature of the <a href="https://bitbucket.org/sfink/trychooser">hg trychooser extension</a> into <a href="http://chmanchester.github.io/blog/2015/07/26/introducing-mach-try/">mach try</a>.</li>
+<li>We can use <a href="http://mozilla-ci-tools.readthedocs.org/en/latest/">mozci</a> to automatically keep the known list of jobs up to date. This is useful for
+things like generating the curses ui on the fly, validation and tab completion.</li>
+<li>We can use mozci + taskcluster + buildbot bridge to provide a much more expressive API for
+scheduling jobs. For example, you could easily push a <a href="https://wiki.mozilla.org/Sheriffing/How:To:Recommended_Try_Practices">T-style</a> try run.</li>
+<li>We can expand some of the functionality in <a href="http://chmanchester.github.io/blog/2015/07/26/introducing-mach-try/">mach try</a> for controlling how the harnesses are run,
+for example we could use it to enable some of the debugging features of the harness while
+investigating test failures.</li>
+</ul>
+
+<p>Finally for those who are stuck in their ways, it should still be possible to have a &ldquo;classic try syntax&rdquo;
+front-end to the new <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1198341">mozci backend</a>. As large as this change sounds, it could be mostly
+transparent to the user. While I&rsquo;m certainly not a fan of the current try syntax, there&rsquo;s no reason
+to begrudge the people who are.</p>
+
+<h2 id="closing-words">Closing words</h2>
+
+<p>Try syntax has served us well for 5 long years. But it&rsquo;s almost time to move on to something better.
+Soon a lot of new avenues will be open and tools will be created that none of us have thought of
+yet. I&rsquo;d like to thank all of the people mentioned in this post for their contributions in this
+area and I&rsquo;m very excited for what the future holds.</p>
+
+<p>The future is bright, and change is for the better.</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2015%2ftry-syntax%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2015%2ftry-syntax%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2015%2ftry-syntax%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2015%2ftry-syntax%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+
+<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+
+<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+
+<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+
+<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
+
+<li><a href="/blog/2015/try-syntax/">Looking beyond Try Syntax</a></li>
+
+<li><a href="/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></li>
+
+<li><a href="/blog/2015/new-mercurial-workflow-part-2/">The New Mercurial Workflow - Part 2</a></li>
+
+<li><a href="/blog/2014/consume-structured-test-results/">How to Consume Structured Test Results</a></li>
+
+<li><a href="/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+  <p>
+  
+  Andrew Halberstadt
+  
+  </p>
+  <p>
+  <a href="#">Back to top</a>
+  </p>
+</footer>
+
+    
+  </body>
+
+</html>

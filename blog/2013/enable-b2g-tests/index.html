@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="An Open Invitation to Enable your Favourite tests on B2G" />
+<meta property="og:description" content="Throughout most of our B2G test automation deployment, we&rsquo;ve been very conscious about not enabling
+too many tests simply because we didn&rsquo;t have enough capacity on our test slaves to run them all.
+Regardless it was still bad enough as it was (many of you probably experienced very long wait times
+for results). Thanks to releng (and especially Rail Aliiev) we are now running most of our B2G tests
+in Amazon AWS which means we can be much more flexible in accomodating load.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2013/enable-b2g-tests/" />
+
+
+
+<meta property="article:published_time" content="2013-03-08T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2013-03-08T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="An Open Invitation to Enable your Favourite tests on B2G"/>
+<meta name="twitter:description" content="Throughout most of our B2G test automation deployment, we&rsquo;ve been very conscious about not enabling
+too many tests simply because we didn&rsquo;t have enough capacity on our test slaves to run them all.
+Regardless it was still bad enough as it was (many of you probably experienced very long wait times
+for results). Thanks to releng (and especially Rail Aliiev) we are now running most of our B2G tests
+in Amazon AWS which means we can be much more flexible in accomodating load.
+
+"/>
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "An Open Invitation to Enable your Favourite tests on B2G",
+  "url": "https://ahal.ca/blog/2013/enable-b2g-tests/",
+  "wordCount": "410",
+  "datePublished": "2013-03-08T00:00:00&#43;00:00",
+  "dateModified": "2013-03-08T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "b2g, mozilla"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2013/enable-b2g-tests/">
+
+    <title>An Open Invitation to Enable your Favourite tests on B2G | Searching for the Shmoo</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-ZwlQQbzhEPf3PrXZ3h/XKT/4UHafQ/TYI72AL&#43;7WOJ8D6JmpGC8JMMse6xX7cyeI" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+  <div class="container">
+    <nav class="nav blog-nav">
+      <a class="nav-link" href="https://ahal.ca/"></a>
+      
+      <a class="nav-link active" href="/blog/" title="">Blog</a>
+      
+    </nav>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2013/enable-b2g-tests/">An Open Invitation to Enable your Favourite tests on B2G</a></h2>
+    <p class="blog-post-meta"><time datetime="2013-03-08T00:00:00Z">Mar 08, 2013</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/b2g" rel="tag">b2g</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
+
+</p>
+  </header>
+  <p>Throughout most of our B2G test automation deployment, we&rsquo;ve been very conscious about not enabling
+too many tests simply because we didn&rsquo;t have enough capacity on our test slaves to run them all.
+Regardless it was still bad enough as it was (many of you probably experienced very long wait times
+for results). Thanks to releng (and especially Rail Aliiev) we are now running most of our B2G tests
+in Amazon AWS which means we can be much more flexible in accomodating load.</p>
+
+<p></p>
+
+<p>One thing this means is we don&rsquo;t need to be <em>as</em> cautious about enabling larger sets of tests for
+B2G. So if you have a mochitest, xpcshell test, marionette/webapi, reftest or crashtest that you
+would like to see running on B2G emulators, now is the time to make sure it&rsquo;s enabled!</p>
+
+<h3 id="determining-if-the-test-is-already-being-run">Determining if the test is already being run</h3>
+
+<p>Unfortunately not all harnesses have the same manifest format, so here is a quick guide for finding
+them:</p>
+
+<ul>
+<li>Mochitest: look at <strong>testing/mochitest/b2g.json</strong>. Make sure the test is contained within a manifest specified by the &lsquo;runtests&rsquo; attribute and that it isn&rsquo;t listed in the &lsquo;excludetests&rsquo; attribute</li>
+<li>Xpcshell: look at <strong>testing/xpcshell/xpcshell_b2g.ini</strong>. Make sure your test&rsquo;s root manifest is listed there and that it isn&rsquo;t skipped further down in a child manifest</li>
+<li>Marionette/Webapi: look at <strong>testing/marionette/client/marionette/tests/unit-tests.ini</strong>. Once again make sure the test&rsquo;s root manifest is listed and the test isn&rsquo;t skipped in a child manifest</li>
+<li>Reftest: look at <strong>layout/reftests/reftest.list</strong>. Same as above.</li>
+<li>Crashtest: look at <strong>testing/crashtest/crashtests.list</strong>. Same as above.</li>
+</ul>
+
+<p>Alternatively you can open a full log on tbpl of a test run for the branch/suite you are
+interested in and do a ctrl-f for your test. Just note that if there are multiple chunks
+you&rsquo;ll need to do this for each chunk before you can be certain.</p>
+
+<h3 id="enabling-the-test">Enabling the test</h3>
+
+<p>Please file a bug in the test harness component (e.g testing/mochitest, testing/reftest, etc)
+and cc me (:ahal). Then write a patch to enable the test (or suite of tests) and push it to try
+with the syntax &ldquo;<strong>try: -b o -p ics_armv7a_gecko -u &lt;suite name&gt; -t none</strong>&rdquo;. If you are
+trying to enable the test on a branch without try (e.g b2g18) then I can help test it and
+get it landed there.</p>
+
+<p>If the test was specifically disabled, there&rsquo;s a good chance that it had failures or was
+intermittent. In this case I can help get you set up to run it locally so you can investigate
+if you want.</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2013%2fenable-b2g-tests%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2013%2fenable-b2g-tests%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2013%2fenable-b2g-tests%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2013%2fenable-b2g-tests%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+
+<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+
+<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+
+<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+
+<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
+
+<li><a href="/blog/2015/try-syntax/">Looking beyond Try Syntax</a></li>
+
+<li><a href="/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></li>
+
+<li><a href="/blog/2015/new-mercurial-workflow-part-2/">The New Mercurial Workflow - Part 2</a></li>
+
+<li><a href="/blog/2014/consume-structured-test-results/">How to Consume Structured Test Results</a></li>
+
+<li><a href="/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+  <p>
+  
+  Andrew Halberstadt
+  
+  </p>
+  <p>
+  <a href="#">Back to top</a>
+  </p>
+</footer>
+
+    
+  </body>
+
+</html>

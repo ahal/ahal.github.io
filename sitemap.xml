@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://ahal.ca/blog/2017/mach-try-fuzzy/</loc>
+    <lastmod>2017-08-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2017/mercurial-absorb/</loc>
+    <lastmod>2017-02-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2017/fuzzy-try-chooser/</loc>
+    <lastmod>2017-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2016/taskcluster-interactive-loaner/</loc>
+    <lastmod>2016-08-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2016/zen-of-mach/</loc>
+    <lastmod>2016-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2015/try-syntax/</loc>
+    <lastmod>2015-08-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/</loc>
+    <lastmod>2015-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2015/new-mercurial-workflow-part-2/</loc>
+    <lastmod>2015-01-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2014/consume-structured-test-results/</loc>
+    <lastmod>2014-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2014/new-mercurial-workflow/</loc>
+    <lastmod>2014-11-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2014/how-many-tests-are-disabled/</loc>
+    <lastmod>2014-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2014/when-would-you-use-python-mixin/</loc>
+    <lastmod>2014-05-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/</loc>
+    <lastmod>2014-04-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/</loc>
+    <lastmod>2014-03-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2014/b2g-commands/</loc>
+    <lastmod>2014-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2014/mach-workflow/</loc>
+    <lastmod>2014-03-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2013/we-are-all-enablers/</loc>
+    <lastmod>2013-10-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2013/running-b2g-unittests-mach/</loc>
+    <lastmod>2013-09-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2013/push-custom-test-command-line-try/</loc>
+    <lastmod>2013-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2013/mercurial-extension-qqver/</loc>
+    <lastmod>2013-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2013/python-logging-format-message/</loc>
+    <lastmod>2013-04-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2013/b2g-unittest-crashstacks/</loc>
+    <lastmod>2013-03-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2013/enable-b2g-tests/</loc>
+    <lastmod>2013-03-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2012/guide-to-b2g-testing/</loc>
+    <lastmod>2012-12-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2012/b2g-emulator-tests/</loc>
+    <lastmod>2012-11-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2012/state-reftest-b2g/</loc>
+    <lastmod>2012-09-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2012/reddit-history/</loc>
+    <lastmod>2012-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2011/top-ten-albums-2011/</loc>
+    <lastmod>2011-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2011/mozconfigwrapper-introduction/</loc>
+    <lastmod>2011-11-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2011/cycling-city/</loc>
+    <lastmod>2011-11-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2011/peptest-introduction/</loc>
+    <lastmod>2011-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2011/isolating-mozmill-driver/</loc>
+    <lastmod>2011-10-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2011/android-expandablepanel/</loc>
+    <lastmod>2011-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2011/why-mozilla-is-awesome/</loc>
+    <lastmod>2011-05-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2011/bulk-installing-fx-addons/</loc>
+    <lastmod>2011-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/2011/i-tried-to-be-different/</loc>
+    <lastmod>2011-04-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/absorb/</loc>
+    <lastmod>2017-02-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/addon/</loc>
+    <lastmod>2011-04-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/android/</loc>
+    <lastmod>2011-06-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/ateam/</loc>
+    <lastmod>2017-08-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/b2g/</loc>
+    <lastmod>2014-03-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/blog/</loc>
+    <lastmod>2017-08-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/bookbinder/</loc>
+    <lastmod>2015-03-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/cycling/</loc>
+    <lastmod>2011-11-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/django/</loc>
+    <lastmod>2011-04-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/fzf/</loc>
+    <lastmod>2017-08-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/mach/</loc>
+    <lastmod>2016-02-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/mercurial/</loc>
+    <lastmod>2017-02-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/mozconfigwrapper/</loc>
+    <lastmod>2014-03-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/mozharness/</loc>
+    <lastmod>2013-07-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/mozilla/</loc>
+    <lastmod>2017-08-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/mozmill/</loc>
+    <lastmod>2011-10-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/mozprofile/</loc>
+    <lastmod>2011-04-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/music/</loc>
+    <lastmod>2011-12-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/peptest/</loc>
+    <lastmod>2011-11-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/programming/</loc>
+    <lastmod>2014-05-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/python/</loc>
+    <lastmod>2014-05-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/qqver/</loc>
+    <lastmod>2013-06-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/reddit/</loc>
+    <lastmod>2012-03-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/reftest/</loc>
+    <lastmod>2012-09-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/</loc>
+    <lastmod>2017-08-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/</loc>
+    <lastmod>2017-02-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/taskcluster/</loc>
+    <lastmod>2016-08-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/test-informant/</loc>
+    <lastmod>2014-10-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/toronto/</loc>
+    <lastmod>2011-11-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/try/</loc>
+    <lastmod>2017-08-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

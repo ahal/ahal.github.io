@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="A Course of Action for Replacing Try Syntax" />
+<meta property="og:description" content="I&rsquo;ve previously blogged about why I believe try syntax is an antiquated development process
+that should be replaced with something more modern and flexible. What follows is a series of ideas
+that I&rsquo;m trying to convert into a concrete plan of action to bring this about. This is not an
+Intent to Implement or anything like that, but my hope is that this outline is detailed enough
+that it could be used as a solid starting point by someone with enough time and motivation to
+work on it.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2017/fuzzy-try-chooser/" />
+
+
+
+<meta property="article:published_time" content="2017-02-23T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-02-23T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A Course of Action for Replacing Try Syntax"/>
+<meta name="twitter:description" content="I&rsquo;ve previously blogged about why I believe try syntax is an antiquated development process
+that should be replaced with something more modern and flexible. What follows is a series of ideas
+that I&rsquo;m trying to convert into a concrete plan of action to bring this about. This is not an
+Intent to Implement or anything like that, but my hope is that this outline is detailed enough
+that it could be used as a solid starting point by someone with enough time and motivation to
+work on it.
+
+"/>
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A Course of Action for Replacing Try Syntax",
+  "url": "https://ahal.ca/blog/2017/fuzzy-try-chooser/",
+  "wordCount": "1358",
+  "datePublished": "2017-02-23T00:00:00&#43;00:00",
+  "dateModified": "2017-02-23T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "ateam, fzf, mozilla, try"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2017/fuzzy-try-chooser/">
+
+    <title>A Course of Action for Replacing Try Syntax | Searching for the Shmoo</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-ZwlQQbzhEPf3PrXZ3h/XKT/4UHafQ/TYI72AL&#43;7WOJ8D6JmpGC8JMMse6xX7cyeI" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+  <div class="container">
+    <nav class="nav blog-nav">
+      <a class="nav-link" href="https://ahal.ca/"></a>
+      
+      <a class="nav-link active" href="/blog/" title="">Blog</a>
+      
+    </nav>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-02-23T00:00:00Z">Feb 23, 2017</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/fzf" rel="tag">fzf</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/try" rel="tag">try</a>
+
+</p>
+  </header>
+  <p>I&rsquo;ve previously <a href="https://ahal.ca/blog/2015/try-syntax/">blogged</a> about why I believe try syntax is an antiquated development process
+that should be replaced with something more modern and flexible. What follows is a series of ideas
+that I&rsquo;m trying to convert into a concrete plan of action to bring this about. This is not an
+<em>Intent to Implement</em> or anything like that, but my hope is that this outline is detailed enough
+that it could be used as a solid starting point by someone with enough time and motivation to
+work on it.</p>
+
+<p></p>
+
+<p>This plan of action will operate on the rather large assumption that all tasks are scheduled with
+taskcluster (either natively or over BuildbotBridge). I also want to be clear that I&rsquo;m not talking
+about removing try syntax completely. I simply think it should be parsed client side, <em>before</em> any
+changes get pushed to try.</p>
+
+<h2 id="brief-overview-of-how-try-syntax-currently-works-in-taskcluster">Brief Overview of How Try Syntax Currently Works in Taskcluster</h2>
+
+<p>In order to understand where we&rsquo;re going, I think it&rsquo;s important to be aware of where we&rsquo;re coming
+from. This is a high level explanation of how a try syntax string currently gets turned into running
+tasks:</p>
+
+<ol>
+<li>A developer pushes a commit to try with a &lsquo;try:&rsquo; token somewhere in the commit message.</li>
+<li>The pushlog mercurial extension picks this up on the server, and publishes a <a href="https://hg.mozilla.org/try/json-pushes?full=1">JSON stream</a>.</li>
+<li>After getting triggered via a pulse message, the <a href="https://github.com/taskcluster/mozilla-taskcluster">mozilla-taskcluster</a> module <a href="https://github.com/taskcluster/mozilla-taskcluster/blob/4c45d5d0d1da012fcc541998ec7f611175464189/src/pushlog/client.js#L109">queries</a>
+this URL and <a href="https://github.com/taskcluster/mozilla-taskcluster/blob/4c45d5d0d1da012fcc541998ec7f611175464189/src/jobs/taskcluster_graph.js#L82">pulls in</a> the relevant push.</li>
+<li>Then, <a href="https://github.com/taskcluster/mozilla-taskcluster">mozilla-taskcluster</a> grabs the last commit in the push, extracts the try syntax from
+the description, and uses it to create a <a href="https://github.com/taskcluster/mozilla-taskcluster/blob/4c45d5d0d1da012fcc541998ec7f611175464189/src/jobs/taskcluster_graph.js#L96">templating variable</a>.</li>
+<li>This template variable is substituted into the <a href="http://gecko.readthedocs.io/en/latest/taskcluster/taskcluster/taskgraph.html#decision-task">decision task&rsquo;s</a> configuration, and ultimately
+ends up getting <a href="https://dxr.mozilla.org/mozilla-central/rev/d11c29c1db3a1bc96ad5792ebf8a89b2fbadcf85/.taskcluster.yml#107">passed into</a> <code>mach taskgraph decision</code> with the <code>--message</code> parameter.</li>
+<li>The decision task kicks off the <a href="http://gecko.readthedocs.io/en/latest/taskcluster/taskcluster/taskgraph.html#graph-generation">taskgraph generation</a> process. When it comes time to
+<a href="http://gecko.readthedocs.io/en/latest/taskcluster/taskcluster/taskgraph.html#optimization">optimize</a>, the try syntax is finally passed into the <a href="https://dxr.mozilla.org/mozilla-central/rev/d11c29c1db3a1bc96ad5792ebf8a89b2fbadcf85/taskcluster/taskgraph/try_option_syntax.py#253">TryOptionSyntax</a> parser, which
+filters out tasks that don&rsquo;t match any of the try options.</li>
+<li>The optimized task graph is then submitted to taskcluster, and the relevant tasks start running
+on try.</li>
+</ol>
+
+<h2 id="an-improved-data-transport">An Improved Data Transport</h2>
+
+<p>A key thing to realize, is that the decision task runs from within a mozilla-central clone. In other
+words the try syntax string starts in version control, gets published to a webserver, gets
+downloaded by a node module, gets substituted into a task configuration, only to be passed into a
+process that had full access to the original version control all along. Steps 2-5 in the previous
+section, could be replaced with:</p>
+
+<ul>
+<li>The decision task extracts the try syntax from the appropriate commit message.</li>
+</ul>
+
+<p>If we stopped there, this change wouldn&rsquo;t be worth making. It might make some code a bit cleaner,
+but would hardly make things faster or more efficient since mozilla-taskcluster would still need to
+query the pushlog either way. But this method has another, more important benefit: it gives the
+decision task access to the entire commit instead of limiting it to whatever the pushlog extension
+decides to publish.</p>
+
+<p>That means there would be no particular reason we&rsquo;d need to store try syntax strings in the commit
+message at all. We could instead stuff it into the commit as arbitrary metadata using the commit&rsquo;s
+<code>extra</code> field. To get this working, we could use the <a href="https://hg.mozilla.org/hgcustom/version-control-tools/file/tip/hgext/push-to-try">push-to-try</a> extension to stuff the try
+syntax into the <code>extra</code> field like <a href="https://hg.mozilla.org/hgcustom/version-control-tools/file/6a5b4c985ffc/hgext/overlay/__init__.py#l130">this</a>. Then the decision task could extract that syntax out
+of the commit metadata like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r $GECKO_HEAD_REV -T <span style="color:#e6db74">&#34;{extras}&#34;</span></code></pre></div>
+<h2 id="an-improved-data-format">An Improved Data Format</h2>
+
+<p>Again, these changes mostly amount to a refactoring and wouldn&rsquo;t be worth making just for the sake
+of it. But once we are using arbitrary commit metadata to pass information to the decision task,
+there&rsquo;s no reason for us to limit ourselves to a single line syntax string. We could use data
+structures of arbitrary complexity.</p>
+
+<p>One possibility (which I&rsquo;ll run with for the rest of the post), is simply to use a list of
+taskcluster task labels as the data format. This has several advantages:</p>
+
+<ul>
+<li>It&rsquo;s unambiguous (what is passed in, is what will be scheduled)</li>
+<li>It&rsquo;s an easy target for tools to generate to</li>
+<li>It provides flexibility in how we could potentially interact with try (via said tools)</li>
+</ul>
+
+<p>The last two points are pretty big, have you ever attempted to write a tool that tries to convert
+inputs into a try sytnax? It&rsquo;s very hard, and involves lots of hard coding in the tool and
+memorization on the part of the users.</p>
+
+<p>What we&rsquo;ve done to this point is transform the data transport from a human friendly format to a
+machine friendly format on top of which human friendly tools can be built. Probably the first tool
+that will need to be built, will be a legacy try syntax specifier for those of us who enjoy writing
+out try syntax strings. But that&rsquo;s not very interesting. There are probably a hundred different ways
+we could dream of specifying tasks, but because my imagination is limited, I&rsquo;ll just talk about one
+potential idea.</p>
+
+<h2 id="fuzzy-finding-tasks">Fuzzy Finding Tasks</h2>
+
+<p>I&rsquo;ve recently discovered and become a huge fan of <a href="https://github.com/junegunn/fzf">fuzzyfinder</a>. Fuzzyfinder the project
+consists of two parts:</p>
+
+<ol>
+<li>A binary called <code>fzf</code></li>
+<li>A vast multitude of shell and editor integrations that utilize <code>fzf</code></li>
+</ol>
+
+<p>The integrations allow you to quickly find things like file paths, processes and shell history (both
+on the terminal or within an editor) with an intelligent <a href="https://en.wikipedia.org/wiki/Approximate_string_matching">approximate matching</a> algorithm at
+blazing speeds. While the integrations are insanely useful, it&rsquo;s the binary itself that would come
+in useful here.</p>
+
+<p>The <code>fzf</code> binary is actually quite simple. It receives a list of strings through <code>stdin</code>, allows the
+user to select one or more of them using the fuzzy finding algorithm and a text based gui, then
+prints all selected strings to <code>stdout</code>. The input is completely arbitrary, for example, I could
+fuzzy select running processes with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ps -ef | fzf</code></pre></div>
+<p>Or lines in a file:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat foo.txt | fzf</code></pre></div>
+<p>Or the numbers 1-100:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ seq <span style="color:#ae81ff">100</span> | fzf</code></pre></div>
+<p>You get the idea. The other day I was thinking, what if we could pipe a list of every single task,
+expanded over both chunks and platforms, into <code>fzf</code>? How useful would that be? Luckily, a list of
+all taskcluster tasks can be generated with a mach command, so it was easy to test this out:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach taskgraph tasks -p artifacts/parameters.yml -q &gt; all-tasks.json
+$ cat all-tasks.json | fzf -m</code></pre></div>
+<p>The <code>parameters.yml</code> file can be downloaded from any decision task on treeherder. I piped it into a
+file because the <code>mach taskgraph</code> command takes a bit of time to complete, it&rsquo;s not a penalty we&rsquo;d
+want to incur on subsequent runs unless it was necessary. The <code>-m</code> tells <code>fzf</code> to allow
+multi-selection.</p>
+
+<p>The results were wonderful. But rather than try to describe how awesome the new (potential) try
+choosing experience was, I created a demo. In this scenario, pretend I want to select all linux32
+opt mochitest-chrome tasks:</p>
+
+<video width="100%" height="100%" controls>
+<source src="/static/vid/blog/2017/try-fzf.mp4" type="video/mp4">
+</video>
+
+<p>Now instead of printing the task labels to <code>stdout</code>, imagine if this theoretical try chooser stuffed
+that output into the commit&rsquo;s metadata. This is the last piece of the puzzle, to what I believe is a
+comprehensive outline towards a viable replacement for try syntax.</p>
+
+<h2 id="no-plan-survives-breakfast">No Plan Survives Breakfast</h2>
+
+<p>As Mike Conley is fond of saying, no plan survives breakfast. I&rsquo;m sure my outline here is full of
+holes that will need to be patched, but I think (hope) that at least the overall direction is solid.
+While I&rsquo;d love to work on this, I won&rsquo;t have the time or mandate to do so until later in the year.
+With this post I hope to accomplish three things:</p>
+
+<ol>
+<li>Serve as a brain dump so when (or if) I do get back to it, I&rsquo;ll remember everything</li>
+<li>Motivate others to push in this direction in the meantime (or better yet, implement the whole
+thing!)</li>
+<li>Provide an excuse to plug <a href="https://github.com/junegunn/fzf">fuzzyfinder</a>. It&rsquo;s been months and using it still makes me giddy.
+Seriously, give it a try, you&rsquo;ll be glad you did!</li>
+</ol>
+
+<p>Let me know if you have any feedback, and especially if you have any other crazy ideas for selecting
+tasks on try!</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2017%2ffuzzy-try-chooser%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2017%2ffuzzy-try-chooser%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2017%2ffuzzy-try-chooser%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2017%2ffuzzy-try-chooser%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+
+<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+
+<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+
+<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+
+<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
+
+<li><a href="/blog/2015/try-syntax/">Looking beyond Try Syntax</a></li>
+
+<li><a href="/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></li>
+
+<li><a href="/blog/2015/new-mercurial-workflow-part-2/">The New Mercurial Workflow - Part 2</a></li>
+
+<li><a href="/blog/2014/consume-structured-test-results/">How to Consume Structured Test Results</a></li>
+
+<li><a href="/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+  <p>
+  
+  Andrew Halberstadt
+  
+  </p>
+  <p>
+  <a href="#">Back to top</a>
+  </p>
+</footer>
+
+    
+  </body>
+
+</html>

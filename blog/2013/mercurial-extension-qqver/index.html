@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="A Mercurial extension to version multiple patch queues" />
+<meta property="og:description" content="qqver is a Mercurial extension that forces mq to version all patch queues in the same
+repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &lsquo;hg init
+&ndash;mq&rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
+with stock queue repos, new and existing patches are added automatically.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2013/mercurial-extension-qqver/" />
+
+
+
+<meta property="article:published_time" content="2013-06-13T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2013-06-13T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A Mercurial extension to version multiple patch queues"/>
+<meta name="twitter:description" content="qqver is a Mercurial extension that forces mq to version all patch queues in the same
+repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &lsquo;hg init
+&ndash;mq&rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
+with stock queue repos, new and existing patches are added automatically.
+
+"/>
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A Mercurial extension to version multiple patch queues",
+  "url": "https://ahal.ca/blog/2013/mercurial-extension-qqver/",
+  "wordCount": "347",
+  "datePublished": "2013-06-13T00:00:00&#43;00:00",
+  "dateModified": "2013-06-13T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "mercurial, mozilla, qqver"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2013/mercurial-extension-qqver/">
+
+    <title>A Mercurial extension to version multiple patch queues | Searching for the Shmoo</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-ZwlQQbzhEPf3PrXZ3h/XKT/4UHafQ/TYI72AL&#43;7WOJ8D6JmpGC8JMMse6xX7cyeI" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+  <div class="container">
+    <nav class="nav blog-nav">
+      <a class="nav-link" href="https://ahal.ca/"></a>
+      
+      <a class="nav-link active" href="/blog/" title="">Blog</a>
+      
+    </nav>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2013/mercurial-extension-qqver/">A Mercurial extension to version multiple patch queues</a></h2>
+    <p class="blog-post-meta"><time datetime="2013-06-13T00:00:00Z">Jun 13, 2013</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/mercurial" rel="tag">mercurial</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/qqver" rel="tag">qqver</a>
+
+</p>
+  </header>
+  <p><a href="http://hg.mozilla.org/users/ahalberstadt_mozilla.com/qqver/">qqver</a> is a Mercurial extension that forces mq to version all patch queues in the same
+repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &lsquo;hg init
+&ndash;mq&rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
+with stock queue repos, new and existing patches are added automatically.</p>
+
+<p></p>
+
+<p>qqver solves a very specific use case, it probably isn&rsquo;t useful for the majority of Mercurial users.
+If you answer yes to both of the following questions, you might want to look into qqver:</p>
+
+<ul>
+<li>Do you like to work with multiple patch queues in a single repository (i.e using hg qq)?</li>
+<li>Do you like to version your patch queues with mq&rsquo;s patch versioning system (i.e using the &ndash;mq flag)?</li>
+</ul>
+
+<p>Versioning all patch queues in the same repo makes it a lot easier to create and manage remote
+repos, e.g on an hg.m.o <a href="https://developer.mozilla.org/en-US/docs/Creating_Mercurial_User_Repositories#Mercurial_Queue_User_Repository_Workflow">user repository</a>. Instead of having to create N user repositories for N
+patch queues, you only need to create one.</p>
+
+<p>qqver works by monkeypatching the mq extension in an unobtrusive way. This gives it some nice
+properties. First, the syntax is the exact same as what you are already used to:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># create queue repo and push remote
+</span><span style="color:#75715e"></span>hg init --mq
+hg commit --mq
+hg push --mq</code></pre></div>
+<p>Another nice property is that it is fully compatible with Steve Fink&rsquo;s <a href="https://bitbucket.org/sfink/mqext">mqext</a> extension. This
+means if you want to autocommit your patch queue anytime you make a change, you can easily do so by
+configuring mqext. One thing I&rsquo;d still like to implement, is to monkeypatch mqext so it adds the
+current patch queue to the commit messages (in addition to the patch name).</p>
+
+<h3 id="installation">Installation</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hg clone http://hg.mozilla.org/users/ahalberstadt_mozilla.com/qqver/</code></pre></div>
+<p>Then edit your ~/.hgrc file and add:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extensions]</span>
+<span style="color:#a6e22e">mq</span><span style="color:#f92672">=</span>
+<span style="color:#a6e22e">qqver</span><span style="color:#f92672">=</span><span style="color:#e6db74">&amp;lt;path/to/qqver&amp;gt;</span></code></pre></div>
+<p>Note that the mq extension needs to be installed, otherwise qqver makes no sense! Also note that
+this is still fairly untested, so please let me know of any problems you encounter or features you&rsquo;d
+like implemented. Or feel free to send me a patch ;).</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2013%2fmercurial-extension-qqver%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2013%2fmercurial-extension-qqver%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2013%2fmercurial-extension-qqver%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2013%2fmercurial-extension-qqver%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+
+<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+
+<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+
+<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+
+<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
+
+<li><a href="/blog/2015/try-syntax/">Looking beyond Try Syntax</a></li>
+
+<li><a href="/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></li>
+
+<li><a href="/blog/2015/new-mercurial-workflow-part-2/">The New Mercurial Workflow - Part 2</a></li>
+
+<li><a href="/blog/2014/consume-structured-test-results/">How to Consume Structured Test Results</a></li>
+
+<li><a href="/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+  <p>
+  
+  Andrew Halberstadt
+  
+  </p>
+  <p>
+  <a href="#">Back to top</a>
+  </p>
+</footer>
+
+    
+  </body>
+
+</html>
