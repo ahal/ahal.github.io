@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Android on Hunting the Shmoo</title>
-    <link>ahal.ca/tags/android/</link>
+    <link>http://ahal.ca/tags/android/</link>
     <description>Recent content in Android on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Fri, 24 Jun 2011 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="ahal.ca/tags/android/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://ahal.ca/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Android ExpandablePanel</title>
-      <link>ahal.ca/blog/2011/android-expandablepanel/</link>
+      <link>http://ahal.ca/blog/2011/android-expandablepanel/</link>
       <pubDate>Fri, 24 Jun 2011 00:00:00 +0000</pubDate>
       
-      <guid>ahal.ca/blog/2011/android-expandablepanel/</guid>
+      <guid>http://ahal.ca/blog/2011/android-expandablepanel/</guid>
       <description>&lt;p&gt;While developing an Android app for my final design project, Taedium, I came across what seemed like
 a trivial problem. I needed to have a text view (like that in the Android market) that can expand or
 collapse whenever a user presses a &amp;lsquo;More&amp;rsquo; or &amp;lsquo;Less&amp;rsquo; button. It turned out that the problem was more

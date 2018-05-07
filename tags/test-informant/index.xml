@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Test Informant on Hunting the Shmoo</title>
-    <link>ahal.ca/tags/test-informant/</link>
+    <link>http://ahal.ca/tags/test-informant/</link>
     <description>Recent content in Test Informant on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Wed, 01 Oct 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="ahal.ca/tags/test-informant/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://ahal.ca/tags/test-informant/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How many tests are disabled?</title>
-      <link>ahal.ca/blog/2014/how-many-tests-are-disabled/</link>
+      <link>http://ahal.ca/blog/2014/how-many-tests-are-disabled/</link>
       <pubDate>Wed, 01 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>ahal.ca/blog/2014/how-many-tests-are-disabled/</guid>
+      <guid>http://ahal.ca/blog/2014/how-many-tests-are-disabled/</guid>
       <description>&lt;p&gt;tl;dr Look for &lt;a href=&#34;http://people.mozilla.org/~ahalberstadt/informant-reports/daily/2014-09-29.informant-report.html&#34;&gt;reports like this&lt;/a&gt; in the near future!&lt;/p&gt;
 
 &lt;p&gt;At Mozilla, platform developers are culturally bound to &lt;a href=&#34;http://tbpl.mozilla.org&#34;&gt;tbpl&lt;/a&gt;. We spend a lot of time staring at
