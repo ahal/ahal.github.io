@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Peptest on Hunting the Shmoo</title>
-    <link>http://ahal.ca/tags/peptest/</link>
+    <link>https://ahal.ca/tags/peptest/</link>
     <description>Recent content in Peptest on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Sat, 05 Nov 2011 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://ahal.ca/tags/peptest/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ahal.ca/tags/peptest/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Peptest: A new harness for testing responsiveness</title>
-      <link>http://ahal.ca/blog/2011/peptest-introduction/</link>
+      <link>https://ahal.ca/blog/2011/peptest-introduction/</link>
       <pubDate>Sat, 05 Nov 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2011/peptest-introduction/</guid>
+      <guid>https://ahal.ca/blog/2011/peptest-introduction/</guid>
       <description>&lt;p&gt;While responsiveness is one of the main goals for Firefox this quarter, we still don&amp;rsquo;t quite have
 the means to measure and test our progress towards this goal. The good news is that there are, and
 have been for some time, several efforts to fix this problem. Back in June, Ted wrote some &lt;a href=&#34;http://blog.mozilla.com/ted/2011/06/27/measuring-ui-responsiveness/&#34;&gt;event

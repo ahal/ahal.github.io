@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bookbinder on Hunting the Shmoo</title>
-    <link>http://ahal.ca/tags/bookbinder/</link>
+    <link>https://ahal.ca/tags/bookbinder/</link>
     <description>Recent content in Bookbinder on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Mon, 30 Mar 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://ahal.ca/tags/bookbinder/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ahal.ca/tags/bookbinder/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Making mercurial bookmarks more git-like</title>
-      <link>http://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/</link>
+      <link>https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/</link>
       <pubDate>Mon, 30 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/</guid>
+      <guid>https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/</guid>
       <description>&lt;p&gt;I mentioned in my previous post a mercurial extension I wrote for making bookmarks easier to
 manipulate. Since then it has undergone a large overhaul, and I believe it is now stable and
 intuitive enough to advertise a bit more widely.&lt;/p&gt;

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ateam on Hunting the Shmoo</title>
-    <link>http://ahal.ca/tags/ateam/</link>
+    <link>https://ahal.ca/tags/ateam/</link>
     <description>Recent content in Ateam on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Wed, 02 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://ahal.ca/tags/ateam/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ahal.ca/tags/ateam/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Try Fuzzy: A Try Syntax Alternative</title>
-      <link>http://ahal.ca/blog/2017/mach-try-fuzzy/</link>
+      <link>https://ahal.ca/blog/2017/mach-try-fuzzy/</link>
       <pubDate>Wed, 02 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2017/mach-try-fuzzy/</guid>
+      <guid>https://ahal.ca/blog/2017/mach-try-fuzzy/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s no secret that I&amp;rsquo;m not a fan of try syntax, it&amp;rsquo;s a topic I&amp;rsquo;ve blogged about on &lt;a href=&#34;https://ahal.ca/blog/2015/try-syntax/&#34;&gt;several&lt;/a&gt;
 &lt;a href=&#34;https://ahal.ca/blog/2017/fuzzy-try-chooser/&#34;&gt;occasions&lt;/a&gt; before. Today, I&amp;rsquo;m pleased to announce that there&amp;rsquo;s a real alternative now landed on
 mozilla-central. It works on all platforms with mercurial and git. For those who just like to dive in:&lt;/p&gt;
@@ -34,10 +34,10 @@ post, for that see:&lt;/p&gt;
     
     <item>
       <title>A Course of Action for Replacing Try Syntax</title>
-      <link>http://ahal.ca/blog/2017/fuzzy-try-chooser/</link>
+      <link>https://ahal.ca/blog/2017/fuzzy-try-chooser/</link>
       <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2017/fuzzy-try-chooser/</guid>
+      <guid>https://ahal.ca/blog/2017/fuzzy-try-chooser/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve previously &lt;a href=&#34;https://ahal.ca/blog/2015/try-syntax/&#34;&gt;blogged&lt;/a&gt; about why I believe try syntax is an antiquated development process
 that should be replaced with something more modern and flexible. What follows is a series of ideas
 that I&amp;rsquo;m trying to convert into a concrete plan of action to bring this about. This is not an
@@ -50,10 +50,10 @@ work on it.&lt;/p&gt;
     
     <item>
       <title>Using One Click Loaner to Debug Failures</title>
-      <link>http://ahal.ca/blog/2016/taskcluster-interactive-loaner/</link>
+      <link>https://ahal.ca/blog/2016/taskcluster-interactive-loaner/</link>
       <pubDate>Thu, 04 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2016/taskcluster-interactive-loaner/</guid>
+      <guid>https://ahal.ca/blog/2016/taskcluster-interactive-loaner/</guid>
       <description>&lt;p&gt;One of the most painful aspects of a developer&amp;rsquo;s work cycle is trying to fix failures that show up
 on try, but which can&amp;rsquo;t be reproduced locally. When this happens, there were really only two
 options (neither of them nice):&lt;/p&gt;
@@ -69,7 +69,7 @@ loaner it is very hard to get tests up and running.&lt;/li&gt;
 Rather than trying to explain it in words, here is a ~5 minute demo:&lt;/p&gt;
 
 &lt;video width=&#34;100%&#34; height=&#34;100%&#34; controls&gt;
-&lt;source src=&#34;http://ahal.ca/static/vid/blog/2016/taskcluster-interactive-loaner.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;source src=&#34;https://ahal.ca/static/vid/blog/2016/taskcluster-interactive-loaner.mp4&#34; type=&#34;video/mp4&#34;&gt;
 &lt;/video&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -77,10 +77,10 @@ Rather than trying to explain it in words, here is a ~5 minute demo:&lt;/p&gt;
     
     <item>
       <title>The Zen of Mach</title>
-      <link>http://ahal.ca/blog/2016/zen-of-mach/</link>
+      <link>https://ahal.ca/blog/2016/zen-of-mach/</link>
       <pubDate>Fri, 12 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2016/zen-of-mach/</guid>
+      <guid>https://ahal.ca/blog/2016/zen-of-mach/</guid>
       <description>&lt;p&gt;Mach is the Mozilla developer&amp;rsquo;s swiss army knife. It gathers all the important commands you&amp;rsquo;ll ever
 need to run, and puts them in one convenient place. Instead of hunting down documentation, or asking
 for help on irc, often a simple |mach help| is all that&amp;rsquo;s needed to get you started. Mach is great.
@@ -96,10 +96,10 @@ with having a toolbox?&lt;/p&gt;
     
     <item>
       <title>Looking beyond Try Syntax</title>
-      <link>http://ahal.ca/blog/2015/try-syntax/</link>
+      <link>https://ahal.ca/blog/2015/try-syntax/</link>
       <pubDate>Fri, 28 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2015/try-syntax/</guid>
+      <guid>https://ahal.ca/blog/2015/try-syntax/</guid>
       <description>&lt;p&gt;Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
 you put into your commit message which a &lt;a href=&#34;http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py&#34;&gt;parser&lt;/a&gt; then uses to determine the set of builds and
 tests to run on your try push. A common try syntax might look like this:&lt;/p&gt;
@@ -113,10 +113,10 @@ for try syntax to don the wooden overcoat, and this post will explain why.&lt;/p
     
     <item>
       <title>How to Consume Structured Test Results</title>
-      <link>http://ahal.ca/blog/2014/consume-structured-test-results/</link>
+      <link>https://ahal.ca/blog/2014/consume-structured-test-results/</link>
       <pubDate>Thu, 18 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2014/consume-structured-test-results/</guid>
+      <guid>https://ahal.ca/blog/2014/consume-structured-test-results/</guid>
       <description>&lt;p&gt;You may not know that most of our test harnesses are now outputting structured logs (thanks in large
 part to :chmanchester&amp;rsquo;s tireless work). Saying a log is structured simply means that it is in a
 machine readable format, in our case each log line is a JSON object. When streamed to a terminal or
@@ -128,10 +128,10 @@ the same log format you&amp;rsquo;re already familiar with (which is why you may
     
     <item>
       <title>The New Mercurial Workflow</title>
-      <link>http://ahal.ca/blog/2014/new-mercurial-workflow/</link>
+      <link>https://ahal.ca/blog/2014/new-mercurial-workflow/</link>
       <pubDate>Sun, 09 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2014/new-mercurial-workflow/</guid>
+      <guid>https://ahal.ca/blog/2014/new-mercurial-workflow/</guid>
       <description>&lt;p&gt;There&amp;rsquo;s a good chance you&amp;rsquo;ve heard something about a new review tool coming to Mozilla and how it will &lt;em&gt;change
 everything&lt;/em&gt;. There&amp;rsquo;s an even better chance you&amp;rsquo;ve stumbled across one of gps&amp;rsquo; &lt;a href=&#34;http://gregoryszorc.com/blog/category/mercurial/&#34;&gt;blog posts&lt;/a&gt; on how
 we use mercurial at Mozilla.&lt;/p&gt;
@@ -145,10 +145,10 @@ mozilla-central&lt;/a&gt;, using &lt;a href=&#34;http://mozilla-version-control-
     
     <item>
       <title>How many tests are disabled?</title>
-      <link>http://ahal.ca/blog/2014/how-many-tests-are-disabled/</link>
+      <link>https://ahal.ca/blog/2014/how-many-tests-are-disabled/</link>
       <pubDate>Wed, 01 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2014/how-many-tests-are-disabled/</guid>
+      <guid>https://ahal.ca/blog/2014/how-many-tests-are-disabled/</guid>
       <description>&lt;p&gt;tl;dr Look for &lt;a href=&#34;http://people.mozilla.org/~ahalberstadt/informant-reports/daily/2014-09-29.informant-report.html&#34;&gt;reports like this&lt;/a&gt; in the near future!&lt;/p&gt;
 
 &lt;p&gt;At Mozilla, platform developers are culturally bound to &lt;a href=&#34;http://tbpl.mozilla.org&#34;&gt;tbpl&lt;/a&gt;. We spend a lot of time staring at
@@ -162,10 +162,10 @@ machine.&lt;/p&gt;
     
     <item>
       <title>When would you use a Python mixin?</title>
-      <link>http://ahal.ca/blog/2014/when-would-you-use-python-mixin/</link>
+      <link>https://ahal.ca/blog/2014/when-would-you-use-python-mixin/</link>
       <pubDate>Sat, 24 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2014/when-would-you-use-python-mixin/</guid>
+      <guid>https://ahal.ca/blog/2014/when-would-you-use-python-mixin/</guid>
       <description>&lt;p&gt;That&amp;rsquo;s not a rhetorical question. I&amp;rsquo;d like to know in which scenarios a mixin in python really is
 the best option. I can&amp;rsquo;t seem to think of any, but maybe I&amp;rsquo;m not thinking outside the box enough.&lt;/p&gt;
 
@@ -182,10 +182,10 @@ place. What&amp;rsquo;s more is that most people use python mixins improperly.&l
     
     <item>
       <title>Part 2: How to deal with IFFY requirements</title>
-      <link>http://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/</link>
+      <link>https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/</link>
       <pubDate>Fri, 11 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/</guid>
+      <guid>https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/</guid>
       <description>&lt;p&gt;My last post was basically a very long winded way of saying, &amp;ldquo;we have a problem&amp;rdquo;. It kind of did a
 little dance around &amp;ldquo;why is there a problem&amp;rdquo; and &amp;ldquo;how do we fix it&amp;rdquo;, but I want to explore these two
 questions in a bit more detail. Specifically, I want to return to the two case studies and explore
@@ -198,10 +198,10 @@ test harness design.&lt;/p&gt;
     
     <item>
       <title>Part 1: Sharing code is not always a good thing</title>
-      <link>http://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/</link>
+      <link>https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/</link>
       <pubDate>Fri, 21 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/</guid>
+      <guid>https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/</guid>
       <description>&lt;h3 id=&#34;dry-versus-wet&#34;&gt;Dry versus Wet&lt;/h3&gt;
 
 &lt;p&gt;As programmers, we are taught early on that code duplication is bad and should be avoided at all
@@ -217,10 +217,10 @@ I will make a claim that a WET approach can actually work better.&lt;/p&gt;
     
     <item>
       <title>Add more mach to your B2G</title>
-      <link>http://ahal.ca/blog/2014/b2g-commands/</link>
+      <link>https://ahal.ca/blog/2014/b2g-commands/</link>
       <pubDate>Thu, 06 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2014/b2g-commands/</guid>
+      <guid>https://ahal.ca/blog/2014/b2g-commands/</guid>
       <description>&lt;h4 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h4&gt;
 
 &lt;p&gt;tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:&lt;/p&gt;
@@ -245,10 +245,10 @@ bootstrapping your environment, running builds and tests, and generating diagnos
     
     <item>
       <title>A Workflow for using Mach with multiple Object Directories</title>
-      <link>http://ahal.ca/blog/2014/mach-workflow/</link>
+      <link>https://ahal.ca/blog/2014/mach-workflow/</link>
       <pubDate>Mon, 03 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2014/mach-workflow/</guid>
+      <guid>https://ahal.ca/blog/2014/mach-workflow/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Developer_Guide/mach&#34;&gt;Mach&lt;/a&gt; is an amazing tool which facilitates a large number of common user stories in the mozilla
 source tree. You can perform initial setup, execute a build, run tests, examine diagnostics, even
 search Google. Many of these things require an object directory. This can potentially lead to some
@@ -260,10 +260,10 @@ which object directory to operate on?&lt;/p&gt;
     
     <item>
       <title>We Are All Enablers</title>
-      <link>http://ahal.ca/blog/2013/we-are-all-enablers/</link>
+      <link>https://ahal.ca/blog/2013/we-are-all-enablers/</link>
       <pubDate>Thu, 10 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2013/we-are-all-enablers/</guid>
+      <guid>https://ahal.ca/blog/2013/we-are-all-enablers/</guid>
       <description>&lt;p&gt;This probably isn&amp;rsquo;t a groundbreaking revelation to most Mozillians, but it&amp;rsquo;s something I haven&amp;rsquo;t
 quite managed to put into words until now.&lt;/p&gt;
 
@@ -276,10 +276,10 @@ about as close as we can get without writing a small dissertation.&lt;/p&gt;
     
     <item>
       <title>Running B2G unittests with Mach</title>
-      <link>http://ahal.ca/blog/2013/running-b2g-unittests-mach/</link>
+      <link>https://ahal.ca/blog/2013/running-b2g-unittests-mach/</link>
       <pubDate>Mon, 16 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2013/running-b2g-unittests-mach/</guid>
+      <guid>https://ahal.ca/blog/2013/running-b2g-unittests-mach/</guid>
       <description>&lt;p&gt;Before now running &amp;lsquo;classic&amp;rsquo; unittests (mochitest, reftest, xpcshell, etc.) on B2G emulators has
 been a massive pain. The new recommended way of running them is through mach.&lt;/p&gt;
 
@@ -295,10 +295,10 @@ been a massive pain. The new recommended way of running them is through mach.&lt
     
     <item>
       <title>How to Push a Custom Test Command Line to Try</title>
-      <link>http://ahal.ca/blog/2013/push-custom-test-command-line-try/</link>
+      <link>https://ahal.ca/blog/2013/push-custom-test-command-line-try/</link>
       <pubDate>Wed, 24 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2013/push-custom-test-command-line-try/</guid>
+      <guid>https://ahal.ca/blog/2013/push-custom-test-command-line-try/</guid>
       <description>&lt;h3 id=&#34;outdated&#34;&gt;OUTDATED&lt;/h3&gt;
 
 &lt;p&gt;The steps in this article are no longer accurate. Pushing a custom command line is easier now. See
@@ -315,10 +315,10 @@ the developer use case, but neither is it really difficult to do once you know h
     
     <item>
       <title>A Tired Developer&#39;s non-Illustrated Primer to B2G Testing</title>
-      <link>http://ahal.ca/blog/2012/guide-to-b2g-testing/</link>
+      <link>https://ahal.ca/blog/2012/guide-to-b2g-testing/</link>
       <pubDate>Fri, 21 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2012/guide-to-b2g-testing/</guid>
+      <guid>https://ahal.ca/blog/2012/guide-to-b2g-testing/</guid>
       <description>&lt;p&gt;As B2G continues to trod onwards to its release, there is still a lot of confusion about the level
 and state of test coverage it has.  Back in November we started running mochitests, reftests and
 marionette/webapi tests on ARM emulators. Now we&amp;rsquo;ve also added xpcshell tests and for the most part
@@ -335,10 +335,10 @@ current state of automated testing on B2G.&lt;/p&gt;
     
     <item>
       <title>Like a Bump on a Tinderbox Push Log</title>
-      <link>http://ahal.ca/blog/2012/b2g-emulator-tests/</link>
+      <link>https://ahal.ca/blog/2012/b2g-emulator-tests/</link>
       <pubDate>Thu, 08 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2012/b2g-emulator-tests/</guid>
+      <guid>https://ahal.ca/blog/2012/b2g-emulator-tests/</guid>
       <description>&lt;p&gt;Contrary to popular belief, we (the A-Team) have been running mochitests, reftests, marionette tests
 and webapi tests on B2G in some form of continuous integration or another for about 5 months now.
 They&amp;rsquo;ve been reporting results to a TBPL look-alike called &lt;a href=&#34;http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;amp;amp;source=autolog&#34;&gt;autolog&lt;/a&gt;, and were run on Amazon EC2

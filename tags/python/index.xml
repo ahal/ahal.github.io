@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Hunting the Shmoo</title>
-    <link>http://ahal.ca/tags/python/</link>
+    <link>https://ahal.ca/tags/python/</link>
     <description>Recent content in Python on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Sat, 24 May 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://ahal.ca/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ahal.ca/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>When would you use a Python mixin?</title>
-      <link>http://ahal.ca/blog/2014/when-would-you-use-python-mixin/</link>
+      <link>https://ahal.ca/blog/2014/when-would-you-use-python-mixin/</link>
       <pubDate>Sat, 24 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2014/when-would-you-use-python-mixin/</guid>
+      <guid>https://ahal.ca/blog/2014/when-would-you-use-python-mixin/</guid>
       <description>&lt;p&gt;That&amp;rsquo;s not a rhetorical question. I&amp;rsquo;d like to know in which scenarios a mixin in python really is
 the best option. I can&amp;rsquo;t seem to think of any, but maybe I&amp;rsquo;m not thinking outside the box enough.&lt;/p&gt;
 
@@ -34,10 +34,10 @@ place. What&amp;rsquo;s more is that most people use python mixins improperly.&l
     
     <item>
       <title>Python Logging - Format a message without printing it</title>
-      <link>http://ahal.ca/blog/2013/python-logging-format-message/</link>
+      <link>https://ahal.ca/blog/2013/python-logging-format-message/</link>
       <pubDate>Thu, 25 Apr 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2013/python-logging-format-message/</guid>
+      <guid>https://ahal.ca/blog/2013/python-logging-format-message/</guid>
       <description>&lt;p&gt;I came across an odd python problem the other day. I wanted to format a log message without printing
 it with python&amp;rsquo;s logging module. But I couldn&amp;rsquo;t find any examples or others who wanted to do the
 same thing.&lt;/p&gt;

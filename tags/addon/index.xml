@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Addon on Hunting the Shmoo</title>
-    <link>http://ahal.ca/tags/addon/</link>
+    <link>https://ahal.ca/tags/addon/</link>
     <description>Recent content in Addon on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Sat, 09 Apr 2011 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://ahal.ca/tags/addon/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ahal.ca/tags/addon/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to bulk install Firefox Addons</title>
-      <link>http://ahal.ca/blog/2011/bulk-installing-fx-addons/</link>
+      <link>https://ahal.ca/blog/2011/bulk-installing-fx-addons/</link>
       <pubDate>Sat, 09 Apr 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2011/bulk-installing-fx-addons/</guid>
+      <guid>https://ahal.ca/blog/2011/bulk-installing-fx-addons/</guid>
       <description>&lt;p&gt;Firefox is known for its extensibility. In fact, over 2.4 &lt;em&gt;billion&lt;/em&gt; addons have been downloaded to date,
 meaning there are a lot of people using a lot of addons. While having 20+ addons can undoubtedly personalize your
 browsing experience, it can also be a pain in the ass to manually install them every time you set up a new

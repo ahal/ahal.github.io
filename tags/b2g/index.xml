@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>B2g on Hunting the Shmoo</title>
-    <link>http://ahal.ca/tags/b2g/</link>
+    <link>https://ahal.ca/tags/b2g/</link>
     <description>Recent content in B2g on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Thu, 06 Mar 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://ahal.ca/tags/b2g/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ahal.ca/tags/b2g/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Add more mach to your B2G</title>
-      <link>http://ahal.ca/blog/2014/b2g-commands/</link>
+      <link>https://ahal.ca/blog/2014/b2g-commands/</link>
       <pubDate>Thu, 06 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2014/b2g-commands/</guid>
+      <guid>https://ahal.ca/blog/2014/b2g-commands/</guid>
       <description>&lt;h4 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h4&gt;
 
 &lt;p&gt;tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:&lt;/p&gt;
@@ -42,10 +42,10 @@ bootstrapping your environment, running builds and tests, and generating diagnos
     
     <item>
       <title>Running B2G unittests with Mach</title>
-      <link>http://ahal.ca/blog/2013/running-b2g-unittests-mach/</link>
+      <link>https://ahal.ca/blog/2013/running-b2g-unittests-mach/</link>
       <pubDate>Mon, 16 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2013/running-b2g-unittests-mach/</guid>
+      <guid>https://ahal.ca/blog/2013/running-b2g-unittests-mach/</guid>
       <description>&lt;p&gt;Before now running &amp;lsquo;classic&amp;rsquo; unittests (mochitest, reftest, xpcshell, etc.) on B2G emulators has
 been a massive pain. The new recommended way of running them is through mach.&lt;/p&gt;
 
@@ -61,10 +61,10 @@ been a massive pain. The new recommended way of running them is through mach.&lt
     
     <item>
       <title>Crash Stacks - Memoirs of a B2G Unittest</title>
-      <link>http://ahal.ca/blog/2013/b2g-unittest-crashstacks/</link>
+      <link>https://ahal.ca/blog/2013/b2g-unittest-crashstacks/</link>
       <pubDate>Thu, 28 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2013/b2g-unittest-crashstacks/</guid>
+      <guid>https://ahal.ca/blog/2013/b2g-unittest-crashstacks/</guid>
       <description>&lt;p&gt;Hey! Check it out, I have crash stacks in my &lt;a href=&#34;https://tbpl.mozilla.org/php/getParsedLog.php?id=21215744&amp;amp;amp;full=1&amp;amp;amp;branch=mozilla-inbound&#34;&gt;logs&lt;/a&gt; now!  I know, I know, I took my sweet time.
 I&amp;rsquo;m sorry. I hope this doesn&amp;rsquo;t damage our relationship. Is there anything I can do to make it up to
 you? I want to help. I really do. It&amp;rsquo;s just. I don&amp;rsquo;t know. I guess I&amp;rsquo;ve been feeling under the
@@ -75,10 +75,10 @@ weather lately. I must have caught a &lt;a href=&#34;https://bugzilla.mozilla.or
     
     <item>
       <title>An Open Invitation to Enable your Favourite tests on B2G</title>
-      <link>http://ahal.ca/blog/2013/enable-b2g-tests/</link>
+      <link>https://ahal.ca/blog/2013/enable-b2g-tests/</link>
       <pubDate>Fri, 08 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2013/enable-b2g-tests/</guid>
+      <guid>https://ahal.ca/blog/2013/enable-b2g-tests/</guid>
       <description>&lt;p&gt;Throughout most of our B2G test automation deployment, we&amp;rsquo;ve been very conscious about not enabling
 too many tests simply because we didn&amp;rsquo;t have enough capacity on our test slaves to run them all.
 Regardless it was still bad enough as it was (many of you probably experienced very long wait times
@@ -90,10 +90,10 @@ in Amazon AWS which means we can be much more flexible in accomodating load.&lt;
     
     <item>
       <title>A Tired Developer&#39;s non-Illustrated Primer to B2G Testing</title>
-      <link>http://ahal.ca/blog/2012/guide-to-b2g-testing/</link>
+      <link>https://ahal.ca/blog/2012/guide-to-b2g-testing/</link>
       <pubDate>Fri, 21 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2012/guide-to-b2g-testing/</guid>
+      <guid>https://ahal.ca/blog/2012/guide-to-b2g-testing/</guid>
       <description>&lt;p&gt;As B2G continues to trod onwards to its release, there is still a lot of confusion about the level
 and state of test coverage it has.  Back in November we started running mochitests, reftests and
 marionette/webapi tests on ARM emulators. Now we&amp;rsquo;ve also added xpcshell tests and for the most part
@@ -110,10 +110,10 @@ current state of automated testing on B2G.&lt;/p&gt;
     
     <item>
       <title>Like a Bump on a Tinderbox Push Log</title>
-      <link>http://ahal.ca/blog/2012/b2g-emulator-tests/</link>
+      <link>https://ahal.ca/blog/2012/b2g-emulator-tests/</link>
       <pubDate>Thu, 08 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2012/b2g-emulator-tests/</guid>
+      <guid>https://ahal.ca/blog/2012/b2g-emulator-tests/</guid>
       <description>&lt;p&gt;Contrary to popular belief, we (the A-Team) have been running mochitests, reftests, marionette tests
 and webapi tests on B2G in some form of continuous integration or another for about 5 months now.
 They&amp;rsquo;ve been reporting results to a TBPL look-alike called &lt;a href=&#34;http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;amp;amp;source=autolog&#34;&gt;autolog&lt;/a&gt;, and were run on Amazon EC2
@@ -128,10 +128,10 @@ emulators running mochitests, reftests and marionette/webapi tests, all reportin
     
     <item>
       <title>State of Reftests on B2G</title>
-      <link>http://ahal.ca/blog/2012/state-reftest-b2g/</link>
+      <link>https://ahal.ca/blog/2012/state-reftest-b2g/</link>
       <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://ahal.ca/blog/2012/state-reftest-b2g/</guid>
+      <guid>https://ahal.ca/blog/2012/state-reftest-b2g/</guid>
       <description>&lt;p&gt;This quarter I&amp;rsquo;ve been focusing on getting reftests running on B2G, triaging them and fixing various
 issues. The purpose of this post is to outline their status, go over the work that still needs to be
 done and point out where I will need some help.&lt;/p&gt;
