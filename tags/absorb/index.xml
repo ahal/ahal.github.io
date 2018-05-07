@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Absorb on Searching for the Shmoo</title>
-    <link>https://ahal.github.io/tags/absorb/</link>
-    <description>Recent content in Absorb on Searching for the Shmoo</description>
+    <title>Absorb on Hunting the Shmoo</title>
+    <link>https://ahal.ca/tags/absorb/</link>
+    <description>Recent content in Absorb on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Tue, 28 Feb 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ahal.github.io/tags/absorb/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ahal.ca/tags/absorb/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Absorbing Changes into a Commit Series with Mercurial</title>
-      <link>https://ahal.github.io/blog/2017/mercurial-absorb/</link>
+      <link>https://ahal.ca/blog/2017/mercurial-absorb/</link>
       <pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.github.io/blog/2017/mercurial-absorb/</guid>
+      <guid>https://ahal.ca/blog/2017/mercurial-absorb/</guid>
       <description>&lt;p&gt;Imagine this scenario. You&amp;rsquo;ve pushed a large series of commits to your favourite review tool
 (because you are a believer in the glory of microcommits). The reviewer however has found several
 problems, and worse, they are spread across all of the commits in your series. How do you fix all

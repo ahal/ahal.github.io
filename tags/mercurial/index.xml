@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mercurial on Searching for the Shmoo</title>
-    <link>https://ahal.github.io/tags/mercurial/</link>
-    <description>Recent content in Mercurial on Searching for the Shmoo</description>
+    <title>Mercurial on Hunting the Shmoo</title>
+    <link>https://ahal.ca/tags/mercurial/</link>
+    <description>Recent content in Mercurial on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Tue, 28 Feb 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ahal.github.io/tags/mercurial/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ahal.ca/tags/mercurial/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Absorbing Changes into a Commit Series with Mercurial</title>
-      <link>https://ahal.github.io/blog/2017/mercurial-absorb/</link>
+      <link>https://ahal.ca/blog/2017/mercurial-absorb/</link>
       <pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.github.io/blog/2017/mercurial-absorb/</guid>
+      <guid>https://ahal.ca/blog/2017/mercurial-absorb/</guid>
       <description>&lt;p&gt;Imagine this scenario. You&amp;rsquo;ve pushed a large series of commits to your favourite review tool
 (because you are a believer in the glory of microcommits). The reviewer however has found several
 problems, and worse, they are spread across all of the commits in your series. How do you fix all
@@ -28,10 +28,10 @@ the issues with minimal fuss while preserving the commit order?&lt;/p&gt;
     
     <item>
       <title>Making mercurial bookmarks more git-like</title>
-      <link>https://ahal.github.io/blog/2015/making-mercurial-bookmarks-more-git-like/</link>
+      <link>https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/</link>
       <pubDate>Mon, 30 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.github.io/blog/2015/making-mercurial-bookmarks-more-git-like/</guid>
+      <guid>https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/</guid>
       <description>&lt;p&gt;I mentioned in my previous post a mercurial extension I wrote for making bookmarks easier to
 manipulate. Since then it has undergone a large overhaul, and I believe it is now stable and
 intuitive enough to advertise a bit more widely.&lt;/p&gt;
@@ -50,10 +50,10 @@ contained within. Enter &lt;a href=&#34;https://bitbucket.org/halbersa/bookbinde
     
     <item>
       <title>The New Mercurial Workflow - Part 2</title>
-      <link>https://ahal.github.io/blog/2015/new-mercurial-workflow-part-2/</link>
+      <link>https://ahal.ca/blog/2015/new-mercurial-workflow-part-2/</link>
       <pubDate>Fri, 16 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.github.io/blog/2015/new-mercurial-workflow-part-2/</guid>
+      <guid>https://ahal.ca/blog/2015/new-mercurial-workflow-part-2/</guid>
       <description>&lt;p&gt;This is a continuation of my previous post called &lt;a href=&#34;http://ahal.ca/blog/2014/new-mercurial-workflow/&#34;&gt;The New Mercurial Workflow&lt;/a&gt;. It assumes that
 you have at least read and experimented with it a bit. If you haven&amp;rsquo;t, stop right now, read it, get
 set up and try playing around with bookmarks and mozreview a bit.&lt;/p&gt;
@@ -63,10 +63,10 @@ set up and try playing around with bookmarks and mozreview a bit.&lt;/p&gt;
     
     <item>
       <title>The New Mercurial Workflow</title>
-      <link>https://ahal.github.io/blog/2014/new-mercurial-workflow/</link>
+      <link>https://ahal.ca/blog/2014/new-mercurial-workflow/</link>
       <pubDate>Sun, 09 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.github.io/blog/2014/new-mercurial-workflow/</guid>
+      <guid>https://ahal.ca/blog/2014/new-mercurial-workflow/</guid>
       <description>&lt;p&gt;There&amp;rsquo;s a good chance you&amp;rsquo;ve heard something about a new review tool coming to Mozilla and how it will &lt;em&gt;change
 everything&lt;/em&gt;. There&amp;rsquo;s an even better chance you&amp;rsquo;ve stumbled across one of gps&amp;rsquo; &lt;a href=&#34;http://gregoryszorc.com/blog/category/mercurial/&#34;&gt;blog posts&lt;/a&gt; on how
 we use mercurial at Mozilla.&lt;/p&gt;
@@ -80,10 +80,10 @@ mozilla-central&lt;/a&gt;, using &lt;a href=&#34;http://mozilla-version-control-
     
     <item>
       <title>A Mercurial extension to version multiple patch queues</title>
-      <link>https://ahal.github.io/blog/2013/mercurial-extension-qqver/</link>
+      <link>https://ahal.ca/blog/2013/mercurial-extension-qqver/</link>
       <pubDate>Thu, 13 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.github.io/blog/2013/mercurial-extension-qqver/</guid>
+      <guid>https://ahal.ca/blog/2013/mercurial-extension-qqver/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://hg.mozilla.org/users/ahalberstadt_mozilla.com/qqver/&#34;&gt;qqver&lt;/a&gt; is a Mercurial extension that forces mq to version all patch queues in the same
 repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &amp;lsquo;hg init
 &amp;ndash;mq&amp;rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
