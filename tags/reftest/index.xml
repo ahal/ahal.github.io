@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reftest on Hunting the Shmoo</title>
-    <link>https://ahal.ca/tags/reftest/</link>
+    <link>ahal.ca/tags/reftest/</link>
     <description>Recent content in Reftest on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Wed, 12 Sep 2012 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ahal.ca/tags/reftest/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="ahal.ca/tags/reftest/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>State of Reftests on B2G</title>
-      <link>https://ahal.ca/blog/2012/state-reftest-b2g/</link>
+      <link>ahal.ca/blog/2012/state-reftest-b2g/</link>
       <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2012/state-reftest-b2g/</guid>
+      <guid>ahal.ca/blog/2012/state-reftest-b2g/</guid>
       <description>&lt;p&gt;This quarter I&amp;rsquo;ve been focusing on getting reftests running on B2G, triaging them and fixing various
 issues. The purpose of this post is to outline their status, go over the work that still needs to be
 done and point out where I will need some help.&lt;/p&gt;

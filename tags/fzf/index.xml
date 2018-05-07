@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fzf on Hunting the Shmoo</title>
-    <link>https://ahal.ca/tags/fzf/</link>
+    <link>ahal.ca/tags/fzf/</link>
     <description>Recent content in Fzf on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Wed, 02 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ahal.ca/tags/fzf/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="ahal.ca/tags/fzf/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Try Fuzzy: A Try Syntax Alternative</title>
-      <link>https://ahal.ca/blog/2017/mach-try-fuzzy/</link>
+      <link>ahal.ca/blog/2017/mach-try-fuzzy/</link>
       <pubDate>Wed, 02 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2017/mach-try-fuzzy/</guid>
+      <guid>ahal.ca/blog/2017/mach-try-fuzzy/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s no secret that I&amp;rsquo;m not a fan of try syntax, it&amp;rsquo;s a topic I&amp;rsquo;ve blogged about on &lt;a href=&#34;https://ahal.ca/blog/2015/try-syntax/&#34;&gt;several&lt;/a&gt;
 &lt;a href=&#34;https://ahal.ca/blog/2017/fuzzy-try-chooser/&#34;&gt;occasions&lt;/a&gt; before. Today, I&amp;rsquo;m pleased to announce that there&amp;rsquo;s a real alternative now landed on
 mozilla-central. It works on all platforms with mercurial and git. For those who just like to dive in:&lt;/p&gt;
@@ -34,10 +34,10 @@ post, for that see:&lt;/p&gt;
     
     <item>
       <title>A Course of Action for Replacing Try Syntax</title>
-      <link>https://ahal.ca/blog/2017/fuzzy-try-chooser/</link>
+      <link>ahal.ca/blog/2017/fuzzy-try-chooser/</link>
       <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2017/fuzzy-try-chooser/</guid>
+      <guid>ahal.ca/blog/2017/fuzzy-try-chooser/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve previously &lt;a href=&#34;https://ahal.ca/blog/2015/try-syntax/&#34;&gt;blogged&lt;/a&gt; about why I believe try syntax is an antiquated development process
 that should be replaced with something more modern and flexible. What follows is a series of ideas
 that I&amp;rsquo;m trying to convert into a concrete plan of action to bring this about. This is not an

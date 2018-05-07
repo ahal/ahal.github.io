@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Toronto on Hunting the Shmoo</title>
-    <link>https://ahal.ca/tags/toronto/</link>
+    <link>ahal.ca/tags/toronto/</link>
     <description>Recent content in Toronto on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Mon, 07 Nov 2011 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ahal.ca/tags/toronto/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="ahal.ca/tags/toronto/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cycling in the City</title>
-      <link>https://ahal.ca/blog/2011/cycling-city/</link>
+      <link>ahal.ca/blog/2011/cycling-city/</link>
       <pubDate>Mon, 07 Nov 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2011/cycling-city/</guid>
+      <guid>ahal.ca/blog/2011/cycling-city/</guid>
       <description>&lt;p&gt;So here in Toronto another cyclist was killed today. I&amp;rsquo;m a little bit frustrated with the state of
 cycling in Toronto in general.  On one hand you have people like Mr. Ford who think that cyclists
 are always to blame and should be run off the road, and on the other you have cyclists who actually

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Taskcluster on Hunting the Shmoo</title>
-    <link>https://ahal.ca/tags/taskcluster/</link>
+    <link>ahal.ca/tags/taskcluster/</link>
     <description>Recent content in Taskcluster on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Thu, 04 Aug 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ahal.ca/tags/taskcluster/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="ahal.ca/tags/taskcluster/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Using One Click Loaner to Debug Failures</title>
-      <link>https://ahal.ca/blog/2016/taskcluster-interactive-loaner/</link>
+      <link>ahal.ca/blog/2016/taskcluster-interactive-loaner/</link>
       <pubDate>Thu, 04 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2016/taskcluster-interactive-loaner/</guid>
+      <guid>ahal.ca/blog/2016/taskcluster-interactive-loaner/</guid>
       <description>&lt;p&gt;One of the most painful aspects of a developer&amp;rsquo;s work cycle is trying to fix failures that show up
 on try, but which can&amp;rsquo;t be reproduced locally. When this happens, there were really only two
 options (neither of them nice):&lt;/p&gt;
@@ -33,7 +33,7 @@ loaner it is very hard to get tests up and running.&lt;/li&gt;
 Rather than trying to explain it in words, here is a ~5 minute demo:&lt;/p&gt;
 
 &lt;video width=&#34;100%&#34; height=&#34;100%&#34; controls&gt;
-&lt;source src=&#34;https://ahal.ca/static/vid/blog/2016/taskcluster-interactive-loaner.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;source src=&#34;ahal.ca/static/vid/blog/2016/taskcluster-interactive-loaner.mp4&#34; type=&#34;video/mp4&#34;&gt;
 &lt;/video&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>

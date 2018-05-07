@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Django on Hunting the Shmoo</title>
-    <link>https://ahal.ca/tags/django/</link>
+    <link>ahal.ca/tags/django/</link>
     <description>Recent content in Django on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Mon, 04 Apr 2011 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ahal.ca/tags/django/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="ahal.ca/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>I tried to be different and all I got was this crappy website!</title>
-      <link>https://ahal.ca/blog/2011/i-tried-to-be-different/</link>
+      <link>ahal.ca/blog/2011/i-tried-to-be-different/</link>
       <pubDate>Mon, 04 Apr 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2011/i-tried-to-be-different/</guid>
+      <guid>ahal.ca/blog/2011/i-tried-to-be-different/</guid>
       <description>&lt;p&gt;Back in high school and throughout most of my University career, I&amp;rsquo;ve always thought that personal blogs were dumb. Who in their right mind would care what &lt;em&gt;I&lt;/em&gt; was up to?
 It wasn&amp;rsquo;t until I started interning at Mozilla that my views started to shift. I began seeing them as tools to communicate new ideas and elicit feedback from anyone
 interested in what you have to say. It also wasn&amp;rsquo;t until I started interning at Mozilla that I realized that I actually &lt;em&gt;might&lt;/em&gt; have something interesting to say.

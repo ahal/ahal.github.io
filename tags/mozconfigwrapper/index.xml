@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mozconfigwrapper on Hunting the Shmoo</title>
-    <link>https://ahal.ca/tags/mozconfigwrapper/</link>
+    <link>ahal.ca/tags/mozconfigwrapper/</link>
     <description>Recent content in Mozconfigwrapper on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Andrew Halberstadt</copyright>
     <lastBuildDate>Mon, 03 Mar 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ahal.ca/tags/mozconfigwrapper/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="ahal.ca/tags/mozconfigwrapper/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A Workflow for using Mach with multiple Object Directories</title>
-      <link>https://ahal.ca/blog/2014/mach-workflow/</link>
+      <link>ahal.ca/blog/2014/mach-workflow/</link>
       <pubDate>Mon, 03 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2014/mach-workflow/</guid>
+      <guid>ahal.ca/blog/2014/mach-workflow/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Developer_Guide/mach&#34;&gt;Mach&lt;/a&gt; is an amazing tool which facilitates a large number of common user stories in the mozilla
 source tree. You can perform initial setup, execute a build, run tests, examine diagnostics, even
 search Google. Many of these things require an object directory. This can potentially lead to some
@@ -29,10 +29,10 @@ which object directory to operate on?&lt;/p&gt;
     
     <item>
       <title>An Easier way to Manage Mozconfigs</title>
-      <link>https://ahal.ca/blog/2011/mozconfigwrapper-introduction/</link>
+      <link>ahal.ca/blog/2011/mozconfigwrapper-introduction/</link>
       <pubDate>Tue, 15 Nov 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2011/mozconfigwrapper-introduction/</guid>
+      <guid>ahal.ca/blog/2011/mozconfigwrapper-introduction/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ahal/mozconfigwrapper&#34;&gt;Mozconfigwrapper&lt;/a&gt; is a tool inspired by Doug Hellman&amp;rsquo;s magnificent &lt;a href=&#34;http://www.doughellmann.com/projects/virtualenvwrapper/&#34;&gt;virtualenvwrapper&lt;/a&gt;. In a
 nutshell, mozconfigwrapper hides all of your mozconfigs into a configurable directory (defaults to
 ~/.mozconfigs), and lets you easily switch, create, remove, edit and list them. Mozconfigwrapper is
