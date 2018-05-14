@@ -340,26 +340,79 @@ solving. So I think my point still stands.</p>
   
 
   
-  <div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "ahal" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+    <section class="post-comments">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h4>Comments</h4>
+  
+  
+    <div class="post-comment">
+      <div class="post-comment-header">
+        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/dmitchell@mozilla.com?s=100">
+        <p class="post-comment-info"><strong>Dustin J. Mitchell</strong><br>21/03/2014</p>
+      </div>
+      <p>Most tech businesses deal with IFFY problems -- this certainly isn't unique to Mozilla or to the kinds of problems you find yourself working on.  In fact, IFFY is exactly what killed the waterfall design process: if you don't have solid requirements up-front, then a method which needs them is doomed to fail.</p><p>So we need to be able to react quickly to changing circumstances - we need agility.  Dave Thomas describes what this really means, stripping away all of the marketing and branding, in <a href="http://pragdave.me/blog/2014/03/04/time-to-kill-agile/" rel="nofollow noopener" title="http://pragdave.me/blog/2014/03/04/time-to-kill-agile/">http://pragdave.me/blog/201...</a>.</p><p>And people who live and breathe "agile" talk all the time about principles like DRY, open/closed, single responsibility, law of demeter, and so on.  And they talk about paying down tech debt, focusing attention on user stories, and balancing those two.</p><p>So the issue here isn't that we've been too DRY with IFFY projects -- it's that our overall approach lacks agility.  In fact, the organization is all over the place in terms of approach -- some groups are trying the agile approach, although many understand it to mean "fail fast" or "play with all the new toys" or "just make stuff work".  Some groups are too busy firefighting to have an approach.  Some groups are adding more waterfall-style process in an effort to handle continued growth and shrinking budgets.  The result is some really awkward conversations, failed projects, and painfully rotten codebases.</p>
+
+    </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <br>
+      <h4>Leave a comment</h4>
+<form class="post-new-comment" method="POST" action="https://api.staticman.net/v2/entry/ahal/hunting-the-shmoo/master/comments">
+    <input type="hidden" name="options[redirect]" value="https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/#comment-submitted">
+    <input type="hidden" name="options[slug]" value="part-1-sharing-code-not-always-good-thing">
+    <input class="post-comment-field" name="fields[name]" type="text" placeholder="Name (required)">
+    <input class="post-comment-field" name="fields[email]" type="email" placeholder="E-mail (optional)">
+    <input class="post-comment-field" name="fields[url]" type="text" placeholder="Website or social media (optional)">
+    <textarea class="post-comment-field" name="fields[msg]" placeholder="Message (required, markdown enabled)" rows="10"></textarea>
+    <input class="post-comment-field btn" type="submit" value="Submit">
+</form>
+
+<div id="comment-submitted">
+  <p>Your comment has been submitted and will be published once it has been approved.</p>
+</div>
+
+    </section>
   
   </footer>
   
