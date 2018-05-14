@@ -94,6 +94,15 @@
     </item>
     
     <item>
+      <title>Hugo</title>
+      <link>https://ahal.ca/tags/hugo/</link>
+      <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ahal.ca/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Mach</title>
       <link>https://ahal.ca/tags/mach/</link>
       <pubDate>Fri, 12 Feb 2016 00:00:00 +0000</pubDate>
@@ -220,6 +229,15 @@
     </item>
     
     <item>
+      <title>Staticman</title>
+      <link>https://ahal.ca/tags/staticman/</link>
+      <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ahal.ca/tags/staticman/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Taskcluster</title>
       <link>https://ahal.ca/tags/taskcluster/</link>
       <pubDate>Thu, 04 Aug 2016 00:00:00 +0000</pubDate>
@@ -252,6 +270,15 @@
       <pubDate>Wed, 02 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ahal.ca/tags/try/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Website</title>
+      <link>https://ahal.ca/tags/website/</link>
+      <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ahal.ca/tags/website/</guid>
       <description></description>
     </item>
     

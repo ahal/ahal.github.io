@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="A New Look and Feel (and everything else)" />
+<meta property="og:description" content="I&rsquo;ve recently redone my website and wanted to document a few of the changes and motivations behind
+them.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2018/website-refresh/" />
+
+
+
+<meta property="article:published_time" content="2018-05-14T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-05-14T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A New Look and Feel (and everything else)"/>
+<meta name="twitter:description" content="I&rsquo;ve recently redone my website and wanted to document a few of the changes and motivations behind
+them.
+
+"/>
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A New Look and Feel (and everything else)",
+  "url": "https://ahal.ca/blog/2018/website-refresh/",
+  "wordCount": "897",
+  "datePublished": "2018-05-14T00:00:00&#43;00:00",
+  "dateModified": "2018-05-14T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "website, hugo, staticman"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2018/website-refresh/">
+
+    <title>A New Look and Feel (and everything else) | Hunting the Shmoo</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-ZwlQQbzhEPf3PrXZ3h/XKT/4UHafQ/TYI72AL&#43;7WOJ8D6JmpGC8JMMse6xX7cyeI" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+  <div class="container">
+    <nav class="nav blog-nav">
+      <a class="nav-link" href="https://ahal.ca/"></a>
+      
+      <a class="nav-link active" href="/blog/" title="">Blog</a>
+      
+    </nav>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></h2>
+    <p class="blog-post-meta"><time datetime="2018-05-14T00:00:00Z">May 14, 2018</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/website" rel="tag">website</a>, <a href="/tags/hugo" rel="tag">hugo</a>, <a href="/tags/staticman" rel="tag">staticman</a>
+
+</p>
+  </header>
+  <p>I&rsquo;ve recently redone my website and wanted to document a few of the changes and motivations behind
+them.</p>
+
+<p></p>
+
+<h3 id="backend">Backend</h3>
+
+<p>Previously I was running Django on my Linode VPS, now there is no backend. The site is entirely
+static, generated with <a href="http://gohugo.io/">Hugo</a> and served over <a href="https://pages.github.com/">Github Pages</a>. The source now lives <a href="https://github.com/ahal/hunting-the-shmoo">here</a>
+and the generated HTML lives in a separate repository <a href="https://github.com/ahal/ahal.github.io">here</a>. The latter is a sub-repository of
+the former and I have a deploy script to re-generate and push the static HTML in one go.</p>
+
+<p>There were a few motivations for this change:</p>
+
+<ol>
+<li>There was absolutely no need for my website to have a database.</li>
+<li>Maintenance. While the old website was dockerized and maintenance was minimal, it did exist.</li>
+<li>Cost. I&rsquo;ve now downgraded my Linode, though I probably could have done this anyway.</li>
+</ol>
+
+<p>But the biggest reason is simplicity. My old site was a fairly complicated Django app using a lot of
+custom models, templating and CSS (true fact, I didn&rsquo;t use a single theming library). Plus the blog
+engine it was based on, <code>django-articles</code>, has been defunct for many years. This led to an attitude
+of &ldquo;never ever touch anything unless it was absolutely necessary&rdquo;. I&rsquo;ve long wished I would blog
+more often, and I realized my website itself was a bit of a barrier to that.</p>
+
+<h3 id="look-and-feel">Look and Feel</h3>
+
+<p>I&rsquo;m using the <a href="https://github.com/alanorth/hugo-theme-bootstrap4-blog">hugo-theme-bootstrap4-blog</a> theme for my site. I&rsquo;ve modified it to look fairly
+similar to the old site, keeping some things I enjoyed and getting rid of others I didn&rsquo;t. Overall
+I&rsquo;m liking the new look a lot better, and it&rsquo;s much easier to modify and maintain. There is a bit of
+functionality that got lost, things like the article summary pages and RSS links. But this isn&rsquo;t the
+fault of Hugo or the theme, rather than laziness on my part. I plan to eventually re-implement some
+of it in the future.</p>
+
+<h3 id="comments">Comments</h3>
+
+<p>I&rsquo;m no longer using Disqus! This might be the change I&rsquo;m the happiest about. Not only does Disqus
+take forever to load, but it tracks and sells our data. This is something I&rsquo;ve always felt bad
+about, but not bad enough to do the work of hosting my own commenting system (sorry!). I figured
+that having Disqus and letting people choose whether commenting was worth it or not was better than
+having no comment system at all.</p>
+
+<p>But recently I stumbled across <a href="https://staticman.net/">staticman</a>. Now when you comment, a pull request will
+automatically be opened on my Github repo. Then I can merge or discard it. I love this because just
+like my website, comments are truly static. In order for this to work, the form will POST the
+comment to staticman&rsquo;s servers. So unfortunately it doesn&rsquo;t completely cut out the middleman. At
+least staticman is open source and promises <a href="https://staticman.net/sponsors">not to do any tracking</a>. I realize it&rsquo;s still
+entirely possible they do, but at least I trust them a lot more than I trust Disqus.</p>
+
+<p>One last note here, since migrating I&rsquo;ve lost the ability to have threaded comments. Again, this
+isn&rsquo;t the fault of staticman, but rather threaded comments is something I&rsquo;d need to implement
+myself. It is possible though it looks like a fair bit of work. I&rsquo;ll see how it goes, maybe I&rsquo;ll end
+up implementing this eventually. At the very least I plan to spend a bit more time improving the
+comment styling.</p>
+
+<h3 id="content">Content</h3>
+
+<p>I&rsquo;ve removed all extra content except for the blog itself. I found I never updated the other stuff
+and likely no one will miss it (maybe I&rsquo;ll add a <code>Contact</code> page back in). I do want to start
+dabbling in screencasts, so look for a new <code>Casts</code> content section sometime in the next couple of
+months.</p>
+
+<h3 id="hunting-the-shmoo">Hunting the Shmoo</h3>
+
+<p>I&rsquo;ve called my blog <code>Hunting the Shmoo</code> internally ever since I first created it, however I&rsquo;ve never
+used that text anywhere on screen (though the favicon has been picture of a shmoo forever). Now it&rsquo;s
+official, <code>Hunting the Shmoo</code> is in the <code>&lt;title&gt;</code>! So I figure it&rsquo;s worth explaining.</p>
+
+<p>A <a href="https://en.wikipedia.org/wiki/Shmoo">shmoo</a> is a cartoon character from the 50s. They are short and fat creatures who are both
+delicious and love to be eaten. When a human is hungry, they&rsquo;ll butter themselves up and jump right
+into the frying pan. It follows that hunting these animals is no challenge at all.</p>
+
+<p>To me, the name <code>Hunting the Shmoo</code> references our (as programmers) innate desire to follow the easy
+path. Why write code when someone else has already written a better library to accomplish the same
+thing? Why maintain a service when others can maintain it for us (see: this website)? The name also
+hints at the irony in that sometimes finding the &ldquo;easy&rdquo; path ends up being the hardest part. You
+have to hunt for that library or that tool or that service. You have to hunt for the shmoo.</p>
+
+<p>Personally, I tend to obsess over this search for the easiest possible path. I tweak my workflow
+incessantly, I try a never ending parade of tools on the off chance one of them might offer some
+miniscule improvement, and I write my own scripts and programs to automate tasks that I&rsquo;ll only ever
+need to execute twice.</p>
+
+<p>I think it&rsquo;s an apt name because that&rsquo;s what this blog tends to be about. Tools, tricks and workflow
+hacks that I&rsquo;ve stumbled across in my never ending hunt.</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2018%2fwebsite-refresh%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2018%2fwebsite-refresh%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2018%2fwebsite-refresh%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2018%2fwebsite-refresh%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+
+  
+    <section class="post-comments">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <br>
+      <h4>Leave a comment</h4>
+<form class="post-new-comment" method="POST" action="https://api.staticman.net/v2/entry/ahal/hunting-the-shmoo/master/comments">
+    <input type="hidden" name="options[redirect]" value="https://ahal.ca/blog/2018/website-refresh/#comment-submitted">
+    <input type="hidden" name="options[slug]" value="website-refresh">
+    <input class="post-comment-field" name="fields[name]" type="text" placeholder="Name (required)">
+    <input class="post-comment-field" name="fields[email]" type="email" placeholder="E-mail (optional)">
+    <input class="post-comment-field" name="fields[url]" type="text" placeholder="Website or social media (optional)">
+    <textarea class="post-comment-field" name="fields[msg]" placeholder="Message (required, markdown enabled)" rows="10"></textarea>
+    <input class="post-comment-field btn" type="submit" value="Submit">
+</form>
+
+<div id="comment-submitted">
+  <p>Your comment has been submitted and will be published once it has been approved.</p>
+</div>
+
+    </section>
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
+
+<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+
+<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+
+<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+
+<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+
+<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
+
+<li><a href="/blog/2015/try-syntax/">Looking beyond Try Syntax</a></li>
+
+<li><a href="/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></li>
+
+<li><a href="/blog/2015/new-mercurial-workflow-part-2/">The New Mercurial Workflow - Part 2</a></li>
+
+<li><a href="/blog/2014/consume-structured-test-results/">How to Consume Structured Test Results</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/website">website</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/hugo">hugo</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/staticman">staticman</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+  <p>
+  
+  © 2018 Andrew Halberstadt
+  
+  </p>
+  <p>
+  <a href="#">Back to top</a>
+  </p>
+</footer>
+
+    
+  </body>
+
+</html>
