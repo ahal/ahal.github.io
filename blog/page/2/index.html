@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <meta property="og:title" content="Blogs" />
-<meta property="og:description" content="Ramblings related to my work at Mozilla and other projects." />
+<meta property="og:description" content="Exploring workflow, productivity, tools and Mozilla" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/blog/" />
 
@@ -25,8 +25,8 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Blogs"/>
-<meta name="twitter:description" content="Ramblings related to my work at Mozilla and other projects."/>
-<meta name="generator" content="Hugo 0.38.2" />
+<meta name="twitter:description" content="Exploring workflow, productivity, tools and Mozilla"/>
+<meta name="generator" content="Hugo 0.42.1" />
 
 
     
@@ -42,7 +42,7 @@
   },
   "dateModified": "2014-11-09T00:00:00&#43;00:00",
   "keywords": "absorb,addon,android,ateam,b2g,bookbinder,cycling,django,fzf,hugo,mach,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,programming,python,qqver,reddit,reftest,staticman,taskcluster,test-informant,toronto,try,website,",
-  "description": "Ramblings related to my work at Mozilla and other projects."
+  "description": "Exploring workflow, productivity, tools and Mozilla"
 }
 </script>
 
@@ -52,7 +52,7 @@
     <title>Hunting the Shmoo</title>
 
     <!-- combined, minified CSS -->
-    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-ZwlQQbzhEPf3PrXZ3h/XKT/4UHafQ/TYI72AL&#43;7WOJ8D6JmpGC8JMMse6xX7cyeI" crossorigin="anonymous">
+    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-TbfEhJn4HkgPUIZUhhHaAYsycYKHxSuIloCjZOiyCSpbVunRQxg5T5pxKVFwxilF" crossorigin="anonymous">
 
     
     <!-- RSS 2.0 feed -->
@@ -64,7 +64,9 @@
     
 
     <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<link href="https://ahal.ca/css/debugprint.css" rel="stylesheet">
 <script type="text/javascript" src="/js/menu.js"></script>
 
   </head>
@@ -73,21 +75,23 @@
 
     
     <div class="blog-masthead">
-  <div class="container">
-    <nav class="nav blog-nav">
-      <a class="nav-link" href="https://ahal.ca/"></a>
-      
-      <a class="nav-link active" href="/blog/" title="">Blog</a>
-      
-    </nav>
-  </div>
-</div>
-
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://ahal.ca/">Home</a>
+          
+          <a class="nav-link active" href="/blog/" title="">Blog</a>
+          
+          
+          <a class="nav-link" href="/casts/" title="">Casts</a>
+          
+        </nav>
+      </div>
+    </div>
     
 
     
-    
-    
+
+
 
     
     <div class="container">
@@ -101,11 +105,11 @@
 
 
 
-
 <article class="blog-post">
   <header>
     <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a></h2>
     <p class="blog-post-meta"><time datetime="2014-11-09T00:00:00Z">Nov 09, 2014</time> by Andrew Halberstadt in 
+
 
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mercurial" rel="tag">mercurial</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
 
@@ -133,6 +137,7 @@ mozilla-central</a>, using <a href="http://mozilla-version-control-tools.readthe
     <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/how-many-tests-are-disabled/">How many tests are disabled?</a></h2>
     <p class="blog-post-meta"><time datetime="2014-10-01T00:00:00Z">Oct 01, 2014</time> by Andrew Halberstadt in 
 
+
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/test-informant" rel="tag">test-informant</a>
 
 </p>
@@ -158,6 +163,7 @@ machine.</p>
   <header>
     <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/when-would-you-use-python-mixin/">When would you use a Python mixin?</a></h2>
     <p class="blog-post-meta"><time datetime="2014-05-24T00:00:00Z">May 24, 2014</time> by Andrew Halberstadt in 
+
 
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/programming" rel="tag">programming</a>, <a href="/tags/python" rel="tag">python</a>
 
@@ -188,6 +194,7 @@ place. What&rsquo;s more is that most people use python mixins improperly.</p>
     <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/">Part 2: How to deal with IFFY requirements</a></h2>
     <p class="blog-post-meta"><time datetime="2014-04-11T00:00:00Z">Apr 11, 2014</time> by Andrew Halberstadt in 
 
+
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/programming" rel="tag">programming</a>
 
 </p>
@@ -212,6 +219,7 @@ test harness design.</p>
   <header>
     <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/">Part 1: Sharing code is not always a good thing</a></h2>
     <p class="blog-post-meta"><time datetime="2014-03-21T00:00:00Z">Mar 21, 2014</time> by Andrew Halberstadt in 
+
 
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/programming" rel="tag">programming</a>
 
@@ -240,6 +248,7 @@ I will make a claim that a WET approach can actually work better.</p>
   <header>
     <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/b2g-commands/">Add more mach to your B2G</a></h2>
     <p class="blog-post-meta"><time datetime="2014-03-06T00:00:00Z">Mar 06, 2014</time> by Andrew Halberstadt in 
+
 
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/b2g" rel="tag">b2g</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/mach" rel="tag">mach</a>
 
@@ -278,6 +287,7 @@ bootstrapping your environment, running builds and tests, and generating diagnos
     <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/mach-workflow/">A Workflow for using Mach with multiple Object Directories</a></h2>
     <p class="blog-post-meta"><time datetime="2014-03-03T00:00:00Z">Mar 03, 2014</time> by Andrew Halberstadt in 
 
+
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mach" rel="tag">mach</a>, <a href="/tags/mozconfigwrapper" rel="tag">mozconfigwrapper</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
 
 </p>
@@ -301,6 +311,7 @@ which object directory to operate on?</p>
   <header>
     <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2013/we-are-all-enablers/">We Are All Enablers</a></h2>
     <p class="blog-post-meta"><time datetime="2013-10-10T00:00:00Z">Oct 10, 2013</time> by Andrew Halberstadt in 
+
 
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/ateam" rel="tag">ateam</a>
 
@@ -326,6 +337,7 @@ about as close as we can get without writing a small dissertation.</p>
   <header>
     <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2013/running-b2g-unittests-mach/">Running B2G unittests with Mach</a></h2>
     <p class="blog-post-meta"><time datetime="2013-09-16T00:00:00Z">Sep 16, 2013</time> by Andrew Halberstadt in 
+
 
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/b2g" rel="tag">b2g</a>, <a href="/tags/mach" rel="tag">mach</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
 
@@ -354,6 +366,7 @@ been a massive pain. The new recommended way of running them is through mach.</p
   <header>
     <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2013/push-custom-test-command-line-try/">How to Push a Custom Test Command Line to Try</a></h2>
     <p class="blog-post-meta"><time datetime="2013-07-24T00:00:00Z">Jul 24, 2013</time> by Andrew Halberstadt in 
+
 
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozharness" rel="tag">mozharness</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
 
@@ -394,6 +407,15 @@ the developer use case, but neither is it really difficult to do once you know h
         </div> <!-- /.blog-main -->
 
         <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Series</h4>
+    <ol class="list-unstyled">
+    
+    </ol>
+  </section>
   
 
   
@@ -595,17 +617,17 @@ the developer use case, but neither is it really difficult to do once you know h
 
     
     <footer class="blog-footer">
-  <p>
-  
-  © 2018 Andrew Halberstadt
-  
-  </p>
-  <p>
-  <a href="#">Back to top</a>
-  </p>
-</footer>
-
+      <p>
+      
+      © 2018 Andrew Halberstadt
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
     
+
   </body>
 
 </html>

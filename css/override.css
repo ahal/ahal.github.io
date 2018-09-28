@@ -28,10 +28,6 @@ pre {
     background-image: url('/img/background-100-50-5.png');
 }
 
-.blog-nav a:first-child {
-    display: none;
-}
-
 .blog-post-title a {
     font-size: 0.8em;
 }
@@ -40,6 +36,17 @@ pre {
     background-color: #F6F2E6;
     background-image: url('/img/background-100-50-5.png');
     border-top: none;
+}
+
+.list-episodes {
+    counter-reset: item;
+    list-style: none;
+    padding: 0;
+}
+
+.list-episodes li:before {
+    content: 'Episode ' counter(item, decimal) '. ';
+    counter-increment: item;
 }
 
 .nav-link {
@@ -67,6 +74,7 @@ pre {
 
 .sidebar-module li > a {
     display: block;
+    font-size: 0.9em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

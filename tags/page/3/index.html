@@ -6,13 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <meta property="og:title" content="Tags" />
-<meta property="og:description" content="Ramblings related to my work at Mozilla and other projects." />
+<meta property="og:description" content="Exploring workflow, productivity, tools and Mozilla" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/tags/" />
 
 
 
-<meta property="og:updated_time" content="2013-06-13T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2014-05-24T00:00:00&#43;00:00"/>
 
 
 
@@ -25,8 +25,8 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="Ramblings related to my work at Mozilla and other projects."/>
-<meta name="generator" content="Hugo 0.38.2" />
+<meta name="twitter:description" content="Exploring workflow, productivity, tools and Mozilla"/>
+<meta name="generator" content="Hugo 0.42.1" />
 
 
     
@@ -40,9 +40,9 @@
     "@type": "Person",
     "name": "Andrew Halberstadt"
   },
-  "dateModified": "2013-06-13T00:00:00&#43;00:00",
+  "dateModified": "2014-05-24T00:00:00&#43;00:00",
   "keywords": "absorb,addon,android,ateam,b2g,bookbinder,cycling,django,fzf,hugo,mach,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,programming,python,qqver,reddit,reftest,staticman,taskcluster,test-informant,toronto,try,website,",
-  "description": "Ramblings related to my work at Mozilla and other projects."
+  "description": "Exploring workflow, productivity, tools and Mozilla"
 }
 </script>
 
@@ -52,7 +52,7 @@
     <title>Hunting the Shmoo</title>
 
     <!-- combined, minified CSS -->
-    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-ZwlQQbzhEPf3PrXZ3h/XKT/4UHafQ/TYI72AL&#43;7WOJ8D6JmpGC8JMMse6xX7cyeI" crossorigin="anonymous">
+    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-TbfEhJn4HkgPUIZUhhHaAYsycYKHxSuIloCjZOiyCSpbVunRQxg5T5pxKVFwxilF" crossorigin="anonymous">
 
     
     <!-- RSS 2.0 feed -->
@@ -64,7 +64,9 @@
     
 
     <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<link href="https://ahal.ca/css/debugprint.css" rel="stylesheet">
 <script type="text/javascript" src="/js/menu.js"></script>
 
   </head>
@@ -73,21 +75,23 @@
 
     
     <div class="blog-masthead">
-  <div class="container">
-    <nav class="nav blog-nav">
-      <a class="nav-link" href="https://ahal.ca/"></a>
-      
-      <a class="nav-link" href="/blog/" title="">Blog</a>
-      
-    </nav>
-  </div>
-</div>
-
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://ahal.ca/">Home</a>
+          
+          <a class="nav-link" href="/blog/" title="">Blog</a>
+          
+          
+          <a class="nav-link" href="/casts/" title="">Casts</a>
+          
+        </nav>
+      </div>
+    </div>
     
 
     
-    
-    
+
+
 
     
     <div class="container">
@@ -101,23 +105,13 @@
 
 
 
-
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2013/mercurial-extension-qqver/">A Mercurial extension to version multiple patch queues</a></h2>
-    <p class="blog-post-meta"><time datetime="2013-06-13T00:00:00Z">Jun 13, 2013</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/mercurial" rel="tag">mercurial</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/qqver" rel="tag">qqver</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/python/">Python</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-05-24T00:00:00Z">May 24, 2014</time> by Andrew Halberstadt</p>
   </header>
-  <p><a href="http://hg.mozilla.org/users/ahalberstadt_mozilla.com/qqver/">qqver</a> is a Mercurial extension that forces mq to version all patch queues in the same
-repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &lsquo;hg init
-&ndash;mq&rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
-with stock queue repos, new and existing patches are added automatically.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2013/mercurial-extension-qqver/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/python/'>Read more →</a>
 </article> 
 
 
@@ -127,24 +121,11 @@ with stock queue repos, new and existing patches are added automatically.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2013/python-logging-format-message/">Python Logging - Format a message without printing it</a></h2>
-    <p class="blog-post-meta"><time datetime="2013-04-25T00:00:00Z">Apr 25, 2013</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/python" rel="tag">python</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/qqver/">Qqver</a></h2>
+    <p class="blog-post-meta"><time datetime="2013-06-13T00:00:00Z">Jun 13, 2013</time> by Andrew Halberstadt</p>
   </header>
-  <p>I came across an odd python problem the other day. I wanted to format a log message without printing
-it with python&rsquo;s logging module. But I couldn&rsquo;t find any examples or others who wanted to do the
-same thing.</p>
-
-<p>You might ask why I would want to do this. In my case, I was using sys.stdout.write() to display the
-progress of a download as a percentage. Python&rsquo;s logging module automatically appends a newline to
-your message and there didn&rsquo;t seem to be a way to change this without a subclass. Anytime you want
-to overwrite something on the previous line with python logging, you will run into trouble.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2013/python-logging-format-message/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/qqver/'>Read more →</a>
 </article> 
 
 
@@ -154,20 +135,11 @@ to overwrite something on the previous line with python logging, you will run in
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2013/b2g-unittest-crashstacks/">Crash Stacks - Memoirs of a B2G Unittest</a></h2>
-    <p class="blog-post-meta"><time datetime="2013-03-28T00:00:00Z">Mar 28, 2013</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/b2g" rel="tag">b2g</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/reddit/">Reddit</a></h2>
+    <p class="blog-post-meta"><time datetime="2012-03-30T00:00:00Z">Mar 30, 2012</time> by Andrew Halberstadt</p>
   </header>
-  <p>Hey! Check it out, I have crash stacks in my <a href="https://tbpl.mozilla.org/php/getParsedLog.php?id=21215744&amp;amp;full=1&amp;amp;branch=mozilla-inbound">logs</a> now!  I know, I know, I took my sweet time.
-I&rsquo;m sorry. I hope this doesn&rsquo;t damage our relationship. Is there anything I can do to make it up to
-you? I want to help. I really do. It&rsquo;s just. I don&rsquo;t know. I guess I&rsquo;ve been feeling under the
-weather lately. I must have caught a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=846091">bug</a>.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2013/b2g-unittest-crashstacks/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/reddit/'>Read more →</a>
 </article> 
 
 
@@ -177,21 +149,11 @@ weather lately. I must have caught a <a href="https://bugzilla.mozilla.org/show_
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2013/enable-b2g-tests/">An Open Invitation to Enable your Favourite tests on B2G</a></h2>
-    <p class="blog-post-meta"><time datetime="2013-03-08T00:00:00Z">Mar 08, 2013</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/b2g" rel="tag">b2g</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/reftest/">Reftest</a></h2>
+    <p class="blog-post-meta"><time datetime="2012-09-12T00:00:00Z">Sep 12, 2012</time> by Andrew Halberstadt</p>
   </header>
-  <p>Throughout most of our B2G test automation deployment, we&rsquo;ve been very conscious about not enabling
-too many tests simply because we didn&rsquo;t have enough capacity on our test slaves to run them all.
-Regardless it was still bad enough as it was (many of you probably experienced very long wait times
-for results). Thanks to releng (and especially Rail Aliiev) we are now running most of our B2G tests
-in Amazon AWS which means we can be much more flexible in accomodating load.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2013/enable-b2g-tests/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/reftest/'>Read more →</a>
 </article> 
 
 
@@ -201,26 +163,11 @@ in Amazon AWS which means we can be much more flexible in accomodating load.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2012/guide-to-b2g-testing/">A Tired Developer&rsquo;s non-Illustrated Primer to B2G Testing</a></h2>
-    <p class="blog-post-meta"><time datetime="2012-12-21T00:00:00Z">Dec 21, 2012</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/b2g" rel="tag">b2g</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/staticman/">Staticman</a></h2>
+    <p class="blog-post-meta"><time datetime="2018-05-14T00:00:00Z">May 14, 2018</time> by Andrew Halberstadt</p>
   </header>
-  <p>As B2G continues to trod onwards to its release, there is still a lot of confusion about the level
-and state of test coverage it has.  Back in November we started running mochitests, reftests and
-marionette/webapi tests on ARM emulators. Now we&rsquo;ve also added xpcshell tests and for the most part
-we have these nice green letters to look at on TBPL that make us feel good about ourselves. But what
-is really being run?  What is the meaning behind these letters &ldquo;M&rdquo;, &ldquo;R&rdquo;, &ldquo;Mn&rdquo; and &ldquo;X&rdquo;? Are there any
-causes for concern? Are there other tests being run that don&rsquo;t show up on TBPL? What are the current
-automation priorities? What are the next platforms to use after emulators?</p>
-
-<p>This blog post aims to answer these questions and more. It is a comprehensive snapshot of the
-current state of automated testing on B2G.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2012/guide-to-b2g-testing/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/staticman/'>Read more →</a>
 </article> 
 
 
@@ -230,24 +177,11 @@ current state of automated testing on B2G.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2012/b2g-emulator-tests/">Like a Bump on a Tinderbox Push Log</a></h2>
-    <p class="blog-post-meta"><time datetime="2012-11-08T00:00:00Z">Nov 08, 2012</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/b2g" rel="tag">b2g</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/taskcluster/">Taskcluster</a></h2>
+    <p class="blog-post-meta"><time datetime="2016-08-04T00:00:00Z">Aug 04, 2016</time> by Andrew Halberstadt</p>
   </header>
-  <p>Contrary to popular belief, we (the A-Team) have been running mochitests, reftests, marionette tests
-and webapi tests on B2G in some form of continuous integration or another for about 5 months now.
-They&rsquo;ve been reporting results to a TBPL look-alike called <a href="http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;amp;source=autolog">autolog</a>, and were run on Amazon EC2
-VM&rsquo;s with emulators. This was a temporary solution to get something stood up quickly while we moved
-towards our ultimate B2G automation goal - tests running on Pandaboards and reporting to TBPL.</p>
-
-<p>As of this week, while there are still no tests running on Pandaboards, I&rsquo;m happy to say we have
-emulators running mochitests, reftests and marionette/webapi tests, all reporting to TBPL.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2012/b2g-emulator-tests/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/taskcluster/'>Read more →</a>
 </article> 
 
 
@@ -257,19 +191,11 @@ emulators running mochitests, reftests and marionette/webapi tests, all reportin
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2012/state-reftest-b2g/">State of Reftests on B2G</a></h2>
-    <p class="blog-post-meta"><time datetime="2012-09-12T00:00:00Z">Sep 12, 2012</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/b2g" rel="tag">b2g</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/reftest" rel="tag">reftest</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/test-informant/">Test Informant</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-10-01T00:00:00Z">Oct 01, 2014</time> by Andrew Halberstadt</p>
   </header>
-  <p>This quarter I&rsquo;ve been focusing on getting reftests running on B2G, triaging them and fixing various
-issues. The purpose of this post is to outline their status, go over the work that still needs to be
-done and point out where I will need some help.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2012/state-reftest-b2g/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/test-informant/'>Read more →</a>
 </article> 
 
 
@@ -279,23 +205,11 @@ done and point out where I will need some help.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2012/reddit-history/">Reddit History</a></h2>
-    <p class="blog-post-meta"><time datetime="2012-03-30T00:00:00Z">Mar 30, 2012</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/reddit" rel="tag">reddit</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/toronto/">Toronto</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-11-07T00:00:00Z">Nov 07, 2011</time> by Andrew Halberstadt</p>
   </header>
-  <p>Sometimes I&rsquo;d remember this awesome thing that I saw on Reddit awhile back and want to share it with
-someone. I&rsquo;d try to find it through browser history or reddit search, but I wasn&rsquo;t usually
-successful. Reddit search isn&rsquo;t very good and I use Reddit <em>a lot</em> so my browser history for
-reddit.com is huge and unwieldy.</p>
-
-<p>So in my spare time I decided to write <a href="https://github.com/ahal/userscripts/tree/master/reddit-history">Reddit History</a>. It basically just keeps track of all the
-submissions you&rsquo;ve viewed, and lets you filter them by sub-reddit and text search (regex).</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2012/reddit-history/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/toronto/'>Read more →</a>
 </article> 
 
 
@@ -305,32 +219,11 @@ submissions you&rsquo;ve viewed, and lets you filter them by sub-reddit and text
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2011/top-ten-albums-2011/">Top Ten Albums of 2011</a></h2>
-    <p class="blog-post-meta"><time datetime="2011-12-14T00:00:00Z">Dec 14, 2011</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/music" rel="tag">music</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/try/">Try</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-08-02T00:00:00Z">Aug 02, 2017</time> by Andrew Halberstadt</p>
   </header>
-  <p>Normally I don&rsquo;t bother making top ten lists at the end of the year,
-but I was bored and figured, why not? So without further ado, here are
-my top ten albums of 2011.</p>
-
-<ol>
-<li>Unexpect - Fables of the Sleepless Empire</li>
-<li>The Decemberists - The King is Dead</li>
-<li>Battles - Gloss Drop</li>
-<li>St. Vincent - Strange Mercy</li>
-<li>The Dear Hunter - The Color Spectrum</li>
-<li>Fucked Up - David Comes to Life</li>
-<li>Cut Copy - Zonoscope</li>
-<li>Panda Bear - Tomboy</li>
-<li>Phideaux - Snowtorch</li>
-<li>James Blake - James Blake</li>
-</ol>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2011/top-ten-albums-2011/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/try/'>Read more →</a>
 </article> 
 
 
@@ -340,20 +233,11 @@ my top ten albums of 2011.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2011/mozconfigwrapper-introduction/">An Easier way to Manage Mozconfigs</a></h2>
-    <p class="blog-post-meta"><time datetime="2011-11-15T00:00:00Z">Nov 15, 2011</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/mozconfigwrapper" rel="tag">mozconfigwrapper</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/website/">Website</a></h2>
+    <p class="blog-post-meta"><time datetime="2018-05-14T00:00:00Z">May 14, 2018</time> by Andrew Halberstadt</p>
   </header>
-  <p><a href="https://github.com/ahal/mozconfigwrapper">Mozconfigwrapper</a> is a tool inspired by Doug Hellman&rsquo;s magnificent <a href="http://www.doughellmann.com/projects/virtualenvwrapper/">virtualenvwrapper</a>. In a
-nutshell, mozconfigwrapper hides all of your mozconfigs into a configurable directory (defaults to
-~/.mozconfigs), and lets you easily switch, create, remove, edit and list them. Mozconfigwrapper is
-Unix only for now.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2011/mozconfigwrapper-introduction/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/website/'>Read more →</a>
 </article> 
 
 
@@ -362,9 +246,9 @@ Unix only for now.</p>
 
 <nav class="blog-pagination">
   
-  <a class="btn btn-outline-primary" href="/tags/page/2/" rel="prev" role="button">Previous page</a>
-  <a class="btn btn-outline-primary" href="/tags/page/4/" rel="next" role="button">Next page</a>
   
+  <a class="btn btn-outline-primary" href="/tags/page/2/" rel="prev" role="button">Previous page</a>
+  <a class="btn btn-outline-primary disabled" href="#" role="button" aria-disabled="true">Next page</a>
   
   
 </nav>
@@ -376,6 +260,15 @@ Unix only for now.</p>
         </div> <!-- /.blog-main -->
 
         <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Series</h4>
+    <ol class="list-unstyled">
+    
+    </ol>
+  </section>
   
 
   
@@ -577,17 +470,17 @@ Unix only for now.</p>
 
     
     <footer class="blog-footer">
-  <p>
-  
-  © 2018 Andrew Halberstadt
-  
-  </p>
-  <p>
-  <a href="#">Back to top</a>
-  </p>
-</footer>
-
+      <p>
+      
+      © 2018 Andrew Halberstadt
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
     
+
   </body>
 
 </html>
