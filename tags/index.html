@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <meta property="og:title" content="Tags" />
-<meta property="og:description" content="Ramblings related to my work at Mozilla and other projects." />
+<meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/tags/" />
 
@@ -25,7 +25,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="Ramblings related to my work at Mozilla and other projects."/>
+<meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
 <meta name="generator" content="Hugo 0.42.1" />
 
 
@@ -42,7 +42,7 @@
   },
   "dateModified": "2017-02-28T00:00:00&#43;00:00",
   "keywords": "absorb,addon,android,ateam,b2g,bookbinder,cycling,django,fzf,hugo,mach,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,programming,python,qqver,reddit,reftest,staticman,taskcluster,test-informant,toronto,try,website,",
-  "description": "Ramblings related to my work at Mozilla and other projects."
+  "description": "Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."
 }
 </script>
 
@@ -64,7 +64,9 @@
     
 
     <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<link href="https://ahal.ca/css/debugprint.css" rel="stylesheet">
 <script type="text/javascript" src="/js/menu.js"></script>
 
   </head>
@@ -79,19 +81,18 @@
           
           <a class="nav-link" href="/blog/" title="">Blog</a>
           
+          
+          <a class="nav-link" href="/casts/" title="">Casts</a>
+          
         </nav>
       </div>
     </div>
     
 
     
-    <header class="blog-header">
-      <div class="container">
-        <h1 class="blog-title"><a href="https://ahal.ca/" rel="home">Hunting the Shmoo</a></h1>
-        <p class="lead blog-description">Ramblings related to my work at Mozilla and other projects.</p>
-      </div>
-    </header>
-    
+
+
+
 
     
     <div class="container">
@@ -105,21 +106,13 @@
 
 
 
-
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></h2>
-    <p class="blog-post-meta"><time datetime="2018-05-14T00:00:00Z">May 14, 2018</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/website" rel="tag">website</a>, <a href="/tags/hugo" rel="tag">hugo</a>, <a href="/tags/staticman" rel="tag">staticman</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/absorb/">Absorb</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-02-28T00:00:00Z">Feb 28, 2017</time> by Andrew Halberstadt</p>
   </header>
-  <p>I&rsquo;ve recently redone my website and wanted to document a few of the changes and motivations behind
-them.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2018/website-refresh/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/absorb/'>Read more →</a>
 </article> 
 
 
@@ -129,26 +122,11 @@ them.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></h2>
-    <p class="blog-post-meta"><time datetime="2017-08-02T00:00:00Z">Aug 02, 2017</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/fzf" rel="tag">fzf</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/try" rel="tag">try</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/addon/">Addon</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-04-09T00:00:00Z">Apr 09, 2011</time> by Andrew Halberstadt</p>
   </header>
-  <p>It&rsquo;s no secret that I&rsquo;m not a fan of try syntax, it&rsquo;s a topic I&rsquo;ve blogged about on <a href="https://ahal.ca/blog/2015/try-syntax/">several</a>
-<a href="https://ahal.ca/blog/2017/fuzzy-try-chooser/">occasions</a> before. Today, I&rsquo;m pleased to announce that there&rsquo;s a real alternative now landed on
-mozilla-central. It works on all platforms with mercurial and git. For those who just like to dive in:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach mercurial-setup --update  <span style="color:#75715e"># only if using hg
-</span><span style="color:#75715e"></span>$ mach try fuzzy</code></pre></div>
-<p>This will prompt you to install <a href="https://github.com/junegunn/fzf">fzf</a>. After bootstrapping is finished, you&rsquo;ll enter an interface
-populated with a list of all possible taskcluster tasks. Start typing and the list will be filtered
-down using a fuzzy matching algorithm. I won&rsquo;t go into details on how to use this tool in this blog
-post, for that see:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach try fuzzy --help  <span style="color:#75715e"># or
-</span><span style="color:#75715e"></span>$ man fzf</code></pre></div>
-<p></p>
-  <a href='https://ahal.ca/blog/2017/mach-try-fuzzy/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/addon/'>Read more →</a>
 </article> 
 
 
@@ -158,20 +136,11 @@ post, for that see:</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></h2>
-    <p class="blog-post-meta"><time datetime="2017-02-28T00:00:00Z">Feb 28, 2017</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/absorb" rel="tag">absorb</a>, <a href="/tags/mercurial" rel="tag">mercurial</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/android/">Android</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-06-24T00:00:00Z">Jun 24, 2011</time> by Andrew Halberstadt</p>
   </header>
-  <p>Imagine this scenario. You&rsquo;ve pushed a large series of commits to your favourite review tool
-(because you are a believer in the glory of microcommits). The reviewer however has found several
-problems, and worse, they are spread across all of the commits in your series. How do you fix all
-the issues with minimal fuss while preserving the commit order?</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2017/mercurial-absorb/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/android/'>Read more →</a>
 </article> 
 
 
@@ -181,22 +150,11 @@ the issues with minimal fuss while preserving the commit order?</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></h2>
-    <p class="blog-post-meta"><time datetime="2017-02-23T00:00:00Z">Feb 23, 2017</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/fzf" rel="tag">fzf</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/try" rel="tag">try</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/ateam/">Ateam</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-08-02T00:00:00Z">Aug 02, 2017</time> by Andrew Halberstadt</p>
   </header>
-  <p>I&rsquo;ve previously <a href="https://ahal.ca/blog/2015/try-syntax/">blogged</a> about why I believe try syntax is an antiquated development process
-that should be replaced with something more modern and flexible. What follows is a series of ideas
-that I&rsquo;m trying to convert into a concrete plan of action to bring this about. This is not an
-<em>Intent to Implement</em> or anything like that, but my hope is that this outline is detailed enough
-that it could be used as a solid starting point by someone with enough time and motivation to
-work on it.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2017/fuzzy-try-chooser/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/ateam/'>Read more →</a>
 </article> 
 
 
@@ -206,33 +164,11 @@ work on it.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></h2>
-    <p class="blog-post-meta"><time datetime="2016-08-04T00:00:00Z">Aug 04, 2016</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/taskcluster" rel="tag">taskcluster</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/b2g/">B2g</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-03-06T00:00:00Z">Mar 06, 2014</time> by Andrew Halberstadt</p>
   </header>
-  <p>One of the most painful aspects of a developer&rsquo;s work cycle is trying to fix failures that show up
-on try, but which can&rsquo;t be reproduced locally. When this happens, there were really only two
-options (neither of them nice):</p>
-
-<ol>
-<li>You could spam try with print debugging. But this isn&rsquo;t very powerful, and takes forever to get
-feedback.</li>
-<li>You could request a loaner from releng. But this is a heavy handed process, and once you have the
-loaner it is very hard to get tests up and running.</li>
-</ol>
-
-<p>I&rsquo;m pleased to announce there is now a third option, which is easy, powerful and 100% self-serve.
-Rather than trying to explain it in words, here is a ~5 minute demo:</p>
-
-<video width="100%" height="100%" controls>
-<source src="/static/vid/blog/2016/taskcluster-interactive-loaner.mp4" type="video/mp4">
-</video>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2016/taskcluster-interactive-loaner/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/b2g/'>Read more →</a>
 </article> 
 
 
@@ -242,25 +178,11 @@ Rather than trying to explain it in words, here is a ~5 minute demo:</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2016/zen-of-mach/">The Zen of Mach</a></h2>
-    <p class="blog-post-meta"><time datetime="2016-02-12T00:00:00Z">Feb 12, 2016</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mach" rel="tag">mach</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/bookbinder/">Bookbinder</a></h2>
+    <p class="blog-post-meta"><time datetime="2015-03-30T00:00:00Z">Mar 30, 2015</time> by Andrew Halberstadt</p>
   </header>
-  <p>Mach is the Mozilla developer&rsquo;s swiss army knife. It gathers all the important commands you&rsquo;ll ever
-need to run, and puts them in one convenient place. Instead of hunting down documentation, or asking
-for help on irc, often a simple |mach help| is all that&rsquo;s needed to get you started. Mach is great.
-But lately, mach is becoming more like the Mozilla developer&rsquo;s toolbox. It still has everything you
-need but it weighs a ton, and it takes a good deal of rummaging around to find anything.</p>
-
-<p>Frankly, a good deal of the mach commands that exist now are either poorly written, confusing to use,
-or even have no business being mach commands in the first place. Why is this important? What&rsquo;s wrong
-with having a toolbox?</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2016/zen-of-mach/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/bookbinder/'>Read more →</a>
 </article> 
 
 
@@ -270,23 +192,11 @@ with having a toolbox?</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2015/try-syntax/">Looking beyond Try Syntax</a></h2>
-    <p class="blog-post-meta"><time datetime="2015-08-28T00:00:00Z">Aug 28, 2015</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/try" rel="tag">try</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/cycling/">Cycling</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-11-07T00:00:00Z">Nov 07, 2011</time> by Andrew Halberstadt</p>
   </header>
-  <p>Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
-you put into your commit message which a <a href="http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py">parser</a> then uses to determine the set of builds and
-tests to run on your try push. A common try syntax might look like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">try: -b o -p linux -u mochitest -t none</code></pre></div>
-<p>Since inception, it has been a core part of the Mozilla development workflow.
-For many years it has served us well, and even today it serves us passably. But it is almost time
-for try syntax to don the wooden overcoat, and this post will explain why.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2015/try-syntax/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/cycling/'>Read more →</a>
 </article> 
 
 
@@ -296,28 +206,11 @@ for try syntax to don the wooden overcoat, and this post will explain why.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></h2>
-    <p class="blog-post-meta"><time datetime="2015-03-30T00:00:00Z">Mar 30, 2015</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/bookbinder" rel="tag">bookbinder</a>, <a href="/tags/mercurial" rel="tag">mercurial</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/django/">Django</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-04-04T00:00:00Z">Apr 04, 2011</time> by Andrew Halberstadt</p>
   </header>
-  <p>I mentioned in my previous post a mercurial extension I wrote for making bookmarks easier to
-manipulate. Since then it has undergone a large overhaul, and I believe it is now stable and
-intuitive enough to advertise a bit more widely.</p>
-
-<h2 id="introducing-bookbinder">Introducing bookbinder</h2>
-
-<p>When working with bookmarks (or anonymous heads) I often wanted to operate on the
-entire series of commits within the feature I was working on. I often found myself digging out
-revision numbers to find the first commit in a bookmark to do things like rebasing, grafting or
-diffing. This was annoying. I wanted bookmarks to work more like a git-style branch, that has a
-definite start as well as an end. And I wanted to be able to easily refer to the set of commits
-contained within. Enter <a href="https://bitbucket.org/halbersa/bookbinder">bookbinder</a>.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/django/'>Read more →</a>
 </article> 
 
 
@@ -327,19 +220,11 @@ contained within. Enter <a href="https://bitbucket.org/halbersa/bookbinder">book
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2015/new-mercurial-workflow-part-2/">The New Mercurial Workflow - Part 2</a></h2>
-    <p class="blog-post-meta"><time datetime="2015-01-16T00:00:00Z">Jan 16, 2015</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/mercurial" rel="tag">mercurial</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/fzf/">Fzf</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-08-02T00:00:00Z">Aug 02, 2017</time> by Andrew Halberstadt</p>
   </header>
-  <p>This is a continuation of my previous post called <a href="http://ahal.ca/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a>. It assumes that
-you have at least read and experimented with it a bit. If you haven&rsquo;t, stop right now, read it, get
-set up and try playing around with bookmarks and mozreview a bit.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2015/new-mercurial-workflow-part-2/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/fzf/'>Read more →</a>
 </article> 
 
 
@@ -349,21 +234,11 @@ set up and try playing around with bookmarks and mozreview a bit.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/consume-structured-test-results/">How to Consume Structured Test Results</a></h2>
-    <p class="blog-post-meta"><time datetime="2014-12-18T00:00:00Z">Dec 18, 2014</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
-
-</p>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/tags/hugo/">Hugo</a></h2>
+    <p class="blog-post-meta"><time datetime="2018-05-14T00:00:00Z">May 14, 2018</time> by Andrew Halberstadt</p>
   </header>
-  <p>You may not know that most of our test harnesses are now outputting structured logs (thanks in large
-part to :chmanchester&rsquo;s tireless work). Saying a log is structured simply means that it is in a
-machine readable format, in our case each log line is a JSON object. When streamed to a terminal or
-treeherder log, these JSON objects are first formatted into something that is human readable, aka
-the same log format you&rsquo;re already familiar with (which is why you may not have noticed this).</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2014/consume-structured-test-results/'>Read more →</a>
+  
+  <a href='https://ahal.ca/tags/hugo/'>Read more →</a>
 </article> 
 
 

@@ -28,10 +28,6 @@ pre {
     background-image: url('/img/background-100-50-5.png');
 }
 
-.blog-nav a:first-child {
-    display: none;
-}
-
 .blog-post-title a {
     font-size: 0.8em;
 }
@@ -67,6 +63,7 @@ pre {
 
 .sidebar-module li > a {
     display: block;
+    font-size: 0.9em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
