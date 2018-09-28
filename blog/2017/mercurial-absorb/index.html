@@ -49,7 +49,7 @@ the issues with minimal fuss while preserving the commit order?
   "@type": "BlogPosting",
   "headline": "Absorbing Changes into a Commit Series with Mercurial",
   "url": "https://ahal.ca/blog/2017/mercurial-absorb/",
-  "wordCount": "469",
+  "wordCount": "470",
   "datePublished": "2017-02-28T00:00:00&#43;00:00",
   "dateModified": "2017-02-28T00:00:00&#43;00:00",
   "author": {
@@ -163,22 +163,22 @@ you in the right direction.</p>
 <p>Absorb depends on a compiled python module called <code>linelog</code> which also lives in <code>hg-experimental</code>.
 In order to compile linelog, you&rsquo;ll need some dependencies:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pip install cython
-$ sudo dnf install lz4-devel python-devel openssl-devel</code></pre></div>
+$ sudo dnf install python-devel</code></pre></div>
 <p>Make sure the <code>cython</code> dependency gets installed to the same python your mercurial install uses.
 That may mean dropping the sudo from the <code>pip</code> command if you have mercurial running in user space.
 Next, compile the <code>hg-experimental</code> repo by running:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd path/to/hg-experimental
-$ sudo python setup.py install</code></pre></div>
+$ sudo python setup.py install --component absorb</code></pre></div>
 <p>Again, be sure to run the install with the same python mercurial is installed with. Finally, add the
 following to your ~/.hgrc:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extensions]</span>
-<span style="color:#a6e22e">absorb</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">path/to/hg-experimental/hgext3rd/absorb.py</span></code></pre></div>
+<span style="color:#a6e22e">absorb</span> <span style="color:#f92672">=</span></code></pre></div>
 <p>The extension should now be installed! In the future, you can update the extension and python
 modules with:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd path/to/hg-experimental
 $ hg pull --rebase
 $ make clean
-$ sudo python setup.py install</code></pre></div>
+$ sudo python setup.py install --component absorb</code></pre></div>
 <p>Let me know if there were other steps needed to get this working on your platform.</p>
 
   
