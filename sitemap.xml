@@ -230,6 +230,11 @@
   </url>
   
   <url>
+    <loc>https://ahal.ca/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ahal.ca/tags/cycling/</loc>
     <lastmod>2011-11-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -263,10 +268,6 @@
     <loc>https://ahal.ca/tags/mach/</loc>
     <lastmod>2016-02-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ahal.ca/series/making-sense-of-mercurial/</loc>
   </url>
   
   <url>
@@ -344,11 +345,6 @@
   <url>
     <loc>https://ahal.ca/tags/reftest/</loc>
     <lastmod>2012-09-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ahal.ca/series/</loc>
     <priority>0</priority>
   </url>
   

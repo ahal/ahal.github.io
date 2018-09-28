@@ -49,7 +49,7 @@ the issues with minimal fuss while preserving the commit order?
   "@type": "BlogPosting",
   "headline": "Absorbing Changes into a Commit Series with Mercurial",
   "url": "https://ahal.ca/blog/2017/mercurial-absorb/",
-  "wordCount": "470",
+  "wordCount": "469",
   "datePublished": "2017-02-28T00:00:00&#43;00:00",
   "dateModified": "2017-02-28T00:00:00&#43;00:00",
   "author": {
@@ -76,9 +76,7 @@ the issues with minimal fuss while preserving the commit order?
     
 
     <link rel="shortcut icon" href="/favicon.png">
-<link href="https://ahal.ca/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://ahal.ca/css/override.css" rel="stylesheet">
-<link href="https://ahal.ca/css/debugprint.css" rel="stylesheet">
 <script type="text/javascript" src="/js/menu.js"></script>
 
   </head>
@@ -93,14 +91,18 @@ the issues with minimal fuss while preserving the commit order?
           
           <a class="nav-link active" href="/blog/" title="">Blog</a>
           
-          
-          <a class="nav-link" href="/casts/" title="">Casts</a>
-          
         </nav>
       </div>
     </div>
     
 
+    
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="https://ahal.ca/" rel="home">Hunting the Shmoo</a></h1>
+        <p class="lead blog-description">Ramblings related to my work at Mozilla and other projects.</p>
+      </div>
+    </header>
     
 
     
@@ -115,7 +117,6 @@ the issues with minimal fuss while preserving the commit order?
   <header>
     <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></h2>
     <p class="blog-post-meta"><time datetime="2017-02-28T00:00:00Z">Feb 28, 2017</time> by Andrew Halberstadt in 
-
 
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/absorb" rel="tag">absorb</a>, <a href="/tags/mercurial" rel="tag">mercurial</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
 
@@ -162,22 +163,22 @@ you in the right direction.</p>
 <p>Absorb depends on a compiled python module called <code>linelog</code> which also lives in <code>hg-experimental</code>.
 In order to compile linelog, you&rsquo;ll need some dependencies:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pip install cython
-$ sudo dnf install python-devel</code></pre></div>
+$ sudo dnf install lz4-devel python-devel openssl-devel</code></pre></div>
 <p>Make sure the <code>cython</code> dependency gets installed to the same python your mercurial install uses.
 That may mean dropping the sudo from the <code>pip</code> command if you have mercurial running in user space.
 Next, compile the <code>hg-experimental</code> repo by running:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd path/to/hg-experimental
-$ sudo python setup.py install --component absorb</code></pre></div>
+$ sudo python setup.py install</code></pre></div>
 <p>Again, be sure to run the install with the same python mercurial is installed with. Finally, add the
 following to your ~/.hgrc:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extensions]</span>
-<span style="color:#a6e22e">absorb</span> <span style="color:#f92672">=</span></code></pre></div>
+<span style="color:#a6e22e">absorb</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">path/to/hg-experimental/hgext3rd/absorb.py</span></code></pre></div>
 <p>The extension should now be installed! In the future, you can update the extension and python
 modules with:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd path/to/hg-experimental
 $ hg pull --rebase
 $ make clean
-$ sudo python setup.py install --component absorb</code></pre></div>
+$ sudo python setup.py install</code></pre></div>
 <p>Let me know if there were other steps needed to get this working on your platform.</p>
 
   
@@ -319,6 +320,7 @@ $ sudo python setup.py install --component absorb</code></pre></div>
     <input type="hidden" name="options[slug]" value="mercurial-absorb">
     <input class="post-comment-field" name="fields[name]" type="text" placeholder="Name (required)">
     <input class="post-comment-field" name="fields[email]" type="email" placeholder="E-mail (optional)">
+    <input class="post-comment-field" name="fields[url]" type="text" placeholder="Website or social media (optional)">
     <textarea class="post-comment-field" name="fields[msg]" placeholder="Message (required, markdown enabled)" rows="10"></textarea>
     <input class="post-comment-field btn" type="submit" value="Submit">
 </form>
@@ -339,15 +341,6 @@ $ sudo python setup.py install --component absorb</code></pre></div>
         </div> <!-- /.blog-main -->
 
         <aside class="col-sm-3 ml-auto blog-sidebar">
-  
-
-  
-  <section class="sidebar-module">
-    <h4>Series</h4>
-    <ol class="list-unstyled">
-    
-    </ol>
-  </section>
   
 
   

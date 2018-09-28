@@ -88,9 +88,7 @@ the developer use case, but neither is it really difficult to do once you know h
     
 
     <link rel="shortcut icon" href="/favicon.png">
-<link href="https://ahal.ca/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://ahal.ca/css/override.css" rel="stylesheet">
-<link href="https://ahal.ca/css/debugprint.css" rel="stylesheet">
 <script type="text/javascript" src="/js/menu.js"></script>
 
   </head>
@@ -105,14 +103,18 @@ the developer use case, but neither is it really difficult to do once you know h
           
           <a class="nav-link active" href="/blog/" title="">Blog</a>
           
-          
-          <a class="nav-link" href="/casts/" title="">Casts</a>
-          
         </nav>
       </div>
     </div>
     
 
+    
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="https://ahal.ca/" rel="home">Hunting the Shmoo</a></h1>
+        <p class="lead blog-description">Ramblings related to my work at Mozilla and other projects.</p>
+      </div>
+    </header>
     
 
     
@@ -127,7 +129,6 @@ the developer use case, but neither is it really difficult to do once you know h
   <header>
     <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2013/push-custom-test-command-line-try/">How to Push a Custom Test Command Line to Try</a></h2>
     <p class="blog-post-meta"><time datetime="2013-07-24T00:00:00Z">Jul 24, 2013</time> by Andrew Halberstadt in 
-
 
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozharness" rel="tag">mozharness</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
 
@@ -269,6 +270,7 @@ is at the moment.</p>
     <input type="hidden" name="options[slug]" value="push-custom-test-command-line-try">
     <input class="post-comment-field" name="fields[name]" type="text" placeholder="Name (required)">
     <input class="post-comment-field" name="fields[email]" type="email" placeholder="E-mail (optional)">
+    <input class="post-comment-field" name="fields[url]" type="text" placeholder="Website or social media (optional)">
     <textarea class="post-comment-field" name="fields[msg]" placeholder="Message (required, markdown enabled)" rows="10"></textarea>
     <input class="post-comment-field btn" type="submit" value="Submit">
 </form>
@@ -289,15 +291,6 @@ is at the moment.</p>
         </div> <!-- /.blog-main -->
 
         <aside class="col-sm-3 ml-auto blog-sidebar">
-  
-
-  
-  <section class="sidebar-module">
-    <h4>Series</h4>
-    <ol class="list-unstyled">
-    
-    </ol>
-  </section>
   
 
   
