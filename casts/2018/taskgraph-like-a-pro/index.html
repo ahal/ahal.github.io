@@ -155,7 +155,7 @@ on your system under <code>~/.mozbuild/fzf</code>, just make sure it&rsquo;s on 
 <p>Simply pipe the output of <code>mach taskgraph full -J</code> into the <code>tf</code> function (preferably saving it to a
 file first:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach taskgraph full -J &gt; full.taskgraph
-$ cat full.taskgraph | tg <span style="color:#e6db74">&#34;win64 mochitest | reftest -1</span>$<span style="color:#e6db74">&#34;</span></code></pre></div>
+$ cat full.taskgraph | tf <span style="color:#e6db74">&#34;win64 mochitest | reftest -1</span>$<span style="color:#e6db74">&#34;</span></code></pre></div>
 <p>The above will filter down all chunk 1 mochitest and reftest tasks on win64. The query syntax is
 identical to the one used with <code>mach try fuzzy</code>. See <code>man fzf</code> for more details.</p>
 
