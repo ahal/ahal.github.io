@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Casts on Hunting the Shmoo</title>
+    <link>https://ahal.ca/casts/</link>
+    <description>Recent content in Casts on Hunting the Shmoo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2018 Andrew Halberstadt</copyright>
+    <lastBuildDate>Fri, 14 Dec 2018 12:21:21 -0500</lastBuildDate>
+    
+	<atom:link href="https://ahal.ca/casts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Taskgraph Like a Pro</title>
+      <link>https://ahal.ca/casts/2018/taskgraph-like-a-pro/</link>
+      <pubDate>Fri, 14 Dec 2018 12:21:21 -0500</pubDate>
+      
+      <guid>https://ahal.ca/casts/2018/taskgraph-like-a-pro/</guid>
+      <description>&lt;p&gt;Have you ever needed to inspect the taskgraph locally? Did you have a bad time? Learn how to inspect
+the taskgraph like a PRO. For the impatient skip to the installation instructions below.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

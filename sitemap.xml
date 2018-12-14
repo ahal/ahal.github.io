@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ahal.ca/casts/2018/taskgraph-like-a-pro/</loc>
+    <lastmod>2018-12-14T12:21:21-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ahal.ca/blog/2018/website-refresh/</loc>
     <lastmod>2018-05-14T00:00:00+00:00</lastmod>
   </url>
@@ -230,6 +235,12 @@
   </url>
   
   <url>
+    <loc>https://ahal.ca/casts/</loc>
+    <lastmod>2018-12-14T12:21:21-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ahal.ca/tags/cycling/</loc>
     <lastmod>2011-11-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -243,7 +254,7 @@
   
   <url>
     <loc>https://ahal.ca/tags/fzf/</loc>
-    <lastmod>2017-08-02T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-14T12:21:21-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -255,7 +266,7 @@
   
   <url>
     <loc>https://ahal.ca/</loc>
-    <lastmod>2018-05-14T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-14T12:21:21-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -285,7 +296,7 @@
   
   <url>
     <loc>https://ahal.ca/tags/mozilla/</loc>
-    <lastmod>2017-08-02T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-14T12:21:21-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -363,6 +374,12 @@
   <url>
     <loc>https://ahal.ca/tags/taskcluster/</loc>
     <lastmod>2016-08-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/taskgraph/</loc>
+    <lastmod>2018-12-14T12:21:21-05:00</lastmod>
     <priority>0</priority>
   </url>
   
