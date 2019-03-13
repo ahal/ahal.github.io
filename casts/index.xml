@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Fri, 14 Dec 2018 12:21:21 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 12 Mar 2019 17:10:32 -0400</lastBuildDate>
     
 	<atom:link href="https://ahal.ca/casts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Task Configuration at Scale</title>
+      <link>https://ahal.ca/casts/2019/task-configuration-at-scale/</link>
+      <pubDate>Tue, 12 Mar 2019 17:10:32 -0400</pubDate>
+      
+      <guid>https://ahal.ca/casts/2019/task-configuration-at-scale/</guid>
+      <description>&lt;p&gt;A talk I did for the Automationeer&amp;rsquo;s Assemble series on how Mozilla handles complexity in their CI
+configuration.&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;https://player.vimeo.com/video/322897542&#34; width=&#34;720&#34; height=&#34;405&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Taskgraph Like a Pro</title>
