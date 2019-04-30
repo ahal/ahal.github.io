@@ -346,7 +346,7 @@ the two necessary virtualenvs. One for Python 2 and one for Python 3. Some modul
 might show up in both manifests. But there&rsquo;s something else to consider here. We have a similar but
 tangential problem that we need to solve in mozilla-central: dependency locking.</p>
 
-<p>Depdendency locking is making sure that all consumers of a tool use the exact same versions as
+<p>Dependency locking is making sure that all consumers of a tool use the exact same versions as
 everyone else. This keeps things reproducible and explicit, prevents mitm attacks by verifying
 hashes and is widely considered best practice in any package ecosystem. The reason it&rsquo;s worth
 considering is that the tools that handle dependency locking, also tend to handle virtualenv
