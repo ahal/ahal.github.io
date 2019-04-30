@@ -12,7 +12,7 @@
 
 
 
-<meta property="og:updated_time" content="2019-03-12T17:10:32-04:00"/>
+<meta property="og:updated_time" content="2019-04-30T15:25:50-04:00"/>
 
 
 
@@ -40,8 +40,8 @@
     "@type": "Person",
     "name": "Andrew Halberstadt"
   },
-  "dateModified": "2019-03-12T17:10:32-04:00",
-  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,cycling,django,fzf,hugo,mach,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,toronto,try,website,",
+  "dateModified": "2019-04-30T15:25:50-04:00",
+  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,cycling,django,fzf,hugo,jetty,mach,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,toronto,try,website,",
   "description": "Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."
 }
 </script>
@@ -106,6 +106,36 @@
         <div class="col-sm-8 blog-main">
 
           
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></h2>
+    <p class="blog-post-meta"><time datetime="2019-04-30T15:25:50-04:00">Apr 30, 2019</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/python" rel="tag">python</a>, <a href="/tags/jetty" rel="tag">jetty</a>
+
+</p>
+  </header>
+  <p>Mozilla uses a lot of Python. Most of our build system, CI configuration, test harnesses, command
+line tooling and countless other scripts, tools or Github projects are all handled by Python. In
+mozilla-central there are over 3500 Python files (excluding third party files), comprising roughly
+230k lines of code. Additionally there are <a href="https://github.com/mozilla?utf8=%E2%9C%93&amp;q=&amp;type=&amp;language=python">462 repositories</a> labelled with Python in the Mozilla
+org on Github (though many of these are not active). That&rsquo;s a lot of Python, and most of it is
+Python 2.</p>
+
+<p>With Python 2&rsquo;s exaugural year well underway, it is a good time to take stock of the situation and
+ask some questions. How far along has Mozilla come in the Python 3 migration? Which large work items
+lie on the critical path? And do we have a plan to get to a good state in time for Python 2&rsquo;s EOL on
+January 1st, 2020?</p>
+
+<p></p>
+  <a href='https://ahal.ca/blog/2019/python-3-at-mozilla/'>Read more →</a>
+</article> 
 
 
 
@@ -347,37 +377,6 @@ for try syntax to don the wooden overcoat, and this post will explain why.</p>
 
 
 
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></h2>
-    <p class="blog-post-meta"><time datetime="2015-03-30T00:00:00Z">Mar 30, 2015</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/bookbinder" rel="tag">bookbinder</a>, <a href="/tags/mercurial" rel="tag">mercurial</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
-
-</p>
-  </header>
-  <p>I mentioned in my previous post a mercurial extension I wrote for making bookmarks easier to
-manipulate. Since then it has undergone a large overhaul, and I believe it is now stable and
-intuitive enough to advertise a bit more widely.</p>
-
-<h2 id="introducing-bookbinder">Introducing bookbinder</h2>
-
-<p>When working with bookmarks (or anonymous heads) I often wanted to operate on the
-entire series of commits within the feature I was working on. I often found myself digging out
-revision numbers to find the first commit in a bookmark to do things like rebasing, grafting or
-diffing. This was annoying. I wanted bookmarks to work more like a git-style branch, that has a
-definite start as well as an end. And I wanted to be able to easily refer to the set of commits
-contained within. Enter <a href="https://bitbucket.org/halbersa/bookbinder">bookbinder</a>.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/'>Read more →</a>
-</article> 
-
-
-
-
-
 <nav class="blog-pagination">
   
   
@@ -402,6 +401,8 @@ contained within. Enter <a href="https://bitbucket.org/halbersa/bookbinder">book
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
 <li><a href="/casts/2018/taskgraph-like-a-pro/">Taskgraph Like a Pro</a></li>
@@ -419,8 +420,6 @@ contained within. Enter <a href="https://bitbucket.org/halbersa/bookbinder">book
 <li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
 <li><a href="/blog/2015/try-syntax/">Looking beyond Try Syntax</a></li>
-
-<li><a href="/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></li>
 
     </ol>
   </section>
@@ -471,6 +470,11 @@ contained within. Enter <a href="https://bitbucket.org/halbersa/bookbinder">book
     
         
             
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
             <a href="/tags/try">try</a>
         
     
@@ -482,11 +486,6 @@ contained within. Enter <a href="https://bitbucket.org/halbersa/bookbinder">book
         
             
             <a href="/tags/mozmill">mozmill</a>
-        
-    
-        
-            
-            <a href="/tags/python">python</a>
         
     
         
@@ -532,6 +531,11 @@ contained within. Enter <a href="https://bitbucket.org/halbersa/bookbinder">book
         
             
             <a href="/tags/hugo">hugo</a>
+        
+    
+        
+            
+            <a href="/tags/jetty">jetty</a>
         
     
         
