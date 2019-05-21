@@ -12,7 +12,7 @@
 
 
 
-<meta property="og:updated_time" content="2015-03-30T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2015-08-28T00:00:00&#43;00:00"/>
 
 
 
@@ -40,7 +40,7 @@
     "@type": "Person",
     "name": "Andrew Halberstadt"
   },
-  "dateModified": "2015-03-30T00:00:00&#43;00:00",
+  "dateModified": "2015-08-28T00:00:00&#43;00:00",
   "keywords": "absorb,addon,android,ateam,b2g,bookbinder,cycling,django,fzf,hugo,jetty,mach,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,toronto,try,website,",
   "description": "Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."
 }
@@ -106,6 +106,32 @@
         <div class="col-sm-8 blog-main">
 
           
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2015/try-syntax/">Looking beyond Try Syntax</a></h2>
+    <p class="blog-post-meta"><time datetime="2015-08-28T00:00:00Z">Aug 28, 2015</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/try" rel="tag">try</a>
+
+</p>
+  </header>
+  <p>Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
+you put into your commit message which a <a href="http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py">parser</a> then uses to determine the set of builds and
+tests to run on your try push. A common try syntax might look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">try: -b o -p linux -u mochitest -t none</code></pre></div>
+<p>Since inception, it has been a core part of the Mozilla development workflow.
+For many years it has served us well, and even today it serves us passably. But it is almost time
+for try syntax to don the wooden overcoat, and this post will explain why.</p>
+
+<p></p>
+  <a href='https://ahal.ca/blog/2015/try-syntax/'>Read more →</a>
+</article> 
 
 
 
@@ -359,30 +385,6 @@ bootstrapping your environment, running builds and tests, and generating diagnos
 
 
 
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/mach-workflow/">A Workflow for using Mach with multiple Object Directories</a></h2>
-    <p class="blog-post-meta"><time datetime="2014-03-03T00:00:00Z">Mar 03, 2014</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mach" rel="tag">mach</a>, <a href="/tags/mozconfigwrapper" rel="tag">mozconfigwrapper</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>
-
-</p>
-  </header>
-  <p><a href="https://developer.mozilla.org/en-US/docs/Developer_Guide/mach">Mach</a> is an amazing tool which facilitates a large number of common user stories in the mozilla
-source tree. You can perform initial setup, execute a build, run tests, examine diagnostics, even
-search Google. Many of these things require an object directory. This can potentially lead to some
-confusion if you typically have more than one object directory at any given time. How does mach know
-which object directory to operate on?</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2014/mach-workflow/'>Read more →</a>
-</article> 
-
-
-
-
-
 <nav class="blog-pagination">
   
   <a class="btn btn-outline-primary" href="/" rel="prev" role="button">Previous page</a>
@@ -407,6 +409,8 @@ which object directory to operate on?</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
+
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
@@ -424,8 +428,6 @@ which object directory to operate on?</p>
 <li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
 
 <li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
-
-<li><a href="/blog/2015/try-syntax/">Looking beyond Try Syntax</a></li>
 
     </ol>
   </section>

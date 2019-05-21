@@ -7,10 +7,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Tue, 30 Apr 2019 15:25:50 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 21 May 2019 15:04:33 -0400</lastBuildDate>
     
 	<atom:link href="https://ahal.ca/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Cost of Fragmented Communication</title>
+      <link>https://ahal.ca/blog/2019/fragmented-communication/</link>
+      <pubDate>Tue, 21 May 2019 15:04:33 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2019/fragmented-communication/</guid>
+      <description>&lt;p&gt;Mozilla &lt;a href=&#34;http://exple.tive.org/blarg/2019/04/26/synchronous-text/&#34;&gt;recently announced&lt;/a&gt; that we are planning to de-commission &lt;code&gt;irc.mozilla.org&lt;/code&gt; in favour
+of a yet to be determined solution. As a long time user and supporter of IRC, this decision causes
+me some melancholy, but I 100% believe that it is the right call. Moreover, having had an inside
+glimpse at the process to replace it, I&amp;rsquo;m supremely confident whatever is chosen will be the best
+option for Mozilla&amp;rsquo;s needs.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m not here to explain why deprecating IRC is a good idea. &lt;a href=&#34;http://exple.tive.org/blarg/2018/11/09/the-evolution-of-open/&#34;&gt;Other&lt;/a&gt; &lt;a href=&#34;https://blog.humphd.org/irc-mozilla-org/&#34;&gt;people&lt;/a&gt; have
+already done so much more eloquently than I ever could have. I&amp;rsquo;m also not here to push for a
+specific replacement. Arguing over chat applications is like arguing over editors or version
+control. Yes, there are real and important differences from one application to the next, but if
+there&amp;rsquo;s one thing we&amp;rsquo;re spoiled for in 2019 it&amp;rsquo;s chat applications. Besides, so much time has been
+spent thinking about the &lt;a href=&#34;http://exple.tive.org/blarg/2019/05/03/goals-and-constraints/&#34;&gt;requirements&lt;/a&gt;, there&amp;rsquo;s little anyone could say on the matter that
+hasn&amp;rsquo;t already been considered for hours.&lt;/p&gt;
+
+&lt;p&gt;This post is about an unrelated, but adjacent issue. An issue that began when &lt;code&gt;mozilla.slack.com&lt;/code&gt;
+first came online, an issue that will likely persist long after &lt;code&gt;irc.mozilla.org&lt;/code&gt; rides off into
+the sunset. An issue I don&amp;rsquo;t think is brought up enough, and which I&amp;rsquo;m hoping to start some
+discussion on now that communication is on everyone&amp;rsquo;s mind. I&amp;rsquo;m talking about using two
+communication platforms at once. For now Slack and IRC, soon to be Slack and something else.&lt;/p&gt;
+
+&lt;p&gt;Different platform, same problem.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Python 3 at Mozilla</title>

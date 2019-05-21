@@ -5,14 +5,14 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<meta property="og:title" content="Programming" />
+<meta property="og:title" content="Hunting the Shmoo" />
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://ahal.ca/tags/programming/" />
+<meta property="og:url" content="https://ahal.ca/" />
 
 
 
-<meta property="og:updated_time" content="2014-05-24T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2011-04-04T00:00:00&#43;00:00"/>
 
 
 
@@ -24,16 +24,30 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Programming"/>
+<meta name="twitter:title" content="Hunting the Shmoo"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
 <meta name="generator" content="Hugo 0.42.1" />
 
 
     
-      
-    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Blog",
+  "headline": "Hunting the Shmoo",
+  "url" : "https://ahal.ca/",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "dateModified": "2011-04-04T00:00:00&#43;00:00",
+  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,cycling,django,fzf,hugo,jetty,mach,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,toronto,try,website,",
+  "description": "Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."
+}
+</script>
 
-    <link rel="canonical" href="https://ahal.ca/tags/programming/">
+
+    <link rel="canonical" href="https://ahal.ca/">
 
     <title>Hunting the Shmoo</title>
 
@@ -42,7 +56,7 @@
 
     
     <!-- RSS 2.0 feed -->
-    <link href="https://ahal.ca/tags/programming/index.xml" rel="alternate" type="application/rss+xml" title="Hunting the Shmoo" />
+    <link href="https://ahal.ca/index.xml" rel="alternate" type="application/rss+xml" title="Hunting the Shmoo" />
     
 
     
@@ -63,7 +77,7 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link " href="https://ahal.ca/">Home</a>
+          <a class="nav-link active" href="https://ahal.ca/">Home</a>
           
           <a class="nav-link" href="/blog/" title="">Blog</a>
           
@@ -76,13 +90,15 @@
     
 
     
+
     <header class="blog-header">
-      <div class="container">
-        <h1 class="blog-title"><a href="https://ahal.ca/" rel="home">Hunting the Shmoo</a></h1>
-        <p class="lead blog-description">Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy.</p>
+      <div class="container blockquote">
+        <p class="lead blog-description"><i>Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy.</i></p>
       </div>
     </header>
-    
+
+
+
 
     
     <div class="container">
@@ -98,83 +114,34 @@
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/when-would-you-use-python-mixin/">When would you use a Python mixin?</a></h2>
-    <p class="blog-post-meta"><time datetime="2014-05-24T00:00:00Z">May 24, 2014</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2011/i-tried-to-be-different/">I tried to be different and all I got was this crappy website!</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-04-04T00:00:00Z">Apr 04, 2011</time> by Andrew Halberstadt in 
 
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/programming" rel="tag">programming</a>, <a href="/tags/python" rel="tag">python</a>
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/django" rel="tag">django</a>, <a href="/tags/website" rel="tag">website</a>
 
 </p>
   </header>
-  <p>That&rsquo;s not a rhetorical question. I&rsquo;d like to know in which scenarios a mixin in python really is
-the best option. I can&rsquo;t seem to think of any, but maybe I&rsquo;m not thinking outside the box enough.</p>
-
-<p>The basic idea of a mixin is to create a small re-usable class that can &ldquo;plug-in&rdquo; to other larger
-classes. From the <a href="http://en.wikipedia.org/wiki/Mixin">wikipedia definition</a>, a mixin is a way to compose classes together <em>without</em>
-using inheritance. The problem is unlike ruby, python mixins are a purely conceptual construct.
-Python mixins <em>are</em> inheritance (the only difference is that the class name usually contains
-&lsquo;Mixin&rsquo;). It is up to the developer to remember this, and to manually avoid all of the common
-pitfalls of multiple inheritance. This kind of defeats the whole purpose of the mixin in the first
-place. What&rsquo;s more is that most people use python mixins improperly.</p>
+  <p>Back in high school and throughout most of my University career, I&rsquo;ve always thought that personal blogs were dumb. Who in their right mind would care what <em>I</em> was up to?
+It wasn&rsquo;t until I started interning at Mozilla that my views started to shift. I began seeing them as tools to communicate new ideas and elicit feedback from anyone
+interested in what you have to say. It also wasn&rsquo;t until I started interning at Mozilla that I realized that I actually <em>might</em> have something interesting to say.
+So here I am, creating a blog with one month left in my second internship. Too little too late? Maybe, but I have to start at some point.</p>
 
 <p></p>
-  <a href='https://ahal.ca/blog/2014/when-would-you-use-python-mixin/'>Read more →</a>
+  <a href='https://ahal.ca/blog/2011/i-tried-to-be-different/'>Read more →</a>
 </article> 
 
 
 
 
 
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/">Part 2: How to deal with IFFY requirements</a></h2>
-    <p class="blog-post-meta"><time datetime="2014-04-11T00:00:00Z">Apr 11, 2014</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/programming" rel="tag">programming</a>
-
-</p>
-  </header>
-  <p>My last post was basically a very long winded way of saying, &ldquo;we have a problem&rdquo;. It kind of did a
-little dance around &ldquo;why is there a problem&rdquo; and &ldquo;how do we fix it&rdquo;, but I want to explore these two
-questions in a bit more detail. Specifically, I want to return to the two case studies and explore
-why our test harnesses don&rsquo;t work and why mozharness does work even though both have IFFY (in flux
-for years) requirements. Then I will explore how to use the lessons learned to improve our general
-test harness design.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/'>Read more →</a>
-</article> 
-
-
-
-
-
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/">Part 1: Sharing code is not always a good thing</a></h2>
-    <p class="blog-post-meta"><time datetime="2014-03-21T00:00:00Z">Mar 21, 2014</time> by Andrew Halberstadt in 
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ateam" rel="tag">ateam</a>, <a href="/tags/mozilla" rel="tag">mozilla</a>, <a href="/tags/programming" rel="tag">programming</a>
-
-</p>
-  </header>
-  <h3 id="dry-versus-wet">Dry versus Wet</h3>
-
-<p>As programmers, we are taught early on that code duplication is bad and should be avoided at all
-cost. It makes code less maintainable, reusable and readable. The <a href="http://en.wikipedia.org/wiki/DRY_principle">DRY principle</a> is very basic
-and fundamental to how most of us approach software design. If you aren&rsquo;t familiar with the DRY
-principle, please take a minute to read the wikipedia page on it. The counterpart of DRY, is WET
-(write everything twice).  In general, I agree that DRY is good and WET is bad. But I think there
-are a class of problems where the DRY approach can actually be harmful. For these types of problems,
-I will make a claim that a WET approach can actually work better.</p>
-
-<p></p>
-  <a href='https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/'>Read more →</a>
-</article> 
-
-
-
+<nav class="blog-pagination">
+  
+  
+  <a class="btn btn-outline-primary" href="/page/4/" rel="prev" role="button">Previous page</a>
+  <a class="btn btn-outline-primary disabled" href="#" role="button" aria-disabled="true">Next page</a>
+  
+  
+</nav>
 
 
 

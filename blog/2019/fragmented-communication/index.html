@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="The Cost of Fragmented Communication" />
+<meta property="og:description" content="Mozilla recently announced that we are planning to de-commission irc.mozilla.org in favour
+of a yet to be determined solution. As a long time user and supporter of IRC, this decision causes
+me some melancholy, but I 100% believe that it is the right call. Moreover, having had an inside
+glimpse at the process to replace it, I&rsquo;m supremely confident whatever is chosen will be the best
+option for Mozilla&rsquo;s needs.
+
+I&rsquo;m not here to explain why deprecating IRC is a good idea. Other people have
+already done so much more eloquently than I ever could have. I&rsquo;m also not here to push for a
+specific replacement. Arguing over chat applications is like arguing over editors or version
+control. Yes, there are real and important differences from one application to the next, but if
+there&rsquo;s one thing we&rsquo;re spoiled for in 2019 it&rsquo;s chat applications. Besides, so much time has been
+spent thinking about the requirements, there&rsquo;s little anyone could say on the matter that
+hasn&rsquo;t already been considered for hours.
+
+This post is about an unrelated, but adjacent issue. An issue that began when mozilla.slack.com
+first came online, an issue that will likely persist long after irc.mozilla.org rides off into
+the sunset. An issue I don&rsquo;t think is brought up enough, and which I&rsquo;m hoping to start some
+discussion on now that communication is on everyone&rsquo;s mind. I&rsquo;m talking about using two
+communication platforms at once. For now Slack and IRC, soon to be Slack and something else.
+
+Different platform, same problem.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2019/fragmented-communication/" />
+
+
+
+<meta property="article:published_time" content="2019-05-21T15:04:33-04:00"/>
+
+<meta property="article:modified_time" content="2019-05-21T15:04:33-04:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The Cost of Fragmented Communication"/>
+<meta name="twitter:description" content="Mozilla recently announced that we are planning to de-commission irc.mozilla.org in favour
+of a yet to be determined solution. As a long time user and supporter of IRC, this decision causes
+me some melancholy, but I 100% believe that it is the right call. Moreover, having had an inside
+glimpse at the process to replace it, I&rsquo;m supremely confident whatever is chosen will be the best
+option for Mozilla&rsquo;s needs.
+
+I&rsquo;m not here to explain why deprecating IRC is a good idea. Other people have
+already done so much more eloquently than I ever could have. I&rsquo;m also not here to push for a
+specific replacement. Arguing over chat applications is like arguing over editors or version
+control. Yes, there are real and important differences from one application to the next, but if
+there&rsquo;s one thing we&rsquo;re spoiled for in 2019 it&rsquo;s chat applications. Besides, so much time has been
+spent thinking about the requirements, there&rsquo;s little anyone could say on the matter that
+hasn&rsquo;t already been considered for hours.
+
+This post is about an unrelated, but adjacent issue. An issue that began when mozilla.slack.com
+first came online, an issue that will likely persist long after irc.mozilla.org rides off into
+the sunset. An issue I don&rsquo;t think is brought up enough, and which I&rsquo;m hoping to start some
+discussion on now that communication is on everyone&rsquo;s mind. I&rsquo;m talking about using two
+communication platforms at once. For now Slack and IRC, soon to be Slack and something else.
+
+Different platform, same problem.
+
+"/>
+<meta name="generator" content="Hugo 0.42.1" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Cost of Fragmented Communication",
+  "url": "https://ahal.ca/blog/2019/fragmented-communication/",
+  "wordCount": "1519",
+  "datePublished": "2019-05-21T15:04:33-04:00",
+  "dateModified": "2019-05-21T15:04:33-04:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "mozilla"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2019/fragmented-communication/">
+
+    <title>The Cost of Fragmented Communication | Hunting the Shmoo</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://ahal.ca/css/style.css" rel="stylesheet" integrity="sha384-TbfEhJn4HkgPUIZUhhHaAYsycYKHxSuIloCjZOiyCSpbVunRQxg5T5pxKVFwxilF" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<link href="https://ahal.ca/css/debugprint.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://ahal.ca/">Home</a>
+          
+          <a class="nav-link active" href="/blog/" title="">Blog</a>
+          
+          
+          <a class="nav-link" href="/casts/" title="">Casts</a>
+          
+        </nav>
+      </div>
+    </div>
+    
+
+    
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="https://ahal.ca/" rel="home">Hunting the Shmoo</a></h1>
+        <p class="lead blog-description">Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy.</p>
+      </div>
+    </header>
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></h2>
+    <p class="blog-post-meta"><time datetime="2019-05-21T15:04:33-04:00">May 21, 2019</time> by Andrew Halberstadt in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/mozilla" rel="tag">mozilla</a>
+
+</p>
+  </header>
+  <p>Mozilla <a href="http://exple.tive.org/blarg/2019/04/26/synchronous-text/">recently announced</a> that we are planning to de-commission <code>irc.mozilla.org</code> in favour
+of a yet to be determined solution. As a long time user and supporter of IRC, this decision causes
+me some melancholy, but I 100% believe that it is the right call. Moreover, having had an inside
+glimpse at the process to replace it, I&rsquo;m supremely confident whatever is chosen will be the best
+option for Mozilla&rsquo;s needs.</p>
+
+<p>I&rsquo;m not here to explain why deprecating IRC is a good idea. <a href="http://exple.tive.org/blarg/2018/11/09/the-evolution-of-open/">Other</a> <a href="https://blog.humphd.org/irc-mozilla-org/">people</a> have
+already done so much more eloquently than I ever could have. I&rsquo;m also not here to push for a
+specific replacement. Arguing over chat applications is like arguing over editors or version
+control. Yes, there are real and important differences from one application to the next, but if
+there&rsquo;s one thing we&rsquo;re spoiled for in 2019 it&rsquo;s chat applications. Besides, so much time has been
+spent thinking about the <a href="http://exple.tive.org/blarg/2019/05/03/goals-and-constraints/">requirements</a>, there&rsquo;s little anyone could say on the matter that
+hasn&rsquo;t already been considered for hours.</p>
+
+<p>This post is about an unrelated, but adjacent issue. An issue that began when <code>mozilla.slack.com</code>
+first came online, an issue that will likely persist long after <code>irc.mozilla.org</code> rides off into
+the sunset. An issue I don&rsquo;t think is brought up enough, and which I&rsquo;m hoping to start some
+discussion on now that communication is on everyone&rsquo;s mind. I&rsquo;m talking about using two
+communication platforms at once. For now Slack and IRC, soon to be Slack and something else.</p>
+
+<p>Different platform, same problem.</p>
+
+<p></p>
+
+<h3 id="two-modes-of-communication">Two Modes of Communication</h3>
+
+<p>Mozilla walks the walk when it comes to involving the community. Much of our communication, decision
+making and implementation all happens right out in the open. Anyone can go back and read almost
+everything I&rsquo;ve ever posted to Bugzilla, every <a href="https://mozilla.logbot.info/ateam/20100325#c4178">message I left on IRC</a>, every post I&rsquo;ve made to
+the newsgroups, every patch I&rsquo;ve submitted or review I&rsquo;ve conducted. It&rsquo;s all out there in the
+public. For most, this level of openness is a very strange concept. For many it&rsquo;s unsettling. But
+it allows Mozilla to bring community into the conversation unlike anywhere else I&rsquo;ve ever seen at
+this scale. This is a feature, a huge competitive advantage.</p>
+
+<p>But like any organization, some things need to be kept out of the public eye. Whether that&rsquo;s
+information on critical security bugs, confidential partner agreements or product announcements
+carefuly timed for marketing impact. Other conversations have no reason to be public, office
+channels, lunch plans and catching up with colleagues, anything that might touch on something
+personal.</p>
+
+<p>In the old days, the only way to talk in private was either e-mail or password protected IRC
+channels (which were nowhere near suitable for the purposes they were being used). After much
+frustration, someone set up a Slack instance and solved the issue in one fell swoop. Constantly
+being in the public eye can be unnerving, and now there was a safe space one could chat with their
+colleagues. A place Mozillians could be themselves without needing to worry (as much) about what
+they say. This was a very good thing.</p>
+
+<p>Now Mozilla had (and still has) two communication platforms. IRC for public community facing
+discussions, Slack for private, NDA&rsquo;ed only discussions. As I mentioned, both modes of communication
+are essential, and IRC is not capable of fulfilling the latter adequately. So what&rsquo;s the problem?</p>
+
+<h3 id="cultures-of-preference">Cultures of Preference</h3>
+
+<p>The problem is that the usage divide between these platforms <em>does not</em> follow the public/private
+guideline I outlined above. Most of the conversation I see on Slack has no reason to be private (and
+some of the conversation I see on IRC <em>should</em> be private, albeit much less than the other way
+around). Everyone has inherent biases. Given two communication platforms A and B, some percentage of
+people will prefer A and the rest will prefer B. Even assuming that everyone still uses both A and B
+to some degree (which I know from experience is not a valid assumption in our case), this is a big
+problem.</p>
+
+<p>The first thing that might pop into your head is the cost of context switching between chat apps.
+While there is a certain cognitive burden associated with adding yet another app to your workflow,
+I&rsquo;m not convinced that it&rsquo;s significant. So for the sake of argument, I&rsquo;m going to assume that there
+aren&rsquo;t any drawbacks from the <em>actual use</em> of two apps.</p>
+
+<p>The real cost comes from missed connections. It&rsquo;s best to illustrate some of these costs in a case
+study. I&rsquo;ll use the case study of someone I can speak for authoritatively, myself.</p>
+
+<h3 id="missed-connections">Missed Connections</h3>
+
+<p>I have fond memories stumbling into my first IRC channel to play a text-based online space battle
+game called Star Fury. The openness of the communication was also something that really impressed me
+when I first joined Mozilla as an intern. It&rsquo;s something I took to heart and try to use myself
+whenever possible. Suffice to say, I am personally biased towards IRC.</p>
+
+<p>That&rsquo;s not to say that I refuse to use Slack. I use both, and when someone pings me I&rsquo;m equally
+responsive on either platform. But I spend more time in IRC, I read more scrollback, I actively
+search out channels that might be relevant to my interests, I set up notifications for terms that I
+might be able to help out with. Very often I am able to help someone in need without being
+explicitly pinged.</p>
+
+<p>I don&rsquo;t do any of these things on Slack. How many relevant conversations in channels I don&rsquo;t even
+know exist am I missing? How many people spend hours figuring out an unanswered question that I knew
+off the top of my head? Conversely, when I ask a question in IRC, how many people who have a bias
+towards Slack could have helped me out but didn&rsquo;t? Mozilla has a cultural problem that needs
+solving. Developers with a bias towards IRC are talking past developers with a bias towards Slack.
+The same conversations are often being duplicated in both places.</p>
+
+<p>Of course measuring the productivity impact of missed communication is more or less impossible.
+There&rsquo;s no way of knowing just how big of a problem this is, though I suspect it is larger than one
+might expect.</p>
+
+<h3 id="inclusion-by-default">Inclusion by Default</h3>
+
+<p>The previous section purposefully doesn&rsquo;t mention the words &lsquo;private&rsquo; or &lsquo;public&rsquo;. My hope is to
+convince you that simply giving people a choice (regardless of the mode of communication) causes
+problems worth solving in and of themselves. But remember that people usually tend to use Slack, not
+because they are having private conversations, but because they prefer it to IRC. This is a problem
+because Slack is exclusionary. Contributors can&rsquo;t access it without signing an NDA (which requires
+employee intervention). These conversations exclude the wider Mozilla community, treating
+contributors as second class citizens. Here is a quick anecdote.</p>
+
+<p>There is both a <code>#python</code> channel on IRC and on Slack. The one on IRC is more or less dead, there is
+hardly ever any conversation there. The one on Slack on the other hand has 3-4 times the number of
+members and there is vibrant conversation happening daily. The vast majority of conversation there
+is simply Python enthusiasts sharing tips and tricks, talking about new language features and
+discussing new and cool packages discovered in the wild. In otherwords, exactly the kind of
+conversations that might be beneficial to a contributor trying to learn the ropes. It saddens me
+that these conversations, and conversations on many other channels like it, are not accessible to
+the entire community.</p>
+
+<h3 id="a-cause-for-optimism-a-cause-for-concern">A Cause for Optimism, A Cause for Concern</h3>
+
+<p>To summarize, there are two distinct problems outlined here:</p>
+
+<ol>
+<li>Missed and duplicated communication that arises from two factions of people having inherent
+preferences for a given platform.</li>
+<li>Exclusive conversations that have no reason to be private, arising (presumably) when a critical
+mass of people prefer the closed platform to the open one.</li>
+</ol>
+
+<p>Despite my misgivings, I&rsquo;m optimistic for the future. The process to replace IRC should result in a
+public communication platform that is more or less on par with Slack in terms of bells and whistles.
+This should incentivize more people over to the side of public by default and reduce the impact of
+both of the aforementioned problems.</p>
+
+<p>But it needs to be noted that deprecating Slack is not in the cards (at least for now). Whatever
+platform we end up choosing, Slack will continue to be the platform we use for our private NDA&rsquo;ed
+conversations. This means that the problem will still exist to some degree (some percentage of
+people will always prefer it to the alternative). Ideally the IRC replacement will be able to handle
+both public and private modes of communication. And ideally once the switch happens, we can start a
+conversation about turning off Slack. I&rsquo;ve heard one of the barriers to turning off Slack is that it
+is the preferred method of communication amongst executives. I sincerely hope that after we switch
+away from IRC that this is not the only barrier stopping this from happening.</p>
+
+<p>Mozilla&rsquo;s productivity and inclusion are both on the line.</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2019%2ffragmented-communication%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2019%2ffragmented-communication%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2019%2ffragmented-communication%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2019%2ffragmented-communication%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+
+  
+    <section class="post-comments">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <br>
+      <h4>Leave a comment</h4>
+<form class="post-new-comment" method="POST" action="https://api.staticman.net/v2/entry/ahal/hunting-the-shmoo/master/comments">
+    <input type="hidden" name="options[redirect]" value="https://ahal.ca/blog/2019/fragmented-communication/#comment-submitted">
+    <input type="hidden" name="options[slug]" value="fragmented-communication">
+    <input class="post-comment-field" name="fields[name]" type="text" placeholder="Name (required)">
+    <input class="post-comment-field" name="fields[email]" type="email" placeholder="E-mail (optional)">
+    <textarea class="post-comment-field" name="fields[msg]" placeholder="Message (required, markdown enabled)" rows="10"></textarea>
+    <input class="post-comment-field btn" type="submit" value="Submit">
+</form>
+
+<div id="comment-submitted">
+  <p>Your comment has been submitted and will be published once it has been approved.</p>
+</div>
+
+    </section>
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
+
+<li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
+
+<li><a href="/casts/2018/taskgraph-like-a-pro/">Taskgraph Like a Pro</a></li>
+
+<li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
+
+<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+
+<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+
+<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+
+<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+
+<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/taskgraph">taskgraph</a>
+        
+    
+        
+            
+            <a href="/tags/website">website</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/hugo">hugo</a>
+        
+    
+        
+            
+            <a href="/tags/jetty">jetty</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/staticman">staticman</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+      <p>
+      
+      © 2018 Andrew Halberstadt
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+    
+
+  </body>
+
+</html>
