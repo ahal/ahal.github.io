@@ -37,7 +37,7 @@ you have at least read and experimented with it a bit. If you haven&rsquo;t, sto
 set up and try playing around with bookmarks and mozreview a bit.
 
 "/>
-<meta name="generator" content="Hugo 0.42.1" />
+<meta name="generator" content="Hugo 0.42" />
 
 
     
@@ -249,7 +249,7 @@ includes all ancestors of the bookmark, so it&rsquo;s not always obvious where t
 <li>It is slightly more annoying to write <code>-r &quot;b(my_feature)&quot;</code> than it is to write <code>-r my_feature</code>.</li>
 </ol>
 
-<p>These shortcomings were annoying enough to me that I wrote an extension called <a href="https://bitbucket.org/halbersa/bookbinder">bookbinder</a>.
+<p>These shortcomings were annoying enough to me that I wrote an extension called <a href="https://hg.sr.ht/~ahal/bookbinder">bookbinder</a>.
 Essentially if you pass in <code>-r &lt;bookmark&gt;</code> to a supported command, logbook will replace the
 bookmark&rsquo;s revision with a revset containing all changesets &ldquo;in&rdquo; the bookmark. So far <code>log</code>,
 <code>rebase</code>, <code>prune</code> and <code>fold</code> are wrapped by bookbinder. Bookbinder will also detect if bookmarks are
