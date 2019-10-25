@@ -296,187 +296,27 @@ as advertised. Kudos to everyone involved in making this workflow possible!</p>
   <footer>
 
   
-    <section>
-    <h4>Share</h4>
-    <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2014%2fnew-mercurial-workflow%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fnew-mercurial-workflow%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fnew-mercurial-workflow%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2014%2fnew-mercurial-workflow%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-    </nav>
-  </section>
-
-  
+  <section>
+  <nav class="nav sharing-icons">
+    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2014%2fnew-mercurial-workflow%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fnew-mercurial-workflow%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fnew-mercurial-workflow%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2014%2fnew-mercurial-workflow%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+  </nav>
+</section>
 
   
 
   
     <section class="post-comments">
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <h4>Comments</h4>
-  
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/gregory.szorc@gmail.com?s=100">
-        <p class="post-comment-info"><strong>Gregory Szorc</strong><br>08/11/2014</p>
-      </div>
-      <p>Excellent post!</p><p>I guess you didn't know that firefoxtree automatically creates aliases for the Firefox repositories. i.e. `hg pull central` just works with no hgrc hacking needed.</p><p>This blog post inspired me to write up some Sphinx docs for firefoxtree tree so its awesomeness is fully realized. Stay tuned...</p>
-
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/halbersa@gmail.com?s=100">
-        <p class="post-comment-info"><strong>ahal</strong><br>08/11/2014</p>
-      </div>
-      I didn't. I actually had a 'central = ... ' alias already, so I didn't notice. In the post I changed it to 'm-c' to differentiate it from the local tag, but I guess there's no need for that. Thanks for pointing it out though, I'll update the post.
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/gregory.szorc@gmail.com?s=100">
-        <p class="post-comment-info"><strong>Gregory Szorc</strong><br>08/11/2014</p>
-      </div>
-      And <a href="https://mozilla-version-control-tools.readthedocs.org/en/latest/hgmozilla/firefoxtree.html" rel="nofollow noopener" title="https://mozilla-version-control-tools.readthedocs.org/en/latest/hgmozilla/firefoxtree.html">https://mozilla-version-con...</a> is live.
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/cpeterson@mozilla.com?s=100">
-        <p class="post-comment-info"><strong>Chris</strong><br>10/11/2014</p>
-      </div>
-      Thanks for sharing, Andrew. This was a great introduction to bookmarks and reviewboard. I'm going to throw out my old hg and mq shortcuts and try to stick with this new workflow. :)
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/mathias.demare@gmail.com?s=100">
-        <p class="post-comment-info"><strong>Mathiasdm</strong><br>10/11/2014</p>
-      </div>
-      <p>"This is enough of a pain that I'd recommend avoiding user repositories for this purpose unless you<br>can figure out how to make them non-publishing."</p><p>I would propose you mention how to make them non-publishing, it only requires:</p><p>[phases]<br>publish = False</p><p>Nice post, by the way!</p>
-
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/halbersa@gmail.com?s=100">
-        <p class="post-comment-info"><strong>ahal</strong><br>10/11/2014</p>
-      </div>
-      Good point. In the case of user repos, I don't think most people have <br>permission to ssh in and make this change (someone correct me if I'm wrong). But it's a necessary step no <br>matter where it lives. Updated!
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/jryans@gmail.com?s=100">
-        <p class="post-comment-info"><strong>J. Ryan Stinnett</strong><br>11/11/2014</p>
-      </div>
-      What do the steps to rebase a long-lived feature branch look like with this workflow?
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/halbersa@gmail.com?s=100">
-        <p class="post-comment-info"><strong>ahal</strong><br>11/11/2014</p>
-      </div>
-      <p>You mean a twig like alder or birch? As long as it's a repo firefoxtree knows about (<a href="https://hg.mozilla.org/hgcustom/version-control-tools/file/a7462aae407b/pylib/mozautomation/mozautomation/repository.py#l45)" rel="nofollow noopener" title="https://hg.mozilla.org/hgcustom/version-control-tools/file/a7462aae407b/pylib/mozautomation/mozautomation/repository.py#l45)">https://hg.mozilla.org/hgcu...</a> then it shouldn't be any different from rebasing on top of central.</p><p>hg rebase works similarly to git rebase. If there's a conflict it will suspend, you have to fix the conflict manually and then run `hg rebase --continue`.</p>
-
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/nthomas@mozilla.com?s=100">
-        <p class="post-comment-info"><strong>nthomas</strong><br>12/11/2014</p>
-      </div>
-      gps is already on this case, see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1089385" rel="nofollow noopener" title="https://bugzilla.mozilla.org/show_bug.cgi?id=1089385">https://bugzilla.mozilla.or...</a>
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/j.parkouss@gmail.com?s=100">
-        <p class="post-comment-info"><strong>parkouss</strong><br>10/06/2015</p>
-      </div>
-      Excellent post, thanks!
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/yarik.sheptykin@googlemail.com?s=100">
-        <p class="post-comment-info"><strong>Yarik Sheptykin</strong><br>11/01/2017</p>
-      </div>
-      <p>Thanks for sharing!</p><p>I have been using this workflow for about a year now and can report that rebase extension is not very helpful when conflicts arise. This makes bookmark workflow comfortable for short-lived patches. Whenever you changeset lives long enough to race with somebody else's work you will have hard times keeping up with central. rebase would live you with a bunch of .rej files without hinting where the merge broke. This problems might affect changesets that touch many things. To my experience using mq in such situations is more comfortable.</p>
-
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/halbersa@gmail.com?s=100">
-        <p class="post-comment-info"><strong>ahal</strong><br>11/01/2017</p>
-      </div>
-      <p>Whether .rej files show up or not depends on how you have mercurial configured. For example, you could install meld (<a href="http://meldmerge.org/)" rel="nofollow noopener" title="http://meldmerge.org/)">http://meldmerge.org/)</a>, then add:</p><p>[ui]<br>merge = meld</p><p>To your hgrc. Now when hitting conflicts you'll be using a proper 3-way merge tool. I use meld and have not seen .rej files since switching from mq. Meld is just one example, you could use kdiff3 or vimdiff or whatever you want.</p>
-
-    </div>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <br>
-      <h4>Leave a comment</h4>
-<form class="post-new-comment" method="POST" action="https://api.staticman.net/v2/entry/ahal/hunting-the-shmoo/master/comments">
-    <input type="hidden" name="options[redirect]" value="https://ahal.ca/blog/2014/new-mercurial-workflow/#comment-submitted">
-    <input type="hidden" name="options[slug]" value="new-mercurial-workflow">
-    <input class="post-comment-field" name="fields[name]" type="text" placeholder="Name (required)">
-    <input class="post-comment-field" name="fields[email]" type="email" placeholder="E-mail (optional)">
-    <textarea class="post-comment-field" name="fields[msg]" placeholder="Message (required, markdown enabled)" rows="10"></textarea>
-    <input class="post-comment-field btn" type="submit" value="Submit">
-</form>
-
-<div id="comment-submitted">
-  <p>Your comment has been submitted and will be published once it has been approved.</p>
-</div>
+      <script src="https://utteranc.es/client.js"
+        repo="ahal/hunting-the-shmoo"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
     </section>
   

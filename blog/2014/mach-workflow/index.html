@@ -182,111 +182,27 @@ please feel free to share it in the comments.</p>
   <footer>
 
   
-    <section>
-    <h4>Share</h4>
-    <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2014%2fmach-workflow%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fmach-workflow%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fmach-workflow%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2014%2fmach-workflow%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-    </nav>
-  </section>
-
-  
+  <section>
+  <nav class="nav sharing-icons">
+    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2014%2fmach-workflow%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fmach-workflow%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fmach-workflow%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2014%2fmach-workflow%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+  </nav>
+</section>
 
   
 
   
     <section class="post-comments">
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <h4>Comments</h4>
-  
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/ato@sny.no?s=100">
-        <p class="post-comment-info"><strong>Andreas Tolfsen</strong><br>04/03/2014</p>
-      </div>
-      <p>This is pretty useful!  Not knowing about this tool I did something very similar, but much cruder, by symlinking my current active mozconfig file to the configuration I want to build for:</p><p>~/dev/gecko % ls -l src/mozconfig<br>lrwxr-xr-x  1 ato  staff  26 22 Feb 18:22 src/mozconfig -&gt; ../mozconfig/desktop-debug<br>~/dev/gecko % ls -l mozconfig <br>lrwxr-xr-x  1 ato  staff  33 22 Feb 17:46 mozconfig -&gt; /Users/ato/dev/dotfiles/mozconfig<br>~/dev/gecko % ls -l ~/dev/dotfiles/mozconfig <br>total 32<br>-rw-r--r--  1 ato  staff  125 22 Feb 17:46 b2g<br>-rw-r--r--  1 ato  staff  225 22 Feb 17:46 common<br>-rw-r--r--  1 ato  staff  204 22 Feb 17:46 desktop-debug<br>-rw-r--r--  1 ato  staff  141 22 Feb 17:46 desktop-release</p><p>So when I want to build a desktop opt build instead I do:</p><p>% rm mozconfig<br>% ln -s ../mozconfig/desktop-release mozconfig</p><p>My mozconfig's, which may not be so great, are here: <a href="https://github.com/andreastt/dotfiles/tree/master/mozconfig" rel="nofollow noopener" title="https://github.com/andreastt/dotfiles/tree/master/mozconfig">https://github.com/andreast...</a></p>
-
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/halbersa@gmail.com?s=100">
-        <p class="post-comment-info"><strong>ahal</strong><br>04/03/2014</p>
-      </div>
-      Cool. My workflow used to involve a lot of symlinking as well. Another one I've seen is putting a lot of the processing logic in the mozconfigs themselves (since they are just shell scripts).
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/ato@sny.no?s=100">
-        <p class="post-comment-info"><strong>Andreas Tolfsen</strong><br>05/03/2014</p>
-      </div>
-      That's an interesting idea.  Potentially one could have it detect an environmental variable or something and have it automatically instate the right mozconfig for you.
-    </div>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <br>
-      <h4>Leave a comment</h4>
-<form class="post-new-comment" method="POST" action="https://api.staticman.net/v2/entry/ahal/hunting-the-shmoo/master/comments">
-    <input type="hidden" name="options[redirect]" value="https://ahal.ca/blog/2014/mach-workflow/#comment-submitted">
-    <input type="hidden" name="options[slug]" value="mach-workflow">
-    <input class="post-comment-field" name="fields[name]" type="text" placeholder="Name (required)">
-    <input class="post-comment-field" name="fields[email]" type="email" placeholder="E-mail (optional)">
-    <textarea class="post-comment-field" name="fields[msg]" placeholder="Message (required, markdown enabled)" rows="10"></textarea>
-    <input class="post-comment-field btn" type="submit" value="Submit">
-</form>
-
-<div id="comment-submitted">
-  <p>Your comment has been submitted and will be published once it has been approved.</p>
-</div>
+      <script src="https://utteranc.es/client.js"
+        repo="ahal/hunting-the-shmoo"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
     </section>
   

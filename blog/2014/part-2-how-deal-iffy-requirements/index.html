@@ -263,95 +263,27 @@ next time, I think I&rsquo;ll at least have a better chance.</p>
   <footer>
 
   
-    <section>
-    <h4>Share</h4>
-    <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-    </nav>
-  </section>
-
-  
+  <section>
+  <nav class="nav sharing-icons">
+    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+  </nav>
+</section>
 
   
 
   
     <section class="post-comments">
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <h4>Comments</h4>
-  
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/sphink@gmail.com?s=100">
-        <p class="post-comment-info"><strong>SteveFink</strong><br>25/04/2014</p>
-      </div>
-      <p>Repeating yourself really does suck for all kinds of reasons. IMHO, it usually means that you haven't adequately analyzed the tasks at hand. Sharing code because it happens to be exactly the same (or very similar) to other code is a bad idea, true. But if you figure out *why* that code looks the same, then you can usually find that at least part of what it is doing can be thought of more abstractly and implemented once, then called by both of the original places. That boundary should be a semantic boundary, though, not a syntactic one (as in, don't share as much as possible; share just what is needed to implement some human-meaningful portion of the task.) If that means there's still a little duplication before or after the call to the shared portion, so be it.</p><p>But that doesn't mean inheritance. Inheritance isn't a horrible evil, but it requires you to pick one particular dimension to describe things with, and there are often multiple equally valid dimensions to use. "is-a" just isn't a particularly good way to break down a structure. I'm sure there are good best practices or rules of thumb for picking the right dimension, but I don't know what they are. I'm not fond of mozharness's mixins. They've even been the direct cause of bugs in my code, where the fix was to reorder the list of mixins. That doesn't smell good.</p><p>Composition isn't all roses either. You end up nouning verbs a lot -- eg instead of log("foo") and inheriting the appropriate log() behavior, you instead logger.log("foo"). So you end up with a logger and a formatter and a connector and lots of other (verb)ers. All of which need to be constructed and passed in, which leads you into the abstraction hell of factories and factory factories and configuration providers and other such "can't I just write the damn code?!" gunk. But still, it lets you use one (verb)er per dimension, which is really nice.</p><p>Avoiding repetition has real benefits. Obviously, there's the one where you only have to change one place to fix everything. But it's also easier to maintain a coherent architecture when you don't have repeated or half-repeated bits lying all over the place.</p><p>That's about as far as I'm willing to go with an abstract argument. I haven't looked at the test runner code, but for mozharness, I'd really like better separation of Mock environments, running-under-buildbot or not, actions that are exactly the same (modulo some configuration, possibly) across many jobs, and most of all, making actions independent rather than relying on certain other actions to have already been run in a certain order.</p>
-
-    </div>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <br>
-      <h4>Leave a comment</h4>
-<form class="post-new-comment" method="POST" action="https://api.staticman.net/v2/entry/ahal/hunting-the-shmoo/master/comments">
-    <input type="hidden" name="options[redirect]" value="https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/#comment-submitted">
-    <input type="hidden" name="options[slug]" value="part-2-how-deal-iffy-requirements">
-    <input class="post-comment-field" name="fields[name]" type="text" placeholder="Name (required)">
-    <input class="post-comment-field" name="fields[email]" type="email" placeholder="E-mail (optional)">
-    <textarea class="post-comment-field" name="fields[msg]" placeholder="Message (required, markdown enabled)" rows="10"></textarea>
-    <input class="post-comment-field btn" type="submit" value="Submit">
-</form>
-
-<div id="comment-submitted">
-  <p>Your comment has been submitted and will be published once it has been approved.</p>
-</div>
+      <script src="https://utteranc.es/client.js"
+        repo="ahal/hunting-the-shmoo"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
     </section>
   

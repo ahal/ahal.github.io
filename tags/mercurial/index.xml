@@ -43,7 +43,7 @@ entire series of commits within the feature I was working on. I often found myse
 revision numbers to find the first commit in a bookmark to do things like rebasing, grafting or
 diffing. This was annoying. I wanted bookmarks to work more like a git-style branch, that has a
 definite start as well as an end. And I wanted to be able to easily refer to the set of commits
-contained within. Enter &lt;a href=&#34;https://bitbucket.org/halbersa/bookbinder&#34;&gt;bookbinder&lt;/a&gt;.&lt;/p&gt;
+contained within. Enter &lt;a href=&#34;https://hg.sr.ht/~ahal/bookbinder&#34;&gt;bookbinder&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

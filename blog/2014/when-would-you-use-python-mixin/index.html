@@ -198,177 +198,27 @@ the relationship is &ldquo;A has a B&rdquo;, then why not use composition? What 
   <footer>
 
   
-    <section>
-    <h4>Share</h4>
-    <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2014%2fwhen-would-you-use-python-mixin%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fwhen-would-you-use-python-mixin%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fwhen-would-you-use-python-mixin%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2014%2fwhen-would-you-use-python-mixin%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-    </nav>
-  </section>
-
-  
+  <section>
+  <nav class="nav sharing-icons">
+    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2014%2fwhen-would-you-use-python-mixin%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fwhen-would-you-use-python-mixin%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fwhen-would-you-use-python-mixin%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2014%2fwhen-would-you-use-python-mixin%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+  </nav>
+</section>
 
   
 
   
     <section class="post-comments">
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <h4>Comments</h4>
-  
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/thristian@gmail.com?s=100">
-        <p class="post-comment-info"><strong>Screwtape</strong><br>24/05/2014</p>
-      </div>
-      A good example of mixins in Python would be the "<a href="http://collections.abc" rel="nofollow noopener" title="collections.abc">collections.abc</a>" module in the standard library. For example, if you implement __getitem__() and __len__() then inherit from collections.abc.Sequence, you automatically get implementations of __contains__(), __iter__(), __reversed__(), index() and count() methods. If you used composition, you would have to manually define each of those methods to call the equivalent method on your internal Sequence object, which is certainly possible but also pretty tedious.
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/jjdelc@gmail.com?s=100">
-        <p class="post-comment-info"><strong>Jj</strong><br>24/05/2014</p>
-      </div>
-      <p>Depends on your need, not always coding is a perfect abstraction of reality. Classes and objects don't always represent real world entities with real world relationships.</p><p>I've found myself using mixins to extend funcionality, to provide base classes. I use Django a lot and using Forms, Views, Admin classes, mixins are a great tool to have. When having a set of related views, if you know the methods you can just write your own and a few helpers and save yourself a lot of coding just by defining classes that inherit from framework provided classes and your mixins, declare a couple of class attributes as configuration and be good to go.</p>
-
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/wrlach@gmail.com?s=100">
-        <p class="post-comment-info"><strong>William Lachance</strong><br>24/05/2014</p>
-      </div>
-      <p>Yes, I think it just comes down to the fact that sometimes mixins are an easier way to get the behaviour that you want when expressing concepts that can't simply be defined as "A is a B" or "A has a B". Screwtape's example is good, another one that comes to mind in our code is the droid mixin we use in mozdevice for adding Android-specific functionality to DeviceManager:</p><p><a href="http://mxr.mozilla.org/mozilla-central/source/testing/mozbase/mozdevice/mozdevice/droid.py#16" rel="nofollow noopener" title="http://mxr.mozilla.org/mozilla-central/source/testing/mozbase/mozdevice/mozdevice/droid.py#16">http://mxr.mozilla.org/mozi...</a></p><p>For each implementation (ADB and SUT) we want a base class without the functionality, so a mixin is the best way of generating a new classes with the desired methods.</p><p>You are right about the gotchas though. In general I have found inheritance to not always work how I expect in Python and that includes Mixins. I guess that's the price you pay for its expressiveness vs. (e.g.) Java.</p>
-
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/halbersa@gmail.com?s=100">
-        <p class="post-comment-info"><strong>ahal</strong><br>24/05/2014</p>
-      </div>
-      Yeah, that is a good example, never really occurred to me.
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/halbersa@gmail.com?s=100">
-        <p class="post-comment-info"><strong>ahal</strong><br>24/05/2014</p>
-      </div>
-      "If you know the methods" is the catch there in my opinion. You might know the methods, but someone else reading your code doesn't. I guess if you are working on something you know no one else will ever have to maintain it, then it doesn't really matter.
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/halbersa@gmail.com?s=100">
-        <p class="post-comment-info"><strong>ahal</strong><br>24/05/2014</p>
-      </div>
-      Personally I think self.fennec.launch() is easier to understand than self.launch_fennec() in that case. But I guess that does show that it comes down to personal preference. The example you linked is really clear, but I've seen what happens when mixins get abused. And yes, it is possible to abuse composition as well :)
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/wrlach@gmail.com?s=100">
-        <p class="post-comment-info"><strong>William Lachance</strong><br>24/05/2014</p>
-      </div>
-      I don't think your alternative implementation really makes sense. What would the fennec object represent? All we're doing is providing an interface to the Android "launch" mechanism, which properly belongs in the devicemanager class.
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/jjdelc@gmail.com?s=100">
-        <p class="post-comment-info"><strong>Jj</strong><br>25/05/2014</p>
-      </div>
-      That's a different point point. The case is that for those situations Mixins can be pretty helpful. Yes I didn't know the methods, but I read the docs and then I knew them. It's learning an interface just like any other library, you have to learn how to use it. It's not like methods in code are secrets.
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/halbersa@gmail.com?s=100">
-        <p class="post-comment-info"><strong>ahal</strong><br>26/05/2014</p>
-      </div>
-      Definitely :). Good documentation goes a long way, but unfortunately good documentation is often a luxury. With composition it is easy to see which attributes come from which class by reading the code, there is no ambiguity. It is also easy for a small number of mixins. But when a class has 3+ mixins, it becomes a real pain to hunt down which attributes belong to which mixins.
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/dejan.lekic@gmail.com?s=100">
-        <p class="post-comment-info"><strong>Dejan Lekic</strong><br>12/05/2015</p>
-      </div>
-      <p>I only recently started programming in Python (I am mostly C/C++/D/Java/BASH programmer)</p><p>It is hard to talk about mixins in a language which supports multiple-inheritance. I use mixins in D a lot. D (<a href="http://dlang.org" rel="nofollow noopener" title="http://dlang.org">http://dlang.org</a>) has two types of mixins. One is exactly the same as in Python, and in D parlance they are called "template mixins" (<a href="http://dlang.org/template-mixin.html)" rel="nofollow noopener" title="http://dlang.org/template-mixin.html)">http://dlang.org/template-m...</a>, and the other type are extremely powerful string mixins (<a href="http://dlang.org/mixin.html)" rel="nofollow noopener" title="http://dlang.org/mixin.html)">http://dlang.org/mixin.html)</a> which allows programmer to generate valid D code at compile-time.</p><p>Sure Python mixins are not 100% the same thing as D template mixins, but they are very very similar. And I find them extremely useful in cases when you want to add specific behaviour to any class.</p><p>Say for an example you want to be able to easily add a method called toJSON() which returns a JSON representation of the object's state. You can write a mixin which will use reflection to get members, and nicely generate JSON for you. You can then use this mixin in every class.</p>
-
-    </div>
-  
-    <div class="post-comment">
-      <div class="post-comment-header">
-        <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/steve@holdenweb.com?s=100">
-        <p class="post-comment-info"><strong>holdenweb</strong><br>14/10/2016</p>
-      </div>
-      But using composition you can use an instance of an object that uses reflection to get members, and call _its_ toJSON() method. This also allows you to use dependency injection, making it easier to test the code using a mock object and to use different types of object to implement toJSON(). This more flexible approach loosens coupling and makes designs more readily adaptable.
-    </div>
-  
-
-
-
-
-
-
-
-      <br>
-      <h4>Leave a comment</h4>
-<form class="post-new-comment" method="POST" action="https://api.staticman.net/v2/entry/ahal/hunting-the-shmoo/master/comments">
-    <input type="hidden" name="options[redirect]" value="https://ahal.ca/blog/2014/when-would-you-use-python-mixin/#comment-submitted">
-    <input type="hidden" name="options[slug]" value="when-would-you-use-python-mixin">
-    <input class="post-comment-field" name="fields[name]" type="text" placeholder="Name (required)">
-    <input class="post-comment-field" name="fields[email]" type="email" placeholder="E-mail (optional)">
-    <textarea class="post-comment-field" name="fields[msg]" placeholder="Message (required, markdown enabled)" rows="10"></textarea>
-    <input class="post-comment-field btn" type="submit" value="Submit">
-</form>
-
-<div id="comment-submitted">
-  <p>Your comment has been submitted and will be published once it has been approved.</p>
-</div>
+      <script src="https://utteranc.es/client.js"
+        repo="ahal/hunting-the-shmoo"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
     </section>
   
