@@ -7,17 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Fri, 24 Jun 2011 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 Jun 2012 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ahal.ca/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Android ExpandablePanel</title>
-      <link>https://ahal.ca/blog/2011/android-expandable-panel/</link>
-      <pubDate>Fri, 24 Jun 2011 00:00:00 +0000</pubDate>
+      <link>https://ahal.ca/blog/2012/android-expandable-panel/</link>
+      <pubDate>Sun, 24 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://ahal.ca/blog/2011/android-expandable-panel/</guid>
+      <guid>https://ahal.ca/blog/2012/android-expandable-panel/</guid>
       <description>&lt;p&gt;While developing an Android app for my final design project, Taedium, I came across what seemed like
 a trivial problem. I needed to have a text view (like that in the Android market) that can expand or
 collapse whenever a user presses a &amp;lsquo;More&amp;rsquo; or &amp;lsquo;Less&amp;rsquo; button. It turned out that the problem was more

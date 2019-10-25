@@ -569,6 +569,21 @@ done and point out where I will need some help.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Android ExpandablePanel</title>
+      <link>https://ahal.ca/blog/2012/android-expandable-panel/</link>
+      <pubDate>Sun, 24 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://ahal.ca/blog/2012/android-expandable-panel/</guid>
+      <description>&lt;p&gt;While developing an Android app for my final design project, Taedium, I came across what seemed like
+a trivial problem. I needed to have a text view (like that in the Android market) that can expand or
+collapse whenever a user presses a &amp;lsquo;More&amp;rsquo; or &amp;lsquo;Less&amp;rsquo; button. It turned out that the problem was more
+difficult than I thought and I had to make my own custom widget to accomplish the task. I based it
+off a partial solution by Peteris Caune over on &lt;a href=&#34;http://stackoverflow.com/questions/5165682/how-to-implement-expandable-panels-in-android&#34;&gt;Stack Overflow&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Reddit History</title>
       <link>https://ahal.ca/blog/2012/reddit-history/</link>
       <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
@@ -670,21 +685,6 @@ action or feature they are working on is causing unresponsivness.&lt;/p&gt;
 testing user responsiveness. Among other things, the harness needed to be capable of automating a
 wide range of user interactions in Firefox (such as opening context menus, clicking buttons etc). Oh
 and by the way this needs to be finished as quickly as possible.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Android ExpandablePanel</title>
-      <link>https://ahal.ca/blog/2011/android-expandable-panel/</link>
-      <pubDate>Fri, 24 Jun 2011 00:00:00 +0000</pubDate>
-      
-      <guid>https://ahal.ca/blog/2011/android-expandable-panel/</guid>
-      <description>&lt;p&gt;While developing an Android app for my final design project, Taedium, I came across what seemed like
-a trivial problem. I needed to have a text view (like that in the Android market) that can expand or
-collapse whenever a user presses a &amp;lsquo;More&amp;rsquo; or &amp;lsquo;Less&amp;rsquo; button. It turned out that the problem was more
-difficult than I thought and I had to make my own custom widget to accomplish the task. I based it
-off a partial solution by Peteris Caune over on &lt;a href=&#34;http://stackoverflow.com/questions/5165682/how-to-implement-expandable-panels-in-android&#34;&gt;Stack Overflow&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
