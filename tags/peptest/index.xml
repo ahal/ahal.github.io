@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Peptest on Hunting the Shmoo</title>
+    <title>peptest on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/peptest/</link>
-    <description>Recent content in Peptest on Hunting the Shmoo</description>
+    <description>Recent content in peptest on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -25,9 +25,7 @@ tracing instrumentation&lt;/a&gt; that gives us a reasonable idea of when the br
 unresponsive. This event tracer is already being used by some Talos tests which gives us a good
 general idea of whether or not Firefox is more or less responsive than it was previously. What it
 doesn&amp;rsquo;t give us is a method for developers to write their own tests and determine whether a specific
-action or feature they are working on is causing unresponsivness.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+action or feature they are working on is causing unresponsivness.&lt;/p&gt;</description>
     </item>
     
   </channel>

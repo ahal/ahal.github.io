@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Taskgraph on Hunting the Shmoo</title>
+    <title>taskgraph on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/taskgraph/</link>
-    <description>Recent content in Taskgraph on Hunting the Shmoo</description>
+    <description>Recent content in taskgraph on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -20,11 +20,7 @@
       <guid>https://ahal.ca/casts/2019/task-configuration-at-scale/</guid>
       <description>&lt;p&gt;A talk I did for the Automationeer&amp;rsquo;s Assemble series on how Mozilla handles complexity in their CI
 configuration.&lt;/p&gt;
-
-&lt;p&gt;&lt;iframe src=&#34;https://player.vimeo.com/video/322897542&#34; width=&#34;720&#34; height=&#34;405&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
@@ -35,11 +31,7 @@ configuration.&lt;/p&gt;
       <guid>https://ahal.ca/casts/2018/taskgraph-like-a-pro/</guid>
       <description>&lt;p&gt;Have you ever needed to inspect the taskgraph locally? Did you have a bad time? Learn how to inspect
 the taskgraph like a PRO. For the impatient skip to the installation instructions below.&lt;/p&gt;
-
-&lt;p&gt;&lt;iframe src=&#34;https://player.vimeo.com/video/306431059&#34; width=&#34;720&#34; height=&#34;405&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
-&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
   </channel>

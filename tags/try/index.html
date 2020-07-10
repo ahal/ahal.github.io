@@ -5,28 +5,16 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<meta property="og:title" content="Try" />
+<meta property="og:title" content="try" />
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/tags/try/" />
-
-
-
-<meta property="og:updated_time" content="2017-08-02T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
+<meta property="og:updated_time" content="2017-08-02T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Try"/>
+<meta name="twitter:title" content="try"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
-<meta name="generator" content="Hugo 0.42.1" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -108,15 +96,15 @@
   <p>It&rsquo;s no secret that I&rsquo;m not a fan of try syntax, it&rsquo;s a topic I&rsquo;ve blogged about on <a href="https://ahal.ca/blog/2015/try-syntax/">several</a>
 <a href="https://ahal.ca/blog/2017/fuzzy-try-chooser/">occasions</a> before. Today, I&rsquo;m pleased to announce that there&rsquo;s a real alternative now landed on
 mozilla-central. It works on all platforms with mercurial and git. For those who just like to dive in:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach mercurial-setup --update  <span style="color:#75715e"># only if using hg
-</span><span style="color:#75715e"></span>$ mach try fuzzy</code></pre></div>
-<p>This will prompt you to install <a href="https://github.com/junegunn/fzf">fzf</a>. After bootstrapping is finished, you&rsquo;ll enter an interface
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach mercurial-setup --update  <span style="color:#75715e"># only if using hg</span>
+$ mach try fuzzy
+</code></pre></div><p>This will prompt you to install <a href="https://github.com/junegunn/fzf">fzf</a>. After bootstrapping is finished, you&rsquo;ll enter an interface
 populated with a list of all possible taskcluster tasks. Start typing and the list will be filtered
 down using a fuzzy matching algorithm. I won&rsquo;t go into details on how to use this tool in this blog
 post, for that see:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach try fuzzy --help  <span style="color:#75715e"># or
-</span><span style="color:#75715e"></span>$ man fzf</code></pre></div>
-<p></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach try fuzzy --help  <span style="color:#75715e"># or</span>
+$ man fzf
+</code></pre></div>
   <a href='https://ahal.ca/blog/2017/mach-try-fuzzy/'>Read more →</a>
 </article> 
 
@@ -140,8 +128,6 @@ that I&rsquo;m trying to convert into a concrete plan of action to bring this ab
 <em>Intent to Implement</em> or anything like that, but my hope is that this outline is detailed enough
 that it could be used as a solid starting point by someone with enough time and motivation to
 work on it.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2017/fuzzy-try-chooser/'>Read more →</a>
 </article> 
 
@@ -162,12 +148,10 @@ work on it.</p>
   <p>Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
 you put into your commit message which a <a href="http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py">parser</a> then uses to determine the set of builds and
 tests to run on your try push. A common try syntax might look like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">try: -b o -p linux -u mochitest -t none</code></pre></div>
-<p>Since inception, it has been a core part of the Mozilla development workflow.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">try: -b o -p linux -u mochitest -t none
+</code></pre></div><p>Since inception, it has been a core part of the Mozilla development workflow.
 For many years it has served us well, and even today it serves us passably. But it is almost time
 for try syntax to don the wooden overcoat, and this post will explain why.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2015/try-syntax/'>Read more →</a>
 </article> 
 
@@ -189,9 +173,13 @@ for try syntax to don the wooden overcoat, and this post will explain why.</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -204,10 +192,6 @@ for try syntax to don the wooden overcoat, and this post will explain why.</p>
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

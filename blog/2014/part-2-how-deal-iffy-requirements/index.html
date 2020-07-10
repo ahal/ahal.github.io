@@ -11,27 +11,11 @@ little dance around &ldquo;why is there a problem&rdquo; and &ldquo;how do we fi
 questions in a bit more detail. Specifically, I want to return to the two case studies and explore
 why our test harnesses don&rsquo;t work and why mozharness does work even though both have IFFY (in flux
 for years) requirements. Then I will explore how to use the lessons learned to improve our general
-test harness design.
-
-" />
+test harness design." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/" />
-
-
-
-<meta property="article:published_time" content="2014-04-11T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2014-04-11T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2014-04-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2014-04-11T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Part 2: How to deal with IFFY requirements"/>
@@ -40,10 +24,8 @@ little dance around &ldquo;why is there a problem&rdquo; and &ldquo;how do we fi
 questions in a bit more detail. Specifically, I want to return to the two case studies and explore
 why our test harnesses don&rsquo;t work and why mozharness does work even though both have IFFY (in flux
 for years) requirements. Then I will explore how to use the lessons learned to improve our general
-test harness design.
-
-"/>
-<meta name="generator" content="Hugo 0.42.1" />
+test harness design."/>
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -52,10 +34,10 @@ test harness design.
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Part 2: How to deal with IFFY requirements",
-  "url": "https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/",
+  "url": "https:\/\/ahal.ca\/blog\/2014\/part-2-how-deal-iffy-requirements\/",
   "wordCount": "1476",
-  "datePublished": "2014-04-11T00:00:00&#43;00:00",
-  "dateModified": "2014-04-11T00:00:00&#43;00:00",
+  "datePublished": "2014-04-11T00:00:00\u002b00:00",
+  "dateModified": "2014-04-11T00:00:00\u002b00:00",
   "author": {
     "@type": "Person",
     "name": "Andrew Halberstadt"
@@ -137,11 +119,7 @@ questions in a bit more detail. Specifically, I want to return to the two case s
 why our test harnesses don&rsquo;t work and why mozharness does work even though both have IFFY (in flux
 for years) requirements. Then I will explore how to use the lessons learned to improve our general
 test harness design.</p>
-
-<p></p>
-
 <h3 id="dry-is-not-everything">DRY is not everything</h3>
-
 <p>I talked a lot about the <a href="http://en.wikipedia.org/wiki/DRY_principle">DRY  principle</a> in the last article. Basically the conclusion about it
 was that it is very useful, but that we tend to fixate on it to the point where we ignore other
 equally useful principles. Having reached this conclusion, I did a quick internet search and found
@@ -151,43 +129,35 @@ I been living under a rock?). They are all very useful guidelines, but there are
 immediately made me think of our test harnesses in a bad way. The first is the <a href="http://en.wikipedia.org/wiki/Single_responsibility_principle">single
 responsibility principle</a> (which I was delighted to find is meant to mitigate requirement
 changes) and the second is the <a href="http://en.wikipedia.org/wiki/Open/closed_principle">open/closed principle</a>.</p>
-
 <p>The single responsibility principle states that a class should only be responsible for one thing,
 and responsibility for that thing should not be shared with other classes. What is a responsibility?
 A responsibility is defined as a <em>reason to change</em>. To use the wikipedia example, a class that
 prints a block of text can undergo two changes. The content of the text can change, or the format of
 the text can change. These are two different responsibilities that should be split out into
 different classes.</p>
-
 <p>The open/closed principle states that software should be open for extension, but closed for
 modification. In other words, it should be possible to change the behaviour of the software only by
 adding new code without needing to modify any existing code. A popular way of implementing this is
 through abstract base classes. Here the interface is closed for modification, and each new
 implementation is an extension of that.</p>
-
 <p>Our test harnesses fail miserably at both of these principles. Instead of having several classes
 each with a well defined responsibility, we have a single class responsible for everything. Instead
 of being able to add some functionality without worrying about breaking something else, you have to
 take great pains that your change won&rsquo;t affect some other platform you don&rsquo;t even care about!</p>
-
 <p>Mozharness on the other hand, while not perfect, does a much better job at both principles. The
 concept of actions makes it easy to extend functionality without modifying existing code. Just add a
 new action to the list! The core library is also much better separated by responsibility. There is a
 clear separation between general script, build, and testing related functionality.</p>
-
 <h3 id="inheritance-is-evil">Inheritance is evil</h3>
-
 <p>This is probably old news to many people, but this is something that I&rsquo;m just starting to figure out
 on my own. I like Zed Shaw&rsquo;s <a href="http://learnpythonthehardway.org/book/ex44.html">analogy from <em>Learn Python the Hard Way</em></a> the best. Instead of
 butchering it, here it is in its entirety.</p>
-
 <blockquote>
 <p>In the fairy tales about heroes defeating evil villains there&rsquo;s always a dark forest of some kind.
 It could be a cave, a forest, another planet, just some place that everyone knows the hero
 shouldn&rsquo;t go. Of course, shortly after the villain is introduced you find out, yes, the hero has
 to go to that stupid forest to kill the bad guy. It seems the hero just keeps getting into
 situations that require him to risk his life in this evil forest.</p>
-
 <p>You rarely read fairy tales about the heroes who are smart enough to just avoid the whole situation
 entirely. You never hear a hero say, &ldquo;Wait a minute, if I leave to make my fortunes on the high seas
 leaving Buttercup behind I could die and then she&rsquo;d have to marry some ugly prince named Humperdink.
@@ -195,7 +165,6 @@ Humperdink! I think I&rsquo;ll stay here and start a Farm Boy for Rent business.
 be no fire swamp, dying, reanimation, sword fights, giants, or any kind of story really. Because of
 this, the forest in these stories seems to exist like a black hole that drags the hero in no matter
 what they do.</p>
-
 <p>In object-oriented programming, Inheritance is the evil forest. Experienced programmers know to
 avoid this evil because they know that deep inside the Dark Forest Inheritance is the Evil Queen
 Multiple Inheritance. She likes to eat software and programmers with her massive complexity teeth,
@@ -204,16 +173,13 @@ programmer has to go into it, and try to make it out alive with the Evil Queen&r
 can call themselves real programmers. You just can&rsquo;t resist the Inheritance Forest&rsquo;s pull, so you go
 in. After the adventure you learn to just stay out of that stupid forest and bring an army if you
 are ever forced to go in again.</p>
-
 <p>This is basically a funny way to say that I&rsquo;m going to teach you something you should avoid called
 Inheritance. Programmers who are currently in the forest battling the Queen will probably tell you
 that you have to go in. They say this because they need your help since what they&rsquo;ve created is
 probably too much for them to handle. But you should always remember this:</p>
-
 <p>Most of the uses of inheritance can be simplified or replaced with composition, and multiple
 inheritance should be avoided at all costs.</p>
 </blockquote>
-
 <p>I had never heard the (apparently popular) term &ldquo;composition over inheritance&rdquo;. Basically, unless
 you really really mean it, always go for &ldquo;X has a Y&rdquo; instead of &ldquo;X is a Y&rdquo;. Never do &ldquo;X is a Y&rdquo;
 for the sole purpose of avoiding code duplication. This is exactly the mistake we made in our test
@@ -222,11 +188,8 @@ turns out all three are actually quite different from one another.
 Mozharness, while again not perfect, does a better job at avoiding inheritance. While it makes heavy
 use of the mixin pattern (which, yes, is still inheritance) at least it promotes separation of
 concerns more than classic inheritance.</p>
-
 <h3 id="practical-lessons">Practical Lessons</h3>
-
 <p>So this is all well and great, but how can we apply all of this to our automation code base?</p>
-
 <p>A smarter way to approach our test harness design would have been to have most of the shared code
 between the three platforms in a single (relatively) bare-bones runner that <em>has a</em> target
 environment (e.g desktop Firefox, Fennec or B2G in this case). In this model there is no
@@ -235,21 +198,17 @@ environment) and there are clear and distinct responsibilities between managing 
 actually launching them. In fact this how the gaia team implemented their <a href="https://github.com/mozilla-b2g/marionette-js-runner">marionette-js-runner</a>.
 I&rsquo;m not sure if that pattern is common to node&rsquo;s <a href="http://visionmedia.github.io/mocha">mocha runner</a> or something of their design, but
 I like it.</p>
-
 <p>I&rsquo;d also like our test harnesses to employ mozharness&rsquo; concept of actions. Each action could be
 an atomic as possible setup step. For example, setting preferences in the profile is a single action.
 Setting environment is another. Parsing a manifest could be a third. Each target environment would
 consist of a list of actions that are run in a particular order. If code needs to be shared, simply
 add the corresponding action to whichever targets need it. If not, just don&rsquo;t include the
 action in the list for targets that don&rsquo;t need it.</p>
-
 <p>My dream end state here is that there is no distinction between test runners and mozharness scripts.
 They are both trying to do the same thing (perform setup, launch some code, collect results) so why
 bother wrapping one around the other? The test harness should just <em>be</em> a mozharness script and vice
 versa. This would bring actions into test harnesses, and allow mozharness scripts to live in-tree.</p>
-
 <h3 id="conclusion">Conclusion</h3>
-
 <p>Is it possible to avoid code duplication with a project that has IFFY requirements? I think yes. But
 I still maintain it is exceptionally hard. It wasn&rsquo;t until after it was too late and I had a lot of
 time to think about it that I realized the mistakes we made. And even with what I know now, I don&rsquo;t
@@ -263,14 +222,15 @@ next time, I think I&rsquo;ll at least have a better chance.</p>
   <footer>
 
   
-  <section>
-  <nav class="nav sharing-icons">
-    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-  </nav>
-</section>
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2014%2fpart-2-how-deal-iffy-requirements%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
 
   
 
@@ -305,9 +265,13 @@ next time, I think I&rsquo;ll at least have a better chance.</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -320,10 +284,6 @@ next time, I think I&rsquo;ll at least have a better chance.</p>
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bookbinder on Hunting the Shmoo</title>
+    <title>bookbinder on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/bookbinder/</link>
-    <description>Recent content in Bookbinder on Hunting the Shmoo</description>
+    <description>Recent content in bookbinder on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -21,17 +21,13 @@
       <description>&lt;p&gt;I mentioned in my previous post a mercurial extension I wrote for making bookmarks easier to
 manipulate. Since then it has undergone a large overhaul, and I believe it is now stable and
 intuitive enough to advertise a bit more widely.&lt;/p&gt;
-
 &lt;h2 id=&#34;introducing-bookbinder&#34;&gt;Introducing bookbinder&lt;/h2&gt;
-
 &lt;p&gt;When working with bookmarks (or anonymous heads) I often wanted to operate on the
 entire series of commits within the feature I was working on. I often found myself digging out
 revision numbers to find the first commit in a bookmark to do things like rebasing, grafting or
 diffing. This was annoying. I wanted bookmarks to work more like a git-style branch, that has a
 definite start as well as an end. And I wanted to be able to easily refer to the set of commits
-contained within. Enter &lt;a href=&#34;https://hg.sr.ht/~ahal/bookbinder&#34;&gt;bookbinder&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+contained within. Enter &lt;a href=&#34;https://hg.sr.ht/~ahal/bookbinder&#34;&gt;bookbinder&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

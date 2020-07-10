@@ -9,37 +9,19 @@
 <meta property="og:description" content="qqver is a Mercurial extension that forces mq to version all patch queues in the same
 repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &lsquo;hg init
 &ndash;mq&rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
-with stock queue repos, new and existing patches are added automatically.
-
-" />
+with stock queue repos, new and existing patches are added automatically." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahal.ca/blog/2013/mercurial-extension-qqver/" />
-
-
-
-<meta property="article:published_time" content="2013-06-13T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2013-06-13T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2013-06-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2013-06-13T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Mercurial extension to version multiple patch queues"/>
 <meta name="twitter:description" content="qqver is a Mercurial extension that forces mq to version all patch queues in the same
 repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &lsquo;hg init
 &ndash;mq&rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
-with stock queue repos, new and existing patches are added automatically.
-
-"/>
-<meta name="generator" content="Hugo 0.42.1" />
+with stock queue repos, new and existing patches are added automatically."/>
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -48,10 +30,10 @@ with stock queue repos, new and existing patches are added automatically.
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "A Mercurial extension to version multiple patch queues",
-  "url": "https://ahal.ca/blog/2013/mercurial-extension-qqver/",
+  "url": "https:\/\/ahal.ca\/blog\/2013\/mercurial-extension-qqver\/",
   "wordCount": "347",
-  "datePublished": "2013-06-13T00:00:00&#43;00:00",
-  "dateModified": "2013-06-13T00:00:00&#43;00:00",
+  "datePublished": "2013-06-13T00:00:00\u002b00:00",
+  "dateModified": "2013-06-13T00:00:00\u002b00:00",
   "author": {
     "@type": "Person",
     "name": "Andrew Halberstadt"
@@ -131,39 +113,32 @@ with stock queue repos, new and existing patches are added automatically.
 repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &lsquo;hg init
 &ndash;mq&rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
 with stock queue repos, new and existing patches are added automatically.</p>
-
-<p></p>
-
 <p>qqver solves a very specific use case, it probably isn&rsquo;t useful for the majority of Mercurial users.
 If you answer yes to both of the following questions, you might want to look into qqver:</p>
-
 <ul>
 <li>Do you like to work with multiple patch queues in a single repository (i.e using hg qq)?</li>
 <li>Do you like to version your patch queues with mq&rsquo;s patch versioning system (i.e using the &ndash;mq flag)?</li>
 </ul>
-
 <p>Versioning all patch queues in the same repo makes it a lot easier to create and manage remote
 repos, e.g on an hg.m.o <a href="https://developer.mozilla.org/en-US/docs/Creating_Mercurial_User_Repositories#Mercurial_Queue_User_Repository_Workflow">user repository</a>. Instead of having to create N user repositories for N
 patch queues, you only need to create one.</p>
-
 <p>qqver works by monkeypatching the mq extension in an unobtrusive way. This gives it some nice
 properties. First, the syntax is the exact same as what you are already used to:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># create queue repo and push remote
-</span><span style="color:#75715e"></span>hg init --mq
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># create queue repo and push remote</span>
+hg init --mq
 hg commit --mq
-hg push --mq</code></pre></div>
-<p>Another nice property is that it is fully compatible with Steve Fink&rsquo;s <a href="https://bitbucket.org/sfink/mqext">mqext</a> extension. This
+hg push --mq
+</code></pre></div><p>Another nice property is that it is fully compatible with Steve Fink&rsquo;s <a href="https://bitbucket.org/sfink/mqext">mqext</a> extension. This
 means if you want to autocommit your patch queue anytime you make a change, you can easily do so by
 configuring mqext. One thing I&rsquo;d still like to implement, is to monkeypatch mqext so it adds the
 current patch queue to the commit messages (in addition to the patch name).</p>
-
 <h3 id="installation">Installation</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hg clone http://hg.mozilla.org/users/ahalberstadt_mozilla.com/qqver/</code></pre></div>
-<p>Then edit your ~/.hgrc file and add:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hg clone http://hg.mozilla.org/users/ahalberstadt_mozilla.com/qqver/
+</code></pre></div><p>Then edit your ~/.hgrc file and add:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extensions]</span>
 <span style="color:#a6e22e">mq</span><span style="color:#f92672">=</span>
-<span style="color:#a6e22e">qqver</span><span style="color:#f92672">=</span><span style="color:#e6db74">&amp;lt;path/to/qqver&amp;gt;</span></code></pre></div>
-<p>Note that the mq extension needs to be installed, otherwise qqver makes no sense! Also note that
+<span style="color:#a6e22e">qqver</span><span style="color:#f92672">=</span><span style="color:#e6db74">&amp;lt;path/to/qqver&amp;gt;</span>
+</code></pre></div><p>Note that the mq extension needs to be installed, otherwise qqver makes no sense! Also note that
 this is still fairly untested, so please let me know of any problems you encounter or features you&rsquo;d
 like implemented. Or feel free to send me a patch ;).</p>
 
@@ -174,14 +149,15 @@ like implemented. Or feel free to send me a patch ;).</p>
   <footer>
 
   
-  <section>
-  <nav class="nav sharing-icons">
-    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2013%2fmercurial-extension-qqver%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2013%2fmercurial-extension-qqver%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2013%2fmercurial-extension-qqver%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2013%2fmercurial-extension-qqver%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-  </nav>
-</section>
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2013%2fmercurial-extension-qqver%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2013%2fmercurial-extension-qqver%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2013%2fmercurial-extension-qqver%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2013%2fmercurial-extension-qqver%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
 
   
 
@@ -216,9 +192,13 @@ like implemented. Or feel free to send me a patch ;).</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -231,10 +211,6 @@ like implemented. Or feel free to send me a patch ;).</p>
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jetty on Hunting the Shmoo</title>
+    <title>jetty on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/jetty/</link>
-    <description>Recent content in Jetty on Hunting the Shmoo</description>
+    <description>Recent content in jetty on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -24,13 +24,10 @@ mozilla-central there are over 3500 Python files (excluding third party files), 
 230k lines of code. Additionally there are &lt;a href=&#34;https://github.com/mozilla?utf8=%E2%9C%93&amp;amp;q=&amp;amp;type=&amp;amp;language=python&#34;&gt;462 repositories&lt;/a&gt; labelled with Python in the Mozilla
 org on Github (though many of these are not active). That&amp;rsquo;s a lot of Python, and most of it is
 Python 2.&lt;/p&gt;
-
 &lt;p&gt;With Python 2&amp;rsquo;s exaugural year well underway, it is a good time to take stock of the situation and
 ask some questions. How far along has Mozilla come in the Python 3 migration? Which large work items
 lie on the critical path? And do we have a plan to get to a good state in time for Python 2&amp;rsquo;s EOL on
-January 1st, 2020?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+January 1st, 2020?&lt;/p&gt;</description>
     </item>
     
   </channel>

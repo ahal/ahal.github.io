@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mozmill on Hunting the Shmoo</title>
+    <title>mozmill on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/mozmill/</link>
-    <description>Recent content in Mozmill on Hunting the Shmoo</description>
+    <description>Recent content in mozmill on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -21,9 +21,7 @@
       <description>&lt;p&gt;At the beginning of September, I was asked to write &lt;a href=&#34;https://wiki.mozilla.org/Auto-tools/Projects/peptest&#34;&gt;yet another automated test harness&lt;/a&gt; for
 testing user responsiveness. Among other things, the harness needed to be capable of automating a
 wide range of user interactions in Firefox (such as opening context menus, clicking buttons etc). Oh
-and by the way this needs to be finished as quickly as possible.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+and by the way this needs to be finished as quickly as possible.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -37,9 +35,7 @@ meaning there are a lot of people using a lot of addons. While having 20+ addons
 browsing experience, it can also be a pain in the ass to manually install them every time you set up a new
 Firefox profile. As a developer working on Firefox related automation tools, this is twice as
 true since I create a separate profile for each and every project I work on, installing a constant set of
-addons on each one.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+addons on each one.&lt;/p&gt;</description>
     </item>
     
   </channel>

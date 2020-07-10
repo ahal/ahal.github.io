@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming on Hunting the Shmoo</title>
+    <title>programming on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/programming/</link>
-    <description>Recent content in Programming on Hunting the Shmoo</description>
+    <description>Recent content in programming on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -20,16 +20,13 @@
       <guid>https://ahal.ca/blog/2014/when-would-you-use-python-mixin/</guid>
       <description>&lt;p&gt;That&amp;rsquo;s not a rhetorical question. I&amp;rsquo;d like to know in which scenarios a mixin in python really is
 the best option. I can&amp;rsquo;t seem to think of any, but maybe I&amp;rsquo;m not thinking outside the box enough.&lt;/p&gt;
-
 &lt;p&gt;The basic idea of a mixin is to create a small re-usable class that can &amp;ldquo;plug-in&amp;rdquo; to other larger
 classes. From the &lt;a href=&#34;http://en.wikipedia.org/wiki/Mixin&#34;&gt;wikipedia definition&lt;/a&gt;, a mixin is a way to compose classes together &lt;em&gt;without&lt;/em&gt;
 using inheritance. The problem is unlike ruby, python mixins are a purely conceptual construct.
 Python mixins &lt;em&gt;are&lt;/em&gt; inheritance (the only difference is that the class name usually contains
 &amp;lsquo;Mixin&amp;rsquo;). It is up to the developer to remember this, and to manually avoid all of the common
 pitfalls of multiple inheritance. This kind of defeats the whole purpose of the mixin in the first
-place. What&amp;rsquo;s more is that most people use python mixins improperly.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+place. What&amp;rsquo;s more is that most people use python mixins improperly.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -43,9 +40,7 @@ little dance around &amp;ldquo;why is there a problem&amp;rdquo; and &amp;ldquo;
 questions in a bit more detail. Specifically, I want to return to the two case studies and explore
 why our test harnesses don&amp;rsquo;t work and why mozharness does work even though both have IFFY (in flux
 for years) requirements. Then I will explore how to use the lessons learned to improve our general
-test harness design.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+test harness design.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -55,16 +50,13 @@ test harness design.&lt;/p&gt;
       
       <guid>https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/</guid>
       <description>&lt;h3 id=&#34;dry-versus-wet&#34;&gt;Dry versus Wet&lt;/h3&gt;
-
 &lt;p&gt;As programmers, we are taught early on that code duplication is bad and should be avoided at all
 cost. It makes code less maintainable, reusable and readable. The &lt;a href=&#34;http://en.wikipedia.org/wiki/DRY_principle&#34;&gt;DRY principle&lt;/a&gt; is very basic
 and fundamental to how most of us approach software design. If you aren&amp;rsquo;t familiar with the DRY
 principle, please take a minute to read the wikipedia page on it. The counterpart of DRY, is WET
 (write everything twice).  In general, I agree that DRY is good and WET is bad. But I think there
 are a class of problems where the DRY approach can actually be harmful. For these types of problems,
-I will make a claim that a WET approach can actually work better.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+I will make a claim that a WET approach can actually work better.&lt;/p&gt;</description>
     </item>
     
   </channel>

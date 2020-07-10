@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Addon on Hunting the Shmoo</title>
+    <title>addon on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/addon/</link>
-    <description>Recent content in Addon on Hunting the Shmoo</description>
+    <description>Recent content in addon on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -23,9 +23,7 @@ meaning there are a lot of people using a lot of addons. While having 20+ addons
 browsing experience, it can also be a pain in the ass to manually install them every time you set up a new
 Firefox profile. As a developer working on Firefox related automation tools, this is twice as
 true since I create a separate profile for each and every project I work on, installing a constant set of
-addons on each one.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+addons on each one.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Reddit on Hunting the Shmoo</title>
+    <title>reddit on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/reddit/</link>
-    <description>Recent content in Reddit on Hunting the Shmoo</description>
+    <description>Recent content in reddit on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -22,11 +22,8 @@
 someone. I&amp;rsquo;d try to find it through browser history or reddit search, but I wasn&amp;rsquo;t usually
 successful. Reddit search isn&amp;rsquo;t very good and I use Reddit &lt;em&gt;a lot&lt;/em&gt; so my browser history for
 reddit.com is huge and unwieldy.&lt;/p&gt;
-
 &lt;p&gt;So in my spare time I decided to write &lt;a href=&#34;https://github.com/ahal/userscripts/tree/master/reddit-history&#34;&gt;Reddit History&lt;/a&gt;. It basically just keeps track of all the
-submissions you&amp;rsquo;ve viewed, and lets you filter them by sub-reddit and text search (regex).&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+submissions you&amp;rsquo;ve viewed, and lets you filter them by sub-reddit and text search (regex).&lt;/p&gt;</description>
     </item>
     
   </channel>

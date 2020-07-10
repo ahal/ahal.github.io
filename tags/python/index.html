@@ -5,28 +5,16 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<meta property="og:title" content="Python" />
+<meta property="og:title" content="python" />
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/tags/python/" />
-
-
-
-<meta property="og:updated_time" content="2019-04-30T15:25:50-04:00"/>
-
-
-
-
-
-
-
-
-
+<meta property="og:updated_time" content="2019-04-30T15:25:50-04:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Python"/>
+<meta name="twitter:title" content="python"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
-<meta name="generator" content="Hugo 0.42.1" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -111,13 +99,10 @@ mozilla-central there are over 3500 Python files (excluding third party files), 
 230k lines of code. Additionally there are <a href="https://github.com/mozilla?utf8=%E2%9C%93&amp;q=&amp;type=&amp;language=python">462 repositories</a> labelled with Python in the Mozilla
 org on Github (though many of these are not active). That&rsquo;s a lot of Python, and most of it is
 Python 2.</p>
-
 <p>With Python 2&rsquo;s exaugural year well underway, it is a good time to take stock of the situation and
 ask some questions. How far along has Mozilla come in the Python 3 migration? Which large work items
 lie on the critical path? And do we have a plan to get to a good state in time for Python 2&rsquo;s EOL on
 January 1st, 2020?</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2019/python-3-at-mozilla/'>Read more →</a>
 </article> 
 
@@ -137,7 +122,6 @@ January 1st, 2020?</p>
   </header>
   <p>That&rsquo;s not a rhetorical question. I&rsquo;d like to know in which scenarios a mixin in python really is
 the best option. I can&rsquo;t seem to think of any, but maybe I&rsquo;m not thinking outside the box enough.</p>
-
 <p>The basic idea of a mixin is to create a small re-usable class that can &ldquo;plug-in&rdquo; to other larger
 classes. From the <a href="http://en.wikipedia.org/wiki/Mixin">wikipedia definition</a>, a mixin is a way to compose classes together <em>without</em>
 using inheritance. The problem is unlike ruby, python mixins are a purely conceptual construct.
@@ -145,8 +129,6 @@ Python mixins <em>are</em> inheritance (the only difference is that the class na
 &lsquo;Mixin&rsquo;). It is up to the developer to remember this, and to manually avoid all of the common
 pitfalls of multiple inheritance. This kind of defeats the whole purpose of the mixin in the first
 place. What&rsquo;s more is that most people use python mixins improperly.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2014/when-would-you-use-python-mixin/'>Read more →</a>
 </article> 
 
@@ -167,13 +149,10 @@ place. What&rsquo;s more is that most people use python mixins improperly.</p>
   <p>I came across an odd python problem the other day. I wanted to format a log message without printing
 it with python&rsquo;s logging module. But I couldn&rsquo;t find any examples or others who wanted to do the
 same thing.</p>
-
 <p>You might ask why I would want to do this. In my case, I was using sys.stdout.write() to display the
 progress of a download as a percentage. Python&rsquo;s logging module automatically appends a newline to
 your message and there didn&rsquo;t seem to be a way to change this without a subclass. Anytime you want
 to overwrite something on the previous line with python logging, you will run into trouble.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2013/python-logging-format-message/'>Read more →</a>
 </article> 
 
@@ -195,9 +174,13 @@ to overwrite something on the previous line with python logging, you will run in
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -210,10 +193,6 @@ to overwrite something on the previous line with python logging, you will run in
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

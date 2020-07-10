@@ -9,24 +9,12 @@
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/" />
-
-
-
-<meta property="og:updated_time" content="2015-08-28T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
+<meta property="og:updated_time" content="2019-05-21T15:04:33-04:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hunting the Shmoo"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
-<meta name="generator" content="Hugo 0.42.1" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -35,12 +23,12 @@
   "@context": "http://schema.org",
   "@type": "Blog",
   "headline": "Hunting the Shmoo",
-  "url" : "https://ahal.ca/",
+  "url" : "https:\/\/ahal.ca\/",
   "author": {
     "@type": "Person",
     "name": "Andrew Halberstadt"
   },
-  "dateModified": "2015-08-28T00:00:00&#43;00:00",
+  "dateModified": "2019-05-21T15:04:33-04:00",
   "keywords": "absorb,addon,android,ateam,b2g,bookbinder,cycling,django,fzf,hugo,jetty,mach,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,toronto,try,website,",
   "description": "Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."
 }
@@ -124,12 +112,10 @@
   <p>Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
 you put into your commit message which a <a href="http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py">parser</a> then uses to determine the set of builds and
 tests to run on your try push. A common try syntax might look like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">try: -b o -p linux -u mochitest -t none</code></pre></div>
-<p>Since inception, it has been a core part of the Mozilla development workflow.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">try: -b o -p linux -u mochitest -t none
+</code></pre></div><p>Since inception, it has been a core part of the Mozilla development workflow.
 For many years it has served us well, and even today it serves us passably. But it is almost time
 for try syntax to don the wooden overcoat, and this post will explain why.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2015/try-syntax/'>Read more →</a>
 </article> 
 
@@ -150,17 +136,13 @@ for try syntax to don the wooden overcoat, and this post will explain why.</p>
   <p>I mentioned in my previous post a mercurial extension I wrote for making bookmarks easier to
 manipulate. Since then it has undergone a large overhaul, and I believe it is now stable and
 intuitive enough to advertise a bit more widely.</p>
-
 <h2 id="introducing-bookbinder">Introducing bookbinder</h2>
-
 <p>When working with bookmarks (or anonymous heads) I often wanted to operate on the
 entire series of commits within the feature I was working on. I often found myself digging out
 revision numbers to find the first commit in a bookmark to do things like rebasing, grafting or
 diffing. This was annoying. I wanted bookmarks to work more like a git-style branch, that has a
 definite start as well as an end. And I wanted to be able to easily refer to the set of commits
 contained within. Enter <a href="https://hg.sr.ht/~ahal/bookbinder">bookbinder</a>.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/'>Read more →</a>
 </article> 
 
@@ -181,8 +163,6 @@ contained within. Enter <a href="https://hg.sr.ht/~ahal/bookbinder">bookbinder</
   <p>This is a continuation of my previous post called <a href="http://ahal.ca/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a>. It assumes that
 you have at least read and experimented with it a bit. If you haven&rsquo;t, stop right now, read it, get
 set up and try playing around with bookmarks and mozreview a bit.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2015/new-mercurial-workflow-part-2/'>Read more →</a>
 </article> 
 
@@ -205,8 +185,6 @@ part to :chmanchester&rsquo;s tireless work). Saying a log is structured simply 
 machine readable format, in our case each log line is a JSON object. When streamed to a terminal or
 treeherder log, these JSON objects are first formatted into something that is human readable, aka
 the same log format you&rsquo;re already familiar with (which is why you may not have noticed this).</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2014/consume-structured-test-results/'>Read more →</a>
 </article> 
 
@@ -227,12 +205,9 @@ the same log format you&rsquo;re already familiar with (which is why you may not
   <p>There&rsquo;s a good chance you&rsquo;ve heard something about a new review tool coming to Mozilla and how it will <em>change
 everything</em>. There&rsquo;s an even better chance you&rsquo;ve stumbled across one of gps&rsquo; <a href="http://gregoryszorc.com/blog/category/mercurial/">blog posts</a> on how
 we use mercurial at Mozilla.</p>
-
 <p>With <a href="https://groups.google.com/forum/#!topic/mozilla.dev.platform/RMkSXq2ckFk">mozreview entering beta</a>, I decided to throw out my old mq based workflow and
 try to use all the latest and greatest tools. That means <a href="http://mercurial.selenic.com/wiki/Bookmarks">mercurial bookmarks</a>, a <a href="http://gregoryszorc.com/blog/2014/06/30/track-firefox-repositories-with-local-only-mercurial-tags/">unified
 mozilla-central</a>, using <a href="http://mozilla-version-control-tools.readthedocs.org/en/latest/mozreview.html">mozreview</a> and completely <a href="http://gregoryszorc.com/blog/2014/06/23/please-stop-using-mq/">expunging mq</a> from my workflow.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2014/new-mercurial-workflow/'>Read more →</a>
 </article> 
 
@@ -251,14 +226,11 @@ mozilla-central</a>, using <a href="http://mozilla-version-control-tools.readthe
 </p>
   </header>
   <p>tl;dr Look for <a href="http://people.mozilla.org/~ahalberstadt/informant-reports/daily/2014-09-29.informant-report.html">reports like this</a> in the near future!</p>
-
 <p>At Mozilla, platform developers are culturally bound to <a href="http://tbpl.mozilla.org">tbpl</a>. We spend a lot of time staring at
 those bright little letters, and their colour can mean the difference between hours, days or even
 weeks of work. With so many people performing over <a href="http://relengofthenerds.blogspot.ca/2014/09/mozilla-pushes-august-2014.html">420 pushes per day</a>, all watching,
 praying, rejoicing and cursing, it&rsquo;s paramount that the whole process operates like a well oiled
 machine.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2014/how-many-tests-are-disabled/'>Read more →</a>
 </article> 
 
@@ -278,7 +250,6 @@ machine.</p>
   </header>
   <p>That&rsquo;s not a rhetorical question. I&rsquo;d like to know in which scenarios a mixin in python really is
 the best option. I can&rsquo;t seem to think of any, but maybe I&rsquo;m not thinking outside the box enough.</p>
-
 <p>The basic idea of a mixin is to create a small re-usable class that can &ldquo;plug-in&rdquo; to other larger
 classes. From the <a href="http://en.wikipedia.org/wiki/Mixin">wikipedia definition</a>, a mixin is a way to compose classes together <em>without</em>
 using inheritance. The problem is unlike ruby, python mixins are a purely conceptual construct.
@@ -286,8 +257,6 @@ Python mixins <em>are</em> inheritance (the only difference is that the class na
 &lsquo;Mixin&rsquo;). It is up to the developer to remember this, and to manually avoid all of the common
 pitfalls of multiple inheritance. This kind of defeats the whole purpose of the mixin in the first
 place. What&rsquo;s more is that most people use python mixins improperly.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2014/when-would-you-use-python-mixin/'>Read more →</a>
 </article> 
 
@@ -311,8 +280,6 @@ questions in a bit more detail. Specifically, I want to return to the two case s
 why our test harnesses don&rsquo;t work and why mozharness does work even though both have IFFY (in flux
 for years) requirements. Then I will explore how to use the lessons learned to improve our general
 test harness design.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/'>Read more →</a>
 </article> 
 
@@ -331,7 +298,6 @@ test harness design.</p>
 </p>
   </header>
   <h3 id="dry-versus-wet">Dry versus Wet</h3>
-
 <p>As programmers, we are taught early on that code duplication is bad and should be avoided at all
 cost. It makes code less maintainable, reusable and readable. The <a href="http://en.wikipedia.org/wiki/DRY_principle">DRY principle</a> is very basic
 and fundamental to how most of us approach software design. If you aren&rsquo;t familiar with the DRY
@@ -339,8 +305,6 @@ principle, please take a minute to read the wikipedia page on it. The counterpar
 (write everything twice).  In general, I agree that DRY is good and WET is bad. But I think there
 are a class of problems where the DRY approach can actually be harmful. For these types of problems,
 I will make a claim that a WET approach can actually work better.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/'>Read more →</a>
 </article> 
 
@@ -359,25 +323,21 @@ I will make a claim that a WET approach can actually work better.</p>
 </p>
   </header>
   <h4 id="getting-started">Getting Started</h4>
-
 <p>tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python</code></pre></div>
-<p>Install b2g-commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pip install b2g-commands</code></pre></div>
-<p>To play around with it, cd to your <a href="https://github.com/mozilla-b2g/B2G">B2G repo</a> and run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git pull                 <span style="color:#75715e"># make sure repo is up to date
-</span><span style="color:#75715e"></span>$ ./mach help              <span style="color:#75715e"># see all available commands
-</span><span style="color:#75715e"></span>$ ./mach help &amp;lt;command&amp;gt;    # see additional info about a command</code></pre></div>
-<h4 id="details">Details</h4>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
+</code></pre></div><p>Install b2g-commands:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pip install b2g-commands
+</code></pre></div><p>To play around with it, cd to your <a href="https://github.com/mozilla-b2g/B2G">B2G repo</a> and run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git pull                 <span style="color:#75715e"># make sure repo is up to date</span>
+$ ./mach help              <span style="color:#75715e"># see all available commands</span>
+$ ./mach help &amp;lt;command&amp;gt;    <span style="color:#75715e"># see additional info about a command</span>
+</code></pre></div><h4 id="details">Details</h4>
 <p>Most people who spend the majority of their time working within mozilla-central have probably been
 acquainted with <a href="https://developer.mozilla.org/en-US/docs/Developer_Guide/mach">mach</a>. In case you aren&rsquo;t acquainted, mach is a generic command dispatching
 tool. It is possible to write scripts called &lsquo;mach targets&rsquo; which get registered with mach core and
 transformed into commands. Mach targets in mozilla-central have access to all sorts of powerful
 hooks into the build and test infrastructure which allow them to do some really cool things, such as
 bootstrapping your environment, running builds and tests, and generating diagnostics.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2014/b2g-commands/'>Read more →</a>
 </article> 
 
@@ -409,9 +369,13 @@ bootstrapping your environment, running builds and tests, and generating diagnos
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -424,10 +388,6 @@ bootstrapping your environment, running builds and tests, and generating diagnos
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

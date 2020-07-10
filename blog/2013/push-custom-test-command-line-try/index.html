@@ -7,51 +7,27 @@
 
 <meta property="og:title" content="How to Push a Custom Test Command Line to Try" />
 <meta property="og:description" content="OUTDATED
-
 The steps in this article are no longer accurate. Pushing a custom command line is easier now. See
 here for more details.
 
-
-
 Have you ever wanted to see the test results of a custom command line in try? Things like
 &ndash;test-manifest, &ndash;shuffle or &ndash;run-slower?  Now you can! The process isn&rsquo;t exactly optimized for
-the developer use case, but neither is it really difficult to do once you know how.
-
-" />
+the developer use case, but neither is it really difficult to do once you know how." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahal.ca/blog/2013/push-custom-test-command-line-try/" />
-
-
-
-<meta property="article:published_time" content="2013-07-24T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2013-07-24T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2013-07-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2013-07-24T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to Push a Custom Test Command Line to Try"/>
 <meta name="twitter:description" content="OUTDATED
-
 The steps in this article are no longer accurate. Pushing a custom command line is easier now. See
 here for more details.
 
-
-
 Have you ever wanted to see the test results of a custom command line in try? Things like
 &ndash;test-manifest, &ndash;shuffle or &ndash;run-slower?  Now you can! The process isn&rsquo;t exactly optimized for
-the developer use case, but neither is it really difficult to do once you know how.
-
-"/>
-<meta name="generator" content="Hugo 0.42.1" />
+the developer use case, but neither is it really difficult to do once you know how."/>
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -60,10 +36,10 @@ the developer use case, but neither is it really difficult to do once you know h
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "How to Push a Custom Test Command Line to Try",
-  "url": "https://ahal.ca/blog/2013/push-custom-test-command-line-try/",
-  "wordCount": "451",
-  "datePublished": "2013-07-24T00:00:00&#43;00:00",
-  "dateModified": "2013-07-24T00:00:00&#43;00:00",
+  "url": "https:\/\/ahal.ca\/blog\/2013\/push-custom-test-command-line-try\/",
+  "wordCount": "310",
+  "datePublished": "2013-07-24T00:00:00\u002b00:00",
+  "dateModified": "2013-07-24T00:00:00\u002b00:00",
   "author": {
     "@type": "Person",
     "name": "Andrew Halberstadt"
@@ -140,26 +116,18 @@ the developer use case, but neither is it really difficult to do once you know h
 </p>
   </header>
   <h3 id="outdated">OUTDATED</h3>
-
 <p>The steps in this article are no longer accurate. Pushing a custom command line is easier now. See
 <a href="https://groups.google.com/forum/#!topic/mozilla.dev.platform/AKDyoQShFEs">here</a> for more details.</p>
-
-<hr />
-
+<hr>
 <p>Have you ever wanted to see the test results of a custom command line in try? Things like
 &ndash;test-manifest, &ndash;shuffle or &ndash;run-slower?  Now you can! The process isn&rsquo;t exactly optimized for
 the developer use case, but neither is it really difficult to do once you know how.</p>
-
-<p></p>
-
 <p>Basically, you just edit the &lsquo;testing/config/mozharness_config.py&rsquo; file. Add a new key called
-&lsquo;&lt;test_suite&gt;_options&rsquo; and set its value to a list containing the <b>full command line</b> you
+&lsquo;&lt;test_suite&gt;_options&rsquo; and set its value to a list containing the <!-- raw HTML omitted -->full command line<!-- raw HTML omitted --> you
 want to pass into the test suite. Substitute &lsquo;&lt;test_suite&gt;&rsquo; with the name of the test suite
 (e.g mochitest, reftest, xpcshell etc). It&rsquo;s important to note that there is no way to simply extend
 the official list, doing this will replace the original list wholesale.</p>
-
 <p>For example, lets say I wanted to add the &ndash;shuffle option to all mochitests, my diff would be:</p>
-
 <pre><code>diff --git a/testing/config/mozharness_config.py b/testing/config/mozharness_config.py
 --- a/testing/config/mozharness_config.py
 +++ b/testing/config/mozharness_config.py
@@ -179,25 +147,8 @@ the official list, doing this will replace the original list wholesale.</p>
 +        &quot;--console-level=INFO&quot;, &quot;--setpref=webgl.force-enabled=true&quot;, &quot;--shuffle&quot;,
 +    ],
  }
-</code></pre>
-
-<p>There are a few limitatons to this system I want to call out.</p>
-
-<ol>
-<li>You need to know the official options to use as a baseline for your changes. You can inspect official command lines by looking at the mozharness repo:
-<ul>
-<li>Windows: <a href="/web/20150907231521/http://mxr.mozilla.org/build/source/mozharness/configs/unittests/win_unittest.py">http://mxr.mozilla.org/build/source/mozharness/configs/unittests/win_unittest.py</a></li>
-<li>OSX: <a href="/web/20150907231521/http://mxr.mozilla.org/build/source/mozharness/configs/unittests/mac_unittest.py">http://mxr.mozilla.org/build/source/mozharness/configs/unittests/mac_unittest.py</a></li>
-<li>Linux: <a href="/web/20150907231521/http://mxr.mozilla.org/build/source/mozharness/configs/unittests/linux_unittest.py">http://mxr.mozilla.org/build/source/mozharness/configs/unittests/linux_unittest.py</a></li>
-<li>B2G: <a href="/web/20150907231521/http://mxr.mozilla.org/build/source/mozharness/configs/b2g/emulator_automation_config.py">http://mxr.mozilla.org/build/source/mozharness/configs/b2g/emulator_automation_config.py</a></li>
-</ul>
-Note: Android doesn't currently use mozharness so this trick is not yet possible on Fennec.
-</li>
-<li>There is no way to specify separate command lines for different platforms. For example the mochitest command lines for B2G and desktop are very different. There is no way to specify a custom command line 
-for one without breaking the other. To get around this you'll just need to do two separate try pushes with two separate command lines.</li>
-<li>Certain options (like --this-chunk and --total-chunks) might confuse the automation and have unintended consequences. For example specifying '--this-chunk 1' will tell every job (even chunks 2+) to run the first chunk.</li>
-</ol>
-
+</code></pre><p>There are a few limitatons to this system I want to call out.</p>
+<!-- raw HTML omitted -->
 <p>In conclusion, there are many things we can do to make this easier for developers. The current
 solution was really implemented to allow tree specific mozharness config values, the fact that you
 can push custom command lines to try was just a useful side effect. I hope in the future someone
@@ -211,14 +162,15 @@ is at the moment.</p>
   <footer>
 
   
-  <section>
-  <nav class="nav sharing-icons">
-    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2013%2fpush-custom-test-command-line-try%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2013%2fpush-custom-test-command-line-try%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2013%2fpush-custom-test-command-line-try%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2013%2fpush-custom-test-command-line-try%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-  </nav>
-</section>
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2013%2fpush-custom-test-command-line-try%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2013%2fpush-custom-test-command-line-try%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2013%2fpush-custom-test-command-line-try%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2013%2fpush-custom-test-command-line-try%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
 
   
 
@@ -253,9 +205,13 @@ is at the moment.</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -268,10 +224,6 @@ is at the moment.</p>
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

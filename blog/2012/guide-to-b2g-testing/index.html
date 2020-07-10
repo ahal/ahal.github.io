@@ -13,29 +13,12 @@ we have these nice green letters to look at on TBPL that make us feel good about
 is really being run?  What is the meaning behind these letters &ldquo;M&rdquo;, &ldquo;R&rdquo;, &ldquo;Mn&rdquo; and &ldquo;X&rdquo;? Are there any
 causes for concern? Are there other tests being run that don&rsquo;t show up on TBPL? What are the current
 automation priorities? What are the next platforms to use after emulators?
-
 This blog post aims to answer these questions and more. It is a comprehensive snapshot of the
-current state of automated testing on B2G.
-
-" />
+current state of automated testing on B2G." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahal.ca/blog/2012/guide-to-b2g-testing/" />
-
-
-
-<meta property="article:published_time" content="2012-12-21T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2012-12-21T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2012-12-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2012-12-21T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Tired Developer&#39;s non-Illustrated Primer to B2G Testing"/>
@@ -46,12 +29,9 @@ we have these nice green letters to look at on TBPL that make us feel good about
 is really being run?  What is the meaning behind these letters &ldquo;M&rdquo;, &ldquo;R&rdquo;, &ldquo;Mn&rdquo; and &ldquo;X&rdquo;? Are there any
 causes for concern? Are there other tests being run that don&rsquo;t show up on TBPL? What are the current
 automation priorities? What are the next platforms to use after emulators?
-
 This blog post aims to answer these questions and more. It is a comprehensive snapshot of the
-current state of automated testing on B2G.
-
-"/>
-<meta name="generator" content="Hugo 0.42.1" />
+current state of automated testing on B2G."/>
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -59,11 +39,11 @@ current state of automated testing on B2G.
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "A Tired Developer&#39;s non-Illustrated Primer to B2G Testing",
-  "url": "https://ahal.ca/blog/2012/guide-to-b2g-testing/",
-  "wordCount": "1766",
-  "datePublished": "2012-12-21T00:00:00&#43;00:00",
-  "dateModified": "2012-12-21T00:00:00&#43;00:00",
+  "headline": "A Tired Developer\u0027s non-Illustrated Primer to B2G Testing",
+  "url": "https:\/\/ahal.ca\/blog\/2012\/guide-to-b2g-testing\/",
+  "wordCount": "1705",
+  "datePublished": "2012-12-21T00:00:00\u002b00:00",
+  "dateModified": "2012-12-21T00:00:00\u002b00:00",
   "author": {
     "@type": "Person",
     "name": "Andrew Halberstadt"
@@ -146,33 +126,25 @@ we have these nice green letters to look at on TBPL that make us feel good about
 is really being run?  What is the meaning behind these letters &ldquo;M&rdquo;, &ldquo;R&rdquo;, &ldquo;Mn&rdquo; and &ldquo;X&rdquo;? Are there any
 causes for concern? Are there other tests being run that don&rsquo;t show up on TBPL? What are the current
 automation priorities? What are the next platforms to use after emulators?</p>
-
 <p>This blog post aims to answer these questions and more. It is a comprehensive snapshot of the
 current state of automated testing on B2G.</p>
-
-<p></p>
-
 <ul>
-<li><a href="#Pandaboards">Pandaboards</a></li>
-<li><a href="#Mochitests">Mochitests</a></li>
-<li><a href="#Reftests">Reftests</a></li>
-<li><a href="#Marionette_Webapi">Marionette/Webapi Tests</a></li>
-<li><a href="#XPCShell">XPCShell Tests</a></li>
-<li><a href="#Gaia_UI">Gaia UI Tests</a></li>
-<li><a href="#Gaia_Integration">Gaia Integration Tests</a></li>
-<li><a href="#Eideticker">Eideticker</a></li>
-<li><a href="#Application_Startup">Application Startup Tests</a></li>
+<li><!-- raw HTML omitted -->Pandaboards<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->Mochitests<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->Reftests<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->Marionette/Webapi Tests<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->XPCShell Tests<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->Gaia UI Tests<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->Gaia Integration Tests<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->Eideticker<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->Application Startup Tests<!-- raw HTML omitted --></li>
 </ul>
-
-<h2 id="a-name-pandaboards-pandaboards-a"><a name="Pandaboards">Pandaboards</a></h2>
-
+<h2 id="a-namepandaboardspandaboardsa"><!-- raw HTML omitted -->Pandaboards<!-- raw HTML omitted --></h2>
 <p>Pandaboards are still the future of automated testing on B2G. We&rsquo;ve hit many problems with them over
 the course of the last two quarters, but all the pieces are starting to fall together. In fact we
 have <a href="http://armenzg.blogspot.ca/2012/12/b2g-test-jobs-running-on-panda-boards.html">tests running on pandas</a> on the <a href="http://tbpl.mozilla.org/?tree=Cedar">Cedar branch</a> already (N.B that these are to test the
 infrastructure, not the product).</p>
-
 <h4 id="mozpool-lifeguard-and-blackmobilemagic">Mozpool, Lifeguard and BlackMobileMagic</h4>
-
 <p><a href="https://wiki.mozilla.org/Auto-tools/Projects/MozPool">Mozpool</a> is the system that will be used to control and assign pandas. The build system will
 send a job request to mozpool which will analyze the available devices and return the IP of a device
 that meets all of the requirements.  Before doing so, it will invoke <a href="https://wiki.mozilla.org/Auto-tools/Projects/Lifeguard">lifeguard</a> which will
@@ -180,60 +152,31 @@ perform diagnostic tests on the device and remove it from the pool if it is unsu
 Lifeguard will use <a href="https://wiki.mozilla.org/ReleaseEngineering/BlackMobileMagic">BlackMobileMagic</a> to perform it&rsquo;s low-level operations on the device, such as
 diagnosing network issues, restarting, retrieving device info etc. All of these components are
 currently completed, tested and awaiting the test harnesses.</p>
-
 <h4 id="test-schedule">Test Schedule</h4>
-
-<ul>
-<li>
-Gaia UI Tests: the first target to get running on pandas
-<ul>
-<li>Nearly finished, but is mainly being blocked by [bug 820617][6]</li>
-<li>Also take a look at the [full dependency tree][7]</li>
-<li>End of Q4 or early Q1</li>
-</ul>
-</li>
-
-<li>
-Unittests (mochitest, reftest, etc): targetted after Gaia smoketests are running reliably
-<ul>
-<li>Sometime in Q1</li>
-<li>[Full dependency tree][8] (you can see why they're taking awhile)</li>
-</ul>
-</li>
-</ul>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h4 id="how-to-help">How to help</h4>
-
 <p>Getting Gaia UI tests running on pandas is well under way. After that we will be shifting focus on
 the B2G unittests (mochitest, reftest, marionette/webapi and xpcshell tests).  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=807126">Bug 807126</a> comes
 to mind as an important bug that we&rsquo;ll need to complete before we can even start running unittests
 on pandaboards.  It is currently on my radar for sometime in Q1 but has been slipping down my
 priority list lately.</p>
-
-<h2 id="a-name-mochitests-mochitests-a"><a name="Mochitests">Mochitests</a></h2>
-
+<h2 id="a-namemochitestsmochitestsa"><!-- raw HTML omitted -->Mochitests<!-- raw HTML omitted --></h2>
 <p>A subset of <a href="https://developer.mozilla.org/en-US/docs/Mochitest">mochitest-plain</a> are being run on the emulator. There are no plans for
 mochitest-chrome. Mochitests will also be used for B2G permissions testing.  Mochitests are rolled
 out to all branches and are being staged on the <a href="https://tbpl.mozilla.org/?tree=Cedar">Cedar branch</a>. These are denoted &ldquo;M&rdquo; on
 <a href="http://tbpl.mozilla.org/">TBPL</a>.</p>
-
-<h4 id="what-s-being-run">What&rsquo;s being run</h4>
-
+<h4 id="whats-being-run">What&rsquo;s being run</h4>
 <p>See the <a href="http://mxr.mozilla.org/mozilla-central/source/testing/mochitest/b2g.json">full list of mochitests running on b2g</a>. Currently it&rsquo;s only some of the DOM
 and layout tests, but these are in the process of getting expanded (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=793045">bug 793045</a>).</p>
-
 <h4 id="causes-for-concern">Causes for concern</h4>
-
 <p>Overall mochitests have been pretty stable save for a few intermittent harness issues.</p>
-
 <ul>
 <li>B2G/emulator instability problems (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=814551">bug 814551</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=802877">bug 802877</a>)</li>
 <li>Runs slowly on emulators using linux 32 slave load (the set of enabled tests takes ~60 minutes on a debug build)</li>
 <li>There are a fair amount of mochitest failures (see tracking <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=b2g-mochitests">bug 781696</a>)</li>
 </ul>
-
 <h4 id="future-work">Future work</h4>
-
 <ul>
 <li>Enable a larger set of mochitests (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=793045">bug 793045</a>)</li>
 <li>Run mochitests on pandaboards</li>
@@ -241,38 +184,27 @@ and layout tests, but these are in the process of getting expanded (<a href="htt
 <li>Expand mochitest-plain with additional b2g tests</li>
 <li>Emulators are slow, test runs take a long time</li>
 </ul>
-
 <h4 id="try-syntax">Try Syntax</h4>
-
 <p>try: -b o -p ics_armv7a_gecko -u mochitests -t none</p>
-
 <h4 id="how-to-help-1">How to help</h4>
-
 <ul>
 <li>See the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/B2G_Mochitests">instructions on MDN</a> for information on running mochitests</li>
-<li>Fix a bug on the tracking bug&rsquo;s <a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=781696&amp;amp;hide_resolved=1">dependency tree</a></li>
+<li>Fix a bug on the tracking bug&rsquo;s <a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=781696&amp;hide_resolved=1">dependency tree</a></li>
 <li>Harness performance improvements</li>
 <li>General refactoring and improvements (consolidate code between the harnesses)</li>
 </ul>
-
-<p>##<a name="Reftests">Reftests</a></p>
-
+<p>##<!-- raw HTML omitted -->Reftests<!-- raw HTML omitted --></p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Creating_reftest-based_unit_tests">Reftests</a> are being run against the ARM emulators. They are rolled out to all branches and are
 being staged on <a href="https://tbpl.mozilla.org/?tree=Cedar">Cedar</a>. These are denoted &ldquo;R&rdquo; on <a href="http://tbpl.mozilla.org/">TBPL</a>.</p>
-
-<h4 id="what-s-being-run-1">What&rsquo;s being run</h4>
-
+<h4 id="whats-being-run-1">What&rsquo;s being run</h4>
 <p>Only the reftest-sanity tests!!! Yes, there is practically no test coverage here at the moment. The
 tracking bug to expand the set of tests is <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=811779">bug 811779</a>.  The patch in this bug should give a
 relatively green run of all the reftests but we simply don&rsquo;t have the capacity to turn them on.
 Instead I&rsquo;m in the process of triaging a subset of reftests that Chris Jones deemed &ldquo;important&rdquo; on
 Cedar. These should be ready to turn on soon which is why there are so many chunks.</p>
-
 <h4 id="causes-for-concern-1">Causes for concern</h4>
-
 <p>See the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=773482">main reftest tracking bug</a> for a full list of issues associated with reftests on B2G.
 Some of the highlights include:</p>
-
 <ul>
 <li>B2G/emulator instability problems (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=814551">bug 814551</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=802877">bug 802877</a>)</li>
 <li>In general there are <em>a lot</em> of intermittent failures with the B2G reftests</li>
@@ -281,89 +213,63 @@ Some of the highlights include:</p>
 <li>No crashtests or jsreftests being run yet</li>
 <li>Emulators are slow, test runs take a long time</li>
 </ul>
-
 <h4 id="future-work-1">Future work</h4>
-
 <ul>
 <li>Fix remaining harness issues</li>
 <li>Enable a larger set of reftests (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=811779">bug 811779</a>)</li>
 <li>Run reftests on pandaboards</li>
 <li>Add crashtests and jsreftests</li>
 </ul>
-
 <h4 id="try-syntax-1">Try Syntax</h4>
-
 <p>try: -b o -p ics_armv7a_gecko -u reftest-1,reftest-2,reftest-3,reftest-4,reftest-5,reftest-6,reftest-7,reftest-8,reftest-9,reftest-10 -t none</p>
-
 <h4 id="how-to-help-2">How to help</h4>
-
 <ul>
 <li>See the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/B2G_Reftests">instructions on MDN</a> for information on running reftests</li>
-<li>Pick up a bug listed in the <a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=773482&amp;amp;hide_resolved=1">dependency tree</a></li>
+<li>Pick up a bug listed in the <a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=773482&amp;hide_resolved=1">dependency tree</a></li>
 <li>Harness performance improvements</li>
 <li>Try running them locally and file/attempt to fix any issues you come across (the dependency list above is definitely not exhaustive)</li>
 </ul>
-
-<h2 id="a-name-marionette-webapi-marionette-and-webapi-tests-a"><a name="Marionette_Webapi">Marionette and WebAPI tests</a></h2>
-
+<h2 id="a-namemarionette_webapimarionette-and-webapi-testsa"><!-- raw HTML omitted -->Marionette and WebAPI tests<!-- raw HTML omitted --></h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Marionette/Tests">Marionette and WebAPI tests</a> are a combination of marionette unittests for testing marionette
 itself and some B2G webapi tests.  These are rolled out to all branches and are being staged on
 <a href="https://tbpl.mozilla.org/?tree=Cedar">Cedar</a>. They are denoted with an &ldquo;Mn&rdquo; on <a href="http://tbpl.mozilla.org/">TBPL</a>.</p>
-
-<h4 id="what-s-being-run-2">What&rsquo;s being run</h4>
-
+<h4 id="whats-being-run-2">What&rsquo;s being run</h4>
 <p>All of the <a href="http://mxr.mozilla.org/mozilla-central/source/testing/marionette/client/marionette/tests/unit">marionette unit tests</a>. In addition there are many other <a href="http://mxr.mozilla.org/mozilla-central/source/testing/marionette/client/marionette/tests/unit-tests.ini">webapi tests</a> being
 run. These include tests for telephony, battery, sms, network and more.</p>
-
 <h4 id="causes-for-concern-2">Causes for concern</h4>
-
 <p>The webapi tests tend to be much more crashy than any of the other unit tests. Currently there are a
 lot of instability issues caused by B2G process crashes and full out emulator crashes.</p>
-
 <ul>
 <li>B2G/emulator instability problems (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=814551">bug 814551</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=802877">bug 802877</a>)</li>
 <li>Recently the gaia/gonk snapshot got updated and we see a 70% crash rate now, but oddly not on the b2g18 branch! (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=823076">bug 823076</a> to track fixing it)</li>
 <li>Emulators are slow, test runs take a long time</li>
 </ul>
-
 <h4 id="future-work-2">Future work</h4>
-
 <ul>
 <li>Add some screen orientation tests</li>
 <li>Expand existing test coverage in general</li>
 <li>Some of the tests require the emulator (for synthesizing events). Run the ones that don&rsquo;t on pandaboards</li>
 <li>Fix stability issues on the emulator</li>
 </ul>
-
 <h4 id="try-syntax-2">Try Syntax</h4>
-
 <p>try: -b o -p ics_armv7a_gecko -u marionette-webapi -t none</p>
-
 <h4 id="how-to-help-3">How to help</h4>
-
 <ul>
 <li>See the documentation on <a href="https://developer.mozilla.org/en-US/docs/Marionette/Running_Tests">running marionette tests</a></li>
-<li>Pick up a bug from the <a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=823076&amp;amp;hide_resolved=1">dependency tree</a></li>
+<li>Pick up a bug from the <a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=823076&amp;hide_resolved=1">dependency tree</a></li>
 <li>Expand the set of marionette/webapi tests</li>
 </ul>
-
-<h2 id="a-name-xpcshell-xpcshell-tests-a"><a name="XPCShell">XPCShell Tests</a></h2>
-
+<h2 id="a-namexpcshellxpcshell-testsa"><!-- raw HTML omitted -->XPCShell Tests<!-- raw HTML omitted --></h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Writing_xpcshell-based_unit_tests">XPCShell tests</a> were just recently added. They are rolled out on all branches and are being
 staged on <a href="https://tbpl.mozilla.org/?tree=Cedar">Cedar</a>. These are denoted &ldquo;X&rdquo; on <a href="http://tbpl.mozilla.org/">TBPL</a>.</p>
-
-<h4 id="what-s-being-run-3">What&rsquo;s being run</h4>
-
+<h4 id="whats-being-run-3">What&rsquo;s being run</h4>
 <p>The <a href="http://mxr.mozilla.org/mozilla-central/source/testing/xpcshell/xpcshell_b2g.ini">xpcshell tests being run</a> include the update tests, the ril tests, the debugger tests and a
 handful of others.  This is just a small subset of tests that were chosen to start out with. If you
 know of any other tests that should be getting run feel free to let me know (or just add them
 yourself after verifying that they pass).</p>
-
 <h4 id="causes-for-concern-3">Causes for concern</h4>
-
 <p>The xpcshell tests seem to be quite reliable on B2G. There are a few open bugs, but nothing near as
 bleak as e.g reftests or marionette/webapi.</p>
-
 <ul>
 <li>B2G/emulator instability problems (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=814551">bug 814551</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=802877">bug 802877</a>)</li>
 <li>See the general <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=820380">tracking bug for xpcshell related problems</a></li>
@@ -371,86 +277,61 @@ bleak as e.g reftests or marionette/webapi.</p>
 <li>Segfaults happen in between tests (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=816086">bug 816086</a>)</li>
 <li>Emulators are slow, test runs take a long time</li>
 </ul>
-
 <h4 id="future-work-3">Future work</h4>
-
 <ul>
 <li>Run xpcshell tests on pandas</li>
 <li>Expand set of tests being run</li>
 <li>Fix remaining issues</li>
 <li>Speed up test runs</li>
 </ul>
-
 <h4 id="try-syntax-3">Try Syntax</h4>
-
 <p>try: -b o -p ics_armv7a_gecko -u xpcshell -t none</p>
-
 <h4 id="how-to-help-4">How to help</h4>
-
 <ul>
 <li>Expand the set of tests being run (be mindful of test time and chunks)</li>
-<li>Grab a bug from the <a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=820380&amp;amp;hide_resolved=1">dependency tree</a></li>
+<li>Grab a bug from the <a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=820380&amp;hide_resolved=1">dependency tree</a></li>
 </ul>
-
-<h2 id="a-name-gaia-ui-gaia-ui-tests-a"><a name="Gaia_UI">Gaia UI Tests</a></h2>
-
+<h2 id="a-namegaia_uigaia-ui-testsa"><!-- raw HTML omitted -->Gaia UI Tests<!-- raw HTML omitted --></h2>
 <p>The <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Gaia_Unit_Tests">gaia UI tests</a> (aka gaia smoketests) are a set of tests being run by the WebQA team. They
 are running automatically in a Jenkins instance but are not currently being reported in TBPL. You
 can <a href="http://qa-selenium.mv.mozilla.com:8080/view/B2G/">see the results</a> (you must be on the MV network to see that link, sorry).</p>
-
 <h4 id="what-is-being-run">What is being run</h4>
-
 <p>You can check out the <a href="https://github.com/mozilla/gaia-ui-tests/tree/master/gaiatest/tests">current set of tests being run</a> from github.</p>
-
 <h4 id="causes-for-concern-4">Causes for concern</h4>
-
 <p>There are some test stability issues and some issues that appear to be legitimate failures. There
 are ~13 tests (roughly half) that are currently passing and stable on the pandaboards. The others
 require things which a pandaboard doesn&rsquo;t have (e.g camera) and can&rsquo;t be run.</p>
-
 <ul>
 <li>Most of the <a href="https://github.com/mozilla/gaia-ui-tests/issues">gaia ui test issues</a> can be seen on github</li>
 <li>Pandas don&rsquo;t recognize the SD card which is needed by a fair chunk of the tests (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=820833">bug 820833</a>)</li>
 <li>The two main blockers for getting this going on pandas are <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=820617">bug 820617</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=821379">bug 821379</a></li>
 </ul>
-
 <h4 id="future-work-4">Future work</h4>
-
 <ul>
 <li>Get them running in a Jenkins C-I on a Unagi (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=801898">bug 801898</a>)</li>
 <li>Get them running in TBPL on a pandaboard (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=802317">bug 802317</a>)</li>
 <li>Expand set of tests</li>
 <li>Fix stability issues</li>
 </ul>
-
 <h4 id="how-to-help-5">How to help</h4>
-
 <ul>
 <li>Read the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Gaia_Unit_Tests">documentation on running them</a></li>
-<li>Check out the dependency trees for <a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=801898&amp;amp;hide_resolved=1">bug 801898</a> and <a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=802317&amp;amp;hide_resolved=1">bug 802317</a></li>
+<li>Check out the dependency trees for <a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=801898&amp;hide_resolved=1">bug 801898</a> and <a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=802317&amp;hide_resolved=1">bug 802317</a></li>
 <li>Contribute additional tests (see <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Gaia_Unit_Tests#Writing_unit_tests">writeing unit tests</a>)</li>
 </ul>
-
-<h2 id="a-name-gaia-integration-gaia-integration-tests-a"><a name="Gaia_Integration">Gaia Integration Tests</a></h2>
-
+<h2 id="a-namegaia_integrationgaia-integration-testsa"><!-- raw HTML omitted -->Gaia Integration Tests<!-- raw HTML omitted --></h2>
 <p>Some of the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Gaia_Integration_Tests">Gaia integration tests</a> are being run by the WebQA team in a Jenkins CI. Others are
 being run manually on shipping devices by gaia developers. These are targetted to run on pandaboards
 after the Gaia UI tests are finished and running stable.</p>
-
-<h2 id="a-name-eideticker-eideticker-a"><a name="Eideticker">Eideticker</a></h2>
-
+<h2 id="a-nameeidetickereidetickera"><!-- raw HTML omitted -->Eideticker<!-- raw HTML omitted --></h2>
 <p><a href="https://wiki.mozilla.org/Project_Eideticker">Eideticker</a> is a performance testing harness that captures HDMI out and performs frame by frame
 analysis.  There should be B2G specific eideticker tests running by end of Q4 or early Q1.</p>
-
 <h4 id="causes-for-concern-5">Causes for concern</h4>
-
 <ul>
 <li>There is a problem where the HDMI output seems to go to sleep (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=819431">bug 819431</a>)</li>
 <li>Pandaboards become unresponsive after idling for too long (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=821379">bug 821379</a>)</li>
 </ul>
-
-<h2 id="a-name-application-startup-application-startup-tests-a"><a name="Application_Startup">Application Startup Tests</a></h2>
-
+<h2 id="a-nameapplication_startupapplication-startup-testsa"><!-- raw HTML omitted -->Application Startup Tests<!-- raw HTML omitted --></h2>
 <p>These tests are currently running on unagis and are reporting data to datazilla. Once the remaining
 panda issues have been ironed out, these will provide some basic per push performance numbers.</p>
 
@@ -461,14 +342,15 @@ panda issues have been ironed out, these will provide some basic per push perfor
   <footer>
 
   
-  <section>
-  <nav class="nav sharing-icons">
-    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2012%2fguide-to-b2g-testing%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2012%2fguide-to-b2g-testing%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2012%2fguide-to-b2g-testing%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2012%2fguide-to-b2g-testing%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-  </nav>
-</section>
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2012%2fguide-to-b2g-testing%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2012%2fguide-to-b2g-testing%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2012%2fguide-to-b2g-testing%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2012%2fguide-to-b2g-testing%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
 
   
 
@@ -503,9 +385,13 @@ panda issues have been ironed out, these will provide some basic per push perfor
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -518,10 +404,6 @@ panda issues have been ironed out, these will provide some basic per push perfor
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

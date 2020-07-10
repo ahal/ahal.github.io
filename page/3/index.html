@@ -9,24 +9,12 @@
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/" />
-
-
-
-<meta property="og:updated_time" content="2014-03-03T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
+<meta property="og:updated_time" content="2019-05-21T15:04:33-04:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hunting the Shmoo"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
-<meta name="generator" content="Hugo 0.42.1" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -35,12 +23,12 @@
   "@context": "http://schema.org",
   "@type": "Blog",
   "headline": "Hunting the Shmoo",
-  "url" : "https://ahal.ca/",
+  "url" : "https:\/\/ahal.ca\/",
   "author": {
     "@type": "Person",
     "name": "Andrew Halberstadt"
   },
-  "dateModified": "2014-03-03T00:00:00&#43;00:00",
+  "dateModified": "2019-05-21T15:04:33-04:00",
   "keywords": "absorb,addon,android,ateam,b2g,bookbinder,cycling,django,fzf,hugo,jetty,mach,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,toronto,try,website,",
   "description": "Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."
 }
@@ -126,8 +114,6 @@ source tree. You can perform initial setup, execute a build, run tests, examine 
 search Google. Many of these things require an object directory. This can potentially lead to some
 confusion if you typically have more than one object directory at any given time. How does mach know
 which object directory to operate on?</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2014/mach-workflow/'>Read more →</a>
 </article> 
 
@@ -147,12 +133,9 @@ which object directory to operate on?</p>
   </header>
   <p>This probably isn&rsquo;t a groundbreaking revelation to most Mozillians, but it&rsquo;s something I haven&rsquo;t
 quite managed to put into words until now.</p>
-
 <p>On the Tools and Automation team at Mozilla, the easiest way to describe what we do is to say &ldquo;We
 try to make the lives of others within the community easier&rdquo;. This is a vague statement, but it&rsquo;s
 about as close as we can get without writing a small dissertation.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2013/we-are-all-enablers/'>Read more →</a>
 </article> 
 
@@ -172,15 +155,12 @@ about as close as we can get without writing a small dissertation.</p>
   </header>
   <p>Before now running &lsquo;classic&rsquo; unittests (mochitest, reftest, xpcshell, etc.) on B2G emulators has
 been a massive pain. The new recommended way of running them is through mach.</p>
-
 <ol>
 <li>Update B2G repo if you haven&rsquo;t already: <code>git pull</code></li>
 <li>Configure an emulator: <code>BRANCH=master ./config.sh emulator</code></li>
 <li>Build: <code>./build.sh</code></li>
 <li>Run: <code>./mach mochitest-remote</code></li>
 </ol>
-
-<p></p>
   <a href='https://ahal.ca/blog/2013/running-b2g-unittests-mach/'>Read more →</a>
 </article> 
 
@@ -199,17 +179,12 @@ been a massive pain. The new recommended way of running them is through mach.</p
 </p>
   </header>
   <h3 id="outdated">OUTDATED</h3>
-
 <p>The steps in this article are no longer accurate. Pushing a custom command line is easier now. See
 <a href="https://groups.google.com/forum/#!topic/mozilla.dev.platform/AKDyoQShFEs">here</a> for more details.</p>
-
-<hr />
-
+<hr>
 <p>Have you ever wanted to see the test results of a custom command line in try? Things like
 &ndash;test-manifest, &ndash;shuffle or &ndash;run-slower?  Now you can! The process isn&rsquo;t exactly optimized for
 the developer use case, but neither is it really difficult to do once you know how.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2013/push-custom-test-command-line-try/'>Read more →</a>
 </article> 
 
@@ -231,8 +206,6 @@ the developer use case, but neither is it really difficult to do once you know h
 repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &lsquo;hg init
 &ndash;mq&rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
 with stock queue repos, new and existing patches are added automatically.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2013/mercurial-extension-qqver/'>Read more →</a>
 </article> 
 
@@ -253,13 +226,10 @@ with stock queue repos, new and existing patches are added automatically.</p>
   <p>I came across an odd python problem the other day. I wanted to format a log message without printing
 it with python&rsquo;s logging module. But I couldn&rsquo;t find any examples or others who wanted to do the
 same thing.</p>
-
 <p>You might ask why I would want to do this. In my case, I was using sys.stdout.write() to display the
 progress of a download as a percentage. Python&rsquo;s logging module automatically appends a newline to
 your message and there didn&rsquo;t seem to be a way to change this without a subclass. Anytime you want
 to overwrite something on the previous line with python logging, you will run into trouble.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2013/python-logging-format-message/'>Read more →</a>
 </article> 
 
@@ -277,12 +247,10 @@ to overwrite something on the previous line with python logging, you will run in
 
 </p>
   </header>
-  <p>Hey! Check it out, I have crash stacks in my <a href="https://tbpl.mozilla.org/php/getParsedLog.php?id=21215744&amp;amp;full=1&amp;amp;branch=mozilla-inbound">logs</a> now!  I know, I know, I took my sweet time.
+  <p>Hey! Check it out, I have crash stacks in my <a href="https://tbpl.mozilla.org/php/getParsedLog.php?id=21215744&amp;full=1&amp;branch=mozilla-inbound">logs</a> now!  I know, I know, I took my sweet time.
 I&rsquo;m sorry. I hope this doesn&rsquo;t damage our relationship. Is there anything I can do to make it up to
 you? I want to help. I really do. It&rsquo;s just. I don&rsquo;t know. I guess I&rsquo;ve been feeling under the
 weather lately. I must have caught a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=846091">bug</a>.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2013/b2g-unittest-crashstacks/'>Read more →</a>
 </article> 
 
@@ -305,8 +273,6 @@ too many tests simply because we didn&rsquo;t have enough capacity on our test s
 Regardless it was still bad enough as it was (many of you probably experienced very long wait times
 for results). Thanks to releng (and especially Rail Aliiev) we are now running most of our B2G tests
 in Amazon AWS which means we can be much more flexible in accomodating load.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2013/enable-b2g-tests/'>Read more →</a>
 </article> 
 
@@ -331,11 +297,8 @@ we have these nice green letters to look at on TBPL that make us feel good about
 is really being run?  What is the meaning behind these letters &ldquo;M&rdquo;, &ldquo;R&rdquo;, &ldquo;Mn&rdquo; and &ldquo;X&rdquo;? Are there any
 causes for concern? Are there other tests being run that don&rsquo;t show up on TBPL? What are the current
 automation priorities? What are the next platforms to use after emulators?</p>
-
 <p>This blog post aims to answer these questions and more. It is a comprehensive snapshot of the
 current state of automated testing on B2G.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2012/guide-to-b2g-testing/'>Read more →</a>
 </article> 
 
@@ -355,14 +318,11 @@ current state of automated testing on B2G.</p>
   </header>
   <p>Contrary to popular belief, we (the A-Team) have been running mochitests, reftests, marionette tests
 and webapi tests on B2G in some form of continuous integration or another for about 5 months now.
-They&rsquo;ve been reporting results to a TBPL look-alike called <a href="http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;amp;source=autolog">autolog</a>, and were run on Amazon EC2
+They&rsquo;ve been reporting results to a TBPL look-alike called <a href="http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;source=autolog">autolog</a>, and were run on Amazon EC2
 VM&rsquo;s with emulators. This was a temporary solution to get something stood up quickly while we moved
 towards our ultimate B2G automation goal - tests running on Pandaboards and reporting to TBPL.</p>
-
 <p>As of this week, while there are still no tests running on Pandaboards, I&rsquo;m happy to say we have
 emulators running mochitests, reftests and marionette/webapi tests, all reporting to TBPL.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2012/b2g-emulator-tests/'>Read more →</a>
 </article> 
 
@@ -394,9 +354,13 @@ emulators running mochitests, reftests and marionette/webapi tests, all reportin
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -409,10 +373,6 @@ emulators running mochitests, reftests and marionette/webapi tests, all reportin
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

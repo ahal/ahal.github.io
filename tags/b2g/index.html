@@ -5,28 +5,16 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<meta property="og:title" content="B2g" />
+<meta property="og:title" content="b2g" />
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/tags/b2g/" />
-
-
-
-<meta property="og:updated_time" content="2014-03-06T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
+<meta property="og:updated_time" content="2014-03-06T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="B2g"/>
+<meta name="twitter:title" content="b2g"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
-<meta name="generator" content="Hugo 0.42.1" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -106,25 +94,21 @@
 </p>
   </header>
   <h4 id="getting-started">Getting Started</h4>
-
 <p>tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python</code></pre></div>
-<p>Install b2g-commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pip install b2g-commands</code></pre></div>
-<p>To play around with it, cd to your <a href="https://github.com/mozilla-b2g/B2G">B2G repo</a> and run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git pull                 <span style="color:#75715e"># make sure repo is up to date
-</span><span style="color:#75715e"></span>$ ./mach help              <span style="color:#75715e"># see all available commands
-</span><span style="color:#75715e"></span>$ ./mach help &amp;lt;command&amp;gt;    # see additional info about a command</code></pre></div>
-<h4 id="details">Details</h4>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
+</code></pre></div><p>Install b2g-commands:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pip install b2g-commands
+</code></pre></div><p>To play around with it, cd to your <a href="https://github.com/mozilla-b2g/B2G">B2G repo</a> and run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git pull                 <span style="color:#75715e"># make sure repo is up to date</span>
+$ ./mach help              <span style="color:#75715e"># see all available commands</span>
+$ ./mach help &amp;lt;command&amp;gt;    <span style="color:#75715e"># see additional info about a command</span>
+</code></pre></div><h4 id="details">Details</h4>
 <p>Most people who spend the majority of their time working within mozilla-central have probably been
 acquainted with <a href="https://developer.mozilla.org/en-US/docs/Developer_Guide/mach">mach</a>. In case you aren&rsquo;t acquainted, mach is a generic command dispatching
 tool. It is possible to write scripts called &lsquo;mach targets&rsquo; which get registered with mach core and
 transformed into commands. Mach targets in mozilla-central have access to all sorts of powerful
 hooks into the build and test infrastructure which allow them to do some really cool things, such as
 bootstrapping your environment, running builds and tests, and generating diagnostics.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2014/b2g-commands/'>Read more →</a>
 </article> 
 
@@ -144,15 +128,12 @@ bootstrapping your environment, running builds and tests, and generating diagnos
   </header>
   <p>Before now running &lsquo;classic&rsquo; unittests (mochitest, reftest, xpcshell, etc.) on B2G emulators has
 been a massive pain. The new recommended way of running them is through mach.</p>
-
 <ol>
 <li>Update B2G repo if you haven&rsquo;t already: <code>git pull</code></li>
 <li>Configure an emulator: <code>BRANCH=master ./config.sh emulator</code></li>
 <li>Build: <code>./build.sh</code></li>
 <li>Run: <code>./mach mochitest-remote</code></li>
 </ol>
-
-<p></p>
   <a href='https://ahal.ca/blog/2013/running-b2g-unittests-mach/'>Read more →</a>
 </article> 
 
@@ -170,12 +151,10 @@ been a massive pain. The new recommended way of running them is through mach.</p
 
 </p>
   </header>
-  <p>Hey! Check it out, I have crash stacks in my <a href="https://tbpl.mozilla.org/php/getParsedLog.php?id=21215744&amp;amp;full=1&amp;amp;branch=mozilla-inbound">logs</a> now!  I know, I know, I took my sweet time.
+  <p>Hey! Check it out, I have crash stacks in my <a href="https://tbpl.mozilla.org/php/getParsedLog.php?id=21215744&amp;full=1&amp;branch=mozilla-inbound">logs</a> now!  I know, I know, I took my sweet time.
 I&rsquo;m sorry. I hope this doesn&rsquo;t damage our relationship. Is there anything I can do to make it up to
 you? I want to help. I really do. It&rsquo;s just. I don&rsquo;t know. I guess I&rsquo;ve been feeling under the
 weather lately. I must have caught a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=846091">bug</a>.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2013/b2g-unittest-crashstacks/'>Read more →</a>
 </article> 
 
@@ -198,8 +177,6 @@ too many tests simply because we didn&rsquo;t have enough capacity on our test s
 Regardless it was still bad enough as it was (many of you probably experienced very long wait times
 for results). Thanks to releng (and especially Rail Aliiev) we are now running most of our B2G tests
 in Amazon AWS which means we can be much more flexible in accomodating load.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2013/enable-b2g-tests/'>Read more →</a>
 </article> 
 
@@ -224,11 +201,8 @@ we have these nice green letters to look at on TBPL that make us feel good about
 is really being run?  What is the meaning behind these letters &ldquo;M&rdquo;, &ldquo;R&rdquo;, &ldquo;Mn&rdquo; and &ldquo;X&rdquo;? Are there any
 causes for concern? Are there other tests being run that don&rsquo;t show up on TBPL? What are the current
 automation priorities? What are the next platforms to use after emulators?</p>
-
 <p>This blog post aims to answer these questions and more. It is a comprehensive snapshot of the
 current state of automated testing on B2G.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2012/guide-to-b2g-testing/'>Read more →</a>
 </article> 
 
@@ -248,14 +222,11 @@ current state of automated testing on B2G.</p>
   </header>
   <p>Contrary to popular belief, we (the A-Team) have been running mochitests, reftests, marionette tests
 and webapi tests on B2G in some form of continuous integration or another for about 5 months now.
-They&rsquo;ve been reporting results to a TBPL look-alike called <a href="http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;amp;source=autolog">autolog</a>, and were run on Amazon EC2
+They&rsquo;ve been reporting results to a TBPL look-alike called <a href="http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;source=autolog">autolog</a>, and were run on Amazon EC2
 VM&rsquo;s with emulators. This was a temporary solution to get something stood up quickly while we moved
 towards our ultimate B2G automation goal - tests running on Pandaboards and reporting to TBPL.</p>
-
 <p>As of this week, while there are still no tests running on Pandaboards, I&rsquo;m happy to say we have
 emulators running mochitests, reftests and marionette/webapi tests, all reporting to TBPL.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2012/b2g-emulator-tests/'>Read more →</a>
 </article> 
 
@@ -276,8 +247,6 @@ emulators running mochitests, reftests and marionette/webapi tests, all reportin
   <p>This quarter I&rsquo;ve been focusing on getting reftests running on B2G, triaging them and fixing various
 issues. The purpose of this post is to outline their status, go over the work that still needs to be
 done and point out where I will need some help.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2012/state-reftest-b2g/'>Read more →</a>
 </article> 
 
@@ -299,9 +268,13 @@ done and point out where I will need some help.</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -314,10 +287,6 @@ done and point out where I will need some help.</p>
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

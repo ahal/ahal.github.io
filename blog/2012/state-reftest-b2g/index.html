@@ -8,36 +8,18 @@
 <meta property="og:title" content="State of Reftests on B2G" />
 <meta property="og:description" content="This quarter I&rsquo;ve been focusing on getting reftests running on B2G, triaging them and fixing various
 issues. The purpose of this post is to outline their status, go over the work that still needs to be
-done and point out where I will need some help.
-
-" />
+done and point out where I will need some help." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahal.ca/blog/2012/state-reftest-b2g/" />
-
-
-
-<meta property="article:published_time" content="2012-09-12T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2012-09-12T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2012-09-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2012-09-12T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="State of Reftests on B2G"/>
 <meta name="twitter:description" content="This quarter I&rsquo;ve been focusing on getting reftests running on B2G, triaging them and fixing various
 issues. The purpose of this post is to outline their status, go over the work that still needs to be
-done and point out where I will need some help.
-
-"/>
-<meta name="generator" content="Hugo 0.42.1" />
+done and point out where I will need some help."/>
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -46,10 +28,10 @@ done and point out where I will need some help.
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "State of Reftests on B2G",
-  "url": "https://ahal.ca/blog/2012/state-reftest-b2g/",
+  "url": "https:\/\/ahal.ca\/blog\/2012\/state-reftest-b2g\/",
   "wordCount": "713",
-  "datePublished": "2012-09-12T00:00:00&#43;00:00",
-  "dateModified": "2012-09-12T00:00:00&#43;00:00",
+  "datePublished": "2012-09-12T00:00:00\u002b00:00",
+  "dateModified": "2012-09-12T00:00:00\u002b00:00",
   "author": {
     "@type": "Person",
     "name": "Andrew Halberstadt"
@@ -128,30 +110,20 @@ done and point out where I will need some help.
   <p>This quarter I&rsquo;ve been focusing on getting reftests running on B2G, triaging them and fixing various
 issues. The purpose of this post is to outline their status, go over the work that still needs to be
 done and point out where I will need some help.</p>
-
-<p></p>
-
 <h2 id="what-is-finished">What is Finished</h2>
-
 <p>Reftests currently run on B2G. I put up some <a href="https://developer.mozilla.org/docs/Mozilla/Boot_to_Gecko/B2G_Reftests">instructions on how to run them</a> on MDN. If these
 instructions don&rsquo;t work for you for whatever reason, please let me know.</p>
-
-<p>Reftests are also being <a href="http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;amp;source=autolog">reported to autolog</a> (a tbpl look-alike that is maintained by the
+<p>Reftests are also being <a href="http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;source=autolog">reported to autolog</a> (a tbpl look-alike that is maintained by the
 ateam). The tests are only being run against nightly B2G builds by a stand alone desktop machine
 that sits under my desk. This is hopefully only a very temporary solution. There are also massive
 amounts of tests that are currently disabled on B2G for various reasons which I will talk about in
 the next section.</p>
-
 <h2 id="what-needs-to-be-done">What Needs to be Done</h2>
-
 <p>There is still a lot of work to be done before reftests will enjoy a similar level of stability and
 exposure they receive on desktop Firefox.</p>
-
 <h3 id="triaging-and-fixing-tests">Triaging and Fixing Tests</h3>
-
 <p>The main tracking bug I&rsquo;m using is <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=773482">bug 773482</a>.  I haven&rsquo;t had a lot of time to look into all of
 the various causes of failure, but some of the main ones I&rsquo;ve already filed include:</p>
-
 <ul>
 <li>Several failures in reftest sanity: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=774396">bug 774396</a></li>
 <li>Broken link images in encoders-lossless: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=783621">bug 783621</a></li>
@@ -160,54 +132,41 @@ the various causes of failure, but some of the main ones I&rsquo;ve already file
 <li>Running reftests oop means the tests don&rsquo;t get rendered to the canvas: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=784810">bug 784810</a></li>
 <li>Using &lt;iframe mozbrowser&gt; instead of &lt;browser&gt; introduces additional failures: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=785074">bug 785074</a></li>
 </ul>
-
 <p>There are many more failures that I haven&rsquo;t bothered filing bugs for yet. I figure that the bugs
 above will account for most of the failures and should be fixed before too much time is spent
 triaging/filing additional bugs. I plan on looking into these issues when I have some time, but I
 have exactly 0 graphics/layout experience. So if you think you know why some of the tests are
 failing, or want to tackle one of the aforementioned bugs, please ping me (ahal) on irc. I&rsquo;d
 certainly appreciate it.</p>
-
 <h3 id="changing-the-default-resolution">Changing the Default Resolution</h3>
-
 <p>Reftests require a resolution of 800x1000 to run. However the development boards we will be using to
 run them (pandaboards) only have a height of 720. This means that there are a lot of tests that will
 lose coverage since they will be cut off. On Firefox for Android, we&rsquo;ve noticed that using a large
 resolution like 800x1000 consumes too much memory and causes many failures/timeouts/random oranges.</p>
-
 <p>I&rsquo;ve done some work to identify affected tests in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=737961">bug 737961</a> and posted to dev platform a few
 times. The current consensus seems to be that we need to work with W3C and other browser vendors to
 get the default resolution changed from 800x1000 to something smaller like 600x600. If you have any
 contacts, please let myself or jmaher know.</p>
-
 <h3 id="getting-reftests-running-on-pandaboards">Getting Reftests Running on Pandaboards</h3>
-
 <p>Currently reftests are running against the emulator. I need to make a few changes (such as using our
 SUTAgent instead of adb) to get them running on the pandaboards (as well as other dev boards and
 phones). This shouldn&rsquo;t be too hard and I simply haven&rsquo;t had time to do it yet.  Expect this to be
 finished within a week or two.</p>
-
 <h3 id="getting-reftests-running-in-continuous-integration">Getting Reftests Running in Continuous Integration</h3>
-
 <p>Like I mentioned above, reftests are only running on emulators and being reported to autolog. I&rsquo;ll
 need to do some work to get them running in production, per checkin and reported to tbpl.
 Unfortunately this is blocked on several things:</p>
-
 <ul>
 <li>Getting them running on pandaboards</li>
 <li>The ability to flash B2G on pandas</li>
 <li>Infrastructure (getting enough pandas to support load)</li>
 <li>Releng (for build support, git repo support etc.)</li>
 </ul>
-
 <p>As such, there is no timetable for this and it is likely a month or two out at the least.</p>
-
 <h2 id="summary">Summary</h2>
-
 <p>There is still a lot of work to do before reftests are running at 100% coverage and in C-I for B2G.
 I would appreciate any help I can get, especially with regards to fixing and triaging the tests. If
 you have any questions, you can post in comments or ping ahal on irc.</p>
-
 <p>Thanks!</p>
 
   
@@ -217,14 +176,15 @@ you have any questions, you can post in comments or ping ahal on irc.</p>
   <footer>
 
   
-  <section>
-  <nav class="nav sharing-icons">
-    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2012%2fstate-reftest-b2g%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2012%2fstate-reftest-b2g%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2012%2fstate-reftest-b2g%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2012%2fstate-reftest-b2g%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-  </nav>
-</section>
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2012%2fstate-reftest-b2g%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2012%2fstate-reftest-b2g%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2012%2fstate-reftest-b2g%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2012%2fstate-reftest-b2g%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
 
   
 
@@ -259,9 +219,13 @@ you have any questions, you can post in comments or ping ahal on irc.</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -274,10 +238,6 @@ you have any questions, you can post in comments or ping ahal on irc.</p>
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

@@ -10,39 +10,18 @@
 on try, but which can&rsquo;t be reproduced locally. When this happens, there were really only two
 options (neither of them nice):
 
-
 You could spam try with print debugging. But this isn&rsquo;t very powerful, and takes forever to get
 feedback.
 You could request a loaner from releng. But this is a heavy handed process, and once you have the
 loaner it is very hard to get tests up and running.
 
-
 I&rsquo;m pleased to announce there is now a third option, which is easy, powerful and 100% self-serve.
 Rather than trying to explain it in words, here is a ~5 minute demo:
-
-
-
-
-
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahal.ca/blog/2016/taskcluster-interactive-loaner/" />
-
-
-
-<meta property="article:published_time" content="2016-08-04T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2016-08-04T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2016-08-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2016-08-04T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Using One Click Loaner to Debug Failures"/>
@@ -50,22 +29,15 @@ Rather than trying to explain it in words, here is a ~5 minute demo:
 on try, but which can&rsquo;t be reproduced locally. When this happens, there were really only two
 options (neither of them nice):
 
-
 You could spam try with print debugging. But this isn&rsquo;t very powerful, and takes forever to get
 feedback.
 You could request a loaner from releng. But this is a heavy handed process, and once you have the
 loaner it is very hard to get tests up and running.
 
-
 I&rsquo;m pleased to announce there is now a third option, which is easy, powerful and 100% self-serve.
 Rather than trying to explain it in words, here is a ~5 minute demo:
-
-
-
-
-
 "/>
-<meta name="generator" content="Hugo 0.42.1" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -74,10 +46,10 @@ Rather than trying to explain it in words, here is a ~5 minute demo:
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Using One Click Loaner to Debug Failures",
-  "url": "https://ahal.ca/blog/2016/taskcluster-interactive-loaner/",
+  "url": "https:\/\/ahal.ca\/blog\/2016\/taskcluster-interactive-loaner\/",
   "wordCount": "458",
-  "datePublished": "2016-08-04T00:00:00&#43;00:00",
-  "dateModified": "2016-08-04T00:00:00&#43;00:00",
+  "datePublished": "2016-08-04T00:00:00\u002b00:00",
+  "dateModified": "2016-08-04T00:00:00\u002b00:00",
   "author": {
     "@type": "Person",
     "name": "Andrew Halberstadt"
@@ -156,32 +128,21 @@ Rather than trying to explain it in words, here is a ~5 minute demo:
   <p>One of the most painful aspects of a developer&rsquo;s work cycle is trying to fix failures that show up
 on try, but which can&rsquo;t be reproduced locally. When this happens, there were really only two
 options (neither of them nice):</p>
-
 <ol>
 <li>You could spam try with print debugging. But this isn&rsquo;t very powerful, and takes forever to get
 feedback.</li>
 <li>You could request a loaner from releng. But this is a heavy handed process, and once you have the
 loaner it is very hard to get tests up and running.</li>
 </ol>
-
 <p>I&rsquo;m pleased to announce there is now a third option, which is easy, powerful and 100% self-serve.
 Rather than trying to explain it in words, here is a ~5 minute demo:</p>
-
-<video width="100%" height="100%" controls>
-<source src="/static/vid/blog/2016/taskcluster-interactive-loaner.mp4" type="video/mp4">
-</video>
-
-<p></p>
-
+<!-- raw HTML omitted -->
 <p>Because I&rsquo;m too lazy to re-record, I want to clarify that when I said |mach reftest| was &ldquo;identical&rdquo;
 to the command line that mozharness would have run, I meant other than the test selection arguments.
 You&rsquo;ll still need to either pass in a test path or use chunking arguments to select which tests to
 run.</p>
-
 <h2 id="caveats-and-known-issues">Caveats and Known Issues</h2>
-
 <p>Before getting too excited, here is the requisite list of caveats.</p>
-
 <ol>
 <li>This only works with taskcluster jobs that have one-click-loaner enabled. This means there is no
 Windows or OS X support. Getting support here is obviously the most important thing we can do to
@@ -194,9 +155,7 @@ in the quarter.</li>
 already useful enough to advertise, it is a long shot from being perfect. Please file bugs or
 ping me with any issues or annoyances you come across. See the next session for known issues.</li>
 </ol>
-
 <h3 id="issues">Issues</h3>
-
 <ul>
 <li>No Windows or OS X support</li>
 <li>Hard to find &ldquo;One-Click Loaner&rdquo; link in treeherder</li>
@@ -207,13 +166,10 @@ ping me with any issues or annoyances you come across. See the next session for 
 <li>Android workflow needs to be ironed out</li>
 <li>Cloning gecko using interactive wizard is slow</li>
 </ul>
-
 <h2 id="thanks">Thanks</h2>
-
 <p>Finally I want to thank the taskcluster team (especially jonasfj and garndt) for implementing the
 One-Click Loaner, it is seriously cool. I also want to thank armenzg for helping with reviews and
 dustin for helping me navigate taskcluster and docker.</p>
-
 <p>As always, please let me know if you have any problems, questions or suggestions!</p>
 
   
@@ -223,14 +179,15 @@ dustin for helping me navigate taskcluster and docker.</p>
   <footer>
 
   
-  <section>
-  <nav class="nav sharing-icons">
-    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2016%2ftaskcluster-interactive-loaner%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2016%2ftaskcluster-interactive-loaner%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2016%2ftaskcluster-interactive-loaner%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2016%2ftaskcluster-interactive-loaner%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-  </nav>
-</section>
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2016%2ftaskcluster-interactive-loaner%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2016%2ftaskcluster-interactive-loaner%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2016%2ftaskcluster-interactive-loaner%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2016%2ftaskcluster-interactive-loaner%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
 
   
 
@@ -265,9 +222,13 @@ dustin for helping me navigate taskcluster and docker.</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -280,10 +241,6 @@ dustin for helping me navigate taskcluster and docker.</p>
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

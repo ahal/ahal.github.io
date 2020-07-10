@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ateam on Hunting the Shmoo</title>
+    <title>ateam on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/ateam/</link>
-    <description>Recent content in Ateam on Hunting the Shmoo</description>
+    <description>Recent content in ateam on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -21,15 +21,15 @@
       <description>&lt;p&gt;It&amp;rsquo;s no secret that I&amp;rsquo;m not a fan of try syntax, it&amp;rsquo;s a topic I&amp;rsquo;ve blogged about on &lt;a href=&#34;https://ahal.ca/blog/2015/try-syntax/&#34;&gt;several&lt;/a&gt;
 &lt;a href=&#34;https://ahal.ca/blog/2017/fuzzy-try-chooser/&#34;&gt;occasions&lt;/a&gt; before. Today, I&amp;rsquo;m pleased to announce that there&amp;rsquo;s a real alternative now landed on
 mozilla-central. It works on all platforms with mercurial and git. For those who just like to dive in:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach mercurial-setup --update  &lt;span style=&#34;color:#75715e&#34;&gt;# only if using hg
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;$ mach try fuzzy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This will prompt you to install &lt;a href=&#34;https://github.com/junegunn/fzf&#34;&gt;fzf&lt;/a&gt;. After bootstrapping is finished, you&amp;rsquo;ll enter an interface
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach mercurial-setup --update  &lt;span style=&#34;color:#75715e&#34;&gt;# only if using hg&lt;/span&gt;
+$ mach try fuzzy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will prompt you to install &lt;a href=&#34;https://github.com/junegunn/fzf&#34;&gt;fzf&lt;/a&gt;. After bootstrapping is finished, you&amp;rsquo;ll enter an interface
 populated with a list of all possible taskcluster tasks. Start typing and the list will be filtered
 down using a fuzzy matching algorithm. I won&amp;rsquo;t go into details on how to use this tool in this blog
 post, for that see:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach try fuzzy --help  &lt;span style=&#34;color:#75715e&#34;&gt;# or
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;$ man fzf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach try fuzzy --help  &lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
+$ man fzf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -43,9 +43,7 @@ that should be replaced with something more modern and flexible. What follows is
 that I&amp;rsquo;m trying to convert into a concrete plan of action to bring this about. This is not an
 &lt;em&gt;Intent to Implement&lt;/em&gt; or anything like that, but my hope is that this outline is detailed enough
 that it could be used as a solid starting point by someone with enough time and motivation to
-work on it.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+work on it.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -57,22 +55,15 @@ work on it.&lt;/p&gt;
       <description>&lt;p&gt;One of the most painful aspects of a developer&amp;rsquo;s work cycle is trying to fix failures that show up
 on try, but which can&amp;rsquo;t be reproduced locally. When this happens, there were really only two
 options (neither of them nice):&lt;/p&gt;
-
 &lt;ol&gt;
 &lt;li&gt;You could spam try with print debugging. But this isn&amp;rsquo;t very powerful, and takes forever to get
 feedback.&lt;/li&gt;
 &lt;li&gt;You could request a loaner from releng. But this is a heavy handed process, and once you have the
 loaner it is very hard to get tests up and running.&lt;/li&gt;
 &lt;/ol&gt;
-
 &lt;p&gt;I&amp;rsquo;m pleased to announce there is now a third option, which is easy, powerful and 100% self-serve.
 Rather than trying to explain it in words, here is a ~5 minute demo:&lt;/p&gt;
-
-&lt;video width=&#34;100%&#34; height=&#34;100%&#34; controls&gt;
-&lt;source src=&#34;https://ahal.ca/static/vid/blog/2016/taskcluster-interactive-loaner.mp4&#34; type=&#34;video/mp4&#34;&gt;
-&lt;/video&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
@@ -86,12 +77,9 @@ need to run, and puts them in one convenient place. Instead of hunting down docu
 for help on irc, often a simple |mach help| is all that&amp;rsquo;s needed to get you started. Mach is great.
 But lately, mach is becoming more like the Mozilla developer&amp;rsquo;s toolbox. It still has everything you
 need but it weighs a ton, and it takes a good deal of rummaging around to find anything.&lt;/p&gt;
-
 &lt;p&gt;Frankly, a good deal of the mach commands that exist now are either poorly written, confusing to use,
 or even have no business being mach commands in the first place. Why is this important? What&amp;rsquo;s wrong
-with having a toolbox?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+with having a toolbox?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -103,12 +91,10 @@ with having a toolbox?&lt;/p&gt;
       <description>&lt;p&gt;Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
 you put into your commit message which a &lt;a href=&#34;http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py&#34;&gt;parser&lt;/a&gt; then uses to determine the set of builds and
 tests to run on your try push. A common try syntax might look like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;try: -b o -p linux -u mochitest -t none&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Since inception, it has been a core part of the Mozilla development workflow.
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;try: -b o -p linux -u mochitest -t none
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Since inception, it has been a core part of the Mozilla development workflow.
 For many years it has served us well, and even today it serves us passably. But it is almost time
-for try syntax to don the wooden overcoat, and this post will explain why.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+for try syntax to don the wooden overcoat, and this post will explain why.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -121,9 +107,7 @@ for try syntax to don the wooden overcoat, and this post will explain why.&lt;/p
 part to :chmanchester&amp;rsquo;s tireless work). Saying a log is structured simply means that it is in a
 machine readable format, in our case each log line is a JSON object. When streamed to a terminal or
 treeherder log, these JSON objects are first formatted into something that is human readable, aka
-the same log format you&amp;rsquo;re already familiar with (which is why you may not have noticed this).&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+the same log format you&amp;rsquo;re already familiar with (which is why you may not have noticed this).&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -135,12 +119,9 @@ the same log format you&amp;rsquo;re already familiar with (which is why you may
       <description>&lt;p&gt;There&amp;rsquo;s a good chance you&amp;rsquo;ve heard something about a new review tool coming to Mozilla and how it will &lt;em&gt;change
 everything&lt;/em&gt;. There&amp;rsquo;s an even better chance you&amp;rsquo;ve stumbled across one of gps&amp;rsquo; &lt;a href=&#34;http://gregoryszorc.com/blog/category/mercurial/&#34;&gt;blog posts&lt;/a&gt; on how
 we use mercurial at Mozilla.&lt;/p&gt;
-
 &lt;p&gt;With &lt;a href=&#34;https://groups.google.com/forum/#!topic/mozilla.dev.platform/RMkSXq2ckFk&#34;&gt;mozreview entering beta&lt;/a&gt;, I decided to throw out my old mq based workflow and
 try to use all the latest and greatest tools. That means &lt;a href=&#34;http://mercurial.selenic.com/wiki/Bookmarks&#34;&gt;mercurial bookmarks&lt;/a&gt;, a &lt;a href=&#34;http://gregoryszorc.com/blog/2014/06/30/track-firefox-repositories-with-local-only-mercurial-tags/&#34;&gt;unified
-mozilla-central&lt;/a&gt;, using &lt;a href=&#34;http://mozilla-version-control-tools.readthedocs.org/en/latest/mozreview.html&#34;&gt;mozreview&lt;/a&gt; and completely &lt;a href=&#34;http://gregoryszorc.com/blog/2014/06/23/please-stop-using-mq/&#34;&gt;expunging mq&lt;/a&gt; from my workflow.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+mozilla-central&lt;/a&gt;, using &lt;a href=&#34;http://mozilla-version-control-tools.readthedocs.org/en/latest/mozreview.html&#34;&gt;mozreview&lt;/a&gt; and completely &lt;a href=&#34;http://gregoryszorc.com/blog/2014/06/23/please-stop-using-mq/&#34;&gt;expunging mq&lt;/a&gt; from my workflow.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -150,14 +131,11 @@ mozilla-central&lt;/a&gt;, using &lt;a href=&#34;http://mozilla-version-control-
       
       <guid>https://ahal.ca/blog/2014/how-many-tests-are-disabled/</guid>
       <description>&lt;p&gt;tl;dr Look for &lt;a href=&#34;http://people.mozilla.org/~ahalberstadt/informant-reports/daily/2014-09-29.informant-report.html&#34;&gt;reports like this&lt;/a&gt; in the near future!&lt;/p&gt;
-
 &lt;p&gt;At Mozilla, platform developers are culturally bound to &lt;a href=&#34;http://tbpl.mozilla.org&#34;&gt;tbpl&lt;/a&gt;. We spend a lot of time staring at
 those bright little letters, and their colour can mean the difference between hours, days or even
 weeks of work. With so many people performing over &lt;a href=&#34;http://relengofthenerds.blogspot.ca/2014/09/mozilla-pushes-august-2014.html&#34;&gt;420 pushes per day&lt;/a&gt;, all watching,
 praying, rejoicing and cursing, it&amp;rsquo;s paramount that the whole process operates like a well oiled
-machine.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+machine.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -168,16 +146,13 @@ machine.&lt;/p&gt;
       <guid>https://ahal.ca/blog/2014/when-would-you-use-python-mixin/</guid>
       <description>&lt;p&gt;That&amp;rsquo;s not a rhetorical question. I&amp;rsquo;d like to know in which scenarios a mixin in python really is
 the best option. I can&amp;rsquo;t seem to think of any, but maybe I&amp;rsquo;m not thinking outside the box enough.&lt;/p&gt;
-
 &lt;p&gt;The basic idea of a mixin is to create a small re-usable class that can &amp;ldquo;plug-in&amp;rdquo; to other larger
 classes. From the &lt;a href=&#34;http://en.wikipedia.org/wiki/Mixin&#34;&gt;wikipedia definition&lt;/a&gt;, a mixin is a way to compose classes together &lt;em&gt;without&lt;/em&gt;
 using inheritance. The problem is unlike ruby, python mixins are a purely conceptual construct.
 Python mixins &lt;em&gt;are&lt;/em&gt; inheritance (the only difference is that the class name usually contains
 &amp;lsquo;Mixin&amp;rsquo;). It is up to the developer to remember this, and to manually avoid all of the common
 pitfalls of multiple inheritance. This kind of defeats the whole purpose of the mixin in the first
-place. What&amp;rsquo;s more is that most people use python mixins improperly.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+place. What&amp;rsquo;s more is that most people use python mixins improperly.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -191,9 +166,7 @@ little dance around &amp;ldquo;why is there a problem&amp;rdquo; and &amp;ldquo;
 questions in a bit more detail. Specifically, I want to return to the two case studies and explore
 why our test harnesses don&amp;rsquo;t work and why mozharness does work even though both have IFFY (in flux
 for years) requirements. Then I will explore how to use the lessons learned to improve our general
-test harness design.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+test harness design.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -203,16 +176,13 @@ test harness design.&lt;/p&gt;
       
       <guid>https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/</guid>
       <description>&lt;h3 id=&#34;dry-versus-wet&#34;&gt;Dry versus Wet&lt;/h3&gt;
-
 &lt;p&gt;As programmers, we are taught early on that code duplication is bad and should be avoided at all
 cost. It makes code less maintainable, reusable and readable. The &lt;a href=&#34;http://en.wikipedia.org/wiki/DRY_principle&#34;&gt;DRY principle&lt;/a&gt; is very basic
 and fundamental to how most of us approach software design. If you aren&amp;rsquo;t familiar with the DRY
 principle, please take a minute to read the wikipedia page on it. The counterpart of DRY, is WET
 (write everything twice).  In general, I agree that DRY is good and WET is bad. But I think there
 are a class of problems where the DRY approach can actually be harmful. For these types of problems,
-I will make a claim that a WET approach can actually work better.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+I will make a claim that a WET approach can actually work better.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -222,25 +192,21 @@ I will make a claim that a WET approach can actually work better.&lt;/p&gt;
       
       <guid>https://ahal.ca/blog/2014/b2g-commands/</guid>
       <description>&lt;h4 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h4&gt;
-
 &lt;p&gt;tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Install b2g-commands:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install b2g-commands&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;To play around with it, cd to your &lt;a href=&#34;https://github.com/mozilla-b2g/B2G&#34;&gt;B2G repo&lt;/a&gt; and run:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git pull                 &lt;span style=&#34;color:#75715e&#34;&gt;# make sure repo is up to date
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;$ ./mach help              &lt;span style=&#34;color:#75715e&#34;&gt;# see all available commands
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;$ ./mach help &amp;amp;lt;command&amp;amp;gt;    # see additional info about a command&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4 id=&#34;details&#34;&gt;Details&lt;/h4&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install b2g-commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install b2g-commands
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To play around with it, cd to your &lt;a href=&#34;https://github.com/mozilla-b2g/B2G&#34;&gt;B2G repo&lt;/a&gt; and run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git pull                 &lt;span style=&#34;color:#75715e&#34;&gt;# make sure repo is up to date&lt;/span&gt;
+$ ./mach help              &lt;span style=&#34;color:#75715e&#34;&gt;# see all available commands&lt;/span&gt;
+$ ./mach help &amp;amp;lt;command&amp;amp;gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# see additional info about a command&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;details&#34;&gt;Details&lt;/h4&gt;
 &lt;p&gt;Most people who spend the majority of their time working within mozilla-central have probably been
 acquainted with &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Developer_Guide/mach&#34;&gt;mach&lt;/a&gt;. In case you aren&amp;rsquo;t acquainted, mach is a generic command dispatching
 tool. It is possible to write scripts called &amp;lsquo;mach targets&amp;rsquo; which get registered with mach core and
 transformed into commands. Mach targets in mozilla-central have access to all sorts of powerful
 hooks into the build and test infrastructure which allow them to do some really cool things, such as
-bootstrapping your environment, running builds and tests, and generating diagnostics.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+bootstrapping your environment, running builds and tests, and generating diagnostics.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -253,9 +219,7 @@ bootstrapping your environment, running builds and tests, and generating diagnos
 source tree. You can perform initial setup, execute a build, run tests, examine diagnostics, even
 search Google. Many of these things require an object directory. This can potentially lead to some
 confusion if you typically have more than one object directory at any given time. How does mach know
-which object directory to operate on?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+which object directory to operate on?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -266,12 +230,9 @@ which object directory to operate on?&lt;/p&gt;
       <guid>https://ahal.ca/blog/2013/we-are-all-enablers/</guid>
       <description>&lt;p&gt;This probably isn&amp;rsquo;t a groundbreaking revelation to most Mozillians, but it&amp;rsquo;s something I haven&amp;rsquo;t
 quite managed to put into words until now.&lt;/p&gt;
-
 &lt;p&gt;On the Tools and Automation team at Mozilla, the easiest way to describe what we do is to say &amp;ldquo;We
 try to make the lives of others within the community easier&amp;rdquo;. This is a vague statement, but it&amp;rsquo;s
-about as close as we can get without writing a small dissertation.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+about as close as we can get without writing a small dissertation.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -282,15 +243,12 @@ about as close as we can get without writing a small dissertation.&lt;/p&gt;
       <guid>https://ahal.ca/blog/2013/running-b2g-unittests-mach/</guid>
       <description>&lt;p&gt;Before now running &amp;lsquo;classic&amp;rsquo; unittests (mochitest, reftest, xpcshell, etc.) on B2G emulators has
 been a massive pain. The new recommended way of running them is through mach.&lt;/p&gt;
-
 &lt;ol&gt;
 &lt;li&gt;Update B2G repo if you haven&amp;rsquo;t already: &lt;code&gt;git pull&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Configure an emulator: &lt;code&gt;BRANCH=master ./config.sh emulator&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Build: &lt;code&gt;./build.sh&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run: &lt;code&gt;./mach mochitest-remote&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ol&gt;</description>
     </item>
     
     <item>
@@ -300,17 +258,12 @@ been a massive pain. The new recommended way of running them is through mach.&lt
       
       <guid>https://ahal.ca/blog/2013/push-custom-test-command-line-try/</guid>
       <description>&lt;h3 id=&#34;outdated&#34;&gt;OUTDATED&lt;/h3&gt;
-
 &lt;p&gt;The steps in this article are no longer accurate. Pushing a custom command line is easier now. See
 &lt;a href=&#34;https://groups.google.com/forum/#!topic/mozilla.dev.platform/AKDyoQShFEs&#34;&gt;here&lt;/a&gt; for more details.&lt;/p&gt;
-
-&lt;hr /&gt;
-
+&lt;hr&gt;
 &lt;p&gt;Have you ever wanted to see the test results of a custom command line in try? Things like
 &amp;ndash;test-manifest, &amp;ndash;shuffle or &amp;ndash;run-slower?  Now you can! The process isn&amp;rsquo;t exactly optimized for
-the developer use case, but neither is it really difficult to do once you know how.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+the developer use case, but neither is it really difficult to do once you know how.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -326,11 +279,8 @@ we have these nice green letters to look at on TBPL that make us feel good about
 is really being run?  What is the meaning behind these letters &amp;ldquo;M&amp;rdquo;, &amp;ldquo;R&amp;rdquo;, &amp;ldquo;Mn&amp;rdquo; and &amp;ldquo;X&amp;rdquo;? Are there any
 causes for concern? Are there other tests being run that don&amp;rsquo;t show up on TBPL? What are the current
 automation priorities? What are the next platforms to use after emulators?&lt;/p&gt;
-
 &lt;p&gt;This blog post aims to answer these questions and more. It is a comprehensive snapshot of the
-current state of automated testing on B2G.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+current state of automated testing on B2G.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -341,14 +291,11 @@ current state of automated testing on B2G.&lt;/p&gt;
       <guid>https://ahal.ca/blog/2012/b2g-emulator-tests/</guid>
       <description>&lt;p&gt;Contrary to popular belief, we (the A-Team) have been running mochitests, reftests, marionette tests
 and webapi tests on B2G in some form of continuous integration or another for about 5 months now.
-They&amp;rsquo;ve been reporting results to a TBPL look-alike called &lt;a href=&#34;http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;amp;amp;source=autolog&#34;&gt;autolog&lt;/a&gt;, and were run on Amazon EC2
+They&amp;rsquo;ve been reporting results to a TBPL look-alike called &lt;a href=&#34;http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;amp;source=autolog&#34;&gt;autolog&lt;/a&gt;, and were run on Amazon EC2
 VM&amp;rsquo;s with emulators. This was a temporary solution to get something stood up quickly while we moved
 towards our ultimate B2G automation goal - tests running on Pandaboards and reporting to TBPL.&lt;/p&gt;
-
 &lt;p&gt;As of this week, while there are still no tests running on Pandaboards, I&amp;rsquo;m happy to say we have
-emulators running mochitests, reftests and marionette/webapi tests, all reporting to TBPL.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+emulators running mochitests, reftests and marionette/webapi tests, all reporting to TBPL.&lt;/p&gt;</description>
     </item>
     
   </channel>

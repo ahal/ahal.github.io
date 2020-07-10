@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mach on Hunting the Shmoo</title>
+    <title>mach on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/mach/</link>
-    <description>Recent content in Mach on Hunting the Shmoo</description>
+    <description>Recent content in mach on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -23,12 +23,9 @@ need to run, and puts them in one convenient place. Instead of hunting down docu
 for help on irc, often a simple |mach help| is all that&amp;rsquo;s needed to get you started. Mach is great.
 But lately, mach is becoming more like the Mozilla developer&amp;rsquo;s toolbox. It still has everything you
 need but it weighs a ton, and it takes a good deal of rummaging around to find anything.&lt;/p&gt;
-
 &lt;p&gt;Frankly, a good deal of the mach commands that exist now are either poorly written, confusing to use,
 or even have no business being mach commands in the first place. Why is this important? What&amp;rsquo;s wrong
-with having a toolbox?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+with having a toolbox?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -38,25 +35,21 @@ with having a toolbox?&lt;/p&gt;
       
       <guid>https://ahal.ca/blog/2014/b2g-commands/</guid>
       <description>&lt;h4 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h4&gt;
-
 &lt;p&gt;tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Install b2g-commands:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install b2g-commands&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;To play around with it, cd to your &lt;a href=&#34;https://github.com/mozilla-b2g/B2G&#34;&gt;B2G repo&lt;/a&gt; and run:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git pull                 &lt;span style=&#34;color:#75715e&#34;&gt;# make sure repo is up to date
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;$ ./mach help              &lt;span style=&#34;color:#75715e&#34;&gt;# see all available commands
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;$ ./mach help &amp;amp;lt;command&amp;amp;gt;    # see additional info about a command&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4 id=&#34;details&#34;&gt;Details&lt;/h4&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install b2g-commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install b2g-commands
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To play around with it, cd to your &lt;a href=&#34;https://github.com/mozilla-b2g/B2G&#34;&gt;B2G repo&lt;/a&gt; and run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git pull                 &lt;span style=&#34;color:#75715e&#34;&gt;# make sure repo is up to date&lt;/span&gt;
+$ ./mach help              &lt;span style=&#34;color:#75715e&#34;&gt;# see all available commands&lt;/span&gt;
+$ ./mach help &amp;amp;lt;command&amp;amp;gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# see additional info about a command&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;details&#34;&gt;Details&lt;/h4&gt;
 &lt;p&gt;Most people who spend the majority of their time working within mozilla-central have probably been
 acquainted with &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Developer_Guide/mach&#34;&gt;mach&lt;/a&gt;. In case you aren&amp;rsquo;t acquainted, mach is a generic command dispatching
 tool. It is possible to write scripts called &amp;lsquo;mach targets&amp;rsquo; which get registered with mach core and
 transformed into commands. Mach targets in mozilla-central have access to all sorts of powerful
 hooks into the build and test infrastructure which allow them to do some really cool things, such as
-bootstrapping your environment, running builds and tests, and generating diagnostics.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+bootstrapping your environment, running builds and tests, and generating diagnostics.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -69,9 +62,7 @@ bootstrapping your environment, running builds and tests, and generating diagnos
 source tree. You can perform initial setup, execute a build, run tests, examine diagnostics, even
 search Google. Many of these things require an object directory. This can potentially lead to some
 confusion if you typically have more than one object directory at any given time. How does mach know
-which object directory to operate on?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+which object directory to operate on?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -82,15 +73,12 @@ which object directory to operate on?&lt;/p&gt;
       <guid>https://ahal.ca/blog/2013/running-b2g-unittests-mach/</guid>
       <description>&lt;p&gt;Before now running &amp;lsquo;classic&amp;rsquo; unittests (mochitest, reftest, xpcshell, etc.) on B2G emulators has
 been a massive pain. The new recommended way of running them is through mach.&lt;/p&gt;
-
 &lt;ol&gt;
 &lt;li&gt;Update B2G repo if you haven&amp;rsquo;t already: &lt;code&gt;git pull&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Configure an emulator: &lt;code&gt;BRANCH=master ./config.sh emulator&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Build: &lt;code&gt;./build.sh&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run: &lt;code&gt;./mach mochitest-remote&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ol&gt;</description>
     </item>
     
   </channel>

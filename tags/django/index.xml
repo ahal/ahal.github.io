@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Django on Hunting the Shmoo</title>
+    <title>django on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/django/</link>
-    <description>Recent content in Django on Hunting the Shmoo</description>
+    <description>Recent content in django on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -21,9 +21,7 @@
       <description>&lt;p&gt;Back in high school and throughout most of my University career, I&amp;rsquo;ve always thought that personal blogs were dumb. Who in their right mind would care what &lt;em&gt;I&lt;/em&gt; was up to?
 It wasn&amp;rsquo;t until I started interning at Mozilla that my views started to shift. I began seeing them as tools to communicate new ideas and elicit feedback from anyone
 interested in what you have to say. It also wasn&amp;rsquo;t until I started interning at Mozilla that I realized that I actually &lt;em&gt;might&lt;/em&gt; have something interesting to say.
-So here I am, creating a blog with one month left in my second internship. Too little too late? Maybe, but I have to start at some point.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+So here I am, creating a blog with one month left in my second internship. Too little too late? Maybe, but I have to start at some point.&lt;/p&gt;</description>
     </item>
     
   </channel>

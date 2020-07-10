@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Music on Hunting the Shmoo</title>
+    <title>music on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/music/</link>
-    <description>Recent content in Music on Hunting the Shmoo</description>
+    <description>Recent content in music on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -21,7 +21,6 @@
       <description>&lt;p&gt;Normally I don&amp;rsquo;t bother making top ten lists at the end of the year,
 but I was bored and figured, why not? So without further ado, here are
 my top ten albums of 2011.&lt;/p&gt;
-
 &lt;ol&gt;
 &lt;li&gt;Unexpect - Fables of the Sleepless Empire&lt;/li&gt;
 &lt;li&gt;The Decemberists - The King is Dead&lt;/li&gt;
@@ -33,9 +32,7 @@ my top ten albums of 2011.&lt;/p&gt;
 &lt;li&gt;Panda Bear - Tomboy&lt;/li&gt;
 &lt;li&gt;Phideaux - Snowtorch&lt;/li&gt;
 &lt;li&gt;James Blake - James Blake&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ol&gt;</description>
     </item>
     
   </channel>

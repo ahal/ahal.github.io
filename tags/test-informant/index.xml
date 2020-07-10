@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Test Informant on Hunting the Shmoo</title>
+    <title>test-informant on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/test-informant/</link>
-    <description>Recent content in Test Informant on Hunting the Shmoo</description>
+    <description>Recent content in test-informant on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -19,14 +19,11 @@
       
       <guid>https://ahal.ca/blog/2014/how-many-tests-are-disabled/</guid>
       <description>&lt;p&gt;tl;dr Look for &lt;a href=&#34;http://people.mozilla.org/~ahalberstadt/informant-reports/daily/2014-09-29.informant-report.html&#34;&gt;reports like this&lt;/a&gt; in the near future!&lt;/p&gt;
-
 &lt;p&gt;At Mozilla, platform developers are culturally bound to &lt;a href=&#34;http://tbpl.mozilla.org&#34;&gt;tbpl&lt;/a&gt;. We spend a lot of time staring at
 those bright little letters, and their colour can mean the difference between hours, days or even
 weeks of work. With so many people performing over &lt;a href=&#34;http://relengofthenerds.blogspot.ca/2014/09/mozilla-pushes-august-2014.html&#34;&gt;420 pushes per day&lt;/a&gt;, all watching,
 praying, rejoicing and cursing, it&amp;rsquo;s paramount that the whole process operates like a well oiled
-machine.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+machine.&lt;/p&gt;</description>
     </item>
     
   </channel>

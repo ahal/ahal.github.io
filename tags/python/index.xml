@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on Hunting the Shmoo</title>
+    <title>python on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/python/</link>
-    <description>Recent content in Python on Hunting the Shmoo</description>
+    <description>Recent content in python on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -24,13 +24,10 @@ mozilla-central there are over 3500 Python files (excluding third party files), 
 230k lines of code. Additionally there are &lt;a href=&#34;https://github.com/mozilla?utf8=%E2%9C%93&amp;amp;q=&amp;amp;type=&amp;amp;language=python&#34;&gt;462 repositories&lt;/a&gt; labelled with Python in the Mozilla
 org on Github (though many of these are not active). That&amp;rsquo;s a lot of Python, and most of it is
 Python 2.&lt;/p&gt;
-
 &lt;p&gt;With Python 2&amp;rsquo;s exaugural year well underway, it is a good time to take stock of the situation and
 ask some questions. How far along has Mozilla come in the Python 3 migration? Which large work items
 lie on the critical path? And do we have a plan to get to a good state in time for Python 2&amp;rsquo;s EOL on
-January 1st, 2020?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+January 1st, 2020?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -41,16 +38,13 @@ January 1st, 2020?&lt;/p&gt;
       <guid>https://ahal.ca/blog/2014/when-would-you-use-python-mixin/</guid>
       <description>&lt;p&gt;That&amp;rsquo;s not a rhetorical question. I&amp;rsquo;d like to know in which scenarios a mixin in python really is
 the best option. I can&amp;rsquo;t seem to think of any, but maybe I&amp;rsquo;m not thinking outside the box enough.&lt;/p&gt;
-
 &lt;p&gt;The basic idea of a mixin is to create a small re-usable class that can &amp;ldquo;plug-in&amp;rdquo; to other larger
 classes. From the &lt;a href=&#34;http://en.wikipedia.org/wiki/Mixin&#34;&gt;wikipedia definition&lt;/a&gt;, a mixin is a way to compose classes together &lt;em&gt;without&lt;/em&gt;
 using inheritance. The problem is unlike ruby, python mixins are a purely conceptual construct.
 Python mixins &lt;em&gt;are&lt;/em&gt; inheritance (the only difference is that the class name usually contains
 &amp;lsquo;Mixin&amp;rsquo;). It is up to the developer to remember this, and to manually avoid all of the common
 pitfalls of multiple inheritance. This kind of defeats the whole purpose of the mixin in the first
-place. What&amp;rsquo;s more is that most people use python mixins improperly.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+place. What&amp;rsquo;s more is that most people use python mixins improperly.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -62,13 +56,10 @@ place. What&amp;rsquo;s more is that most people use python mixins improperly.&l
       <description>&lt;p&gt;I came across an odd python problem the other day. I wanted to format a log message without printing
 it with python&amp;rsquo;s logging module. But I couldn&amp;rsquo;t find any examples or others who wanted to do the
 same thing.&lt;/p&gt;
-
 &lt;p&gt;You might ask why I would want to do this. In my case, I was using sys.stdout.write() to display the
 progress of a download as a percentage. Python&amp;rsquo;s logging module automatically appends a newline to
 your message and there didn&amp;rsquo;t seem to be a way to change this without a subclass. Anytime you want
-to overwrite something on the previous line with python logging, you will run into trouble.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+to overwrite something on the previous line with python logging, you will run into trouble.&lt;/p&gt;</description>
     </item>
     
   </channel>

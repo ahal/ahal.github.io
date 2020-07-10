@@ -8,36 +8,18 @@
 <meta property="og:title" content="The New Mercurial Workflow - Part 2" />
 <meta property="og:description" content="This is a continuation of my previous post called The New Mercurial Workflow. It assumes that
 you have at least read and experimented with it a bit. If you haven&rsquo;t, stop right now, read it, get
-set up and try playing around with bookmarks and mozreview a bit.
-
-" />
+set up and try playing around with bookmarks and mozreview a bit." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahal.ca/blog/2015/new-mercurial-workflow-part-2/" />
-
-
-
-<meta property="article:published_time" content="2015-01-16T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2015-01-16T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2015-01-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-01-16T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="The New Mercurial Workflow - Part 2"/>
 <meta name="twitter:description" content="This is a continuation of my previous post called The New Mercurial Workflow. It assumes that
 you have at least read and experimented with it a bit. If you haven&rsquo;t, stop right now, read it, get
-set up and try playing around with bookmarks and mozreview a bit.
-
-"/>
-<meta name="generator" content="Hugo 0.42.1" />
+set up and try playing around with bookmarks and mozreview a bit."/>
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -46,10 +28,10 @@ set up and try playing around with bookmarks and mozreview a bit.
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "The New Mercurial Workflow - Part 2",
-  "url": "https://ahal.ca/blog/2015/new-mercurial-workflow-part-2/",
+  "url": "https:\/\/ahal.ca\/blog\/2015\/new-mercurial-workflow-part-2\/",
   "wordCount": "1701",
-  "datePublished": "2015-01-16T00:00:00&#43;00:00",
-  "dateModified": "2015-01-16T00:00:00&#43;00:00",
+  "datePublished": "2015-01-16T00:00:00\u002b00:00",
+  "dateModified": "2015-01-16T00:00:00\u002b00:00",
   "author": {
     "@type": "Person",
     "name": "Andrew Halberstadt"
@@ -128,31 +110,24 @@ set up and try playing around with bookmarks and mozreview a bit.
   <p>This is a continuation of my previous post called <a href="http://ahal.ca/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a>. It assumes that
 you have at least read and experimented with it a bit. If you haven&rsquo;t, stop right now, read it, get
 set up and try playing around with bookmarks and mozreview a bit.</p>
-
-<p></p>
-
 <p>I&rsquo;ve had several requests for examples of more advanced usage with this workflow. The previous post
 covered the basics, but it skipped many important concepts for the sake of brevity. Well that and
 the fact that I&rsquo;m still figuring out all of this myself. Rather than a step by step tutorial, each
 section is its own independent concept which you can either use or choose to ignore. After all,
 there is more than one way to skin a cat (apparently), and I make no claims that my way is the best.</p>
-
 <h2 id="pushing-to-try">Pushing to Try</h2>
-
 <p>Probably the biggest thing I left out from the last post, is how to push to try. The easiest way is
 to simply edit the commit message of the top most commit in your bookmark:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg update my_feature
 $ hg commit --amend -m <span style="color:#e6db74">&#34;try: -b o -p linux -u mochitest-1 -t none&#34;</span>
-$ hg push -f try</code></pre></div>
-<p>However this method isn&rsquo;t ideal for two reasons:</p>
-
+$ hg push -f try
+</code></pre></div><p>However this method isn&rsquo;t ideal for two reasons:</p>
 <ol>
 <li>you have to re-edit your commit message back to something appropriate.</li>
 <li>&ndash;amend will overwrite your old commit with whatever you have in the working directory. It is
 easy to accidentally commit unintended changes, and unless you have the evolve extension installed
 (more on this later) the old commit will be lost forever.</li>
 </ol>
-
 <p>A better approach is to push an empty changeset with try syntax on top of your bookmark. The bad
 news is that there is no good way to do this without using <code>mq</code>. The good news is that there is an
 extension that will make this a lot easier (though you&rsquo;ll still need <code>mq</code> installed in your hgrc).
@@ -160,32 +135,28 @@ I&rsquo;d recommend sfink&rsquo;s <a href="https://bitbucket.org/sfink/trychoose
 or manually (note the original extension of the same name by pbiggar is different). After cloning
 and installing it, push to try:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg update my_feature
-$ hg trychooser</code></pre></div>
-<p>This opens a curses ui from which you can build your syntax (note it may be slightly out of date).
+$ hg trychooser
+</code></pre></div><p>This opens a curses ui from which you can build your syntax (note it may be slightly out of date).
 Alternatively, just specify the syntax manually:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg update my_feature
-$ hg trychooser -m <span style="color:#e6db74">&#34;try: -b o -p linux -u mochitest-1 -t none&#34;</span></code></pre></div>
-<p>There is a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=974224">bug on file</a> to move this extension into the standard <a href="http://mozilla-version-control-tools.readthedocs.org/en/latest/">version-control-tools</a>
+$ hg trychooser -m <span style="color:#e6db74">&#34;try: -b o -p linux -u mochitest-1 -t none&#34;</span>
+</code></pre></div><p>There is a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=974224">bug on file</a> to move this extension into the standard <a href="http://mozilla-version-control-tools.readthedocs.org/en/latest/">version-control-tools</a>
 repository.</p>
-
 <p>The mozreview folks are also working on the ability to autoland changesets pushed to review on try,
 which should greatly simplify the common use case.</p>
-
 <h2 id="mutating-history-and-mozreview">Mutating History and Mozreview</h2>
-
 <p>In the last post, I showed you an example of addressing review comments by making an additional
 commit and then squashing it later. But what if you push multiple commits to review and you intend
 to land them all separately, without squashing them at the end? Here is the setup:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hg update my_feature
-<span style="color:#75715e"># ... add foo ...
-</span><span style="color:#75715e"></span>hg commit -m <span style="color:#e6db74">&#34;Bug 1234567 - Part 1: add the foo api&#34;</span>
-<span style="color:#75715e"># ... add bar ...
-</span><span style="color:#75715e"></span>hg commit -m <span style="color:#e6db74">&#34;Bug 1234567 - Part 2: add the bar api&#34;</span>
-hg push -r my_feature review</code></pre></div>
-<p>Now you add a reviewer for each of the two commits and publish. Except the reviewer gives an r- to
+<span style="color:#75715e"># ... add foo ...</span>
+hg commit -m <span style="color:#e6db74">&#34;Bug 1234567 - Part 1: add the foo api&#34;</span>
+<span style="color:#75715e"># ... add bar ...</span>
+hg commit -m <span style="color:#e6db74">&#34;Bug 1234567 - Part 2: add the bar api&#34;</span>
+hg push -r my_feature review
+</code></pre></div><p>Now you add a reviewer for each of the two commits and publish. Except the reviewer gives an r- to
 the first commit and r+ to the second. Pushing a third commit to the review will make it difficult
 to squash later. It is possible with rebasing, but there is a better way.</p>
-
 <p>Mercurial has a new(ish) feature called <a href="http://mercurial.selenic.com/wiki/ChangesetEvolution">Changeset Evolution</a>. I won&rsquo;t go into detail here, but
 you know how with git you can mutate history and then force push with <code>-f</code> and people say don&rsquo;t do
 that since it could leave someone else in an unrecoverable state? This is because when you mutate
@@ -194,27 +165,23 @@ not thrown out, instead they are marked obsolete. It is then possible to push mu
 remote repositories can use these obsolescence markers to &ldquo;do the right thing&rdquo; without putting
 someone else into an unrecoverable state. The mozreview repository is set up to use obsolescence
 markers, which means mutating history and pushing to review is perfectly acceptable.</p>
-
 <p>The first step is to clone and install the <a href="http://42.netv6.net/evolve-main/">evolve</a> extension (update to the stable branch).
 Going back to the original example, we need to amend the first commit of our review push while
 leaving the second one intact. First, let&rsquo;s update to the commit we&rsquo;ll be amending:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg update <span style="color:#e6db74">&#34;my_feature^&#34;</span>
-<span style="color:#75715e"># ... fix review comments ...
-</span><span style="color:#75715e"></span>$ hg commit --amend
-$ hg push -r my_feature review</code></pre></div>
-<p>Remember in the last section I said &ndash;amend would cause you to lose your old commit? In this case
+<span style="color:#75715e"># ... fix review comments ...</span>
+$ hg commit --amend
+$ hg push -r my_feature review
+</code></pre></div><p>Remember in the last section I said &ndash;amend would cause you to lose your old commit? In this case
 <code>evolve</code> has actually modified the behaviour of &ndash;amend to mark the old changeset obsolete instead.
 The review repository can then use this information to see that you have amended an existing commit
 and update the review request accordingly. The end result is the review request will still only
 contain two commits, but a second entry on the push slider will show up, allowing the reviewer to
 see the original diff, the full diff and the interdiff with just the review fixes.</p>
-
 <p>Amending is just one way to mutate history with <code>evolve</code>. You can also <code>prune</code> (delete), <code>uncommit</code>
 and <code>fold</code> (squash). If you are interested in how <code>evolve</code> works, or want more details on what
 it can do, I&rsquo;d highly recommend <a href="http://www.gerg.ca/evolve/user-guide.html">this tutorial</a>.</p>
-
 <h2 id="tips-for-working-with-bookmarks">Tips for Working with Bookmarks</h2>
-
 <p>One thing that took me a little while to understand, was that bookmarks are not the same as git
 branches. Yes, they are very similar and can be used in much the same way. But a bookmark is just a
 label that automatically updates itself when activated. Unlike a git branch, there is no concept of
@@ -225,30 +192,28 @@ might happen:</p>
 $ hg rebase -b my_feature -d inbound 
 $ hg pull -u fx-team
 $ hg rebase -b my_feature -d fx-team
-abort: can<span style="color:#960050;background-color:#1e0010">&#39;</span>t rebase immutable changeset ad2042b4c668</code></pre></div>
-<p>What happened here? The important thing to understand is that the <code>-b</code> argument to <code>rebase</code> doesn&rsquo;t
+abort: can<span style="color:#960050;background-color:#1e0010">&#39;</span>t rebase immutable changeset ad2042b4c668
+</code></pre></div><p>What happened here? The important thing to understand is that the <code>-b</code> argument to <code>rebase</code> doesn&rsquo;t
 stand for <code>bookmark</code>, it stands for <code>base</code>. You are telling hg to take every changeset from
 <code>my_feature</code> all the way back to the common ancestor with <code>fx-team</code> and rebase them all on top of
 <code>fx-team</code>. In this case, that includes all the public changesets that have landed on <code>inbound</code>, but
 haven&rsquo;t yet landed on <code>fx-team</code>. And you can&rsquo;t rebase public changesets (rightfully so). Luckily,
 it&rsquo;s still possible to rebase bookmarks automatically using <a href="http://selenic.com/hg/help/revsets">revsets</a>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg rebase -r <span style="color:#e6db74">&#34;reverse(only(my_feature) and draft())&#34;</span> -d fx-team</code></pre></div>
-<p>This same revset can be used to log a bookmark and only that bookmark (log -f is useful, but
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg rebase -r <span style="color:#e6db74">&#34;reverse(only(my_feature) and draft())&#34;</span> -d fx-team
+</code></pre></div><p>This same revset can be used to log a bookmark and only that bookmark (log -f is useful, but
 includes all ancestors of the bookmark, so it&rsquo;s not always obvious where the bookmark starts):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r <span style="color:#e6db74">&#34;reverse(only(my_feature) and draft())&#34;</span></code></pre></div>
-<p>The revset is somewhat long, so it helps to add an alias to your ~/.hgrc:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r <span style="color:#e6db74">&#34;reverse(only(my_feature) and draft())&#34;</span>
+</code></pre></div><p>The revset is somewhat long, so it helps to add an alias to your ~/.hgrc:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[revsetalias]</span>
-<span style="color:#a6e22e">b($1)</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">reverse(only($1) and draft())</span></code></pre></div>
-<p>Now you can use it like so:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r <span style="color:#e6db74">&#34;b(my_feature)&#34;</span></code></pre></div>
-<p>This revset works for most simple cases, but it isn&rsquo;t perfect:</p>
-
+<span style="color:#a6e22e">b($1)</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">reverse(only($1) and draft())</span>
+</code></pre></div><p>Now you can use it like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r <span style="color:#e6db74">&#34;b(my_feature)&#34;</span>
+</code></pre></div><p>This revset works for most simple cases, but it isn&rsquo;t perfect:</p>
 <ol>
 <li>It will show an incorrect range if you pushed your bookmark to a publishing repo (e.g it is no longer draft).</li>
 <li>It will show an incorrect range if you rebase your bookmark on top of draft changesets (e.g another bookmark).</li>
 <li>It is slightly more annoying to write <code>-r &quot;b(my_feature)&quot;</code> than it is to write <code>-r my_feature</code>.</li>
 </ol>
-
 <p>These shortcomings were annoying enough to me that I wrote an extension called <a href="https://hg.sr.ht/~ahal/bookbinder">bookbinder</a>.
 Essentially if you pass in <code>-r &lt;bookmark&gt;</code> to a supported command, logbook will replace the
 bookmark&rsquo;s revision with a revset containing all changesets &ldquo;in&rdquo; the bookmark. So far <code>log</code>,
@@ -259,37 +224,33 @@ see.  For example, the following does what you&rsquo;d expect:</p>
 $ hg rebase -r bookmark_3 -d bookmark_2
 $ hg log -r bookmark_1
 $ hg log -r bookmark_2
-$ hg log -r bookmark_3</code></pre></div>
-<p>Because bookbinder only considers draft changesets, the following won&rsquo;t print anything:</p>
+$ hg log -r bookmark_3
+</code></pre></div><p>Because bookbinder only considers draft changesets, the following won&rsquo;t print anything:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg update central
 $ hg bookmark new_bookmark
-$ hg log -r new_bookmark</code></pre></div>
-<p>If you actually want to treat the bookmark as a label to a revision instead, it&rsquo;s still possible by
+$ hg log -r new_bookmark
+</code></pre></div><p>If you actually want to treat the bookmark as a label to a revision instead, it&rsquo;s still possible by
 escaping the bookmark with a period:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r .my_feature </code></pre></div>
-<p>Bookbinder likely has some bugs to work out, so let me know if you run into problems using it.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r .my_feature 
+</code></pre></div><p>Bookbinder likely has some bugs to work out, so let me know if you run into problems using it.</p>
 <h2 id="shelving-changes">Shelving Changes</h2>
-
 <p>Finally I&rsquo;d like to briefly mention <code>hg shelve</code>. It is more or less identical to <code>git stash</code> and is
 an official extension. To install it add the following to ~/.hgrc:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extensions]</span>
-<span style="color:#a6e22e">shelve</span><span style="color:#f92672">=</span> </code></pre></div>
-<p>I mostly use it for debug changes that I don&rsquo;t want to commit, but want to test both with and
+<span style="color:#a6e22e">shelve</span><span style="color:#f92672">=</span> 
+</code></pre></div><p>I mostly use it for debug changes that I don&rsquo;t want to commit, but want to test both with and
 without a particular change. My basic usage is:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># ... add debug statements ...
-</span><span style="color:#75715e"># ... test ...
-</span><span style="color:#75715e"></span>hg shelve
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># ... add debug statements ...</span>
+<span style="color:#75715e"># ... test ...</span>
+hg shelve
 hg update &lt;rev&gt;
 hg unshelve
-<span style="color:#75715e"># ... test ...
-</span><span style="color:#75715e"></span>hg revert -a</code></pre></div>
-<p>Edit: As of mercurial 3.3, you can update to another revision with uncommitted changes in your
+<span style="color:#75715e"># ... test ...</span>
+hg revert -a
+</code></pre></div><p>Edit: As of mercurial 3.3, you can update to another revision with uncommitted changes in your
 working directory. This makes shelve much less useful, though it can still be handy from time to
 time.</p>
-
 <h2 id="closing-words">Closing Words</h2>
-
 <p>That more or less wraps up what I&rsquo;ve learnt since the first post and I can&rsquo;t remember any other
 pain points I had to work around. This workflow is still based on a lot of new tools that are still
 under heavy development, but all things considered I think it has gone remarkably smoothly. The
@@ -304,14 +265,15 @@ using this workflow? If so, have you solved them?</p>
   <footer>
 
   
-  <section>
-  <nav class="nav sharing-icons">
-    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2015%2fnew-mercurial-workflow-part-2%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2015%2fnew-mercurial-workflow-part-2%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2015%2fnew-mercurial-workflow-part-2%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2015%2fnew-mercurial-workflow-part-2%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-  </nav>
-</section>
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2015%2fnew-mercurial-workflow-part-2%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2015%2fnew-mercurial-workflow-part-2%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2015%2fnew-mercurial-workflow-part-2%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2015%2fnew-mercurial-workflow-part-2%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
 
   
 
@@ -346,9 +308,13 @@ using this workflow? If so, have you solved them?</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -361,10 +327,6 @@ using this workflow? If so, have you solved them?</p>
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

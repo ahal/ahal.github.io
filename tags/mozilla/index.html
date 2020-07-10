@@ -5,28 +5,16 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<meta property="og:title" content="Mozilla" />
+<meta property="og:title" content="mozilla" />
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/tags/mozilla/" />
-
-
-
-<meta property="og:updated_time" content="2019-05-21T15:04:33-04:00"/>
-
-
-
-
-
-
-
-
-
+<meta property="og:updated_time" content="2019-05-21T15:04:33-04:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Mozilla"/>
+<meta name="twitter:title" content="mozilla"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
-<meta name="generator" content="Hugo 0.42.1" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -110,7 +98,6 @@ of a yet to be determined solution. As a long time user and supporter of IRC, th
 me some melancholy, but I 100% believe that it is the right call. Moreover, having had an inside
 glimpse at the process to replace it, I&rsquo;m supremely confident whatever is chosen will be the best
 option for Mozilla&rsquo;s needs.</p>
-
 <p>I&rsquo;m not here to explain why deprecating IRC is a good idea. <a href="http://exple.tive.org/blarg/2018/11/09/the-evolution-of-open/">Other</a> <a href="https://blog.humphd.org/irc-mozilla-org/">people</a> have
 already done so much more eloquently than I ever could have. I&rsquo;m also not here to push for a
 specific replacement. Arguing over chat applications is like arguing over editors or version
@@ -118,16 +105,12 @@ control. Yes, there are real and important differences from one application to t
 there&rsquo;s one thing we&rsquo;re spoiled for in 2019 it&rsquo;s chat applications. Besides, so much time has been
 spent thinking about the <a href="http://exple.tive.org/blarg/2019/05/03/goals-and-constraints/">requirements</a>, there&rsquo;s little anyone could say on the matter that
 hasn&rsquo;t already been considered for hours.</p>
-
 <p>This post is about an unrelated, but adjacent issue. An issue that began when <code>mozilla.slack.com</code>
 first came online, an issue that will likely persist long after <code>irc.mozilla.org</code> rides off into
 the sunset. An issue I don&rsquo;t think is brought up enough, and which I&rsquo;m hoping to start some
 discussion on now that communication is on everyone&rsquo;s mind. I&rsquo;m talking about using two
 communication platforms at once. For now Slack and IRC, soon to be Slack and something else.</p>
-
 <p>Different platform, same problem.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2019/fragmented-communication/'>Read more →</a>
 </article> 
 
@@ -151,13 +134,10 @@ mozilla-central there are over 3500 Python files (excluding third party files), 
 230k lines of code. Additionally there are <a href="https://github.com/mozilla?utf8=%E2%9C%93&amp;q=&amp;type=&amp;language=python">462 repositories</a> labelled with Python in the Mozilla
 org on Github (though many of these are not active). That&rsquo;s a lot of Python, and most of it is
 Python 2.</p>
-
 <p>With Python 2&rsquo;s exaugural year well underway, it is a good time to take stock of the situation and
 ask some questions. How far along has Mozilla come in the Python 3 migration? Which large work items
 lie on the critical path? And do we have a plan to get to a good state in time for Python 2&rsquo;s EOL on
 January 1st, 2020?</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2019/python-3-at-mozilla/'>Read more →</a>
 </article> 
 
@@ -177,11 +157,7 @@ January 1st, 2020?</p>
   </header>
   <p>A talk I did for the Automationeer&rsquo;s Assemble series on how Mozilla handles complexity in their CI
 configuration.</p>
-
-<p><iframe src="https://player.vimeo.com/video/322897542" width="720" height="405" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<br></p>
-
-<p></p>
+<!-- raw HTML omitted -->
   <a href='https://ahal.ca/casts/2019/task-configuration-at-scale/'>Read more →</a>
 </article> 
 
@@ -201,11 +177,7 @@ configuration.</p>
   </header>
   <p>Have you ever needed to inspect the taskgraph locally? Did you have a bad time? Learn how to inspect
 the taskgraph like a PRO. For the impatient skip to the installation instructions below.</p>
-
-<p><iframe src="https://player.vimeo.com/video/306431059" width="720" height="405" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<br></p>
-
-<p></p>
+<!-- raw HTML omitted -->
   <a href='https://ahal.ca/casts/2018/taskgraph-like-a-pro/'>Read more →</a>
 </article> 
 
@@ -226,15 +198,15 @@ the taskgraph like a PRO. For the impatient skip to the installation instruction
   <p>It&rsquo;s no secret that I&rsquo;m not a fan of try syntax, it&rsquo;s a topic I&rsquo;ve blogged about on <a href="https://ahal.ca/blog/2015/try-syntax/">several</a>
 <a href="https://ahal.ca/blog/2017/fuzzy-try-chooser/">occasions</a> before. Today, I&rsquo;m pleased to announce that there&rsquo;s a real alternative now landed on
 mozilla-central. It works on all platforms with mercurial and git. For those who just like to dive in:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach mercurial-setup --update  <span style="color:#75715e"># only if using hg
-</span><span style="color:#75715e"></span>$ mach try fuzzy</code></pre></div>
-<p>This will prompt you to install <a href="https://github.com/junegunn/fzf">fzf</a>. After bootstrapping is finished, you&rsquo;ll enter an interface
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach mercurial-setup --update  <span style="color:#75715e"># only if using hg</span>
+$ mach try fuzzy
+</code></pre></div><p>This will prompt you to install <a href="https://github.com/junegunn/fzf">fzf</a>. After bootstrapping is finished, you&rsquo;ll enter an interface
 populated with a list of all possible taskcluster tasks. Start typing and the list will be filtered
 down using a fuzzy matching algorithm. I won&rsquo;t go into details on how to use this tool in this blog
 post, for that see:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach try fuzzy --help  <span style="color:#75715e"># or
-</span><span style="color:#75715e"></span>$ man fzf</code></pre></div>
-<p></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach try fuzzy --help  <span style="color:#75715e"># or</span>
+$ man fzf
+</code></pre></div>
   <a href='https://ahal.ca/blog/2017/mach-try-fuzzy/'>Read more →</a>
 </article> 
 
@@ -256,8 +228,6 @@ post, for that see:</p>
 (because you are a believer in the glory of microcommits). The reviewer however has found several
 problems, and worse, they are spread across all of the commits in your series. How do you fix all
 the issues with minimal fuss while preserving the commit order?</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2017/mercurial-absorb/'>Read more →</a>
 </article> 
 
@@ -281,8 +251,6 @@ that I&rsquo;m trying to convert into a concrete plan of action to bring this ab
 <em>Intent to Implement</em> or anything like that, but my hope is that this outline is detailed enough
 that it could be used as a solid starting point by someone with enough time and motivation to
 work on it.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2017/fuzzy-try-chooser/'>Read more →</a>
 </article> 
 
@@ -303,22 +271,15 @@ work on it.</p>
   <p>One of the most painful aspects of a developer&rsquo;s work cycle is trying to fix failures that show up
 on try, but which can&rsquo;t be reproduced locally. When this happens, there were really only two
 options (neither of them nice):</p>
-
 <ol>
 <li>You could spam try with print debugging. But this isn&rsquo;t very powerful, and takes forever to get
 feedback.</li>
 <li>You could request a loaner from releng. But this is a heavy handed process, and once you have the
 loaner it is very hard to get tests up and running.</li>
 </ol>
-
 <p>I&rsquo;m pleased to announce there is now a third option, which is easy, powerful and 100% self-serve.
 Rather than trying to explain it in words, here is a ~5 minute demo:</p>
-
-<video width="100%" height="100%" controls>
-<source src="/static/vid/blog/2016/taskcluster-interactive-loaner.mp4" type="video/mp4">
-</video>
-
-<p></p>
+<!-- raw HTML omitted -->
   <a href='https://ahal.ca/blog/2016/taskcluster-interactive-loaner/'>Read more →</a>
 </article> 
 
@@ -341,12 +302,9 @@ need to run, and puts them in one convenient place. Instead of hunting down docu
 for help on irc, often a simple |mach help| is all that&rsquo;s needed to get you started. Mach is great.
 But lately, mach is becoming more like the Mozilla developer&rsquo;s toolbox. It still has everything you
 need but it weighs a ton, and it takes a good deal of rummaging around to find anything.</p>
-
 <p>Frankly, a good deal of the mach commands that exist now are either poorly written, confusing to use,
 or even have no business being mach commands in the first place. Why is this important? What&rsquo;s wrong
 with having a toolbox?</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2016/zen-of-mach/'>Read more →</a>
 </article> 
 
@@ -367,12 +325,10 @@ with having a toolbox?</p>
   <p>Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
 you put into your commit message which a <a href="http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py">parser</a> then uses to determine the set of builds and
 tests to run on your try push. A common try syntax might look like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">try: -b o -p linux -u mochitest -t none</code></pre></div>
-<p>Since inception, it has been a core part of the Mozilla development workflow.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">try: -b o -p linux -u mochitest -t none
+</code></pre></div><p>Since inception, it has been a core part of the Mozilla development workflow.
 For many years it has served us well, and even today it serves us passably. But it is almost time
 for try syntax to don the wooden overcoat, and this post will explain why.</p>
-
-<p></p>
   <a href='https://ahal.ca/blog/2015/try-syntax/'>Read more →</a>
 </article> 
 
@@ -404,9 +360,13 @@ for try syntax to don the wooden overcoat, and this post will explain why.</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -419,10 +379,6 @@ for try syntax to don the wooden overcoat, and this post will explain why.</p>
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>

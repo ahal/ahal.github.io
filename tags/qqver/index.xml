@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Qqver on Hunting the Shmoo</title>
+    <title>qqver on Hunting the Shmoo</title>
     <link>https://ahal.ca/tags/qqver/</link>
-    <description>Recent content in Qqver on Hunting the Shmoo</description>
+    <description>Recent content in qqver on Hunting the Shmoo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
@@ -21,9 +21,7 @@
       <description>&lt;p&gt;&lt;a href=&#34;http://hg.mozilla.org/users/ahalberstadt_mozilla.com/qqver/&#34;&gt;qqver&lt;/a&gt; is a Mercurial extension that forces mq to version all patch queues in the same
 repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &amp;lsquo;hg init
 &amp;ndash;mq&amp;rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
-with stock queue repos, new and existing patches are added automatically.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+with stock queue repos, new and existing patches are added automatically.&lt;/p&gt;</description>
     </item>
     
   </channel>

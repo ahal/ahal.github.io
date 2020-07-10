@@ -7,35 +7,17 @@
 
 <meta property="og:title" content="A New Look and Feel (and everything else)" />
 <meta property="og:description" content="I&rsquo;ve recently redone my website and wanted to document a few of the changes and motivations behind
-them.
-
-" />
+them." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahal.ca/blog/2018/website-refresh/" />
-
-
-
-<meta property="article:published_time" content="2018-05-14T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2018-05-14T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-05-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-05-14T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A New Look and Feel (and everything else)"/>
 <meta name="twitter:description" content="I&rsquo;ve recently redone my website and wanted to document a few of the changes and motivations behind
-them.
-
-"/>
-<meta name="generator" content="Hugo 0.42.1" />
+them."/>
+<meta name="generator" content="Hugo 0.73.0" />
 
 
     
@@ -44,10 +26,10 @@ them.
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "A New Look and Feel (and everything else)",
-  "url": "https://ahal.ca/blog/2018/website-refresh/",
+  "url": "https:\/\/ahal.ca\/blog\/2018\/website-refresh\/",
   "wordCount": "897",
-  "datePublished": "2018-05-14T00:00:00&#43;00:00",
-  "dateModified": "2018-05-14T00:00:00&#43;00:00",
+  "datePublished": "2018-05-14T00:00:00\u002b00:00",
+  "dateModified": "2018-05-14T00:00:00\u002b00:00",
   "author": {
     "@type": "Person",
     "name": "Andrew Halberstadt"
@@ -125,88 +107,67 @@ them.
   </header>
   <p>I&rsquo;ve recently redone my website and wanted to document a few of the changes and motivations behind
 them.</p>
-
-<p></p>
-
 <h3 id="backend">Backend</h3>
-
 <p>Previously I was running Django on my Linode VPS, now there is no backend. The site is entirely
 static, generated with <a href="http://gohugo.io/">Hugo</a> and served over <a href="https://pages.github.com/">Github Pages</a>. The source now lives <a href="https://github.com/ahal/hunting-the-shmoo">here</a>
 and the generated HTML lives in a separate repository <a href="https://github.com/ahal/ahal.github.io">here</a>. The latter is a sub-repository of
 the former and I have a deploy script to re-generate and push the static HTML in one go.</p>
-
 <p>There were a few motivations for this change:</p>
-
 <ol>
 <li>There was absolutely no need for my website to have a database.</li>
 <li>Maintenance. While the old website was dockerized and maintenance was minimal, it did exist.</li>
 <li>Cost. I&rsquo;ve now downgraded my Linode, though I probably could have done this anyway.</li>
 </ol>
-
 <p>But the biggest reason is simplicity. My old site was a fairly complicated Django app using a lot of
 custom models, templating and CSS (true fact, I didn&rsquo;t use a single theming library). Plus the blog
 engine it was based on, <code>django-articles</code>, has been defunct for many years. This led to an attitude
 of &ldquo;never ever touch anything unless it was absolutely necessary&rdquo;. I&rsquo;ve long wished I would blog
 more often, and I realized my website itself was a bit of a barrier to that.</p>
-
 <h3 id="look-and-feel">Look and Feel</h3>
-
 <p>I&rsquo;m using the <a href="https://github.com/alanorth/hugo-theme-bootstrap4-blog">hugo-theme-bootstrap4-blog</a> theme for my site. I&rsquo;ve modified it to look fairly
 similar to the old site, keeping some things I enjoyed and getting rid of others I didn&rsquo;t. Overall
 I&rsquo;m liking the new look a lot better, and it&rsquo;s much easier to modify and maintain. There is a bit of
 functionality that got lost, things like the article summary pages and RSS links. But this isn&rsquo;t the
 fault of Hugo or the theme, rather than laziness on my part. I plan to eventually re-implement some
 of it in the future.</p>
-
 <h3 id="comments">Comments</h3>
-
 <p>I&rsquo;m no longer using Disqus! This might be the change I&rsquo;m the happiest about. Not only does Disqus
 take forever to load, but it tracks and sells our data. This is something I&rsquo;ve always felt bad
 about, but not bad enough to do the work of hosting my own commenting system (sorry!). I figured
 that having Disqus and letting people choose whether commenting was worth it or not was better than
 having no comment system at all.</p>
-
 <p>But recently I stumbled across <a href="https://staticman.net/">staticman</a>. Now when you comment, a pull request will
 automatically be opened on my Github repo. Then I can merge or discard it. I love this because just
 like my website, comments are truly static. In order for this to work, the form will POST the
 comment to staticman&rsquo;s servers. So unfortunately it doesn&rsquo;t completely cut out the middleman. At
 least staticman is open source and promises <a href="https://staticman.net/sponsors">not to do any tracking</a>. I realize it&rsquo;s still
 entirely possible they do, but at least I trust them a lot more than I trust Disqus.</p>
-
 <p>One last note here, since migrating I&rsquo;ve lost the ability to have threaded comments. Again, this
 isn&rsquo;t the fault of staticman, but rather threaded comments is something I&rsquo;d need to implement
 myself. It is possible though it looks like a fair bit of work. I&rsquo;ll see how it goes, maybe I&rsquo;ll end
 up implementing this eventually. At the very least I plan to spend a bit more time improving the
 comment styling.</p>
-
 <h3 id="content">Content</h3>
-
 <p>I&rsquo;ve removed all extra content except for the blog itself. I found I never updated the other stuff
 and likely no one will miss it (maybe I&rsquo;ll add a <code>Contact</code> page back in). I do want to start
 dabbling in screencasts, so look for a new <code>Casts</code> content section sometime in the next couple of
 months.</p>
-
 <h3 id="hunting-the-shmoo">Hunting the Shmoo</h3>
-
 <p>I&rsquo;ve called my blog <code>Hunting the Shmoo</code> internally ever since I first created it, however I&rsquo;ve never
 used that text anywhere on screen (though the favicon has been picture of a shmoo forever). Now it&rsquo;s
 official, <code>Hunting the Shmoo</code> is in the <code>&lt;title&gt;</code>! So I figure it&rsquo;s worth explaining.</p>
-
 <p>A <a href="https://en.wikipedia.org/wiki/Shmoo">shmoo</a> is a cartoon character from the 50s. They are short and fat creatures who are both
 delicious and love to be eaten. When a human is hungry, they&rsquo;ll butter themselves up and jump right
 into the frying pan. It follows that hunting these animals is no challenge at all.</p>
-
 <p>To me, the name <code>Hunting the Shmoo</code> references our (as programmers) innate desire to follow the easy
 path. Why write code when someone else has already written a better library to accomplish the same
 thing? Why maintain a service when others can maintain it for us (see: this website)? The name also
 hints at the irony in that sometimes finding the &ldquo;easy&rdquo; path ends up being the hardest part. You
 have to hunt for that library or that tool or that service. You have to hunt for the shmoo.</p>
-
 <p>Personally, I tend to obsess over this search for the easiest possible path. I tweak my workflow
 incessantly, I try a never ending parade of tools on the off chance one of them might offer some
 miniscule improvement, and I write my own scripts and programs to automate tasks that I&rsquo;ll only ever
 need to execute twice.</p>
-
 <p>I think it&rsquo;s an apt name because that&rsquo;s what this blog tends to be about. Tools, tricks and workflow
 hacks that I&rsquo;ve stumbled across in my never ending hunt.</p>
 
@@ -217,14 +178,15 @@ hacks that I&rsquo;ve stumbled across in my never ending hunt.</p>
   <footer>
 
   
-  <section>
-  <nav class="nav sharing-icons">
-    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2018%2fwebsite-refresh%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2018%2fwebsite-refresh%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2018%2fwebsite-refresh%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2018%2fwebsite-refresh%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-  </nav>
-</section>
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2018%2fwebsite-refresh%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fahal.ca%2fblog%2f2018%2fwebsite-refresh%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2018%2fwebsite-refresh%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fahal.ca%2fblog%2f2018%2fwebsite-refresh%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
 
   
 
@@ -259,9 +221,13 @@ hacks that I&rsquo;ve stumbled across in my never ending hunt.</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/">Blogs</a></li>
+
 <li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
 
 <li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+
+<li><a href="/casts/">Casts</a></li>
 
 <li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
 
@@ -274,10 +240,6 @@ hacks that I&rsquo;ve stumbled across in my never ending hunt.</p>
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
 <li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
-
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
-
-<li><a href="/blog/2016/zen-of-mach/">The Zen of Mach</a></li>
 
     </ol>
   </section>
