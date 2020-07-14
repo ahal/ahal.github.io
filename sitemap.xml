@@ -8,23 +8,38 @@
   </url>
   
   <url>
+    <loc>https://ahal.ca/tags/ci/</loc>
+    <lastmod>2020-07-10T12:08:34-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ahal.ca/</loc>
+    <lastmod>2020-07-10T12:08:34-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/machine-learning/</loc>
+    <lastmod>2020-07-10T12:08:34-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/mozilla/</loc>
+    <lastmod>2020-07-10T12:08:34-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/</loc>
+    <lastmod>2020-07-10T12:08:34-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahal.ca/tags/taskcluster/</loc>
     <lastmod>2020-07-10T12:08:34-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://ahal.ca/blog/2020/testing-firefox-more-efficiently-with-machine-learning/</loc>
     <lastmod>2020-07-10T12:08:34-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ahal.ca/tags/mozilla/</loc>
-    <lastmod>2019-05-21T15:04:33-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ahal.ca/tags/</loc>
-    <lastmod>2019-05-21T15:04:33-04:00</lastmod>
   </url>
   
   <url>
@@ -125,11 +140,6 @@
   <url>
     <loc>https://ahal.ca/blog/2017/fuzzy-try-chooser/</loc>
     <lastmod>2017-02-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ahal.ca/tags/taskcluster/</loc>
-    <lastmod>2016-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>

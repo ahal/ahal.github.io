@@ -7,17 +7,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Tue, 21 May 2019 15:04:33 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jul 2020 12:08:34 -0400</lastBuildDate>
     
 	<atom:link href="https://ahal.ca/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>ci</title>
+      <link>https://ahal.ca/tags/ci/</link>
+      <pubDate>Fri, 10 Jul 2020 12:08:34 -0400</pubDate>
+      
+      <guid>https://ahal.ca/tags/ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine-learning</title>
+      <link>https://ahal.ca/tags/machine-learning/</link>
+      <pubDate>Fri, 10 Jul 2020 12:08:34 -0400</pubDate>
+      
+      <guid>https://ahal.ca/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>mozilla</title>
       <link>https://ahal.ca/tags/mozilla/</link>
-      <pubDate>Tue, 21 May 2019 15:04:33 -0400</pubDate>
+      <pubDate>Fri, 10 Jul 2020 12:08:34 -0400</pubDate>
       
       <guid>https://ahal.ca/tags/mozilla/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>taskcluster</title>
+      <link>https://ahal.ca/tags/taskcluster/</link>
+      <pubDate>Fri, 10 Jul 2020 12:08:34 -0400</pubDate>
+      
+      <guid>https://ahal.ca/tags/taskcluster/</guid>
       <description></description>
     </item>
     
@@ -117,15 +144,6 @@
       <pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ahal.ca/tags/mercurial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>taskcluster</title>
-      <link>https://ahal.ca/tags/taskcluster/</link>
-      <pubDate>Thu, 04 Aug 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://ahal.ca/tags/taskcluster/</guid>
       <description></description>
     </item>
     
