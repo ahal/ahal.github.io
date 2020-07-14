@@ -18,8 +18,10 @@
       <pubDate>Fri, 10 Jul 2020 12:08:34 -0400</pubDate>
       
       <guid>https://ahal.ca/blog/2020/testing-firefox-more-efficiently-with-machine-learning/</guid>
-      <description>This post was co-authored with Marco Castelluccio, and was originally posted to the Mozilla Hacks Blog.
-A browser is an incredibly complex piece of software. With such enormous complexity, the only way to maintain a rapid pace of development is through an extensive CI system that can give developers confidence that their changes won&amp;rsquo;t introduce bugs. Given the scale of our CI, we’re always looking for ways to reduce load while maintaining a high standard of product quality.</description>
+      <description>&lt;p&gt;&lt;em&gt;This post was co-authored with &lt;a href=&#34;https://marco-c.github.io/&#34;&gt;Marco Castelluccio&lt;/a&gt;, and was originally
+posted to the &lt;a href=&#34;https://hacks.mozilla.org/2020/07/testing-firefox-more-efficiently-with-machine-learning/&#34;&gt;Mozilla Hacks
+Blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A browser is an incredibly complex piece of software. With such enormous complexity, the only way to maintain a rapid pace of development is through an extensive &lt;a href=&#34;https://en.wikipedia.org/wiki/Continuous_integration&#34;&gt;CI&lt;/a&gt; system that can give developers confidence that their changes won&amp;rsquo;t introduce bugs. Given the scale of our CI, we’re always looking for ways to reduce load while maintaining a high standard of product quality. We wondered if we could use machine learning to reach a higher degree of efficiency.&lt;/p&gt;</description>
     </item>
     
     <item>
