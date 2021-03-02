@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Wed, 24 Jul 2013 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://ahal.ca/tags/mozharness/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 24 Jul 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://ahal.ca/tags/mozharness/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Push a Custom Test Command Line to Try</title>
       <link>https://ahal.ca/blog/2013/push-custom-test-command-line-try/</link>

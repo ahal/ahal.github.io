@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Wed, 02 Aug 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://ahal.ca/tags/ateam/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 02 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://ahal.ca/tags/ateam/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Try Fuzzy: A Try Syntax Alternative</title>
       <link>https://ahal.ca/blog/2017/mach-try-fuzzy/</link>
@@ -117,7 +113,7 @@ the same log format you&amp;rsquo;re already familiar with (which is why you may
       
       <guid>https://ahal.ca/blog/2014/new-mercurial-workflow/</guid>
       <description>&lt;p&gt;There&amp;rsquo;s a good chance you&amp;rsquo;ve heard something about a new review tool coming to Mozilla and how it will &lt;em&gt;change
-everything&lt;/em&gt;. There&amp;rsquo;s an even better chance you&amp;rsquo;ve stumbled across one of gps&amp;rsquo; &lt;a href=&#34;http://gregoryszorc.com/blog/category/mercurial/&#34;&gt;blog posts&lt;/a&gt; on how
+everything&lt;/em&gt;. There&amp;rsquo;s an even better chance you&amp;rsquo;ve stumbled across one of gps&#39; &lt;a href=&#34;http://gregoryszorc.com/blog/category/mercurial/&#34;&gt;blog posts&lt;/a&gt; on how
 we use mercurial at Mozilla.&lt;/p&gt;
 &lt;p&gt;With &lt;a href=&#34;https://groups.google.com/forum/#!topic/mozilla.dev.platform/RMkSXq2ckFk&#34;&gt;mozreview entering beta&lt;/a&gt;, I decided to throw out my old mq based workflow and
 try to use all the latest and greatest tools. That means &lt;a href=&#34;http://mercurial.selenic.com/wiki/Bookmarks&#34;&gt;mercurial bookmarks&lt;/a&gt;, a &lt;a href=&#34;http://gregoryszorc.com/blog/2014/06/30/track-firefox-repositories-with-local-only-mercurial-tags/&#34;&gt;unified

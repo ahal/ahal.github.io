@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Tue, 28 Feb 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://ahal.ca/tags/absorb/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 28 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://ahal.ca/tags/absorb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Absorbing Changes into a Commit Series with Mercurial</title>
       <link>https://ahal.ca/blog/2017/mercurial-absorb/</link>

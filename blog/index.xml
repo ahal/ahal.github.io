@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Fri, 10 Jul 2020 12:08:34 -0400</lastBuildDate>
-    
-	<atom:link href="https://ahal.ca/blog/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 02 Mar 2021 09:00:00 -0500</lastBuildDate><atom:link href="https://ahal.ca/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Better Terminal for Mozilla Build</title>
+      <link>https://ahal.ca/blog/2021/mozilla-build-windows-terminal/</link>
+      <pubDate>Tue, 02 Mar 2021 09:00:00 -0500</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/mozilla-build-windows-terminal/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re working with mozilla-central on Windows and followed the &lt;a href=&#34;https://firefox-source-docs.mozilla.org/setup/windows_build.html&#34;&gt;official
+documentation&lt;/a&gt;, there&amp;rsquo;s a good
+chance the MozillaBuild shell is running in the default &lt;code&gt;cmd.exe&lt;/code&gt; console. If you&amp;rsquo;ve spent any
+amount of time in this console you&amp;rsquo;ve also likely noticed it leaves a bit to be desired. Standard
+terminal features such as tabs, splits and themes are missing. More importantly, it doesn&amp;rsquo;t render
+unicode characters (at least out of the box).&lt;/p&gt;
+&lt;p&gt;Luckily Microsoft has developed a &lt;a href=&#34;https://www.microsoft.com/en-ca/p/windows-terminal/9n0dx20hk701&#34;&gt;modern
+terminal&lt;/a&gt; that can replace cmd.exe,
+and getting it set up with MozillaBuild shell is simple.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Testing Firefox More Efficiently With Machine Learning</title>
@@ -224,7 +237,7 @@ the same log format you&amp;rsquo;re already familiar with (which is why you may
       
       <guid>https://ahal.ca/blog/2014/new-mercurial-workflow/</guid>
       <description>&lt;p&gt;There&amp;rsquo;s a good chance you&amp;rsquo;ve heard something about a new review tool coming to Mozilla and how it will &lt;em&gt;change
-everything&lt;/em&gt;. There&amp;rsquo;s an even better chance you&amp;rsquo;ve stumbled across one of gps&amp;rsquo; &lt;a href=&#34;http://gregoryszorc.com/blog/category/mercurial/&#34;&gt;blog posts&lt;/a&gt; on how
+everything&lt;/em&gt;. There&amp;rsquo;s an even better chance you&amp;rsquo;ve stumbled across one of gps&#39; &lt;a href=&#34;http://gregoryszorc.com/blog/category/mercurial/&#34;&gt;blog posts&lt;/a&gt; on how
 we use mercurial at Mozilla.&lt;/p&gt;
 &lt;p&gt;With &lt;a href=&#34;https://groups.google.com/forum/#!topic/mozilla.dev.platform/RMkSXq2ckFk&#34;&gt;mozreview entering beta&lt;/a&gt;, I decided to throw out my old mq based workflow and
 try to use all the latest and greatest tools. That means &lt;a href=&#34;http://mercurial.selenic.com/wiki/Bookmarks&#34;&gt;mercurial bookmarks&lt;/a&gt;, a &lt;a href=&#34;http://gregoryszorc.com/blog/2014/06/30/track-firefox-repositories-with-local-only-mercurial-tags/&#34;&gt;unified

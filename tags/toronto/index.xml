@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Mon, 07 Nov 2011 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://ahal.ca/tags/toronto/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 07 Nov 2011 00:00:00 +0000</lastBuildDate><atom:link href="https://ahal.ca/tags/toronto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cycling in the City</title>
       <link>https://ahal.ca/blog/2011/cycling-city/</link>
