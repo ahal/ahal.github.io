@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ahal.ca/blog/</loc>
+    <lastmod>2021-03-02T11:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/devops/</loc>
+    <lastmod>2021-03-02T11:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/blog/2021/mozilla-devops/</loc>
+    <lastmod>2021-03-02T11:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/</loc>
+    <lastmod>2021-03-02T11:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/mozilla/</loc>
+    <lastmod>2021-03-02T11:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/</loc>
+    <lastmod>2021-03-02T11:00:00-05:00</lastmod>
+  </url><url>
     <loc>https://ahal.ca/blog/2021/mozilla-build-windows-terminal/</loc>
     <lastmod>2021-03-02T09:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://ahal.ca/blog/</loc>
-    <lastmod>2021-03-02T09:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://ahal.ca/</loc>
-    <lastmod>2021-03-02T09:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://ahal.ca/tags/mozilla/</loc>
-    <lastmod>2021-03-02T09:00:00-05:00</lastmod>
-  </url><url>
     <loc>https://ahal.ca/tags/productivity/</loc>
-    <lastmod>2021-03-02T09:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://ahal.ca/tags/</loc>
     <lastmod>2021-03-02T09:00:00-05:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/tags/tools-tip-tuesday/</loc>

@@ -10,7 +10,7 @@
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/" />
-<meta property="og:updated_time" content="2021-03-02T09:00:00-05:00" />
+<meta property="og:updated_time" content="2021-03-02T11:00:00-05:00" />
 
 
 
@@ -31,8 +31,8 @@
     "@type": "Person",
     "name": "Andrew Halberstadt"
   },
-  "dateModified": "2021-03-02T09:00:00-05:00",
-  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,ci,cycling,django,fzf,hugo,jetty,mach,machine-learning,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,productivity,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,tools-tip-tuesday,toronto,try,website,",
+  "dateModified": "2021-03-02T11:00:00-05:00",
+  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,ci,cycling,devops,django,fzf,hugo,jetty,mach,machine-learning,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,productivity,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,tools-tip-tuesday,toronto,try,website,",
   "description": "Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."
 }
 </script>
@@ -99,6 +99,29 @@
         <div class="col-sm-8 blog-main">
 
           
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/">Part 2: How to deal with IFFY requirements</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-04-11T00:00:00Z">Apr 11, 2014</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/programming/" rel="tag">programming</a>
+
+</p>
+  </header>
+  <p>My last post was basically a very long winded way of saying, &ldquo;we have a problem&rdquo;. It kind of did a
+little dance around &ldquo;why is there a problem&rdquo; and &ldquo;how do we fix it&rdquo;, but I want to explore these two
+questions in a bit more detail. Specifically, I want to return to the two case studies and explore
+why our test harnesses don&rsquo;t work and why mozharness does work even though both have IFFY (in flux
+for years) requirements. Then I will explore how to use the lessons learned to improve our general
+test harness design.</p>
+  <a href='https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/'>Read more →</a>
+</article> 
 
 
 
@@ -321,28 +344,6 @@ weather lately. I must have caught a <a href="https://bugzilla.mozilla.org/show_
 
 
 
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2013/enable-b2g-tests/">An Open Invitation to Enable your Favourite tests on B2G</a></h2>
-    <p class="blog-post-meta"><time datetime="2013-03-08T00:00:00Z">Mar 08, 2013</time> by Andrew Halberstadt in 
-
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/b2g/" rel="tag">b2g</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
-
-</p>
-  </header>
-  <p>Throughout most of our B2G test automation deployment, we&rsquo;ve been very conscious about not enabling
-too many tests simply because we didn&rsquo;t have enough capacity on our test slaves to run them all.
-Regardless it was still bad enough as it was (many of you probably experienced very long wait times
-for results). Thanks to releng (and especially Rail Aliiev) we are now running most of our B2G tests
-in Amazon AWS which means we can be much more flexible in accomodating load.</p>
-  <a href='https://ahal.ca/blog/2013/enable-b2g-tests/'>Read more →</a>
-</article> 
-
-
-
-
-
 <nav class="blog-pagination">
   
   <a class="btn btn-outline-primary" href="/page/2/" rel="prev" role="button">Previous page</a>
@@ -367,6 +368,8 @@ in Amazon AWS which means we can be much more flexible in accomodating load.</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
+
 <li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
 <li><a href="/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></li>
@@ -384,8 +387,6 @@ in Amazon AWS which means we can be much more flexible in accomodating load.</p>
 <li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
 
 <li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
-
-<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
 
     </ol>
   </section>
@@ -497,6 +498,11 @@ in Amazon AWS which means we can be much more flexible in accomodating load.</p>
         
             
             <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
         
     
         
