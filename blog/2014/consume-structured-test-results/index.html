@@ -5,6 +5,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
 <meta property="og:title" content="How to Consume Structured Test Results" />
 <meta property="og:description" content="You may not know that most of our test harnesses are now outputting structured logs (thanks in large
 part to :chmanchester&rsquo;s tireless work). Saying a log is structured simply means that it is in a
@@ -16,6 +17,8 @@ the same log format you&rsquo;re already familiar with (which is why you may not
 <meta property="article:published_time" content="2014-12-18T00:00:00+00:00" />
 <meta property="article:modified_time" content="2014-12-18T00:00:00+00:00" />
 
+
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to Consume Structured Test Results"/>
 <meta name="twitter:description" content="You may not know that most of our test harnesses are now outputting structured logs (thanks in large
@@ -23,7 +26,7 @@ part to :chmanchester&rsquo;s tireless work). Saying a log is structured simply 
 machine readable format, in our case each log line is a JSON object. When streamed to a terminal or
 treeherder log, these JSON objects are first formatted into something that is human readable, aka
 the same log format you&rsquo;re already familiar with (which is why you may not have noticed this)."/>
-<meta name="generator" content="Hugo 0.73.0" />
+<meta name="generator" content="Hugo 0.81.0" />
 
 
     
@@ -53,12 +56,12 @@ the same log format you&rsquo;re already familiar with (which is why you may not
     
     <!-- combined, minified CSS -->
     
-    <link href="https://ahal.ca/css/style.e408605af1290e616960aef7be39db8d54400ce717e8e4f12f733d8fb56d62ee.css" rel="stylesheet" integrity="sha256-5AhgWvEpDmFpYK73vjnbjVRADOcX6OTxL3M9j7VtYu4=" crossorigin="anonymous">
+    <link href="https://ahal.ca/css/style.beb8012edc08ba10be012f079d618dc243812267efe62e11f22fe49618f976a4.css" rel="stylesheet" integrity="sha256-vrgBLtwIuhC&#43;AS8HnWGNwkOBImfv5i4R8i/klhj5dqQ=" crossorigin="anonymous">
     
 
     <!-- minified Font Awesome for SVG icons -->
     
-    <script defer src="https://ahal.ca/js/fontawesome.min.16a86fa8fbdecc0f27392feecb61ee0803a507820bded359407103a49126b52c.js" integrity="sha256-FqhvqPvezA8nOS/uy2HuCAOlB4IL3tNZQHEDpJEmtSw=" crossorigin="anonymous"></script>
+    <script defer src="https://ahal.ca/js/fontawesome.min.ffbfea088a9a1666ec65c3a8cb4906e2a0e4f92dc70dbbf400a125ad2422123a.js" integrity="sha256-/7/qCIqaFmbsZcOoy0kG4qDk&#43;S3HDbv0AKElrSQiEjo=" crossorigin="anonymous"></script>
 
     <!-- RSS 2.0 feed -->
     
@@ -271,7 +274,7 @@ line:</p>
 registering callbacks on specific actions. Luckily, mozlog provides several <a href="http://mozbase.readthedocs.org/en/latest/mozlog_structured.html#processing-log-files">built-in functions</a>
 for dealing with these common cases. There are two main approaches, registering callbacks or
 creating log handlers.</p>
-<h3 id="examples-">Examples</h3>
+<h3 id="examples">Examples</h3>
 <p>The rest depends on what you&rsquo;re trying to accomplish. It now becomes a matter of reading the
 <a href="http://mozbase.readthedocs.org/en/latest/mozlog_structured.html">docs</a> and figuring out how to do it. Below are several examples to help get you started.</p>
 <p>List all failed tests by registering callbacks:</p>

@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Wed, 12 Sep 2012 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://ahal.ca/tags/reftest/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 12 Sep 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://ahal.ca/tags/reftest/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>State of Reftests on B2G</title>
       <link>https://ahal.ca/blog/2012/state-reftest-b2g/</link>
