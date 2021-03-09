@@ -7,20 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Tue, 02 Mar 2021 11:00:00 -0500</lastBuildDate><atom:link href="https://ahal.ca/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>devops</title>
-      <link>https://ahal.ca/tags/devops/</link>
-      <pubDate>Tue, 02 Mar 2021 11:00:00 -0500</pubDate>
-      
-      <guid>https://ahal.ca/tags/devops/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Tue, 09 Mar 2021 09:15:07 -0500</lastBuildDate><atom:link href="https://ahal.ca/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mozilla</title>
       <link>https://ahal.ca/tags/mozilla/</link>
-      <pubDate>Tue, 02 Mar 2021 11:00:00 -0500</pubDate>
+      <pubDate>Tue, 09 Mar 2021 09:15:07 -0500</pubDate>
       
       <guid>https://ahal.ca/tags/mozilla/</guid>
       <description></description>
@@ -29,7 +20,7 @@
     <item>
       <title>productivity</title>
       <link>https://ahal.ca/tags/productivity/</link>
-      <pubDate>Tue, 02 Mar 2021 09:00:00 -0500</pubDate>
+      <pubDate>Tue, 09 Mar 2021 09:15:07 -0500</pubDate>
       
       <guid>https://ahal.ca/tags/productivity/</guid>
       <description></description>
@@ -38,9 +29,18 @@
     <item>
       <title>tools-tip-tuesday</title>
       <link>https://ahal.ca/tags/tools-tip-tuesday/</link>
-      <pubDate>Tue, 02 Mar 2021 09:00:00 -0500</pubDate>
+      <pubDate>Tue, 09 Mar 2021 09:15:07 -0500</pubDate>
       
       <guid>https://ahal.ca/tags/tools-tip-tuesday/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://ahal.ca/tags/devops/</link>
+      <pubDate>Tue, 02 Mar 2021 11:00:00 -0500</pubDate>
+      
+      <guid>https://ahal.ca/tags/devops/</guid>
       <description></description>
     </item>
     

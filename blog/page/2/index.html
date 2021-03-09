@@ -10,7 +10,7 @@
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/blog/" />
-<meta property="og:updated_time" content="2021-03-02T11:00:00-05:00" />
+<meta property="og:updated_time" content="2021-03-09T09:15:07-05:00" />
 
 
 
@@ -31,7 +31,7 @@
     "@type": "Person",
     "name": "Andrew Halberstadt"
   },
-  "dateModified": "2021-03-02T11:00:00-05:00",
+  "dateModified": "2021-03-09T09:15:07-05:00",
   "keywords": "absorb,addon,android,ateam,b2g,bookbinder,ci,cycling,devops,django,fzf,hugo,jetty,mach,machine-learning,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,productivity,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,tools-tip-tuesday,toronto,try,website,",
   "description": "Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."
 }
@@ -93,6 +93,35 @@
         <div class="col-sm-8 blog-main">
 
           
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></h2>
+    <p class="blog-post-meta"><time datetime="2016-08-04T00:00:00Z">Aug 04, 2016</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/taskcluster/" rel="tag">taskcluster</a>
+
+</p>
+  </header>
+  <p>One of the most painful aspects of a developer&rsquo;s work cycle is trying to fix failures that show up
+on try, but which can&rsquo;t be reproduced locally. When this happens, there were really only two
+options (neither of them nice):</p>
+<ol>
+<li>You could spam try with print debugging. But this isn&rsquo;t very powerful, and takes forever to get
+feedback.</li>
+<li>You could request a loaner from releng. But this is a heavy handed process, and once you have the
+loaner it is very hard to get tests up and running.</li>
+</ol>
+<p>I&rsquo;m pleased to announce there is now a third option, which is easy, powerful and 100% self-serve.
+Rather than trying to explain it in words, here is a ~5 minute demo:</p>
+<!-- raw HTML omitted -->
+  <a href='https://ahal.ca/blog/2016/taskcluster-interactive-loaner/'>Read more →</a>
+</article> 
 
 
 
@@ -311,31 +340,6 @@ test harness design.</p>
 
 
 
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/">Part 1: Sharing code is not always a good thing</a></h2>
-    <p class="blog-post-meta"><time datetime="2014-03-21T00:00:00Z">Mar 21, 2014</time> by Andrew Halberstadt in 
-
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/programming/" rel="tag">programming</a>
-
-</p>
-  </header>
-  <h3 id="dry-versus-wet">Dry versus Wet</h3>
-<p>As programmers, we are taught early on that code duplication is bad and should be avoided at all
-cost. It makes code less maintainable, reusable and readable. The <a href="http://en.wikipedia.org/wiki/DRY_principle">DRY principle</a> is very basic
-and fundamental to how most of us approach software design. If you aren&rsquo;t familiar with the DRY
-principle, please take a minute to read the wikipedia page on it. The counterpart of DRY, is WET
-(write everything twice).  In general, I agree that DRY is good and WET is bad. But I think there
-are a class of problems where the DRY approach can actually be harmful. For these types of problems,
-I will make a claim that a WET approach can actually work better.</p>
-  <a href='https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/'>Read more →</a>
-</article> 
-
-
-
-
-
 <nav class="blog-pagination">
   
   <a class="btn btn-outline-primary" href="/blog/" rel="prev" role="button">Previous page</a>
@@ -360,6 +364,8 @@ I will make a claim that a WET approach can actually work better.</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
+
 <li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
 
 <li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
@@ -377,8 +383,6 @@ I will make a claim that a WET approach can actually work better.</p>
 <li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
 
 <li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
-
-<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
 
     </ol>
   </section>
@@ -449,12 +453,22 @@ I will make a claim that a WET approach can actually work better.</p>
     
         
             
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
             <a href="/tags/taskcluster">taskcluster</a>
         
     
         
             
             <a href="/tags/taskgraph">taskgraph</a>
+        
+    
+        
+            
+            <a href="/tags/tools-tip-tuesday">tools-tip-tuesday</a>
         
     
         
@@ -539,11 +553,6 @@ I will make a claim that a WET approach can actually work better.</p>
     
         
             
-            <a href="/tags/productivity">productivity</a>
-        
-    
-        
-            
             <a href="/tags/qqver">qqver</a>
         
     
@@ -565,11 +574,6 @@ I will make a claim that a WET approach can actually work better.</p>
         
             
             <a href="/tags/test-informant">test-informant</a>
-        
-    
-        
-            
-            <a href="/tags/tools-tip-tuesday">tools-tip-tuesday</a>
         
     
         
