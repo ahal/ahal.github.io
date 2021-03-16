@@ -7,13 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Tue, 09 Mar 2021 09:15:07 -0500</lastBuildDate><atom:link href="https://ahal.ca/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Mar 2021 09:48:48 -0400</lastBuildDate><atom:link href="https://ahal.ca/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mozconfigwrapper</title>
+      <link>https://ahal.ca/tags/mozconfigwrapper/</link>
+      <pubDate>Tue, 16 Mar 2021 09:48:48 -0400</pubDate>
+      
+      <guid>https://ahal.ca/tags/mozconfigwrapper/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>mozilla</title>
       <link>https://ahal.ca/tags/mozilla/</link>
-      <pubDate>Tue, 09 Mar 2021 09:15:07 -0500</pubDate>
+      <pubDate>Tue, 16 Mar 2021 09:48:48 -0400</pubDate>
       
       <guid>https://ahal.ca/tags/mozilla/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools-tip-tuesday</title>
+      <link>https://ahal.ca/tags/tools-tip-tuesday/</link>
+      <pubDate>Tue, 16 Mar 2021 09:48:48 -0400</pubDate>
+      
+      <guid>https://ahal.ca/tags/tools-tip-tuesday/</guid>
       <description></description>
     </item>
     
@@ -23,15 +41,6 @@
       <pubDate>Tue, 09 Mar 2021 09:15:07 -0500</pubDate>
       
       <guid>https://ahal.ca/tags/productivity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tools-tip-tuesday</title>
-      <link>https://ahal.ca/tags/tools-tip-tuesday/</link>
-      <pubDate>Tue, 09 Mar 2021 09:15:07 -0500</pubDate>
-      
-      <guid>https://ahal.ca/tags/tools-tip-tuesday/</guid>
       <description></description>
     </item>
     
@@ -212,15 +221,6 @@
       <pubDate>Thu, 06 Mar 2014 00:00:00 +0000</pubDate>
       
       <guid>https://ahal.ca/tags/b2g/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mozconfigwrapper</title>
-      <link>https://ahal.ca/tags/mozconfigwrapper/</link>
-      <pubDate>Mon, 03 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://ahal.ca/tags/mozconfigwrapper/</guid>
       <description></description>
     </item>
     

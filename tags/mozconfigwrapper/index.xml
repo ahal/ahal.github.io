@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Mon, 03 Mar 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://ahal.ca/tags/mozconfigwrapper/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Mar 2021 09:48:48 -0400</lastBuildDate><atom:link href="https://ahal.ca/tags/mozconfigwrapper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Managing Multiple Mozconfigs</title>
+      <link>https://ahal.ca/blog/2021/managing-multiple-mozconfigs/</link>
+      <pubDate>Tue, 16 Mar 2021 09:48:48 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/managing-multiple-mozconfigs/</guid>
+      <description>&lt;p&gt;Mozilla developers often need to juggle multiple build configurations in their day to day work.
+Strategies to manage this sometimes include complex shell scripting built into their mozconfig, or a
+topsrcdir littered with &lt;code&gt;mozconfig-*&lt;/code&gt; files and then calls to the build system like
+&lt;code&gt;MOZCONFIG=mozconfig-debug ./mach build&lt;/code&gt;. But there&amp;rsquo;s another method (which is basically just a
+variant on the latter), that might help make managing mozconfigs a teensy bit easier:
+&lt;a href=&#34;https://github.com/ahal/mozconfigwrapper&#34;&gt;mozconfigwrapper&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the interest of not documenting things in blog posts (and because I&amp;rsquo;m short on time this
+morning), I invite you to read the README file of the repo for installation and usage instructions.
+Please file issues and don&amp;rsquo;t hesitate to reach out if the README is not clear or you have any
+problems.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>A Workflow for using Mach with multiple Object Directories</title>
       <link>https://ahal.ca/blog/2014/mach-workflow/</link>
