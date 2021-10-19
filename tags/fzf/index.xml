@@ -16,7 +16,10 @@
       <guid>https://ahal.ca/casts/2018/taskgraph-like-a-pro/</guid>
       <description>&lt;p&gt;Have you ever needed to inspect the taskgraph locally? Did you have a bad time? Learn how to inspect
 the taskgraph like a PRO. For the impatient skip to the installation instructions below.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://player.vimeo.com/video/306431059&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;vimeo video&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -28,13 +31,13 @@ the taskgraph like a PRO. For the impatient skip to the installation instruction
       <description>&lt;p&gt;It&amp;rsquo;s no secret that I&amp;rsquo;m not a fan of try syntax, it&amp;rsquo;s a topic I&amp;rsquo;ve blogged about on &lt;a href=&#34;https://ahal.ca/blog/2015/try-syntax/&#34;&gt;several&lt;/a&gt;
 &lt;a href=&#34;https://ahal.ca/blog/2017/fuzzy-try-chooser/&#34;&gt;occasions&lt;/a&gt; before. Today, I&amp;rsquo;m pleased to announce that there&amp;rsquo;s a real alternative now landed on
 mozilla-central. It works on all platforms with mercurial and git. For those who just like to dive in:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach mercurial-setup --update  &lt;span style=&#34;color:#75715e&#34;&gt;# only if using hg&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach mercurial-setup --update  &lt;span style=&#34;color:#75715e&#34;&gt;# only if using hg&lt;/span&gt;
 $ mach try fuzzy
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will prompt you to install &lt;a href=&#34;https://github.com/junegunn/fzf&#34;&gt;fzf&lt;/a&gt;. After bootstrapping is finished, you&amp;rsquo;ll enter an interface
 populated with a list of all possible taskcluster tasks. Start typing and the list will be filtered
 down using a fuzzy matching algorithm. I won&amp;rsquo;t go into details on how to use this tool in this blog
 post, for that see:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach try fuzzy --help  &lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach try fuzzy --help  &lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
 $ man fzf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>

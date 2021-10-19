@@ -2,22 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ahal.ca/casts/</loc>
+    <lastmod>2021-10-08T16:57:22-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/</loc>
+    <lastmod>2021-10-08T16:57:22-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/mozilla/</loc>
+    <lastmod>2021-10-08T16:57:22-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/</loc>
+    <lastmod>2021-10-08T16:57:22-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/taskgraph/</loc>
+    <lastmod>2021-10-08T16:57:22-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/casts/2021/taskgraph-diff/</loc>
+    <lastmod>2021-10-08T16:57:22-04:00</lastmod>
+  </url><url>
     <loc>https://ahal.ca/blog/</loc>
-    <lastmod>2020-07-10T12:08:34-04:00</lastmod>
+    <lastmod>2021-04-27T09:33:31-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/phabricator/</loc>
+    <lastmod>2021-04-27T09:33:31-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/blog/2021/phabricator-etiquette-part-2-the-author/</loc>
+    <lastmod>2021-04-27T09:33:31-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/tips-and-tricks/</loc>
+    <lastmod>2021-04-27T09:33:31-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/</loc>
+    <lastmod>2021-04-13T15:42:41-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/blog/2021/ls-replacement/</loc>
+    <lastmod>2021-04-06T11:05:21-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/blog/2021/advanced-mach-try/</loc>
+    <lastmod>2021-03-30T09:30:00-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/try/</loc>
+    <lastmod>2021-03-30T09:30:00-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/blog/2021/understanding-mach-try/</loc>
+    <lastmod>2021-03-23T10:51:01-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/blog/2021/managing-multiple-mozconfigs/</loc>
+    <lastmod>2021-03-16T09:48:48-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/mozconfigwrapper/</loc>
+    <lastmod>2021-03-16T09:48:48-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/blog/2021/hide-your-lint-errors/</loc>
+    <lastmod>2021-03-09T09:15:07-05:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/productivity/</loc>
+    <lastmod>2021-03-09T09:15:07-05:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/devops/</loc>
+    <lastmod>2021-03-02T11:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/blog/2021/mozilla-devops/</loc>
+    <lastmod>2021-03-02T11:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/blog/2021/mozilla-build-windows-terminal/</loc>
+    <lastmod>2021-03-02T09:00:00-05:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/tags/ci/</loc>
     <lastmod>2020-07-10T12:08:34-04:00</lastmod>
   </url><url>
-    <loc>https://ahal.ca/</loc>
-    <lastmod>2020-07-10T12:08:34-04:00</lastmod>
-  </url><url>
     <loc>https://ahal.ca/tags/machine-learning/</loc>
-    <lastmod>2020-07-10T12:08:34-04:00</lastmod>
-  </url><url>
-    <loc>https://ahal.ca/tags/mozilla/</loc>
-    <lastmod>2020-07-10T12:08:34-04:00</lastmod>
-  </url><url>
-    <loc>https://ahal.ca/tags/</loc>
     <lastmod>2020-07-10T12:08:34-04:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/tags/taskcluster/</loc>
@@ -38,13 +92,7 @@
     <loc>https://ahal.ca/blog/2019/python-3-at-mozilla/</loc>
     <lastmod>2019-04-30T15:25:50-04:00</lastmod>
   </url><url>
-    <loc>https://ahal.ca/casts/</loc>
-    <lastmod>2019-03-12T17:10:32-04:00</lastmod>
-  </url><url>
     <loc>https://ahal.ca/casts/2019/task-configuration-at-scale/</loc>
-    <lastmod>2019-03-12T17:10:32-04:00</lastmod>
-  </url><url>
-    <loc>https://ahal.ca/tags/taskgraph/</loc>
     <lastmod>2019-03-12T17:10:32-04:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/tags/fzf/</loc>
@@ -66,9 +114,6 @@
     <lastmod>2018-05-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/tags/ateam/</loc>
-    <lastmod>2017-08-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ahal.ca/tags/try/</loc>
     <lastmod>2017-08-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/blog/2017/mach-try-fuzzy/</loc>
@@ -138,9 +183,6 @@
     <lastmod>2014-03-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/blog/2014/mach-workflow/</loc>
-    <lastmod>2014-03-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ahal.ca/tags/mozconfigwrapper/</loc>
     <lastmod>2014-03-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/blog/2013/we-are-all-enablers/</loc>

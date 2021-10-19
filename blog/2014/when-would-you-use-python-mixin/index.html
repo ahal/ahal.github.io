@@ -34,7 +34,7 @@ Python mixins are inheritance (the only difference is that the class name usuall
 &lsquo;Mixin&rsquo;). It is up to the developer to remember this, and to manually avoid all of the common
 pitfalls of multiple inheritance. This kind of defeats the whole purpose of the mixin in the first
 place. What&rsquo;s more is that most people use python mixins improperly."/>
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.88.1" />
 
 
     
@@ -90,7 +90,7 @@ place. What&rsquo;s more is that most people use python mixins improperly."/>
         <nav class="nav blog-nav">
           <a class="nav-link " href="https://ahal.ca/">Home</a>
           
-          <a class="nav-link active" href="/blog/" title="">Blog</a>
+          <a class="nav-link" href="/blog/" title="">Blog</a>
           
           
           <a class="nav-link" href="/casts/" title="">Casts</a>
@@ -138,7 +138,7 @@ Python mixins <em>are</em> inheritance (the only difference is that the class na
 pitfalls of multiple inheritance. This kind of defeats the whole purpose of the mixin in the first
 place. What&rsquo;s more is that most people use python mixins improperly.</p>
 <p>Consider the following example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> book <span style="color:#f92672">import</span> Book
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> book <span style="color:#f92672">import</span> Book
 <span style="color:#f92672">from</span> index <span style="color:#f92672">import</span> IndexMixin
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBook</span>(Book, IndexMixin):
@@ -157,7 +157,7 @@ that IndexMixin is technically the base class here. It just so happens that <cod
 function called <code>search</code> which overrides the one defined in <code>Book</code>.</p>
 <p>It turns out there&rsquo;s another way to compose classes together without using inheritance. Just <em>use</em>
 the class (or module) directly:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> book <span style="color:#f92672">import</span> Book
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> book <span style="color:#f92672">import</span> Book
 <span style="color:#f92672">from</span> index <span style="color:#f92672">import</span> Index
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBook</span>(Book):
@@ -224,25 +224,25 @@ the relationship is &ldquo;A has a B&rdquo;, then why not use composition? What 
     <ol class="list-unstyled">
 
 
-<li><a href="/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></li>
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
-<li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
 
-<li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
 
-<li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
 
-<li><a href="/casts/2018/taskgraph-like-a-pro/">Taskgraph Like a Pro</a></li>
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
 
-<li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
 
-<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
 
-<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
-<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
 
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -268,12 +268,22 @@ the relationship is &ldquo;A has a B&rdquo;, then why not use composition? What 
     
         
             
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
             <a href="/tags/b2g">b2g</a>
         
     
         
             
             <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
         
     
         
@@ -288,6 +298,11 @@ the relationship is &ldquo;A has a B&rdquo;, then why not use composition? What 
     
         
             
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
             <a href="/tags/programming">programming</a>
         
     
@@ -298,12 +313,7 @@ the relationship is &ldquo;A has a B&rdquo;, then why not use composition? What 
     
         
             
-            <a href="/tags/try">try</a>
-        
-    
-        
-            
-            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+            <a href="/tags/taskgraph">taskgraph</a>
         
     
         
@@ -313,12 +323,17 @@ the relationship is &ldquo;A has a B&rdquo;, then why not use composition? What 
     
         
             
-            <a href="/tags/taskcluster">taskcluster</a>
+            <a href="/tags/phabricator">phabricator</a>
         
     
         
             
-            <a href="/tags/taskgraph">taskgraph</a>
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -354,6 +369,11 @@ the relationship is &ldquo;A has a B&rdquo;, then why not use composition? What 
         
             
             <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
         
     
         

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>devops on Hunting the Shmoo</title>
+    <link>https://ahal.ca/tags/devops/</link>
+    <description>Recent content in devops on Hunting the Shmoo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2018 Andrew Halberstadt</copyright>
+    <lastBuildDate>Tue, 02 Mar 2021 11:00:00 -0500</lastBuildDate><atom:link href="https://ahal.ca/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevOps at Mozilla</title>
+      <link>https://ahal.ca/blog/2021/mozilla-devops/</link>
+      <pubDate>Tue, 02 Mar 2021 11:00:00 -0500</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/mozilla-devops/</guid>
+      <description>&lt;p&gt;I first joined &lt;a href=&#34;https://ahal.ca/blog/2011/why-mozilla-is-awesome/&#34;&gt;Mozilla as an intern&lt;/a&gt; in 2010 for
+the &amp;ldquo;Tools and Automation Team&amp;rdquo; (colloquially called the &amp;ldquo;A-Team&amp;rdquo;). I always had a bit of
+difficulty describing our role. We work on tests. But not the tests themselves, the the thing that
+runs the tests. Also we make sure the tests run when code lands. Also we have this dashboard to view
+results, oh and also we do a bunch of miscellaneous developer productivity kind of things. Oh and
+sometimes we have to do other operational type things as well, but it varies.&lt;/p&gt;
+&lt;p&gt;Over the years the team grew to a peak of around 25 people and the A-Team&amp;rsquo;s responsibilities
+expanded to include things like the build system, version control, review tools and
+more. Combined with Release Engineering (RelEng), this covered almost all of
+the software development pipeline. The A-Team was eventually split up into many smaller
+teams. Over time those smaller teams were re-org&amp;rsquo;ed, split up further, merged and renamed over and
+over again. Many labels were applied to the departments that tended to contain those teams. Labels
+like &amp;ldquo;Developer Productivity&amp;rdquo;, &amp;ldquo;Platform Operations&amp;rdquo;, &amp;ldquo;Product Integrity&amp;rdquo; and &amp;ldquo;Engineering
+Effectiveness&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Interestingly, from 2010 to present, one label that has never been applied to any of these teams is
+&amp;ldquo;DevOps&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

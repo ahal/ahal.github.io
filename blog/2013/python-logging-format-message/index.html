@@ -30,7 +30,7 @@ You might ask why I would want to do this. In my case, I was using sys.stdout.wr
 progress of a download as a percentage. Python&rsquo;s logging module automatically appends a newline to
 your message and there didn&rsquo;t seem to be a way to change this without a subclass. Anytime you want
 to overwrite something on the previous line with python logging, you will run into trouble."/>
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.88.1" />
 
 
     
@@ -86,7 +86,7 @@ to overwrite something on the previous line with python logging, you will run in
         <nav class="nav blog-nav">
           <a class="nav-link " href="https://ahal.ca/">Home</a>
           
-          <a class="nav-link active" href="/blog/" title="">Blog</a>
+          <a class="nav-link" href="/blog/" title="">Blog</a>
           
           
           <a class="nav-link" href="/casts/" title="">Casts</a>
@@ -132,9 +132,9 @@ progress of a download as a percentage. Python&rsquo;s logging module automatica
 your message and there didn&rsquo;t seem to be a way to change this without a subclass. Anytime you want
 to overwrite something on the previous line with python logging, you will run into trouble.</p>
 <p>Luckily after a quick look at the source, there&rsquo;s a relatively simple solution to the problem:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">format_message</span>(log, level, msg, <span style="color:#f92672">*</span>args):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">format_message</span>(log, level, msg, <span style="color:#f92672">*</span>args):
     fn, lno, func <span style="color:#f92672">=</span> log<span style="color:#f92672">.</span>findCaller()
-    record <span style="color:#f92672">=</span> log<span style="color:#f92672">.</span>makeRecord(log<span style="color:#f92672">.</span>name, level, fn, lno, msg, args, False, func<span style="color:#f92672">=</span>func)
+    record <span style="color:#f92672">=</span> log<span style="color:#f92672">.</span>makeRecord(log<span style="color:#f92672">.</span>name, level, fn, lno, msg, args, <span style="color:#66d9ef">False</span>, func<span style="color:#f92672">=</span>func)
     <span style="color:#66d9ef">return</span> log<span style="color:#f92672">.</span>handlers[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>format(record)
 
 log <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(<span style="color:#e6db74">&#39;MyCustomLogger&#39;</span>)
@@ -148,7 +148,7 @@ sys<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span
     sys<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>flush()
 sys<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
 </code></pre></div><p>Depending on your logger&rsquo;s formatter, the output might look like:</p>
-<pre><code>MyCustomLogger INFO | Something is happening (100%)
+<pre tabindex="0"><code>MyCustomLogger INFO | Something is happening (100%)
 </code></pre><p>Be careful, this solution will only format the message based on the first handler in the handlers
 list.  If there are no handlers or multiple handlers, you&rsquo;ll probably want some additional logic to
 take care of this.</p>
@@ -202,25 +202,25 @@ take care of this.</p>
     <ol class="list-unstyled">
 
 
-<li><a href="/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></li>
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
-<li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
 
-<li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
 
-<li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
 
-<li><a href="/casts/2018/taskgraph-like-a-pro/">Taskgraph Like a Pro</a></li>
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
 
-<li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
 
-<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
 
-<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
-<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
 
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -246,12 +246,22 @@ take care of this.</p>
     
         
             
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
             <a href="/tags/b2g">b2g</a>
         
     
         
             
             <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
         
     
         
@@ -266,6 +276,11 @@ take care of this.</p>
     
         
             
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
             <a href="/tags/programming">programming</a>
         
     
@@ -276,12 +291,7 @@ take care of this.</p>
     
         
             
-            <a href="/tags/try">try</a>
-        
-    
-        
-            
-            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+            <a href="/tags/taskgraph">taskgraph</a>
         
     
         
@@ -291,12 +301,17 @@ take care of this.</p>
     
         
             
-            <a href="/tags/taskcluster">taskcluster</a>
+            <a href="/tags/phabricator">phabricator</a>
         
     
         
             
-            <a href="/tags/taskgraph">taskgraph</a>
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -332,6 +347,11 @@ take care of this.</p>
         
             
             <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
         
     
         

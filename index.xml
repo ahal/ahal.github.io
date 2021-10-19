@@ -7,7 +7,157 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Fri, 10 Jul 2020 12:08:34 -0400</lastBuildDate><atom:link href="https://ahal.ca/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Oct 2021 16:57:22 -0400</lastBuildDate><atom:link href="https://ahal.ca/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Taskgraph Diff</title>
+      <link>https://ahal.ca/casts/2021/taskgraph-diff/</link>
+      <pubDate>Fri, 08 Oct 2021 16:57:22 -0400</pubDate>
+      
+      <guid>https://ahal.ca/casts/2021/taskgraph-diff/</guid>
+      <description>&lt;p&gt;Introducing &lt;code&gt;taskgraph --diff&lt;/code&gt; to help validate your task configuration changes.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://player.vimeo.com/video/626856476&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;vimeo video&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Phabricator Etiquette Part 2: The Author</title>
+      <link>https://ahal.ca/blog/2021/phabricator-etiquette-part-2-the-author/</link>
+      <pubDate>Tue, 27 Apr 2021 09:33:31 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/phabricator-etiquette-part-2-the-author/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/&#34;&gt;Last time&lt;/a&gt; we looked at some
+ways reviewers can keep the review process moving efficiently. This week, let&amp;rsquo;s put on our author
+hats and do the same thing.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Phabricator Etiquette Part 1: The Reviewer</title>
+      <link>https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/</link>
+      <pubDate>Tue, 13 Apr 2021 15:42:41 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/</guid>
+      <description>&lt;p&gt;In the next two posts we will examine the etiquette of using Phabricator. This post will examine
+tips from the reviewer&amp;rsquo;s perspective, and next week will focus on the author&amp;rsquo;s point of view.
+While the social aspects of etiquette are incredibly important, we should all be polite and
+considerate, these posts will focus more on the mechanics of using Phabricator. In other words, how
+to make the review process as smooth as possible without wasting anyone&amp;rsquo;s time.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s dig in!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Better Replacement for ls</title>
+      <link>https://ahal.ca/blog/2021/ls-replacement/</link>
+      <pubDate>Tue, 06 Apr 2021 11:05:21 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/ls-replacement/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;If it ain&amp;rsquo;t broke don&amp;rsquo;t fix it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This old addage is valuable advice that has been passed down through
+generations. But it hasn&amp;rsquo;t stopped these people from &lt;a href=&#34;https://zaiste.net/posts/shell-commands-rust/&#34;&gt;rewriting command line
+tools&lt;/a&gt; perfected 30+ years ago in Rust.&lt;/p&gt;
+&lt;p&gt;This week we&amp;rsquo;ll take a quick look at &lt;a href=&#34;https://the.exa.website/&#34;&gt;exa&lt;/a&gt;, a replacement for &lt;code&gt;ls&lt;/code&gt;. So why
+should you ignore the wise advice from the addage and replace &lt;code&gt;ls&lt;/code&gt;? Because there are marginal
+improvements to be had, duh! Although the improvements in this case are far from marginal.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Advanced Mach Try</title>
+      <link>https://ahal.ca/blog/2021/advanced-mach-try/</link>
+      <pubDate>Tue, 30 Mar 2021 09:30:00 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/advanced-mach-try/</guid>
+      <description>&lt;p&gt;Following up &lt;a href=&#34;https://ahal.ca/blog/2021/understanding-mach-try/&#34;&gt;last week&amp;rsquo;s post&lt;/a&gt; on some &lt;code&gt;mach try&lt;/code&gt; fundamentals, I figured it would be worth posting some actual concrete tips and tricks. So
+without further ado, here are some things you can do with &lt;code&gt;./mach try&lt;/code&gt; you may not have known about
+in rapid fire format.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Understanding Mach Try</title>
+      <link>https://ahal.ca/blog/2021/understanding-mach-try/</link>
+      <pubDate>Tue, 23 Mar 2021 10:51:01 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/understanding-mach-try/</guid>
+      <description>&lt;p&gt;There is a lot of confusion around &lt;code&gt;mach try&lt;/code&gt;. People frequently ask &amp;ldquo;How do I get task X in mach
+try fuzzy?&amp;rdquo; or &amp;ldquo;How can I avoid getting backed out?&amp;rdquo;. This post is not so much a tip, rather an
+explanation around how &lt;code&gt;mach try&lt;/code&gt; works and its relationship to the CI system (taskgraph). Armed
+with this knowledge, I hope you&amp;rsquo;ll be able to use &lt;code&gt;mach try&lt;/code&gt; a little more effectively.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Managing Multiple Mozconfigs</title>
+      <link>https://ahal.ca/blog/2021/managing-multiple-mozconfigs/</link>
+      <pubDate>Tue, 16 Mar 2021 09:48:48 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/managing-multiple-mozconfigs/</guid>
+      <description>&lt;p&gt;Mozilla developers often need to juggle multiple build configurations in their day to day work.
+Strategies to manage this sometimes include complex shell scripting built into their mozconfig, or a
+topsrcdir littered with &lt;code&gt;mozconfig-*&lt;/code&gt; files and then calls to the build system like
+&lt;code&gt;MOZCONFIG=mozconfig-debug ./mach build&lt;/code&gt;. But there&amp;rsquo;s another method (which is basically just a
+variant on the latter), that might help make managing mozconfigs a teensy bit easier:
+&lt;a href=&#34;https://github.com/ahal/mozconfigwrapper&#34;&gt;mozconfigwrapper&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the interest of not documenting things in blog posts (and because I&amp;rsquo;m short on time this
+morning), I invite you to read the README file of the repo for installation and usage instructions.
+Please file issues and don&amp;rsquo;t hesitate to reach out if the README is not clear or you have any
+problems.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hide Your Lint Errors</title>
+      <link>https://ahal.ca/blog/2021/hide-your-lint-errors/</link>
+      <pubDate>Tue, 09 Mar 2021 09:15:07 -0500</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/hide-your-lint-errors/</guid>
+      <description>&lt;p&gt;Have you ever submitted a patch to Phabricator only to have reviewbot reveal dozens of lint errors
+all over? Or worse yet, have you landed before reviewbot had a chance to analyze your patch and been
+backed out over lint failures? If so fear not, we&amp;rsquo;ve all been there. Still, it&amp;rsquo;s hard not to feel a
+little embarrassed when it happens. Luckily for you, it&amp;rsquo;s pretty easy to eliminate the possibility
+of it ever happening again!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>DevOps at Mozilla</title>
+      <link>https://ahal.ca/blog/2021/mozilla-devops/</link>
+      <pubDate>Tue, 02 Mar 2021 11:00:00 -0500</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/mozilla-devops/</guid>
+      <description>&lt;p&gt;I first joined &lt;a href=&#34;https://ahal.ca/blog/2011/why-mozilla-is-awesome/&#34;&gt;Mozilla as an intern&lt;/a&gt; in 2010 for
+the &amp;ldquo;Tools and Automation Team&amp;rdquo; (colloquially called the &amp;ldquo;A-Team&amp;rdquo;). I always had a bit of
+difficulty describing our role. We work on tests. But not the tests themselves, the the thing that
+runs the tests. Also we make sure the tests run when code lands. Also we have this dashboard to view
+results, oh and also we do a bunch of miscellaneous developer productivity kind of things. Oh and
+sometimes we have to do other operational type things as well, but it varies.&lt;/p&gt;
+&lt;p&gt;Over the years the team grew to a peak of around 25 people and the A-Team&amp;rsquo;s responsibilities
+expanded to include things like the build system, version control, review tools and
+more. Combined with Release Engineering (RelEng), this covered almost all of
+the software development pipeline. The A-Team was eventually split up into many smaller
+teams. Over time those smaller teams were re-org&amp;rsquo;ed, split up further, merged and renamed over and
+over again. Many labels were applied to the departments that tended to contain those teams. Labels
+like &amp;ldquo;Developer Productivity&amp;rdquo;, &amp;ldquo;Platform Operations&amp;rdquo;, &amp;ldquo;Product Integrity&amp;rdquo; and &amp;ldquo;Engineering
+Effectiveness&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Interestingly, from 2010 to present, one label that has never been applied to any of these teams is
+&amp;ldquo;DevOps&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Better Terminal for Mozilla Build</title>
+      <link>https://ahal.ca/blog/2021/mozilla-build-windows-terminal/</link>
+      <pubDate>Tue, 02 Mar 2021 09:00:00 -0500</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/mozilla-build-windows-terminal/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re working with mozilla-central on Windows and followed the &lt;a href=&#34;https://firefox-source-docs.mozilla.org/setup/windows_build.html&#34;&gt;official
+documentation&lt;/a&gt;, there&amp;rsquo;s a good
+chance the MozillaBuild shell is running in the default &lt;code&gt;cmd.exe&lt;/code&gt; console. If you&amp;rsquo;ve spent any
+amount of time in this console you&amp;rsquo;ve also likely noticed it leaves a bit to be desired. Standard
+terminal features such as tabs, splits and themes are missing. More importantly, it doesn&amp;rsquo;t render
+unicode characters (at least out of the box).&lt;/p&gt;
+&lt;p&gt;Luckily Microsoft has developed a &lt;a href=&#34;https://www.microsoft.com/en-ca/p/windows-terminal/9n0dx20hk701&#34;&gt;modern
+terminal&lt;/a&gt; that can replace cmd.exe,
+and getting it set up with MozillaBuild shell is simple.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Testing Firefox More Efficiently With Machine Learning</title>
       <link>https://ahal.ca/blog/2020/testing-firefox-more-efficiently-with-machine-learning/</link>
@@ -72,7 +222,10 @@ January 1st, 2020?&lt;/p&gt;</description>
       <guid>https://ahal.ca/casts/2019/task-configuration-at-scale/</guid>
       <description>&lt;p&gt;A talk I did for the Automationeer&amp;rsquo;s Assemble series on how Mozilla handles complexity in their CI
 configuration.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://player.vimeo.com/video/322897542&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;vimeo video&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -83,7 +236,10 @@ configuration.&lt;/p&gt;
       <guid>https://ahal.ca/casts/2018/taskgraph-like-a-pro/</guid>
       <description>&lt;p&gt;Have you ever needed to inspect the taskgraph locally? Did you have a bad time? Learn how to inspect
 the taskgraph like a PRO. For the impatient skip to the installation instructions below.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://player.vimeo.com/video/306431059&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;vimeo video&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -105,13 +261,13 @@ them.&lt;/p&gt;</description>
       <description>&lt;p&gt;It&amp;rsquo;s no secret that I&amp;rsquo;m not a fan of try syntax, it&amp;rsquo;s a topic I&amp;rsquo;ve blogged about on &lt;a href=&#34;https://ahal.ca/blog/2015/try-syntax/&#34;&gt;several&lt;/a&gt;
 &lt;a href=&#34;https://ahal.ca/blog/2017/fuzzy-try-chooser/&#34;&gt;occasions&lt;/a&gt; before. Today, I&amp;rsquo;m pleased to announce that there&amp;rsquo;s a real alternative now landed on
 mozilla-central. It works on all platforms with mercurial and git. For those who just like to dive in:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach mercurial-setup --update  &lt;span style=&#34;color:#75715e&#34;&gt;# only if using hg&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach mercurial-setup --update  &lt;span style=&#34;color:#75715e&#34;&gt;# only if using hg&lt;/span&gt;
 $ mach try fuzzy
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will prompt you to install &lt;a href=&#34;https://github.com/junegunn/fzf&#34;&gt;fzf&lt;/a&gt;. After bootstrapping is finished, you&amp;rsquo;ll enter an interface
 populated with a list of all possible taskcluster tasks. Start typing and the list will be filtered
 down using a fuzzy matching algorithm. I won&amp;rsquo;t go into details on how to use this tool in this blog
 post, for that see:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach try fuzzy --help  &lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach try fuzzy --help  &lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
 $ man fzf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
@@ -187,7 +343,7 @@ with having a toolbox?&lt;/p&gt;</description>
       <description>&lt;p&gt;Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
 you put into your commit message which a &lt;a href=&#34;http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py&#34;&gt;parser&lt;/a&gt; then uses to determine the set of builds and
 tests to run on your try push. A common try syntax might look like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;try: -b o -p linux -u mochitest -t none
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;try: -b o -p linux -u mochitest -t none
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Since inception, it has been a core part of the Mozilla development workflow.
 For many years it has served us well, and even today it serves us passably. But it is almost time
 for try syntax to don the wooden overcoat, and this post will explain why.&lt;/p&gt;</description>
@@ -318,11 +474,11 @@ I will make a claim that a WET approach can actually work better.&lt;/p&gt;</des
       <guid>https://ahal.ca/blog/2014/b2g-commands/</guid>
       <description>&lt;h4 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h4&gt;
 &lt;p&gt;tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install b2g-commands:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install b2g-commands
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install b2g-commands
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To play around with it, cd to your &lt;a href=&#34;https://github.com/mozilla-b2g/B2G&#34;&gt;B2G repo&lt;/a&gt; and run:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git pull                 &lt;span style=&#34;color:#75715e&#34;&gt;# make sure repo is up to date&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git pull                 &lt;span style=&#34;color:#75715e&#34;&gt;# make sure repo is up to date&lt;/span&gt;
 $ ./mach help              &lt;span style=&#34;color:#75715e&#34;&gt;# see all available commands&lt;/span&gt;
 $ ./mach help &amp;amp;lt;command&amp;amp;gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# see additional info about a command&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;details&#34;&gt;Details&lt;/h4&gt;

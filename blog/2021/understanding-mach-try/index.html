@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<meta property="og:title" content="Understanding Mach Try" />
+<meta property="og:description" content="There is a lot of confusion around mach try. People frequently ask &ldquo;How do I get task X in mach
+try fuzzy?&rdquo; or &ldquo;How can I avoid getting backed out?&rdquo;. This post is not so much a tip, rather an
+explanation around how mach try works and its relationship to the CI system (taskgraph). Armed
+with this knowledge, I hope you&rsquo;ll be able to use mach try a little more effectively." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2021/understanding-mach-try/" />
+<meta property="article:published_time" content="2021-03-23T10:51:01-04:00" />
+<meta property="article:modified_time" content="2021-03-23T10:51:01-04:00" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Understanding Mach Try"/>
+<meta name="twitter:description" content="There is a lot of confusion around mach try. People frequently ask &ldquo;How do I get task X in mach
+try fuzzy?&rdquo; or &ldquo;How can I avoid getting backed out?&rdquo;. This post is not so much a tip, rather an
+explanation around how mach try works and its relationship to the CI system (taskgraph). Armed
+with this knowledge, I hope you&rsquo;ll be able to use mach try a little more effectively."/>
+<meta name="generator" content="Hugo 0.88.1" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Understanding Mach Try",
+  "url": "https:\/\/ahal.ca\/blog\/2021\/understanding-mach-try\/",
+  "wordCount": "1244",
+  "datePublished": "2021-03-23T10:51:01-04:00",
+  "dateModified": "2021-03-23T10:51:01-04:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "mozilla, tips-and-tricks, try"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2021/understanding-mach-try/">
+
+    <title>Understanding Mach Try | Hunting the Shmoo</title>
+
+    
+    <!-- combined, minified CSS -->
+    
+    <link href="https://ahal.ca/css/style.beb8012edc08ba10be012f079d618dc243812267efe62e11f22fe49618f976a4.css" rel="stylesheet" integrity="sha256-vrgBLtwIuhC&#43;AS8HnWGNwkOBImfv5i4R8i/klhj5dqQ=" crossorigin="anonymous">
+    
+
+    <!-- minified Font Awesome for SVG icons -->
+    
+    <script defer src="https://ahal.ca/js/fontawesome.min.ffbfea088a9a1666ec65c3a8cb4906e2a0e4f92dc70dbbf400a125ad2422123a.js" integrity="sha256-/7/qCIqaFmbsZcOoy0kG4qDk&#43;S3HDbv0AKElrSQiEjo=" crossorigin="anonymous"></script>
+
+    <!-- RSS 2.0 feed -->
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<link href="https://ahal.ca/css/debugprint.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://ahal.ca/">Home</a>
+          
+          <a class="nav-link" href="/blog/" title="">Blog</a>
+          
+          
+          <a class="nav-link" href="/casts/" title="">Casts</a>
+          
+        </nav>
+      </div>
+    </div>
+    
+
+    
+    
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title" dir="auto"><a href="https://ahal.ca/" rel="home">Hunting the Shmoo</a></h1>
+        <p class="lead blog-description" dir="auto">Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy.</p>
+      </div>
+    </header>
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2021/understanding-mach-try/">Understanding Mach Try</a></h2>
+    <p class="blog-post-meta"><time datetime="2021-03-23T10:51:01-04:00">Mar 23, 2021</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/tips-and-tricks/" rel="tag">tips-and-tricks</a>, <a href="/tags/try/" rel="tag">try</a>
+
+</p>
+  </header>
+  <p>There is a lot of confusion around <code>mach try</code>. People frequently ask &ldquo;How do I get task X in mach
+try fuzzy?&rdquo; or &ldquo;How can I avoid getting backed out?&rdquo;. This post is not so much a tip, rather an
+explanation around how <code>mach try</code> works and its relationship to the CI system (taskgraph). Armed
+with this knowledge, I hope you&rsquo;ll be able to use <code>mach try</code> a little more effectively.</p>
+<h2 id="coupling-mach-try-to-ci">Coupling Mach Try to CI</h2>
+<p>In the old days of try syntax and the trychooser web page, the list of available tasks was entirely
+decoupled from the CI system. This meant that every time we added a new task (or removed an old
+one), someone would have to go and manually update trychooser and related docs to let everyone else
+know about the new state of affairs. At first this wasn&rsquo;t such a huge deal as adding new tasks
+wasn&rsquo;t <em>that common</em>. But as time progressed, and with the adoption of Taskcluster, we saw an
+explosion of new tasks. As you might imagine these decoupled lists of tasks very quickly became
+outdated. This meant folks would build a try syntax from the webpage only to get a failing decision
+task. A very frustrating experience!</p>
+<p>To solve this issue we decided to source the list of available tasks directly from the same command
+that is used to generate tasks in CI, <code>./mach taskgraph</code>. That&rsquo;s why sometimes when you push you&rsquo;ll
+see a message like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach try fuzzy
+Task configuration changed, generating target task set
+</code></pre></div><p>Followed by a (too long) delay while the set of tasks available on your current revision are
+generated. To illustrate the point, if you run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach taskgraph target --fast --parameters project<span style="color:#f92672">=</span>mozilla-central
+</code></pre></div><p>the command will output (almost) the exact same list that you would see in the <code>./mach try fuzzy</code>
+interface. We&rsquo;ll get into the almost later.</p>
+<h2 id="a-brief-primer-on-task-generation">A Brief Primer on Task Generation</h2>
+<p>Establishing that <code>./mach try</code> sources its list of tasks from the taskgraph, unfortunately means
+that to understand <code>./mach try</code> one must understand <a href="https://firefox-source-docs.mozilla.org/taskcluster/taskgraph.html#graph-generation">taskgraph
+generation</a>.
+Here&rsquo;s a simplified explanation.</p>
+<ol>
+<li>Read all the <code>taskcluster/ci</code> configuration files and run them through
+<a href="https://firefox-source-docs.mozilla.org/taskcluster/transforms.html">transforms</a> to produce a
+massive JSON object (4.3+ million lines when prettified) where each key represents a single task.
+This is called the &ldquo;full task graph&rdquo;.</li>
+<li>Prune tasks from the graph based on context from the
+<a href="https://firefox-source-docs.mozilla.org/taskcluster/parameters.html">parameters</a>. There are
+several filters, but most important is the one which determines which tasks should run on which
+project branches (autoland, mozilla-central, mozilla-beta, etc). This is called the &ldquo;target task
+graph&rdquo;. This will contain the set of all tasks that are relevant to the current context (e.g
+branch, but also other things).</li>
+<li>Apply further optimizations to the graph to prune out more tasks. This is called the &ldquo;optimized
+task graph&rdquo;. Tasks pruned here are relevant to the current set of parameters, but might not be
+worth running for other reasons (e.g to save money, or because files affecting them weren&rsquo;t
+modified). This stage isn&rsquo;t relevant to <code>mach try</code>, I only mention it to raise the distinction
+between &ldquo;target tasks&rdquo; and &ldquo;optimized tasks&rdquo;.</li>
+</ol>
+<h2 id="connecting-the-dots">Connecting the Dots</h2>
+<p>Let&rsquo;s revisit that taskgraph command that <code>./mach try</code> uses by default from earlier:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach taskgraph target --fast --parameters project<span style="color:#f92672">=</span>mozilla-central
+</code></pre></div><p>Applying our new found taskgraph knowledge, this means generate the &ldquo;target tasks&rdquo; using the
+parameters file from the latest mozilla-central push. In other words, &ldquo;get me all tasks that are
+relevant on mozilla-central&rdquo;. So if you&rsquo;re searching for a task in the <code>./mach try fuzzy</code> interface
+and you don&rsquo;t see it, it most likely means that the task isn&rsquo;t configured to run there (still
+getting to that most likely).</p>
+<p>In such a case, you may have been told to run <code>./mach try fuzzy --full</code>. This runs a taskgraph
+command similar to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach taskgraph full --fast --parameters project<span style="color:#f92672">=</span>mozilla-central
+</code></pre></div><p>The difference here is that we are generating the &ldquo;full&rdquo; set of tasks. That is, every single task
+that exists! While using this flag can be handy to run a specific task no matter the context, care
+must be taken since most of these tasks are not relevant to mozilla-central (and likely for a good
+reason). They could be release tasks, or maybe they are running on platforms we&rsquo;ve retired, or maybe
+they are running in configurations that are completely busted. Expect try pushes with these types
+of tasks to contain lots of failures that aren&rsquo;t your fault.</p>
+<p>Note that I&rsquo;ve been using <code>./mach try fuzzy</code> as an example here, but other selectors (such as
+<code>./mach try chooser</code>) use the exact same logic to generate tasks as well. The only difference is the
+interface to select them. The default <code>./mach try auto</code> selector is a whole other beast and does not
+use local taskgraph generation.</p>
+<h2 id="the-exception">The Exception</h2>
+<p>I&rsquo;ve alluded to an exception to the rules by using words like &ldquo;almost&rdquo; and &ldquo;most likely&rdquo;. There are
+a handful of tasks that are purposefully plucked out of the &ldquo;target tasks&rdquo; for a variety of reasons:</p>
+<ol>
+<li>Sometimes we simply don&rsquo;t have enough capacity to allow people to use these resources heavily on
+try. A good example here is the <code>android-hw</code> platform which is just a few dozen phones running in
+a 3rd party device pool. If everyone started running their try pushes here it would easily be
+overwhelmed.</li>
+<li>Sometimes certain configurations provide very little value. For example, shippable opt platforms.
+In this case, we&rsquo;ve determined that there are essentially zero regressions that get caught on
+shippable opt that wouldn&rsquo;t have been caught with regular opt. So we hide these from try to avoid
+wasting resources in pushes that would inadvertently select both.</li>
+<li>Sometimes tasks are just too expensive relative to the value they provide. An example here is all
+the ccov tasks. These take an extremely long time to run, and while we do want to keep them
+green, it&rsquo;s just too expensive relative to the few times they get broken on their own.</li>
+</ol>
+<p>The full list of tasks that fall into this exception can be found
+<a href="https://searchfox.org/mozilla-central/source/taskcluster/taskgraph/target_tasks.py#23">here</a>. We
+realize that each and every one of these exceptions can result in backouts from otherwise well
+tested pushes, which is super frustrating! I also think reasonable minds can disagree on which tasks
+belong here and which ones don&rsquo;t. So if you feel like one of these exceptions is unreasonable,
+please file a bug about it under <code>Firefox Build System :: Task Configuration</code>.</p>
+<p>If you <em>really</em> need to see the exact set of tasks that could possibly cause you to get backed out,
+there is a special flag to disable this exception. You can run it like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach try fuzzy --disable-target-task-filter
+</code></pre></div><p>But please use this flag sparingly! There are usually good reasons these tasks have been excluded
+and the risk of being backed out has been factored into the decision.</p>
+<h2 id="summary">Summary</h2>
+<p>To summarize, the default set of tasks you see in <code>./mach try fuzzy</code> (and other selectors) are the
+ones that run on mozilla-central, minus the tasks caught up in the exception. If you need to run a
+task that doesn&rsquo;t run on central (e.g because you are developing it), you can use the <code>--full</code> flag
+to see all available tasks. Just use it with caution, it has the potential to overselect <em>a lot</em> of
+tasks.</p>
+<p>This post was mostly about providing a general understanding of <code>mach try</code>. Look for a follow-up
+post that builds on this understanding and provides some more advanced usage tips around <code>mach try</code>.</p>
+<p>Thanks for reading!</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2021%2funderstanding-mach-try%2f" title="Share on Facebook"><span class="fab fa-facebook-f fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2021%2funderstanding-mach-try%2f" title="Share on LinkedIn"><span class="fab fa-linkedin-in fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fahal.ca%2fblog%2f2021%2funderstanding-mach-try%2f&amp;text=Understanding%20Mach%20Try" title="Tweet this"><span class="fab fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+    <section class="post-comments">
+      <script src="https://utteranc.es/client.js"
+        repo="ahal/hunting-the-shmoo"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+    </section>
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
+
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
+
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
+
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
+
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
+
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
+
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
+
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
+
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
+
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/taskgraph">taskgraph</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/phabricator">phabricator</a>
+        
+    
+        
+            
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/website">website</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/ci">ci</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/hugo">hugo</a>
+        
+    
+        
+            
+            <a href="/tags/jetty">jetty</a>
+        
+    
+        
+            
+            <a href="/tags/machine-learning">machine-learning</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/staticman">staticman</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+      <p dir="auto">
+      
+      © 2018 Andrew Halberstadt
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+    
+
+  </body>
+
+</html>

@@ -10,14 +10,14 @@
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/" />
-<meta property="og:updated_time" content="2020-07-10T12:08:34-04:00" />
+<meta property="og:updated_time" content="2021-10-08T16:57:22-04:00" />
 
 
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hunting the Shmoo"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.88.1" />
 
 
     
@@ -31,8 +31,8 @@
     "@type": "Person",
     "name": "Andrew Halberstadt"
   },
-  "dateModified": "2020-07-10T12:08:34-04:00",
-  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,ci,cycling,django,fzf,hugo,jetty,mach,machine-learning,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,toronto,try,website,",
+  "dateModified": "2021-10-08T16:57:22-04:00",
+  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,ci,cycling,devops,django,fzf,hugo,jetty,mach,machine-learning,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,phabricator,productivity,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,tips-and-tricks,toronto,try,website,",
   "description": "Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."
 }
 </script>
@@ -107,20 +107,21 @@
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2011/bulk-installing-fx-addons/">How to bulk install Firefox Addons</a></h2>
-    <p class="blog-post-meta"><time datetime="2011-04-09T00:00:00Z">Apr 09, 2011</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2012/b2g-emulator-tests/">Like a Bump on a Tinderbox Push Log</a></h2>
+    <p class="blog-post-meta"><time datetime="2012-11-08T00:00:00Z">Nov 08, 2012</time> by Andrew Halberstadt in 
 
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/addon/" rel="tag">addon</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/mozmill/" rel="tag">mozmill</a>, <a href="/tags/mozprofile/" rel="tag">mozprofile</a>
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/b2g/" rel="tag">b2g</a>
 
 </p>
   </header>
-  <p>Firefox is known for its extensibility. In fact, over 2.4 <em>billion</em> addons have been downloaded to date,
-meaning there are a lot of people using a lot of addons. While having 20+ addons can undoubtedly personalize your
-browsing experience, it can also be a pain in the ass to manually install them every time you set up a new
-Firefox profile. As a developer working on Firefox related automation tools, this is twice as
-true since I create a separate profile for each and every project I work on, installing a constant set of
-addons on each one.</p>
-  <a href='https://ahal.ca/blog/2011/bulk-installing-fx-addons/'>Read more →</a>
+  <p>Contrary to popular belief, we (the A-Team) have been running mochitests, reftests, marionette tests
+and webapi tests on B2G in some form of continuous integration or another for about 5 months now.
+They&rsquo;ve been reporting results to a TBPL look-alike called <a href="http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;source=autolog">autolog</a>, and were run on Amazon EC2
+VM&rsquo;s with emulators. This was a temporary solution to get something stood up quickly while we moved
+towards our ultimate B2G automation goal - tests running on Pandaboards and reporting to TBPL.</p>
+<p>As of this week, while there are still no tests running on Pandaboards, I&rsquo;m happy to say we have
+emulators running mochitests, reftests and marionette/webapi tests, all reporting to TBPL.</p>
+  <a href='https://ahal.ca/blog/2012/b2g-emulator-tests/'>Read more →</a>
 </article> 
 
 
@@ -130,18 +131,206 @@ addons on each one.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2011/i-tried-to-be-different/">I tried to be different and all I got was this crappy website!</a></h2>
-    <p class="blog-post-meta"><time datetime="2011-04-04T00:00:00Z">Apr 04, 2011</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2012/state-reftest-b2g/">State of Reftests on B2G</a></h2>
+    <p class="blog-post-meta"><time datetime="2012-09-12T00:00:00Z">Sep 12, 2012</time> by Andrew Halberstadt in 
 
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/django/" rel="tag">django</a>, <a href="/tags/website/" rel="tag">website</a>
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/b2g/" rel="tag">b2g</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/reftest/" rel="tag">reftest</a>
 
 </p>
   </header>
-  <p>Back in high school and throughout most of my University career, I&rsquo;ve always thought that personal blogs were dumb. Who in their right mind would care what <em>I</em> was up to?
-It wasn&rsquo;t until I started interning at Mozilla that my views started to shift. I began seeing them as tools to communicate new ideas and elicit feedback from anyone
-interested in what you have to say. It also wasn&rsquo;t until I started interning at Mozilla that I realized that I actually <em>might</em> have something interesting to say.
-So here I am, creating a blog with one month left in my second internship. Too little too late? Maybe, but I have to start at some point.</p>
-  <a href='https://ahal.ca/blog/2011/i-tried-to-be-different/'>Read more →</a>
+  <p>This quarter I&rsquo;ve been focusing on getting reftests running on B2G, triaging them and fixing various
+issues. The purpose of this post is to outline their status, go over the work that still needs to be
+done and point out where I will need some help.</p>
+  <a href='https://ahal.ca/blog/2012/state-reftest-b2g/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2012/reddit-history/">Reddit History</a></h2>
+    <p class="blog-post-meta"><time datetime="2012-03-30T00:00:00Z">Mar 30, 2012</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/reddit/" rel="tag">reddit</a>
+
+</p>
+  </header>
+  <p>Sometimes I&rsquo;d remember this awesome thing that I saw on Reddit awhile back and want to share it with
+someone. I&rsquo;d try to find it through browser history or reddit search, but I wasn&rsquo;t usually
+successful. Reddit search isn&rsquo;t very good and I use Reddit <em>a lot</em> so my browser history for
+reddit.com is huge and unwieldy.</p>
+<p>So in my spare time I decided to write <a href="https://github.com/ahal/userscripts/tree/master/reddit-history">Reddit History</a>. It basically just keeps track of all the
+submissions you&rsquo;ve viewed, and lets you filter them by sub-reddit and text search (regex).</p>
+  <a href='https://ahal.ca/blog/2012/reddit-history/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2011/top-ten-albums-2011/">Top Ten Albums of 2011</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-12-14T00:00:00Z">Dec 14, 2011</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/music/" rel="tag">music</a>
+
+</p>
+  </header>
+  <p>Normally I don&rsquo;t bother making top ten lists at the end of the year,
+but I was bored and figured, why not? So without further ado, here are
+my top ten albums of 2011.</p>
+<ol>
+<li>Unexpect - Fables of the Sleepless Empire</li>
+<li>The Decemberists - The King is Dead</li>
+<li>Battles - Gloss Drop</li>
+<li>St. Vincent - Strange Mercy</li>
+<li>The Dear Hunter - The Color Spectrum</li>
+<li>Fucked Up - David Comes to Life</li>
+<li>Cut Copy - Zonoscope</li>
+<li>Panda Bear - Tomboy</li>
+<li>Phideaux - Snowtorch</li>
+<li>James Blake - James Blake</li>
+</ol>
+  <a href='https://ahal.ca/blog/2011/top-ten-albums-2011/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2011/mozconfigwrapper-introduction/">An Easier way to Manage Mozconfigs</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-11-15T00:00:00Z">Nov 15, 2011</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/mozconfigwrapper/" rel="tag">mozconfigwrapper</a>
+
+</p>
+  </header>
+  <p><a href="https://github.com/ahal/mozconfigwrapper">Mozconfigwrapper</a> is a tool inspired by Doug Hellman&rsquo;s magnificent <a href="http://www.doughellmann.com/projects/virtualenvwrapper/">virtualenvwrapper</a>. In a
+nutshell, mozconfigwrapper hides all of your mozconfigs into a configurable directory (defaults to
+~/.mozconfigs), and lets you easily switch, create, remove, edit and list them. Mozconfigwrapper is
+Unix only for now.</p>
+  <a href='https://ahal.ca/blog/2011/mozconfigwrapper-introduction/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2011/cycling-city/">Cycling in the City</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-11-07T00:00:00Z">Nov 07, 2011</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/cycling/" rel="tag">cycling</a>, <a href="/tags/toronto/" rel="tag">toronto</a>
+
+</p>
+  </header>
+  <p>So here in Toronto another cyclist was killed today. I&rsquo;m a little bit frustrated with the state of
+cycling in Toronto in general.  On one hand you have people like Mr. Ford who think that cyclists
+are always to blame and should be run off the road, and on the other you have cyclists who actually
+do run reds and wear black in the middle of the night giving the rest of us a bad name.  I decided I
+need to write down my thoughts if for no other reason than to calm down.  In an ideal world,
+cyclists would all respect the rules of the road and cars would always be alert for cyclists around
+them.  However this will never happen so it is up to you, the cyclist, to ride cautiously.</p>
+  <a href='https://ahal.ca/blog/2011/cycling-city/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2011/peptest-introduction/">Peptest: A new harness for testing responsiveness</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-11-05T00:00:00Z">Nov 05, 2011</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/peptest/" rel="tag">peptest</a>
+
+</p>
+  </header>
+  <p>While responsiveness is one of the main goals for Firefox this quarter, we still don&rsquo;t quite have
+the means to measure and test our progress towards this goal. The good news is that there are, and
+have been for some time, several efforts to fix this problem. Back in June, Ted wrote some <a href="http://blog.mozilla.com/ted/2011/06/27/measuring-ui-responsiveness/">event
+tracing instrumentation</a> that gives us a reasonable idea of when the browser becomes
+unresponsive. This event tracer is already being used by some Talos tests which gives us a good
+general idea of whether or not Firefox is more or less responsive than it was previously. What it
+doesn&rsquo;t give us is a method for developers to write their own tests and determine whether a specific
+action or feature they are working on is causing unresponsivness.</p>
+  <a href='https://ahal.ca/blog/2011/peptest-introduction/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2011/isolating-mozmill-driver/">Isolating Mozmill&rsquo;s Driver</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-10-20T00:00:00Z">Oct 20, 2011</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/mozmill/" rel="tag">mozmill</a>
+
+</p>
+  </header>
+  <p>At the beginning of September, I was asked to write <a href="https://wiki.mozilla.org/Auto-tools/Projects/peptest">yet another automated test harness</a> for
+testing user responsiveness. Among other things, the harness needed to be capable of automating a
+wide range of user interactions in Firefox (such as opening context menus, clicking buttons etc). Oh
+and by the way this needs to be finished as quickly as possible.</p>
+  <a href='https://ahal.ca/blog/2011/isolating-mozmill-driver/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2011/android-expandable-panel/">Android ExpandablePanel</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-06-24T00:00:00Z">Jun 24, 2011</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/android/" rel="tag">android</a>
+
+</p>
+  </header>
+  <p>While developing an Android app for my final design project, Taedium, I came across what seemed like
+a trivial problem. I needed to have a text view (like that in the Android market) that can expand or
+collapse whenever a user presses a &lsquo;More&rsquo; or &lsquo;Less&rsquo; button. It turned out that the problem was more
+difficult than I thought and I had to make my own custom widget to accomplish the task. I based it
+off a partial solution by Peteris Caune over on <a href="http://stackoverflow.com/questions/5165682/how-to-implement-expandable-panels-in-android">Stack Overflow</a>.</p>
+  <a href='https://ahal.ca/blog/2011/android-expandable-panel/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2011/why-mozilla-is-awesome/">Why I&rsquo;m Returning to Mozilla for a Third Internship</a></h2>
+    <p class="blog-post-meta"><time datetime="2011-05-31T00:00:00Z">May 31, 2011</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>
+
+</p>
+  </header>
+  <p>Before I started interning at Mozilla back in May 2010, I really didn&rsquo;t know
+what to expect.  How does a non-profit company with an open source product
+operate?  After working at giant corporations like IBM and McAfee I couldn&rsquo;t
+fathom what the experience would be like.</p>
+  <a href='https://ahal.ca/blog/2011/why-mozilla-is-awesome/'>Read more →</a>
 </article> 
 
 
@@ -150,9 +339,9 @@ So here I am, creating a blog with one month left in my second internship. Too l
 
 <nav class="blog-pagination">
   
-  
   <a class="btn btn-outline-primary" href="/page/4/" rel="prev" role="button">Previous page</a>
-  <a class="btn btn-outline-primary disabled" href="#" role="button" aria-disabled="true">Next page</a>
+  <a class="btn btn-outline-primary" href="/page/6/" rel="next" role="button">Next page</a>
+  
   
   
 </nav>
@@ -172,25 +361,25 @@ So here I am, creating a blog with one month left in my second internship. Too l
     <ol class="list-unstyled">
 
 
-<li><a href="/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></li>
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
-<li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
 
-<li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
 
-<li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
 
-<li><a href="/casts/2018/taskgraph-like-a-pro/">Taskgraph Like a Pro</a></li>
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
 
-<li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
 
-<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
 
-<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
-<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
 
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -216,12 +405,22 @@ So here I am, creating a blog with one month left in my second internship. Too l
     
         
             
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
             <a href="/tags/b2g">b2g</a>
         
     
         
             
             <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
         
     
         
@@ -236,6 +435,11 @@ So here I am, creating a blog with one month left in my second internship. Too l
     
         
             
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
             <a href="/tags/programming">programming</a>
         
     
@@ -246,12 +450,7 @@ So here I am, creating a blog with one month left in my second internship. Too l
     
         
             
-            <a href="/tags/try">try</a>
-        
-    
-        
-            
-            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+            <a href="/tags/taskgraph">taskgraph</a>
         
     
         
@@ -261,12 +460,17 @@ So here I am, creating a blog with one month left in my second internship. Too l
     
         
             
-            <a href="/tags/taskcluster">taskcluster</a>
+            <a href="/tags/phabricator">phabricator</a>
         
     
         
             
-            <a href="/tags/taskgraph">taskgraph</a>
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -302,6 +506,11 @@ So here I am, creating a blog with one month left in my second internship. Too l
         
             
             <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
         
     
         

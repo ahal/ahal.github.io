@@ -7,7 +7,79 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Fri, 10 Jul 2020 12:08:34 -0400</lastBuildDate><atom:link href="https://ahal.ca/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Oct 2021 16:57:22 -0400</lastBuildDate><atom:link href="https://ahal.ca/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mozilla</title>
+      <link>https://ahal.ca/tags/mozilla/</link>
+      <pubDate>Fri, 08 Oct 2021 16:57:22 -0400</pubDate>
+      
+      <guid>https://ahal.ca/tags/mozilla/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>taskgraph</title>
+      <link>https://ahal.ca/tags/taskgraph/</link>
+      <pubDate>Fri, 08 Oct 2021 16:57:22 -0400</pubDate>
+      
+      <guid>https://ahal.ca/tags/taskgraph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phabricator</title>
+      <link>https://ahal.ca/tags/phabricator/</link>
+      <pubDate>Tue, 27 Apr 2021 09:33:31 -0400</pubDate>
+      
+      <guid>https://ahal.ca/tags/phabricator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tips-and-tricks</title>
+      <link>https://ahal.ca/tags/tips-and-tricks/</link>
+      <pubDate>Tue, 27 Apr 2021 09:33:31 -0400</pubDate>
+      
+      <guid>https://ahal.ca/tags/tips-and-tricks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>try</title>
+      <link>https://ahal.ca/tags/try/</link>
+      <pubDate>Tue, 30 Mar 2021 09:30:00 -0400</pubDate>
+      
+      <guid>https://ahal.ca/tags/try/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mozconfigwrapper</title>
+      <link>https://ahal.ca/tags/mozconfigwrapper/</link>
+      <pubDate>Tue, 16 Mar 2021 09:48:48 -0400</pubDate>
+      
+      <guid>https://ahal.ca/tags/mozconfigwrapper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>productivity</title>
+      <link>https://ahal.ca/tags/productivity/</link>
+      <pubDate>Tue, 09 Mar 2021 09:15:07 -0500</pubDate>
+      
+      <guid>https://ahal.ca/tags/productivity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://ahal.ca/tags/devops/</link>
+      <pubDate>Tue, 02 Mar 2021 11:00:00 -0500</pubDate>
+      
+      <guid>https://ahal.ca/tags/devops/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ci</title>
       <link>https://ahal.ca/tags/ci/</link>
@@ -23,15 +95,6 @@
       <pubDate>Fri, 10 Jul 2020 12:08:34 -0400</pubDate>
       
       <guid>https://ahal.ca/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mozilla</title>
-      <link>https://ahal.ca/tags/mozilla/</link>
-      <pubDate>Fri, 10 Jul 2020 12:08:34 -0400</pubDate>
-      
-      <guid>https://ahal.ca/tags/mozilla/</guid>
       <description></description>
     </item>
     
@@ -59,15 +122,6 @@
       <pubDate>Tue, 30 Apr 2019 15:25:50 -0400</pubDate>
       
       <guid>https://ahal.ca/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>taskgraph</title>
-      <link>https://ahal.ca/tags/taskgraph/</link>
-      <pubDate>Tue, 12 Mar 2019 17:10:32 -0400</pubDate>
-      
-      <guid>https://ahal.ca/tags/taskgraph/</guid>
       <description></description>
     </item>
     
@@ -113,15 +167,6 @@
       <pubDate>Wed, 02 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ahal.ca/tags/ateam/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>try</title>
-      <link>https://ahal.ca/tags/try/</link>
-      <pubDate>Wed, 02 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ahal.ca/tags/try/</guid>
       <description></description>
     </item>
     
@@ -185,15 +230,6 @@
       <pubDate>Thu, 06 Mar 2014 00:00:00 +0000</pubDate>
       
       <guid>https://ahal.ca/tags/b2g/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mozconfigwrapper</title>
-      <link>https://ahal.ca/tags/mozconfigwrapper/</link>
-      <pubDate>Mon, 03 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://ahal.ca/tags/mozconfigwrapper/</guid>
       <description></description>
     </item>
     

@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Tue, 12 Mar 2019 17:10:32 -0400</lastBuildDate><atom:link href="https://ahal.ca/casts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Oct 2021 16:57:22 -0400</lastBuildDate><atom:link href="https://ahal.ca/casts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Taskgraph Diff</title>
+      <link>https://ahal.ca/casts/2021/taskgraph-diff/</link>
+      <pubDate>Fri, 08 Oct 2021 16:57:22 -0400</pubDate>
+      
+      <guid>https://ahal.ca/casts/2021/taskgraph-diff/</guid>
+      <description>&lt;p&gt;Introducing &lt;code&gt;taskgraph --diff&lt;/code&gt; to help validate your task configuration changes.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://player.vimeo.com/video/626856476&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;vimeo video&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description>
+    </item>
+    
     <item>
       <title>Task Configuration at Scale</title>
       <link>https://ahal.ca/casts/2019/task-configuration-at-scale/</link>
@@ -16,7 +29,10 @@
       <guid>https://ahal.ca/casts/2019/task-configuration-at-scale/</guid>
       <description>&lt;p&gt;A talk I did for the Automationeer&amp;rsquo;s Assemble series on how Mozilla handles complexity in their CI
 configuration.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://player.vimeo.com/video/322897542&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;vimeo video&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -27,7 +43,10 @@ configuration.&lt;/p&gt;
       <guid>https://ahal.ca/casts/2018/taskgraph-like-a-pro/</guid>
       <description>&lt;p&gt;Have you ever needed to inspect the taskgraph locally? Did you have a bad time? Learn how to inspect
 the taskgraph like a PRO. For the impatient skip to the installation instructions below.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://player.vimeo.com/video/306431059&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;vimeo video&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description>
     </item>
     
   </channel>

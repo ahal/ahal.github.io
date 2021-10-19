@@ -24,7 +24,7 @@ Unix only for now." />
 nutshell, mozconfigwrapper hides all of your mozconfigs into a configurable directory (defaults to
 ~/.mozconfigs), and lets you easily switch, create, remove, edit and list them. Mozconfigwrapper is
 Unix only for now."/>
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.88.1" />
 
 
     
@@ -80,7 +80,7 @@ Unix only for now."/>
         <nav class="nav blog-nav">
           <a class="nav-link " href="https://ahal.ca/">Home</a>
           
-          <a class="nav-link active" href="/blog/" title="">Blog</a>
+          <a class="nav-link" href="/blog/" title="">Blog</a>
           
           
           <a class="nav-link" href="/casts/" title="">Casts</a>
@@ -126,40 +126,40 @@ Unix only for now.</p>
 So if you have any problems installing or using it, please let me know or <a href="https://github.com/ahal/mozconfigwrapper/issues">file an issue</a>.</p>
 <h2 id="installation">Installation</h2>
 <p>To install first make sure you have <a href="http://pypi.python.org/pypi/pip">pip</a>. Then run the command</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pip install mozconfigwrapper
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pip install mozconfigwrapper
 </code></pre></div><p>Next open up your ~/.bashrc file and add the line</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">source /usr/local/bin/mozconfigwrapper.sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">source /usr/local/bin/mozconfigwrapper.sh
 </code></pre></div><p>Note that it may have been installed to a different location on your system. You can use the command &lsquo;which mozconfigwrapper.sh&rsquo;
 to find it.</p>
 <p>Finally run the command</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">source ~/.bashrc
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">source ~/.bashrc
 </code></pre></div><p>Mozconfigwrapper is now installed.</p>
 <h2 id="usage">Usage</h2>
 <p>Mozconfigwrapper allows you to create, remove, switch, list and edit mozconfigs.</p>
 <p>To build with (activate) a mozconfig named foo, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">buildwith foo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">buildwith foo
 </code></pre></div><p>To create a mozconfig named foo, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkmozconfig foo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkmozconfig foo
 </code></pre></div><p>To delete a mozconfig named foo, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rmmozconfig foo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rmmozconfig foo
 </code></pre></div><p>To see the currently active mozconfig, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mozconfig
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mozconfig
 </code></pre></div><p>To list all mozconfigs, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mozconfig -l
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mozconfig -l
 </code></pre></div><p>To edit the currently active mozconfig, run (the $EDITOR variable must be set):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mozconfig -e
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mozconfig -e
 </code></pre></div><h2 id="configuration">Configuration</h2>
 <p>By default mozconfigs are stored in the ~/.mozconfigs directory, but you can override this by
 setting the $BUILDWITH_HOME environment variable.
 e.g, add:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export BUILDWITH_HOME<span style="color:#f92672">=</span>~/my/custom/mozconfig/path 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export BUILDWITH_HOME<span style="color:#f92672">=</span>~/my/custom/mozconfig/path 
 </code></pre></div><p>to your ~/.bashrc file.</p>
 <p>When you make a new mozconfig, it will be populated with some basic build commands and the name of
 the mozconfig will be appended to the end of the OBJDIR instruction. You can modify what gets
 populated by default by editing the ~/.mozconfigs/.template file. For example, if I wanted my
 default configuration to store object directories in a folder called objdirs and enable debugging
 and tests, I&rsquo;d edit the ~/.mozconfigs/.template file to look like:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mk_add_options MOZ_OBJDIR<span style="color:#f92672">=</span>@TOPSRCDIR@/objdirs/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mk_add_options MOZ_OBJDIR<span style="color:#f92672">=</span>@TOPSRCDIR@/objdirs/
 ac_add_options --enable-application<span style="color:#f92672">=</span>browser
 ac_add_options --enable-debug
 ac_add_options --enable-tests
@@ -215,25 +215,25 @@ ac_add_options --enable-tests
     <ol class="list-unstyled">
 
 
-<li><a href="/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></li>
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
-<li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
 
-<li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
 
-<li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
 
-<li><a href="/casts/2018/taskgraph-like-a-pro/">Taskgraph Like a Pro</a></li>
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
 
-<li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
 
-<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
 
-<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
-<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
 
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -259,12 +259,22 @@ ac_add_options --enable-tests
     
         
             
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
             <a href="/tags/b2g">b2g</a>
         
     
         
             
             <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
         
     
         
@@ -279,6 +289,11 @@ ac_add_options --enable-tests
     
         
             
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
             <a href="/tags/programming">programming</a>
         
     
@@ -289,12 +304,7 @@ ac_add_options --enable-tests
     
         
             
-            <a href="/tags/try">try</a>
-        
-    
-        
-            
-            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+            <a href="/tags/taskgraph">taskgraph</a>
         
     
         
@@ -304,12 +314,17 @@ ac_add_options --enable-tests
     
         
             
-            <a href="/tags/taskcluster">taskcluster</a>
+            <a href="/tags/phabricator">phabricator</a>
         
     
         
             
-            <a href="/tags/taskgraph">taskgraph</a>
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -345,6 +360,11 @@ ac_add_options --enable-tests
         
             
             <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
         
     
         

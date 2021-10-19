@@ -9,6 +9,9 @@
 <meta property="og:title" content="Taskgraph Like a Pro" />
 <meta property="og:description" content="Have you ever needed to inspect the taskgraph locally? Did you have a bad time? Learn how to inspect
 the taskgraph like a PRO. For the impatient skip to the installation instructions below.
+
+
+  
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahal.ca/casts/2018/taskgraph-like-a-pro/" />
@@ -21,8 +24,11 @@ the taskgraph like a PRO. For the impatient skip to the installation instruction
 <meta name="twitter:title" content="Taskgraph Like a Pro"/>
 <meta name="twitter:description" content="Have you ever needed to inspect the taskgraph locally? Did you have a bad time? Learn how to inspect
 the taskgraph like a PRO. For the impatient skip to the installation instructions below.
+
+
+  
 "/>
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.88.1" />
 
 
     
@@ -81,7 +87,7 @@ the taskgraph like a PRO. For the impatient skip to the installation instruction
           <a class="nav-link" href="/blog/" title="">Blog</a>
           
           
-          <a class="nav-link active" href="/casts/" title="">Casts</a>
+          <a class="nav-link" href="/casts/" title="">Casts</a>
           
         </nav>
       </div>
@@ -118,21 +124,25 @@ the taskgraph like a PRO. For the impatient skip to the installation instruction
   </header>
   <p>Have you ever needed to inspect the taskgraph locally? Did you have a bad time? Learn how to inspect
 the taskgraph like a PRO. For the impatient skip to the installation instructions below.</p>
-<!-- raw HTML omitted -->
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://player.vimeo.com/video/306431059" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="vimeo video" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+
 <h4 id="installation">Installation</h4>
 <p>First you&rsquo;ll need to install <a href="https://github.com/junegunn/fzf">fzf</a>, if you&rsquo;ve used <code>mach try fuzzy</code> before, it&rsquo;s already
 on your system under <code>~/.mozbuild/fzf</code>, just make sure it&rsquo;s on your <code>$PATH</code>.</p>
 <p>Next install <code>fx</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm install fx
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm install fx
 </code></pre></div><p>Finally, add the following shell function to your <code>~/.bashrc</code> or equivalent:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tf <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tf <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 	fx <span style="color:#e6db74">&#34;tg =&gt; String(require(\&#34;child_process\&#34;).spawnSync(\&#34;fzf\&#34;, [\&#34;-f\&#34;, \&#34;</span>$1<span style="color:#e6db74">\&#34;], {\&#34;input\&#34;: Object.keys(tg).join(\&#34;\n\&#34;)}).output).split(\&#34;\n\&#34;).reduce((obj, key) =&gt; { obj[key] = tg[key]; return obj; }, {})&#34;</span> | fx
 <span style="color:#f92672">}</span>
 </code></pre></div><p>That&rsquo;s it!</p>
 <h4 id="usage">Usage</h4>
 <p>Simply pipe the output of <code>mach taskgraph full -J</code> into the <code>tf</code> function (preferably saving it to a
 file first:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach taskgraph full -J &gt; full.taskgraph
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach taskgraph full -J &gt; full.taskgraph
 $ cat full.taskgraph | tf <span style="color:#e6db74">&#34;win64 mochitest | reftest -1</span>$<span style="color:#e6db74">&#34;</span>
 </code></pre></div><p>The above will filter down all chunk 1 mochitest and reftest tasks on win64. The query syntax is
 identical to the one used with <code>mach try fuzzy</code>. See <code>man fzf</code> for more details.</p>
@@ -187,25 +197,25 @@ identical to the one used with <code>mach try fuzzy</code>. See <code>man fzf</c
     <ol class="list-unstyled">
 
 
-<li><a href="/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></li>
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
-<li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
 
-<li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
 
-<li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
 
-<li><a href="/casts/2018/taskgraph-like-a-pro/">Taskgraph Like a Pro</a></li>
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
 
-<li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
 
-<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
 
-<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
-<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
 
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -231,12 +241,22 @@ identical to the one used with <code>mach try fuzzy</code>. See <code>man fzf</c
     
         
             
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
             <a href="/tags/b2g">b2g</a>
         
     
         
             
             <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
         
     
         
@@ -251,6 +271,11 @@ identical to the one used with <code>mach try fuzzy</code>. See <code>man fzf</c
     
         
             
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
             <a href="/tags/programming">programming</a>
         
     
@@ -261,12 +286,7 @@ identical to the one used with <code>mach try fuzzy</code>. See <code>man fzf</c
     
         
             
-            <a href="/tags/try">try</a>
-        
-    
-        
-            
-            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+            <a href="/tags/taskgraph">taskgraph</a>
         
     
         
@@ -276,12 +296,17 @@ identical to the one used with <code>mach try fuzzy</code>. See <code>man fzf</c
     
         
             
-            <a href="/tags/taskcluster">taskcluster</a>
+            <a href="/tags/phabricator">phabricator</a>
         
     
         
             
-            <a href="/tags/taskgraph">taskgraph</a>
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -317,6 +342,11 @@ identical to the one used with <code>mach try fuzzy</code>. See <code>man fzf</c
         
             
             <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
         
     
         

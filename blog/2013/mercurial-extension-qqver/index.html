@@ -24,7 +24,7 @@ with stock queue repos, new and existing patches are added automatically." />
 repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &lsquo;hg init
 &ndash;mq&rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
 with stock queue repos, new and existing patches are added automatically."/>
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.88.1" />
 
 
     
@@ -80,7 +80,7 @@ with stock queue repos, new and existing patches are added automatically."/>
         <nav class="nav blog-nav">
           <a class="nav-link " href="https://ahal.ca/">Home</a>
           
-          <a class="nav-link active" href="/blog/" title="">Blog</a>
+          <a class="nav-link" href="/blog/" title="">Blog</a>
           
           
           <a class="nav-link" href="/casts/" title="">Casts</a>
@@ -133,7 +133,7 @@ repos, e.g on an hg.m.o <a href="https://developer.mozilla.org/en-US/docs/Creati
 patch queues, you only need to create one.</p>
 <p>qqver works by monkeypatching the mq extension in an unobtrusive way. This gives it some nice
 properties. First, the syntax is the exact same as what you are already used to:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># create queue repo and push remote</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># create queue repo and push remote</span>
 hg init --mq
 hg commit --mq
 hg push --mq
@@ -142,9 +142,9 @@ means if you want to autocommit your patch queue anytime you make a change, you 
 configuring mqext. One thing I&rsquo;d still like to implement, is to monkeypatch mqext so it adds the
 current patch queue to the commit messages (in addition to the patch name).</p>
 <h3 id="installation">Installation</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hg clone http://hg.mozilla.org/users/ahalberstadt_mozilla.com/qqver/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hg clone http://hg.mozilla.org/users/ahalberstadt_mozilla.com/qqver/
 </code></pre></div><p>Then edit your ~/.hgrc file and add:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extensions]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extensions]</span>
 <span style="color:#a6e22e">mq</span><span style="color:#f92672">=</span>
 <span style="color:#a6e22e">qqver</span><span style="color:#f92672">=</span><span style="color:#e6db74">&amp;lt;path/to/qqver&amp;gt;</span>
 </code></pre></div><p>Note that the mq extension needs to be installed, otherwise qqver makes no sense! Also note that
@@ -200,25 +200,25 @@ like implemented. Or feel free to send me a patch ;).</p>
     <ol class="list-unstyled">
 
 
-<li><a href="/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></li>
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
-<li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
 
-<li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
 
-<li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
 
-<li><a href="/casts/2018/taskgraph-like-a-pro/">Taskgraph Like a Pro</a></li>
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
 
-<li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
 
-<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
 
-<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
-<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
 
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -244,12 +244,22 @@ like implemented. Or feel free to send me a patch ;).</p>
     
         
             
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
             <a href="/tags/b2g">b2g</a>
         
     
         
             
             <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
         
     
         
@@ -264,6 +274,11 @@ like implemented. Or feel free to send me a patch ;).</p>
     
         
             
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
             <a href="/tags/programming">programming</a>
         
     
@@ -274,12 +289,7 @@ like implemented. Or feel free to send me a patch ;).</p>
     
         
             
-            <a href="/tags/try">try</a>
-        
-    
-        
-            
-            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+            <a href="/tags/taskgraph">taskgraph</a>
         
     
         
@@ -289,12 +299,17 @@ like implemented. Or feel free to send me a patch ;).</p>
     
         
             
-            <a href="/tags/taskcluster">taskcluster</a>
+            <a href="/tags/phabricator">phabricator</a>
         
     
         
             
-            <a href="/tags/taskgraph">taskgraph</a>
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -330,6 +345,11 @@ like implemented. Or feel free to send me a patch ;).</p>
         
             
             <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
         
     
         

@@ -10,14 +10,14 @@
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/tags/mozconfigwrapper/" />
-<meta property="og:updated_time" content="2014-03-03T00:00:00+00:00" />
+<meta property="og:updated_time" content="2021-03-16T09:48:48-04:00" />
 
 
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="mozconfigwrapper"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.88.1" />
 
 
     
@@ -93,6 +93,33 @@
 
 <article class="blog-post">
   <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></h2>
+    <p class="blog-post-meta"><time datetime="2021-03-16T09:48:48-04:00">Mar 16, 2021</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/mozconfigwrapper/" rel="tag">mozconfigwrapper</a>, <a href="/tags/tips-and-tricks/" rel="tag">tips-and-tricks</a>
+
+</p>
+  </header>
+  <p>Mozilla developers often need to juggle multiple build configurations in their day to day work.
+Strategies to manage this sometimes include complex shell scripting built into their mozconfig, or a
+topsrcdir littered with <code>mozconfig-*</code> files and then calls to the build system like
+<code>MOZCONFIG=mozconfig-debug ./mach build</code>. But there&rsquo;s another method (which is basically just a
+variant on the latter), that might help make managing mozconfigs a teensy bit easier:
+<a href="https://github.com/ahal/mozconfigwrapper">mozconfigwrapper</a>.</p>
+<p>In the interest of not documenting things in blog posts (and because I&rsquo;m short on time this
+morning), I invite you to read the README file of the repo for installation and usage instructions.
+Please file issues and don&rsquo;t hesitate to reach out if the README is not clear or you have any
+problems.</p>
+  <a href='https://ahal.ca/blog/2021/managing-multiple-mozconfigs/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
     <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2014/mach-workflow/">A Workflow for using Mach with multiple Object Directories</a></h2>
     <p class="blog-post-meta"><time datetime="2014-03-03T00:00:00Z">Mar 03, 2014</time> by Andrew Halberstadt in 
 
@@ -147,25 +174,25 @@ Unix only for now.</p>
     <ol class="list-unstyled">
 
 
-<li><a href="/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></li>
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
-<li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
 
-<li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
 
-<li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
 
-<li><a href="/casts/2018/taskgraph-like-a-pro/">Taskgraph Like a Pro</a></li>
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
 
-<li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
 
-<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
 
-<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
-<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
 
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -191,12 +218,22 @@ Unix only for now.</p>
     
         
             
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
             <a href="/tags/b2g">b2g</a>
         
     
         
             
             <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
         
     
         
@@ -211,6 +248,11 @@ Unix only for now.</p>
     
         
             
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
             <a href="/tags/programming">programming</a>
         
     
@@ -221,12 +263,7 @@ Unix only for now.</p>
     
         
             
-            <a href="/tags/try">try</a>
-        
-    
-        
-            
-            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+            <a href="/tags/taskgraph">taskgraph</a>
         
     
         
@@ -236,12 +273,17 @@ Unix only for now.</p>
     
         
             
-            <a href="/tags/taskcluster">taskcluster</a>
+            <a href="/tags/phabricator">phabricator</a>
         
     
         
             
-            <a href="/tags/taskgraph">taskgraph</a>
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -277,6 +319,11 @@ Unix only for now.</p>
         
             
             <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
         
     
         

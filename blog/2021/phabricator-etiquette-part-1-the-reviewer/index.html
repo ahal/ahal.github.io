@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<meta property="og:title" content="Phabricator Etiquette Part 1: The Reviewer" />
+<meta property="og:description" content="In the next two posts we will examine the etiquette of using Phabricator. This post will examine
+tips from the reviewer&rsquo;s perspective, and next week will focus on the author&rsquo;s point of view.
+While the social aspects of etiquette are incredibly important, we should all be polite and
+considerate, these posts will focus more on the mechanics of using Phabricator. In other words, how
+to make the review process as smooth as possible without wasting anyone&rsquo;s time.
+Let&rsquo;s dig in!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/" />
+<meta property="article:published_time" content="2021-04-13T15:42:41-04:00" />
+<meta property="article:modified_time" content="2021-04-13T15:42:41-04:00" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Phabricator Etiquette Part 1: The Reviewer"/>
+<meta name="twitter:description" content="In the next two posts we will examine the etiquette of using Phabricator. This post will examine
+tips from the reviewer&rsquo;s perspective, and next week will focus on the author&rsquo;s point of view.
+While the social aspects of etiquette are incredibly important, we should all be polite and
+considerate, these posts will focus more on the mechanics of using Phabricator. In other words, how
+to make the review process as smooth as possible without wasting anyone&rsquo;s time.
+Let&rsquo;s dig in!"/>
+<meta name="generator" content="Hugo 0.88.1" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Phabricator Etiquette Part 1: The Reviewer",
+  "url": "https:\/\/ahal.ca\/blog\/2021\/phabricator-etiquette-part-1-the-reviewer\/",
+  "wordCount": "1286",
+  "datePublished": "2021-04-13T15:42:41-04:00",
+  "dateModified": "2021-04-13T15:42:41-04:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "phabricator, mozilla, tips-and-tricks"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/">
+
+    <title>Phabricator Etiquette Part 1: The Reviewer | Hunting the Shmoo</title>
+
+    
+    <!-- combined, minified CSS -->
+    
+    <link href="https://ahal.ca/css/style.beb8012edc08ba10be012f079d618dc243812267efe62e11f22fe49618f976a4.css" rel="stylesheet" integrity="sha256-vrgBLtwIuhC&#43;AS8HnWGNwkOBImfv5i4R8i/klhj5dqQ=" crossorigin="anonymous">
+    
+
+    <!-- minified Font Awesome for SVG icons -->
+    
+    <script defer src="https://ahal.ca/js/fontawesome.min.ffbfea088a9a1666ec65c3a8cb4906e2a0e4f92dc70dbbf400a125ad2422123a.js" integrity="sha256-/7/qCIqaFmbsZcOoy0kG4qDk&#43;S3HDbv0AKElrSQiEjo=" crossorigin="anonymous"></script>
+
+    <!-- RSS 2.0 feed -->
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<link href="https://ahal.ca/css/debugprint.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://ahal.ca/">Home</a>
+          
+          <a class="nav-link" href="/blog/" title="">Blog</a>
+          
+          
+          <a class="nav-link" href="/casts/" title="">Casts</a>
+          
+        </nav>
+      </div>
+    </div>
+    
+
+    
+    
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title" dir="auto"><a href="https://ahal.ca/" rel="home">Hunting the Shmoo</a></h1>
+        <p class="lead blog-description" dir="auto">Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy.</p>
+      </div>
+    </header>
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></h2>
+    <p class="blog-post-meta"><time datetime="2021-04-13T15:42:41-04:00">Apr 13, 2021</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/phabricator/" rel="tag">phabricator</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/tips-and-tricks/" rel="tag">tips-and-tricks</a>
+
+</p>
+  </header>
+  <p>In the next two posts we will examine the etiquette of using Phabricator. This post will examine
+tips from the reviewer&rsquo;s perspective, and next week will focus on the author&rsquo;s point of view.
+While the social aspects of etiquette are incredibly important, we should all be polite and
+considerate, these posts will focus more on the mechanics of using Phabricator. In other words, how
+to make the review process as smooth as possible without wasting anyone&rsquo;s time.</p>
+<p>Let&rsquo;s dig in!</p>
+<h3 id="never-leave-a-review-in-an-ambiguous-state">Never Leave a Review in an Ambiguous State</h3>
+<p>Phabricator is all about eliminating the uncertainty around who is on the hook for moving the
+revision forward. When it is in the <code>Needs Review</code> state it will show up in the reviewer&rsquo;s queue.
+When it is in the <code>Needs Revision</code> state, it will show up in the author&rsquo;s queue. Many reviewers /
+authors only look at their queues and can miss a request entirely if a revision is in an ambiguous
+state!</p>
+<p>Ambiguous states happen when the revision requires action from someone but it doesn&rsquo;t show up in
+their queue. The most common way a reviewer can cause an ambiguous state is by requesting changes
+but not setting the state to <code>Needs Revision</code>. For example, the reviewer:</p>
+<ol>
+<li>Sets the state to <code>Accepted</code> but asks for issues to be fixed prior to landing (e.g &ldquo;r+ with
+nits&rdquo;)</li>
+<li>Asks for changes but leaves the state unchanged (so it is still in the <code>Needs Review</code> state)</li>
+</ol>
+<p>Both of these cases are bad because the reviewer is relying on the author to see their comment, even
+though Phabricator will not indicate that any changes are needed.</p>
+<p>The first case especially is very common. Reviewers sometimes use &ldquo;r+ with nits&rdquo; to speed up the
+process and avoid another round of review. But when authors look at their queue, they&rsquo;ll only see
+that the revision is ready to land and can easily do so without noticing that changes have been
+requested. Even the most trivial of unfixed nits can cause problems. E.g a typo in a comment can
+cause the <code>codespell</code> linter to fail and the revision to be backed out. So it&rsquo;s best to simply avoid
+&ldquo;r+ with nits&rdquo; altogether.</p>
+<h3 id="only-review-code-you-are-comfortable-with">Only Review Code you are Comfortable With</h3>
+<p>The biggest disservice you can do to the patch author, is to review a patch without fully
+understanding what it is doing. If you don&rsquo;t feel comfortable with the review, then remove yourself
+from the reviewers list! If you are an appropriate reviewer for only part of the patch, then add
+another <strong>blocking</strong> reviewer who can handle the part you aren&rsquo;t comfortable with (and change
+yourself to blocking while you&rsquo;re at it).</p>
+<p>Note: Blocking reviewers are reviewers whose review are <em>required</em> to proceed. Patches with
+non-blocking reviewers can proceed as long as someone has given an r+, effectively making
+non-blocking reviews optional. Revisions will also be removed from the queues of non-blocking
+reviewers as soon as they are <code>Accepted</code> by someone else.</p>
+<p>There are a few exceptions to this rule:</p>
+<ol>
+<li>When a module is unowned and no one would be comfortable with the code.</li>
+<li>When the module expert is the one asking you for review (i.e they need a rubberstamp and have no
+one else to turn to).</li>
+</ol>
+<p>In these cases you should still spend some effort learning about the code touched by the patch,
+use your judgement based on the complexity of the review.</p>
+<h3 id="find-appropriate-reviewers-on-the-authors-behalf">Find Appropriate Reviewers on the Author&rsquo;s Behalf</h3>
+<p>If you think that you are not an appropriate reviewer, don&rsquo;t simply unassign the review from
+yourself, add the appropriate reviewer on the author&rsquo;s behalf. This is especially important if the
+review is coming from a contributor. Besides if the author mis-assigned the review, they likely
+<em>are</em> even less familiar with the module than you are!</p>
+<p>Even if you&rsquo;re equally clueless around who should do the review, check who touched the file last in
+version control history and pick someone. It speeds up efficiency by eliminating one communication
+cycle. Rather than:</p>
+<ol>
+<li>Author requests review</li>
+<li>You unassign yourself</li>
+<li>Author requests another review</li>
+</ol>
+<p>It becomes:</p>
+<ol>
+<li>Author requests review</li>
+<li>You unassign yourself and request another review</li>
+</ol>
+<p>Because of Mozilla&rsquo;s global nature, this simple step could allow the patch to land a full day
+earlier than it otherwise would have.</p>
+<h3 id="dont-leave-optional-comments">Don&rsquo;t Leave Optional Comments</h3>
+<p>Leaving optional comments shifts the burden of review from the reviewer back onto the author (who is
+often much less knowledgeable in the area). As the reviewer, decide whether the issue should block
+landing or not. Nine times out of ten, &ldquo;optional&rdquo; comments are better left to follow-up bugs (and as
+an author I will ignore them).</p>
+<p>It&rsquo;s ok to make the comment anyway to raise the point, just be sure to include something like &ldquo;This
+is better left to a follow-up, but it would be nice if &hellip;&rdquo;. This way the expectations are clear for
+everyone.</p>
+<h3 id="set-the-testing-tag">Set the Testing Tag</h3>
+<p>In mozilla-central there is a <a href="https://firefox-source-docs.mozilla.org/testing/testing-policy/index.html">testing
+policy</a> and all revisions
+are supposed to be marked with one of those tags. As a reviewer, failing to set a tag means the
+author has to check a box when landing acknowledging that the tag is missing. This again leaves the
+revision in a bit of an ambiguous state (should I go back and add tests? Is it ok to check this
+box?).</p>
+<p>Since one of the reviewer or the author is going to need to make any extra click anyway, it might as
+well be the person which the policy intends (the reviewer). Reviewers working in mozilla-central
+should install the
+<a href="https://addons.mozilla.org/en-US/firefox/addon/phab-test-policy/">phab-test-policy</a> for a reminder
+to add the tag and an easier UI for doing so.</p>
+<h3 id="review-in-a-timely-manner">Review in a Timely Manner</h3>
+<p>Reviewers should always strive to get their reviews done in a timely manner. I&rsquo;ve heard some
+people say 24hrs should be the maximum. Others argue for 48hrs. But it should never take longer than
+that. The excuse of having a long review queue is not valid since the total time spent doing reviews is
+the same whether you do them all in a big batch at the end of the week, or whether you do them in
+smaller batches at the end of the day. If you are reading this and have a long review queue, I&rsquo;d
+encourage you to try and burn through it and then adapting your workflow to ensure it never gets
+that long in the first place. The amount of work you do will be the same, but you&rsquo;ll be making those
+who rely on you more productive.</p>
+<p>However sometimes long review queues are simply unavoidable (like when you get back from a PTO, or
+you need to go into emergency mode for a few days). If you are overwhelmed by reviews, or something
+comes up, you should do one of two things:</p>
+<ol>
+<li>Assign the review to someone else who has more time than you.</li>
+<li>Failing that, comment on the revision with a rough estimate on when you will be able to get to
+it.</li>
+</ol>
+<p>If you are consistently overwhelmed by reviews, then it&rsquo;s time to have a conversation with your
+manager and ask for help :).</p>
+<h3 id="replace-review-groups-with-your-name">Replace Review Groups with Your Name</h3>
+<p>If you are part of a &ldquo;review group&rdquo; (e.g, <code>firefox-build-system-reviewers</code>) and a revision requests
+review from said group, then replace the group with yourself when you decide to take it. This way
+you remove the revision from the queues of all the other reviewers in the group and eliminate the
+risk of two people unnecessarily reviewing the same things.</p>
+<p>This will also have the added bonus of cleaning up the commit message.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>That&rsquo;s all I can think of for now. If you have any other tips for reviewers, feel free to leave them
+in the comments!</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2021%2fphabricator-etiquette-part-1-the-reviewer%2f" title="Share on Facebook"><span class="fab fa-facebook-f fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2021%2fphabricator-etiquette-part-1-the-reviewer%2f" title="Share on LinkedIn"><span class="fab fa-linkedin-in fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fahal.ca%2fblog%2f2021%2fphabricator-etiquette-part-1-the-reviewer%2f&amp;text=Phabricator%20Etiquette%20Part%201%3a%20The%20Reviewer" title="Tweet this"><span class="fab fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+    <section class="post-comments">
+      <script src="https://utteranc.es/client.js"
+        repo="ahal/hunting-the-shmoo"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+    </section>
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
+
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
+
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
+
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
+
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
+
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
+
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
+
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
+
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
+
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/taskgraph">taskgraph</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/phabricator">phabricator</a>
+        
+    
+        
+            
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/website">website</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/ci">ci</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/hugo">hugo</a>
+        
+    
+        
+            
+            <a href="/tags/jetty">jetty</a>
+        
+    
+        
+            
+            <a href="/tags/machine-learning">machine-learning</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/staticman">staticman</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+      <p dir="auto">
+      
+      © 2018 Andrew Halberstadt
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+    
+
+  </body>
+
+</html>

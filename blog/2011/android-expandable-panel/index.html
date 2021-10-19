@@ -26,7 +26,7 @@ a trivial problem. I needed to have a text view (like that in the Android market
 collapse whenever a user presses a &lsquo;More&rsquo; or &lsquo;Less&rsquo; button. It turned out that the problem was more
 difficult than I thought and I had to make my own custom widget to accomplish the task. I based it
 off a partial solution by Peteris Caune over on Stack Overflow."/>
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.88.1" />
 
 
     
@@ -82,7 +82,7 @@ off a partial solution by Peteris Caune over on Stack Overflow."/>
         <nav class="nav blog-nav">
           <a class="nav-link " href="https://ahal.ca/">Home</a>
           
-          <a class="nav-link active" href="/blog/" title="">Blog</a>
+          <a class="nav-link" href="/blog/" title="">Blog</a>
           
           
           <a class="nav-link" href="/casts/" title="">Casts</a>
@@ -133,7 +133,7 @@ specified height. In addition, you can set an onExpand and/or onCollapse listene
 should happen when these actions are fired.</p>
 <p>Without further ado, here is the code (comments explaining the basic sections). This code should go
 into a file called ExpandablePanel.java:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.example.androidapp.widgets<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.example.androidapp.widgets<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> android.content.Context<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> android.content.res.TypedArray<span style="color:#f92672">;</span>
@@ -346,7 +346,7 @@ into a file called ExpandablePanel.java:</p>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>In addition to this file, Android requires you to define any attributes that can be specified from
 an xml layout file.  Put this code into your res/values/attrs.xml file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&amp;gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&amp;gt;
 &amp;lt;resources&amp;gt;
     &amp;lt;declare-styleable name=&#34;ExpandablePanel&#34;&amp;gt;
         &amp;lt;attr name=&#34;handle&#34; format=&#34;reference&#34; /&amp;gt;
@@ -358,7 +358,7 @@ an xml layout file.  Put this code into your res/values/attrs.xml file:</p>
 </code></pre></div><p>That&rsquo;s all you need to start using the ExpandablePanel.  Let&rsquo;s see how it works.  The first step is
 to define the ExpandablePanel in an xml layout.  Let&rsquo;s pretend we have a file called
 res/layouts/panel.xml.  It&rsquo;s contents might look something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;com.example.androidapp.widgets.ExpandablePanel
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;com.example.androidapp.widgets.ExpandablePanel
     android:id=&#34;@+id/foo&#34;
     android:orientation=&#34;vertical&#34;
     android:layout_height=&#34;wrap_content&#34;
@@ -379,7 +379,7 @@ res/layouts/panel.xml.  It&rsquo;s contents might look something like this:</p>
 &amp;lt;/com.example.androidapp.widgets.ExpandablePanel&amp;gt;
 </code></pre></div><p>This works, but when you click the &lsquo;More&rsquo; button the text doesn&rsquo;t get changed to &lsquo;Less&rsquo;. In order to
 accomplish this we need to set the listeners:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// Set expandable panel listener
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// Set expandable panel listener
 </span><span style="color:#75715e"></span>ExpandablePanel panel <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ExpandablePanel<span style="color:#f92672">)</span>view<span style="color:#f92672">.</span><span style="color:#a6e22e">findViewById</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">foo</span><span style="color:#f92672">);</span>
 panel<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnExpandListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ExpandablePanel<span style="color:#f92672">.</span><span style="color:#a6e22e">OnExpandListener</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCollapse</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -447,25 +447,25 @@ haven&rsquo;t found, so let me know if something isn&rsquo;t working as it shoul
     <ol class="list-unstyled">
 
 
-<li><a href="/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></li>
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
-<li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
 
-<li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
 
-<li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
 
-<li><a href="/casts/2018/taskgraph-like-a-pro/">Taskgraph Like a Pro</a></li>
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
 
-<li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
 
-<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
 
-<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
-<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
 
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -491,12 +491,22 @@ haven&rsquo;t found, so let me know if something isn&rsquo;t working as it shoul
     
         
             
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
             <a href="/tags/b2g">b2g</a>
         
     
         
             
             <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
         
     
         
@@ -511,6 +521,11 @@ haven&rsquo;t found, so let me know if something isn&rsquo;t working as it shoul
     
         
             
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
             <a href="/tags/programming">programming</a>
         
     
@@ -521,12 +536,7 @@ haven&rsquo;t found, so let me know if something isn&rsquo;t working as it shoul
     
         
             
-            <a href="/tags/try">try</a>
-        
-    
-        
-            
-            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+            <a href="/tags/taskgraph">taskgraph</a>
         
     
         
@@ -536,12 +546,17 @@ haven&rsquo;t found, so let me know if something isn&rsquo;t working as it shoul
     
         
             
-            <a href="/tags/taskcluster">taskcluster</a>
+            <a href="/tags/phabricator">phabricator</a>
         
     
         
             
-            <a href="/tags/taskgraph">taskgraph</a>
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -577,6 +592,11 @@ haven&rsquo;t found, so let me know if something isn&rsquo;t working as it shoul
         
             
             <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
         
     
         

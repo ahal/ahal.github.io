@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<meta property="og:title" content="Phabricator Etiquette Part 2: The Author" />
+<meta property="og:description" content="Last time we looked at some
+ways reviewers can keep the review process moving efficiently. This week, let&rsquo;s put on our author
+hats and do the same thing." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2021/phabricator-etiquette-part-2-the-author/" />
+<meta property="article:published_time" content="2021-04-27T09:33:31-04:00" />
+<meta property="article:modified_time" content="2021-04-27T09:33:31-04:00" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Phabricator Etiquette Part 2: The Author"/>
+<meta name="twitter:description" content="Last time we looked at some
+ways reviewers can keep the review process moving efficiently. This week, let&rsquo;s put on our author
+hats and do the same thing."/>
+<meta name="generator" content="Hugo 0.88.1" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Phabricator Etiquette Part 2: The Author",
+  "url": "https:\/\/ahal.ca\/blog\/2021\/phabricator-etiquette-part-2-the-author\/",
+  "wordCount": "1182",
+  "datePublished": "2021-04-27T09:33:31-04:00",
+  "dateModified": "2021-04-27T09:33:31-04:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "phabricator, mozilla, tips-and-tricks"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2021/phabricator-etiquette-part-2-the-author/">
+
+    <title>Phabricator Etiquette Part 2: The Author | Hunting the Shmoo</title>
+
+    
+    <!-- combined, minified CSS -->
+    
+    <link href="https://ahal.ca/css/style.beb8012edc08ba10be012f079d618dc243812267efe62e11f22fe49618f976a4.css" rel="stylesheet" integrity="sha256-vrgBLtwIuhC&#43;AS8HnWGNwkOBImfv5i4R8i/klhj5dqQ=" crossorigin="anonymous">
+    
+
+    <!-- minified Font Awesome for SVG icons -->
+    
+    <script defer src="https://ahal.ca/js/fontawesome.min.ffbfea088a9a1666ec65c3a8cb4906e2a0e4f92dc70dbbf400a125ad2422123a.js" integrity="sha256-/7/qCIqaFmbsZcOoy0kG4qDk&#43;S3HDbv0AKElrSQiEjo=" crossorigin="anonymous"></script>
+
+    <!-- RSS 2.0 feed -->
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<link href="https://ahal.ca/css/debugprint.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://ahal.ca/">Home</a>
+          
+          <a class="nav-link" href="/blog/" title="">Blog</a>
+          
+          
+          <a class="nav-link" href="/casts/" title="">Casts</a>
+          
+        </nav>
+      </div>
+    </div>
+    
+
+    
+    
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title" dir="auto"><a href="https://ahal.ca/" rel="home">Hunting the Shmoo</a></h1>
+        <p class="lead blog-description" dir="auto">Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy.</p>
+      </div>
+    </header>
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></h2>
+    <p class="blog-post-meta"><time datetime="2021-04-27T09:33:31-04:00">Apr 27, 2021</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/phabricator/" rel="tag">phabricator</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/tips-and-tricks/" rel="tag">tips-and-tricks</a>
+
+</p>
+  </header>
+  <p><a href="https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Last time</a> we looked at some
+ways reviewers can keep the review process moving efficiently. This week, let&rsquo;s put on our author
+hats and do the same thing.</p>
+<h3 id="never-leave-a-revision-in-an-ambiguous-state">Never Leave a Revision in an Ambiguous State</h3>
+<p>Just as with reviewers, the author is also responsible for making sure the revision is in the
+appropriate state. As a reminder, ambiguous states happen when the revision needs action from
+someone, but doesn&rsquo;t show up in their queue.</p>
+<p>As the author, a common way to get into this predicament is failing to re-request review when no
+changes are submitted. A typical review might start with the revision in <code>Needs Review</code> (in the
+reviewer&rsquo;s queue). The reviewer may request some changes and set it to <code>Needs Revision</code>, which is
+now back in the author&rsquo;s queue. The author will then fix the problems and re-submit their patch.
+Importantly, <code>moz-phab</code> (or maybe Phabricator itself?) will automatically set the state back to
+<code>Needs Review</code> and all is right with the world.</p>
+<p>But what happens if the reviewer&rsquo;s requests are misguided? Or they were based on a counterfactual
+(if X is true, then you need to do this)? In these cases the author may decide to resolve the
+comments by replying with an explanation on why they don&rsquo;t need to address them. Crucially the
+author <em>is not</em> pushing up a new change, so the state won&rsquo;t automatically get set back to <code>Needs Review</code>. If the author fails to do this manually, then the revision won&rsquo;t show up in the reviewer&rsquo;s
+queue and the reviewer may not even realize that the author is still waiting on them to provide an
+r+. Revisions can sit in states like this for days, until the author inevitably pings the reviewer
+out of band and asks why the review is taking so long to which the reviewer replies &ldquo;what review?&rdquo;.</p>
+<h3 id="request-blocking-reviews">Request Blocking Reviews</h3>
+<p>Another variant of an ambiguous state can arise from a misunderstanding of how requesting multiple
+reviews works. It&rsquo;s common for an author to have a patch that touches multiple areas of the code
+base. These areas may have different owners / experts who the author would want to request review
+from. In other words, they want <em>both</em> reviews before they proceed with landing.</p>
+<p>Unfortunately Phabricator&rsquo;s default state is to treat reviews as either or. As soon as one reviewer
+provides an r+, the revision is now in the <code>Accepted</code> state and it gets removed from the other
+reviewer&rsquo;s queue. However the author may not realize this fact. Again causing the scenario above
+where the reviewer asks why the review is taking so long, only to get &ldquo;what review?&rdquo; as a response.
+Luckily Phabricator has the concept of a &ldquo;blocking&rdquo; reviewer to handle the case when multiple
+reviews are needed. So if you need more than one review, make sure to set it as &ldquo;blocking&rdquo; (either
+by choosing the <code>blocking: &lt;nick&gt;</code> variant from the Phabricator UI, or by appending <code>!</code> to the nick
+in the commit message.</p>
+<p>Another reason some authors request multiple non-blocking reviews is if they aren&rsquo;t sure who to ask.
+But this should also be avoided because it can waste reviewers' time. There is a good chance
+both reviewers will start reviewing it at the same time, when only a single review would have
+sufficed. Instead authors should make a guess and if the reviewer isn&rsquo;t a suitable for the patch
+they should ideally re-assign the review on your behalf (see previous post).</p>
+<p>Personally I can&rsquo;t think of any scenario to request a non-blocking review over a blocking one.
+Thankfully, <code>moz-phab</code> has a configuration that can make all your reviews blocking by default. Open
+your config file (default <code>~/.moz-phab-config</code>) and set:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[submit]</span>
+<span style="color:#a6e22e">always_blocking</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">true</span>
+</code></pre></div><p>When this is set to <code>true</code> adding <code>r?&lt;nick&gt;</code> will request a blocking review and <code>r?&lt;nick&gt;!</code> will
+request a non-blocking one.</p>
+<h3 id="mark-in-line-comments-as-done">Mark In-Line Comments as Done</h3>
+<p>When a reviewer leaves an in-line comment, the author will have the option of checking a little
+&ldquo;Done&rdquo; checkbox in the top right. While doing so has no bearing on the revision&rsquo;s state and is
+entirely optional, it&rsquo;s still a good idea both for yourself as the author and for the reviewer&rsquo;s
+benefit.</p>
+<p>Revisions that have many issues quickly become cluttered to the point where the code is unreadable.
+For that reason, Phabricator gives us various ways to hide issues (such as &ldquo;Older&rdquo;, &ldquo;Collapsed&rdquo; or
+&ldquo;All&rdquo;). But my favourite way is using the &ldquo;Hide Done Inlines&rdquo; toggle, which hides any issue that has
+been marked as done.</p>
+<p>This makes it easy for both the author and the reviewer to keep track of what work is left to
+complete. If the author doesn&rsquo;t mark their review comments &ldquo;Done&rdquo;, then the reviewer needs to keep a
+mental map of which comments were fixed and which weren&rsquo;t. While reviewers should always verify that
+the revision adequately addresses their concerns, sometimes the revision will undergo multiple
+rounds of review. Maybe the reviewer already verified a comment was addressed in a previous round
+but now needs to recall this fact days later.</p>
+<p>So even if you don&rsquo;t personally find it useful, mark your inlines done! Your reviewers will thank
+you.</p>
+<h3 id="ensure-revisions-are-readable-and-high-quality">Ensure Revisions are Readable and High Quality</h3>
+<p>This one isn&rsquo;t Phabricator specific but it&rsquo;s worth talking about anyway. As a reviewer, the worst
+feeling is opening up a revision and seeing a giant patch with dozens of modified files and little to
+no explanation. As the author, you should spend time making sure your revision(s) are easy to
+understand and high quality. This means:</p>
+<ol>
+<li>Commits should be as large as they need to be and no larger. That is to say, A) each commit
+should be capable of landing on its own without breaking any tests or linters and B) each commit
+should make the state of the tree slightly better than the prior one. But as long as those two
+conditions are satisfied, make them as small as possible! This makes them much easier to review
+and reason about. To avoid headaches, <a href="https://www.assertnotmagic.com/2017/05/05/plan-your-commits/">plan your
+commits</a> ahead of time! If you
+forget to plan ahead and end up with a mess of spaghetti, spend some time learning how to pull it
+apart with your version control tool (e.g, <code>hg split</code> or <code>git rebase -i main</code>).</li>
+<li>Never move and modify, this is the cardinal sin. Have one commit to move, and a second commit to
+modify (or vice versa).</li>
+<li>Use a <a href="https://chris.beams.io/posts/git-commit/">descriptive commit message</a>.</li>
+<li>Document functions and use comments where appropriate.</li>
+<li>Include tests if appropriate (or a comment explaining why you didn&rsquo;t add them). This takes some
+pressure off the reviewer to hassle you for them.</li>
+<li>Ensure <a href="https://ahal.ca/blog/2021/hide-your-lint-errors/">lint issues are fixed</a> and tests pass
+prior to submitting.</li>
+<li>Check if there is any documentation to update alongside the changes (reviewers should remember to
+check this as well).</li>
+</ol>
+<p>All of this is a significant amount of work! But with practice it&rsquo;ll become second nature. Code
+quality will be higher, reviewers will be happier and so will you.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Thanks for reading! If you have any other tips for patch authors, feel free to leave them in the
+comments.</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2021%2fphabricator-etiquette-part-2-the-author%2f" title="Share on Facebook"><span class="fab fa-facebook-f fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2021%2fphabricator-etiquette-part-2-the-author%2f" title="Share on LinkedIn"><span class="fab fa-linkedin-in fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fahal.ca%2fblog%2f2021%2fphabricator-etiquette-part-2-the-author%2f&amp;text=Phabricator%20Etiquette%20Part%202%3a%20The%20Author" title="Tweet this"><span class="fab fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+    <section class="post-comments">
+      <script src="https://utteranc.es/client.js"
+        repo="ahal/hunting-the-shmoo"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+    </section>
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
+
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
+
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
+
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
+
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
+
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
+
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
+
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
+
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
+
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/taskgraph">taskgraph</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/phabricator">phabricator</a>
+        
+    
+        
+            
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/website">website</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/ci">ci</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/hugo">hugo</a>
+        
+    
+        
+            
+            <a href="/tags/jetty">jetty</a>
+        
+    
+        
+            
+            <a href="/tags/machine-learning">machine-learning</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/staticman">staticman</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+      <p dir="auto">
+      
+      © 2018 Andrew Halberstadt
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+    
+
+  </body>
+
+</html>

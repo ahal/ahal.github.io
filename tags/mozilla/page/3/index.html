@@ -10,14 +10,14 @@
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/tags/mozilla/" />
-<meta property="og:updated_time" content="2020-07-10T12:08:34-04:00" />
+<meta property="og:updated_time" content="2021-10-08T16:57:22-04:00" />
 
 
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="mozilla"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.88.1" />
 
 
     
@@ -93,19 +93,21 @@
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2014/mach-workflow/">A Workflow for using Mach with multiple Object Directories</a></h2>
-    <p class="blog-post-meta"><time datetime="2014-03-03T00:00:00Z">Mar 03, 2014</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2015/try-syntax/">Looking beyond Try Syntax</a></h2>
+    <p class="blog-post-meta"><time datetime="2015-08-28T00:00:00Z">Aug 28, 2015</time> by Andrew Halberstadt in 
 
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mach/" rel="tag">mach</a>, <a href="/tags/mozconfigwrapper/" rel="tag">mozconfigwrapper</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/try/" rel="tag">try</a>
 
 </p>
   </header>
-  <p><a href="https://developer.mozilla.org/en-US/docs/Developer_Guide/mach">Mach</a> is an amazing tool which facilitates a large number of common user stories in the mozilla
-source tree. You can perform initial setup, execute a build, run tests, examine diagnostics, even
-search Google. Many of these things require an object directory. This can potentially lead to some
-confusion if you typically have more than one object directory at any given time. How does mach know
-which object directory to operate on?</p>
-  <a href='https://ahal.ca/blog/2014/mach-workflow/'>Read more →</a>
+  <p>Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
+you put into your commit message which a <a href="http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py">parser</a> then uses to determine the set of builds and
+tests to run on your try push. A common try syntax might look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">try: -b o -p linux -u mochitest -t none
+</code></pre></div><p>Since inception, it has been a core part of the Mozilla development workflow.
+For many years it has served us well, and even today it serves us passably. But it is almost time
+for try syntax to don the wooden overcoat, and this post will explain why.</p>
+  <a href='https://ahal.ca/blog/2015/try-syntax/'>Read more →</a>
 </article> 
 
 
@@ -115,19 +117,24 @@ which object directory to operate on?</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2013/we-are-all-enablers/">We Are All Enablers</a></h2>
-    <p class="blog-post-meta"><time datetime="2013-10-10T00:00:00Z">Oct 10, 2013</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></h2>
+    <p class="blog-post-meta"><time datetime="2015-03-30T00:00:00Z">Mar 30, 2015</time> by Andrew Halberstadt in 
 
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/ateam/" rel="tag">ateam</a>
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/bookbinder/" rel="tag">bookbinder</a>, <a href="/tags/mercurial/" rel="tag">mercurial</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
 
 </p>
   </header>
-  <p>This probably isn&rsquo;t a groundbreaking revelation to most Mozillians, but it&rsquo;s something I haven&rsquo;t
-quite managed to put into words until now.</p>
-<p>On the Tools and Automation team at Mozilla, the easiest way to describe what we do is to say &ldquo;We
-try to make the lives of others within the community easier&rdquo;. This is a vague statement, but it&rsquo;s
-about as close as we can get without writing a small dissertation.</p>
-  <a href='https://ahal.ca/blog/2013/we-are-all-enablers/'>Read more →</a>
+  <p>I mentioned in my previous post a mercurial extension I wrote for making bookmarks easier to
+manipulate. Since then it has undergone a large overhaul, and I believe it is now stable and
+intuitive enough to advertise a bit more widely.</p>
+<h2 id="introducing-bookbinder">Introducing bookbinder</h2>
+<p>When working with bookmarks (or anonymous heads) I often wanted to operate on the
+entire series of commits within the feature I was working on. I often found myself digging out
+revision numbers to find the first commit in a bookmark to do things like rebasing, grafting or
+diffing. This was annoying. I wanted bookmarks to work more like a git-style branch, that has a
+definite start as well as an end. And I wanted to be able to easily refer to the set of commits
+contained within. Enter <a href="https://hg.sr.ht/~ahal/bookbinder">bookbinder</a>.</p>
+  <a href='https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/'>Read more →</a>
 </article> 
 
 
@@ -137,22 +144,17 @@ about as close as we can get without writing a small dissertation.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2013/running-b2g-unittests-mach/">Running B2G unittests with Mach</a></h2>
-    <p class="blog-post-meta"><time datetime="2013-09-16T00:00:00Z">Sep 16, 2013</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2015/new-mercurial-workflow-part-2/">The New Mercurial Workflow - Part 2</a></h2>
+    <p class="blog-post-meta"><time datetime="2015-01-16T00:00:00Z">Jan 16, 2015</time> by Andrew Halberstadt in 
 
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/b2g/" rel="tag">b2g</a>, <a href="/tags/mach/" rel="tag">mach</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mercurial/" rel="tag">mercurial</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
 
 </p>
   </header>
-  <p>Before now running &lsquo;classic&rsquo; unittests (mochitest, reftest, xpcshell, etc.) on B2G emulators has
-been a massive pain. The new recommended way of running them is through mach.</p>
-<ol>
-<li>Update B2G repo if you haven&rsquo;t already: <code>git pull</code></li>
-<li>Configure an emulator: <code>BRANCH=master ./config.sh emulator</code></li>
-<li>Build: <code>./build.sh</code></li>
-<li>Run: <code>./mach mochitest-remote</code></li>
-</ol>
-  <a href='https://ahal.ca/blog/2013/running-b2g-unittests-mach/'>Read more →</a>
+  <p>This is a continuation of my previous post called <a href="http://ahal.ca/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a>. It assumes that
+you have at least read and experimented with it a bit. If you haven&rsquo;t, stop right now, read it, get
+set up and try playing around with bookmarks and mozreview a bit.</p>
+  <a href='https://ahal.ca/blog/2015/new-mercurial-workflow-part-2/'>Read more →</a>
 </article> 
 
 
@@ -162,21 +164,19 @@ been a massive pain. The new recommended way of running them is through mach.</p
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2013/push-custom-test-command-line-try/">How to Push a Custom Test Command Line to Try</a></h2>
-    <p class="blog-post-meta"><time datetime="2013-07-24T00:00:00Z">Jul 24, 2013</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2014/consume-structured-test-results/">How to Consume Structured Test Results</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-12-18T00:00:00Z">Dec 18, 2014</time> by Andrew Halberstadt in 
 
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mozharness/" rel="tag">mozharness</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
 
 </p>
   </header>
-  <h3 id="outdated">OUTDATED</h3>
-<p>The steps in this article are no longer accurate. Pushing a custom command line is easier now. See
-<a href="https://groups.google.com/forum/#!topic/mozilla.dev.platform/AKDyoQShFEs">here</a> for more details.</p>
-<hr>
-<p>Have you ever wanted to see the test results of a custom command line in try? Things like
-&ndash;test-manifest, &ndash;shuffle or &ndash;run-slower?  Now you can! The process isn&rsquo;t exactly optimized for
-the developer use case, but neither is it really difficult to do once you know how.</p>
-  <a href='https://ahal.ca/blog/2013/push-custom-test-command-line-try/'>Read more →</a>
+  <p>You may not know that most of our test harnesses are now outputting structured logs (thanks in large
+part to :chmanchester&rsquo;s tireless work). Saying a log is structured simply means that it is in a
+machine readable format, in our case each log line is a JSON object. When streamed to a terminal or
+treeherder log, these JSON objects are first formatted into something that is human readable, aka
+the same log format you&rsquo;re already familiar with (which is why you may not have noticed this).</p>
+  <a href='https://ahal.ca/blog/2014/consume-structured-test-results/'>Read more →</a>
 </article> 
 
 
@@ -186,18 +186,20 @@ the developer use case, but neither is it really difficult to do once you know h
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2013/mercurial-extension-qqver/">A Mercurial extension to version multiple patch queues</a></h2>
-    <p class="blog-post-meta"><time datetime="2013-06-13T00:00:00Z">Jun 13, 2013</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2014/new-mercurial-workflow/">The New Mercurial Workflow</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-11-09T00:00:00Z">Nov 09, 2014</time> by Andrew Halberstadt in 
 
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mercurial/" rel="tag">mercurial</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/qqver/" rel="tag">qqver</a>
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mercurial/" rel="tag">mercurial</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
 
 </p>
   </header>
-  <p><a href="http://hg.mozilla.org/users/ahalberstadt_mozilla.com/qqver/">qqver</a> is a Mercurial extension that forces mq to version all patch queues in the same
-repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &lsquo;hg init
-&ndash;mq&rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
-with stock queue repos, new and existing patches are added automatically.</p>
-  <a href='https://ahal.ca/blog/2013/mercurial-extension-qqver/'>Read more →</a>
+  <p>There&rsquo;s a good chance you&rsquo;ve heard something about a new review tool coming to Mozilla and how it will <em>change
+everything</em>. There&rsquo;s an even better chance you&rsquo;ve stumbled across one of gps' <a href="http://gregoryszorc.com/blog/category/mercurial/">blog posts</a> on how
+we use mercurial at Mozilla.</p>
+<p>With <a href="https://groups.google.com/forum/#!topic/mozilla.dev.platform/RMkSXq2ckFk">mozreview entering beta</a>, I decided to throw out my old mq based workflow and
+try to use all the latest and greatest tools. That means <a href="http://mercurial.selenic.com/wiki/Bookmarks">mercurial bookmarks</a>, a <a href="http://gregoryszorc.com/blog/2014/06/30/track-firefox-repositories-with-local-only-mercurial-tags/">unified
+mozilla-central</a>, using <a href="http://mozilla-version-control-tools.readthedocs.org/en/latest/mozreview.html">mozreview</a> and completely <a href="http://gregoryszorc.com/blog/2014/06/23/please-stop-using-mq/">expunging mq</a> from my workflow.</p>
+  <a href='https://ahal.ca/blog/2014/new-mercurial-workflow/'>Read more →</a>
 </article> 
 
 
@@ -207,18 +209,20 @@ with stock queue repos, new and existing patches are added automatically.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2013/b2g-unittest-crashstacks/">Crash Stacks - Memoirs of a B2G Unittest</a></h2>
-    <p class="blog-post-meta"><time datetime="2013-03-28T00:00:00Z">Mar 28, 2013</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2014/how-many-tests-are-disabled/">How many tests are disabled?</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-10-01T00:00:00Z">Oct 01, 2014</time> by Andrew Halberstadt in 
 
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/b2g/" rel="tag">b2g</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/test-informant/" rel="tag">test-informant</a>
 
 </p>
   </header>
-  <p>Hey! Check it out, I have crash stacks in my <a href="https://tbpl.mozilla.org/php/getParsedLog.php?id=21215744&amp;full=1&amp;branch=mozilla-inbound">logs</a> now!  I know, I know, I took my sweet time.
-I&rsquo;m sorry. I hope this doesn&rsquo;t damage our relationship. Is there anything I can do to make it up to
-you? I want to help. I really do. It&rsquo;s just. I don&rsquo;t know. I guess I&rsquo;ve been feeling under the
-weather lately. I must have caught a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=846091">bug</a>.</p>
-  <a href='https://ahal.ca/blog/2013/b2g-unittest-crashstacks/'>Read more →</a>
+  <p>tl;dr Look for <a href="http://people.mozilla.org/~ahalberstadt/informant-reports/daily/2014-09-29.informant-report.html">reports like this</a> in the near future!</p>
+<p>At Mozilla, platform developers are culturally bound to <a href="http://tbpl.mozilla.org">tbpl</a>. We spend a lot of time staring at
+those bright little letters, and their colour can mean the difference between hours, days or even
+weeks of work. With so many people performing over <a href="http://relengofthenerds.blogspot.ca/2014/09/mozilla-pushes-august-2014.html">420 pushes per day</a>, all watching,
+praying, rejoicing and cursing, it&rsquo;s paramount that the whole process operates like a well oiled
+machine.</p>
+  <a href='https://ahal.ca/blog/2014/how-many-tests-are-disabled/'>Read more →</a>
 </article> 
 
 
@@ -228,19 +232,23 @@ weather lately. I must have caught a <a href="https://bugzilla.mozilla.org/show_
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2013/enable-b2g-tests/">An Open Invitation to Enable your Favourite tests on B2G</a></h2>
-    <p class="blog-post-meta"><time datetime="2013-03-08T00:00:00Z">Mar 08, 2013</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2014/when-would-you-use-python-mixin/">When would you use a Python mixin?</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-05-24T00:00:00Z">May 24, 2014</time> by Andrew Halberstadt in 
 
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/b2g/" rel="tag">b2g</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/programming/" rel="tag">programming</a>, <a href="/tags/python/" rel="tag">python</a>
 
 </p>
   </header>
-  <p>Throughout most of our B2G test automation deployment, we&rsquo;ve been very conscious about not enabling
-too many tests simply because we didn&rsquo;t have enough capacity on our test slaves to run them all.
-Regardless it was still bad enough as it was (many of you probably experienced very long wait times
-for results). Thanks to releng (and especially Rail Aliiev) we are now running most of our B2G tests
-in Amazon AWS which means we can be much more flexible in accomodating load.</p>
-  <a href='https://ahal.ca/blog/2013/enable-b2g-tests/'>Read more →</a>
+  <p>That&rsquo;s not a rhetorical question. I&rsquo;d like to know in which scenarios a mixin in python really is
+the best option. I can&rsquo;t seem to think of any, but maybe I&rsquo;m not thinking outside the box enough.</p>
+<p>The basic idea of a mixin is to create a small re-usable class that can &ldquo;plug-in&rdquo; to other larger
+classes. From the <a href="http://en.wikipedia.org/wiki/Mixin">wikipedia definition</a>, a mixin is a way to compose classes together <em>without</em>
+using inheritance. The problem is unlike ruby, python mixins are a purely conceptual construct.
+Python mixins <em>are</em> inheritance (the only difference is that the class name usually contains
+&lsquo;Mixin&rsquo;). It is up to the developer to remember this, and to manually avoid all of the common
+pitfalls of multiple inheritance. This kind of defeats the whole purpose of the mixin in the first
+place. What&rsquo;s more is that most people use python mixins improperly.</p>
+  <a href='https://ahal.ca/blog/2014/when-would-you-use-python-mixin/'>Read more →</a>
 </article> 
 
 
@@ -250,23 +258,20 @@ in Amazon AWS which means we can be much more flexible in accomodating load.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2012/guide-to-b2g-testing/">A Tired Developer&rsquo;s non-Illustrated Primer to B2G Testing</a></h2>
-    <p class="blog-post-meta"><time datetime="2012-12-21T00:00:00Z">Dec 21, 2012</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/">Part 2: How to deal with IFFY requirements</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-04-11T00:00:00Z">Apr 11, 2014</time> by Andrew Halberstadt in 
 
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/b2g/" rel="tag">b2g</a>
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/programming/" rel="tag">programming</a>
 
 </p>
   </header>
-  <p>As B2G continues to trod onwards to its release, there is still a lot of confusion about the level
-and state of test coverage it has.  Back in November we started running mochitests, reftests and
-marionette/webapi tests on ARM emulators. Now we&rsquo;ve also added xpcshell tests and for the most part
-we have these nice green letters to look at on TBPL that make us feel good about ourselves. But what
-is really being run?  What is the meaning behind these letters &ldquo;M&rdquo;, &ldquo;R&rdquo;, &ldquo;Mn&rdquo; and &ldquo;X&rdquo;? Are there any
-causes for concern? Are there other tests being run that don&rsquo;t show up on TBPL? What are the current
-automation priorities? What are the next platforms to use after emulators?</p>
-<p>This blog post aims to answer these questions and more. It is a comprehensive snapshot of the
-current state of automated testing on B2G.</p>
-  <a href='https://ahal.ca/blog/2012/guide-to-b2g-testing/'>Read more →</a>
+  <p>My last post was basically a very long winded way of saying, &ldquo;we have a problem&rdquo;. It kind of did a
+little dance around &ldquo;why is there a problem&rdquo; and &ldquo;how do we fix it&rdquo;, but I want to explore these two
+questions in a bit more detail. Specifically, I want to return to the two case studies and explore
+why our test harnesses don&rsquo;t work and why mozharness does work even though both have IFFY (in flux
+for years) requirements. Then I will explore how to use the lessons learned to improve our general
+test harness design.</p>
+  <a href='https://ahal.ca/blog/2014/part-2-how-deal-iffy-requirements/'>Read more →</a>
 </article> 
 
 
@@ -276,21 +281,22 @@ current state of automated testing on B2G.</p>
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2012/b2g-emulator-tests/">Like a Bump on a Tinderbox Push Log</a></h2>
-    <p class="blog-post-meta"><time datetime="2012-11-08T00:00:00Z">Nov 08, 2012</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/">Part 1: Sharing code is not always a good thing</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-03-21T00:00:00Z">Mar 21, 2014</time> by Andrew Halberstadt in 
 
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/b2g/" rel="tag">b2g</a>
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/programming/" rel="tag">programming</a>
 
 </p>
   </header>
-  <p>Contrary to popular belief, we (the A-Team) have been running mochitests, reftests, marionette tests
-and webapi tests on B2G in some form of continuous integration or another for about 5 months now.
-They&rsquo;ve been reporting results to a TBPL look-alike called <a href="http://brasstacks.mozilla.com/autolog/?tree=b2g&amp;source=autolog">autolog</a>, and were run on Amazon EC2
-VM&rsquo;s with emulators. This was a temporary solution to get something stood up quickly while we moved
-towards our ultimate B2G automation goal - tests running on Pandaboards and reporting to TBPL.</p>
-<p>As of this week, while there are still no tests running on Pandaboards, I&rsquo;m happy to say we have
-emulators running mochitests, reftests and marionette/webapi tests, all reporting to TBPL.</p>
-  <a href='https://ahal.ca/blog/2012/b2g-emulator-tests/'>Read more →</a>
+  <h3 id="dry-versus-wet">Dry versus Wet</h3>
+<p>As programmers, we are taught early on that code duplication is bad and should be avoided at all
+cost. It makes code less maintainable, reusable and readable. The <a href="http://en.wikipedia.org/wiki/DRY_principle">DRY principle</a> is very basic
+and fundamental to how most of us approach software design. If you aren&rsquo;t familiar with the DRY
+principle, please take a minute to read the wikipedia page on it. The counterpart of DRY, is WET
+(write everything twice).  In general, I agree that DRY is good and WET is bad. But I think there
+are a class of problems where the DRY approach can actually be harmful. For these types of problems,
+I will make a claim that a WET approach can actually work better.</p>
+  <a href='https://ahal.ca/blog/2014/part-1-sharing-code-not-always-good-thing/'>Read more →</a>
 </article> 
 
 
@@ -300,17 +306,30 @@ emulators running mochitests, reftests and marionette/webapi tests, all reportin
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2012/state-reftest-b2g/">State of Reftests on B2G</a></h2>
-    <p class="blog-post-meta"><time datetime="2012-09-12T00:00:00Z">Sep 12, 2012</time> by Andrew Halberstadt in 
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2014/b2g-commands/">Add more mach to your B2G</a></h2>
+    <p class="blog-post-meta"><time datetime="2014-03-06T00:00:00Z">Mar 06, 2014</time> by Andrew Halberstadt in 
 
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/b2g/" rel="tag">b2g</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/reftest/" rel="tag">reftest</a>
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/b2g/" rel="tag">b2g</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/mach/" rel="tag">mach</a>
 
 </p>
   </header>
-  <p>This quarter I&rsquo;ve been focusing on getting reftests running on B2G, triaging them and fixing various
-issues. The purpose of this post is to outline their status, go over the work that still needs to be
-done and point out where I will need some help.</p>
-  <a href='https://ahal.ca/blog/2012/state-reftest-b2g/'>Read more →</a>
+  <h4 id="getting-started">Getting Started</h4>
+<p>tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
+</code></pre></div><p>Install b2g-commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pip install b2g-commands
+</code></pre></div><p>To play around with it, cd to your <a href="https://github.com/mozilla-b2g/B2G">B2G repo</a> and run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git pull                 <span style="color:#75715e"># make sure repo is up to date</span>
+$ ./mach help              <span style="color:#75715e"># see all available commands</span>
+$ ./mach help &amp;lt;command&amp;gt;    <span style="color:#75715e"># see additional info about a command</span>
+</code></pre></div><h4 id="details">Details</h4>
+<p>Most people who spend the majority of their time working within mozilla-central have probably been
+acquainted with <a href="https://developer.mozilla.org/en-US/docs/Developer_Guide/mach">mach</a>. In case you aren&rsquo;t acquainted, mach is a generic command dispatching
+tool. It is possible to write scripts called &lsquo;mach targets&rsquo; which get registered with mach core and
+transformed into commands. Mach targets in mozilla-central have access to all sorts of powerful
+hooks into the build and test infrastructure which allow them to do some really cool things, such as
+bootstrapping your environment, running builds and tests, and generating diagnostics.</p>
+  <a href='https://ahal.ca/blog/2014/b2g-commands/'>Read more →</a>
 </article> 
 
 
@@ -341,25 +360,25 @@ done and point out where I will need some help.</p>
     <ol class="list-unstyled">
 
 
-<li><a href="/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></li>
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
-<li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
 
-<li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
 
-<li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
 
-<li><a href="/casts/2018/taskgraph-like-a-pro/">Taskgraph Like a Pro</a></li>
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
 
-<li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
 
-<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
 
-<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
-<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
 
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -385,12 +404,22 @@ done and point out where I will need some help.</p>
     
         
             
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
             <a href="/tags/b2g">b2g</a>
         
     
         
             
             <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
         
     
         
@@ -405,6 +434,11 @@ done and point out where I will need some help.</p>
     
         
             
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
             <a href="/tags/programming">programming</a>
         
     
@@ -415,12 +449,7 @@ done and point out where I will need some help.</p>
     
         
             
-            <a href="/tags/try">try</a>
-        
-    
-        
-            
-            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+            <a href="/tags/taskgraph">taskgraph</a>
         
     
         
@@ -430,12 +459,17 @@ done and point out where I will need some help.</p>
     
         
             
-            <a href="/tags/taskcluster">taskcluster</a>
+            <a href="/tags/phabricator">phabricator</a>
         
     
         
             
-            <a href="/tags/taskgraph">taskgraph</a>
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -471,6 +505,11 @@ done and point out where I will need some help.</p>
         
             
             <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
         
     
         

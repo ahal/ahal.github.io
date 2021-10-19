@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>phabricator on Hunting the Shmoo</title>
+    <link>https://ahal.ca/tags/phabricator/</link>
+    <description>Recent content in phabricator on Hunting the Shmoo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2018 Andrew Halberstadt</copyright>
+    <lastBuildDate>Tue, 27 Apr 2021 09:33:31 -0400</lastBuildDate><atom:link href="https://ahal.ca/tags/phabricator/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Phabricator Etiquette Part 2: The Author</title>
+      <link>https://ahal.ca/blog/2021/phabricator-etiquette-part-2-the-author/</link>
+      <pubDate>Tue, 27 Apr 2021 09:33:31 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/phabricator-etiquette-part-2-the-author/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/&#34;&gt;Last time&lt;/a&gt; we looked at some
+ways reviewers can keep the review process moving efficiently. This week, let&amp;rsquo;s put on our author
+hats and do the same thing.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Phabricator Etiquette Part 1: The Reviewer</title>
+      <link>https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/</link>
+      <pubDate>Tue, 13 Apr 2021 15:42:41 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/</guid>
+      <description>&lt;p&gt;In the next two posts we will examine the etiquette of using Phabricator. This post will examine
+tips from the reviewer&amp;rsquo;s perspective, and next week will focus on the author&amp;rsquo;s point of view.
+While the social aspects of etiquette are incredibly important, we should all be polite and
+considerate, these posts will focus more on the mechanics of using Phabricator. In other words, how
+to make the review process as smooth as possible without wasting anyone&amp;rsquo;s time.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s dig in!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

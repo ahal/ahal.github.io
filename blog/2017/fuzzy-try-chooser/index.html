@@ -28,7 +28,7 @@ that I&rsquo;m trying to convert into a concrete plan of action to bring this ab
 Intent to Implement or anything like that, but my hope is that this outline is detailed enough
 that it could be used as a solid starting point by someone with enough time and motivation to
 work on it."/>
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.88.1" />
 
 
     
@@ -84,7 +84,7 @@ work on it."/>
         <nav class="nav blog-nav">
           <a class="nav-link " href="https://ahal.ca/">Home</a>
           
-          <a class="nav-link active" href="/blog/" title="">Blog</a>
+          <a class="nav-link" href="/blog/" title="">Blog</a>
           
           
           <a class="nav-link" href="/casts/" title="">Casts</a>
@@ -170,7 +170,7 @@ message at all. We could instead stuff it into the commit as arbitrary metadata 
 <code>extra</code> field. To get this working, we could use the <a href="https://hg.mozilla.org/hgcustom/version-control-tools/file/tip/hgext/push-to-try">push-to-try</a> extension to stuff the try
 syntax into the <code>extra</code> field like <a href="https://hg.mozilla.org/hgcustom/version-control-tools/file/6a5b4c985ffc/hgext/overlay/__init__.py#l130">this</a>. Then the decision task could extract that syntax out
 of the commit metadata like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r $GECKO_HEAD_REV -T <span style="color:#e6db74">&#34;{extras}&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r $GECKO_HEAD_REV -T <span style="color:#e6db74">&#34;{extras}&#34;</span>
 </code></pre></div><h2 id="an-improved-data-format">An Improved Data Format</h2>
 <p>Again, these changes mostly amount to a refactoring and wouldn&rsquo;t be worth making just for the sake
 of it. But once we are using arbitrary commit metadata to pass information to the decision task,
@@ -207,15 +207,15 @@ in useful here.</p>
 user to select one or more of them using the fuzzy finding algorithm and a text based gui, then
 prints all selected strings to <code>stdout</code>. The input is completely arbitrary, for example, I could
 fuzzy select running processes with:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ps -ef | fzf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ps -ef | fzf
 </code></pre></div><p>Or lines in a file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat foo.txt | fzf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat foo.txt | fzf
 </code></pre></div><p>Or the numbers 1-100:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ seq <span style="color:#ae81ff">100</span> | fzf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ seq <span style="color:#ae81ff">100</span> | fzf
 </code></pre></div><p>You get the idea. The other day I was thinking, what if we could pipe a list of every single task,
 expanded over both chunks and platforms, into <code>fzf</code>? How useful would that be? Luckily, a list of
 all taskcluster tasks can be generated with a mach command, so it was easy to test this out:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach taskgraph tasks -p artifacts/parameters.yml -q &gt; all-tasks.json
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach taskgraph tasks -p artifacts/parameters.yml -q &gt; all-tasks.json
 $ cat all-tasks.json | fzf -m
 </code></pre></div><p>The <code>parameters.yml</code> file can be downloaded from any decision task on treeherder. I piped it into a
 file because the <code>mach taskgraph</code> command takes a bit of time to complete, it&rsquo;s not a penalty we&rsquo;d
@@ -292,25 +292,25 @@ tasks on try!</p>
     <ol class="list-unstyled">
 
 
-<li><a href="/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></li>
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
-<li><a href="/blog/2019/fragmented-communication/">The Cost of Fragmented Communication</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
 
-<li><a href="/blog/2019/python-3-at-mozilla/">Python 3 at Mozilla</a></li>
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
 
-<li><a href="/casts/2019/task-configuration-at-scale/">Task Configuration at Scale</a></li>
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
 
-<li><a href="/casts/2018/taskgraph-like-a-pro/">Taskgraph Like a Pro</a></li>
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
 
-<li><a href="/blog/2018/website-refresh/">A New Look and Feel (and everything else)</a></li>
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
 
-<li><a href="/blog/2017/mach-try-fuzzy/">Try Fuzzy: A Try Syntax Alternative</a></li>
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
 
-<li><a href="/blog/2017/mercurial-absorb/">Absorbing Changes into a Commit Series with Mercurial</a></li>
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
-<li><a href="/blog/2017/fuzzy-try-chooser/">A Course of Action for Replacing Try Syntax</a></li>
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
 
-<li><a href="/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></li>
+<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -336,12 +336,22 @@ tasks on try!</p>
     
         
             
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
             <a href="/tags/b2g">b2g</a>
         
     
         
             
             <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
         
     
         
@@ -356,6 +366,11 @@ tasks on try!</p>
     
         
             
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
             <a href="/tags/programming">programming</a>
         
     
@@ -366,12 +381,7 @@ tasks on try!</p>
     
         
             
-            <a href="/tags/try">try</a>
-        
-    
-        
-            
-            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+            <a href="/tags/taskgraph">taskgraph</a>
         
     
         
@@ -381,12 +391,17 @@ tasks on try!</p>
     
         
             
-            <a href="/tags/taskcluster">taskcluster</a>
+            <a href="/tags/phabricator">phabricator</a>
         
     
         
             
-            <a href="/tags/taskgraph">taskgraph</a>
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -422,6 +437,11 @@ tasks on try!</p>
         
             
             <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
         
     
         

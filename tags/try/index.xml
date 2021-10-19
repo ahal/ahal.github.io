@@ -7,7 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Wed, 02 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://ahal.ca/tags/try/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Mar 2021 09:30:00 -0400</lastBuildDate><atom:link href="https://ahal.ca/tags/try/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced Mach Try</title>
+      <link>https://ahal.ca/blog/2021/advanced-mach-try/</link>
+      <pubDate>Tue, 30 Mar 2021 09:30:00 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/advanced-mach-try/</guid>
+      <description>&lt;p&gt;Following up &lt;a href=&#34;https://ahal.ca/blog/2021/understanding-mach-try/&#34;&gt;last week&amp;rsquo;s post&lt;/a&gt; on some &lt;code&gt;mach try&lt;/code&gt; fundamentals, I figured it would be worth posting some actual concrete tips and tricks. So
+without further ado, here are some things you can do with &lt;code&gt;./mach try&lt;/code&gt; you may not have known about
+in rapid fire format.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Understanding Mach Try</title>
+      <link>https://ahal.ca/blog/2021/understanding-mach-try/</link>
+      <pubDate>Tue, 23 Mar 2021 10:51:01 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/understanding-mach-try/</guid>
+      <description>&lt;p&gt;There is a lot of confusion around &lt;code&gt;mach try&lt;/code&gt;. People frequently ask &amp;ldquo;How do I get task X in mach
+try fuzzy?&amp;rdquo; or &amp;ldquo;How can I avoid getting backed out?&amp;rdquo;. This post is not so much a tip, rather an
+explanation around how &lt;code&gt;mach try&lt;/code&gt; works and its relationship to the CI system (taskgraph). Armed
+with this knowledge, I hope you&amp;rsquo;ll be able to use &lt;code&gt;mach try&lt;/code&gt; a little more effectively.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Try Fuzzy: A Try Syntax Alternative</title>
       <link>https://ahal.ca/blog/2017/mach-try-fuzzy/</link>
@@ -17,13 +40,13 @@
       <description>&lt;p&gt;It&amp;rsquo;s no secret that I&amp;rsquo;m not a fan of try syntax, it&amp;rsquo;s a topic I&amp;rsquo;ve blogged about on &lt;a href=&#34;https://ahal.ca/blog/2015/try-syntax/&#34;&gt;several&lt;/a&gt;
 &lt;a href=&#34;https://ahal.ca/blog/2017/fuzzy-try-chooser/&#34;&gt;occasions&lt;/a&gt; before. Today, I&amp;rsquo;m pleased to announce that there&amp;rsquo;s a real alternative now landed on
 mozilla-central. It works on all platforms with mercurial and git. For those who just like to dive in:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach mercurial-setup --update  &lt;span style=&#34;color:#75715e&#34;&gt;# only if using hg&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach mercurial-setup --update  &lt;span style=&#34;color:#75715e&#34;&gt;# only if using hg&lt;/span&gt;
 $ mach try fuzzy
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will prompt you to install &lt;a href=&#34;https://github.com/junegunn/fzf&#34;&gt;fzf&lt;/a&gt;. After bootstrapping is finished, you&amp;rsquo;ll enter an interface
 populated with a list of all possible taskcluster tasks. Start typing and the list will be filtered
 down using a fuzzy matching algorithm. I won&amp;rsquo;t go into details on how to use this tool in this blog
 post, for that see:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach try fuzzy --help  &lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach try fuzzy --help  &lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
 $ man fzf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
@@ -51,7 +74,7 @@ work on it.&lt;/p&gt;</description>
       <description>&lt;p&gt;Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
 you put into your commit message which a &lt;a href=&#34;http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py&#34;&gt;parser&lt;/a&gt; then uses to determine the set of builds and
 tests to run on your try push. A common try syntax might look like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;try: -b o -p linux -u mochitest -t none
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;try: -b o -p linux -u mochitest -t none
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Since inception, it has been a core part of the Mozilla development workflow.
 For many years it has served us well, and even today it serves us passably. But it is almost time
 for try syntax to don the wooden overcoat, and this post will explain why.&lt;/p&gt;</description>

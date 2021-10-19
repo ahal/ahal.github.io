@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tips-and-tricks on Hunting the Shmoo</title>
+    <link>https://ahal.ca/tags/tips-and-tricks/</link>
+    <description>Recent content in tips-and-tricks on Hunting the Shmoo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2018 Andrew Halberstadt</copyright>
+    <lastBuildDate>Tue, 27 Apr 2021 09:33:31 -0400</lastBuildDate><atom:link href="https://ahal.ca/tags/tips-and-tricks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Phabricator Etiquette Part 2: The Author</title>
+      <link>https://ahal.ca/blog/2021/phabricator-etiquette-part-2-the-author/</link>
+      <pubDate>Tue, 27 Apr 2021 09:33:31 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/phabricator-etiquette-part-2-the-author/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/&#34;&gt;Last time&lt;/a&gt; we looked at some
+ways reviewers can keep the review process moving efficiently. This week, let&amp;rsquo;s put on our author
+hats and do the same thing.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Phabricator Etiquette Part 1: The Reviewer</title>
+      <link>https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/</link>
+      <pubDate>Tue, 13 Apr 2021 15:42:41 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/phabricator-etiquette-part-1-the-reviewer/</guid>
+      <description>&lt;p&gt;In the next two posts we will examine the etiquette of using Phabricator. This post will examine
+tips from the reviewer&amp;rsquo;s perspective, and next week will focus on the author&amp;rsquo;s point of view.
+While the social aspects of etiquette are incredibly important, we should all be polite and
+considerate, these posts will focus more on the mechanics of using Phabricator. In other words, how
+to make the review process as smooth as possible without wasting anyone&amp;rsquo;s time.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s dig in!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Better Replacement for ls</title>
+      <link>https://ahal.ca/blog/2021/ls-replacement/</link>
+      <pubDate>Tue, 06 Apr 2021 11:05:21 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/ls-replacement/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;If it ain&amp;rsquo;t broke don&amp;rsquo;t fix it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This old addage is valuable advice that has been passed down through
+generations. But it hasn&amp;rsquo;t stopped these people from &lt;a href=&#34;https://zaiste.net/posts/shell-commands-rust/&#34;&gt;rewriting command line
+tools&lt;/a&gt; perfected 30+ years ago in Rust.&lt;/p&gt;
+&lt;p&gt;This week we&amp;rsquo;ll take a quick look at &lt;a href=&#34;https://the.exa.website/&#34;&gt;exa&lt;/a&gt;, a replacement for &lt;code&gt;ls&lt;/code&gt;. So why
+should you ignore the wise advice from the addage and replace &lt;code&gt;ls&lt;/code&gt;? Because there are marginal
+improvements to be had, duh! Although the improvements in this case are far from marginal.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Advanced Mach Try</title>
+      <link>https://ahal.ca/blog/2021/advanced-mach-try/</link>
+      <pubDate>Tue, 30 Mar 2021 09:30:00 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/advanced-mach-try/</guid>
+      <description>&lt;p&gt;Following up &lt;a href=&#34;https://ahal.ca/blog/2021/understanding-mach-try/&#34;&gt;last week&amp;rsquo;s post&lt;/a&gt; on some &lt;code&gt;mach try&lt;/code&gt; fundamentals, I figured it would be worth posting some actual concrete tips and tricks. So
+without further ado, here are some things you can do with &lt;code&gt;./mach try&lt;/code&gt; you may not have known about
+in rapid fire format.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Understanding Mach Try</title>
+      <link>https://ahal.ca/blog/2021/understanding-mach-try/</link>
+      <pubDate>Tue, 23 Mar 2021 10:51:01 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/understanding-mach-try/</guid>
+      <description>&lt;p&gt;There is a lot of confusion around &lt;code&gt;mach try&lt;/code&gt;. People frequently ask &amp;ldquo;How do I get task X in mach
+try fuzzy?&amp;rdquo; or &amp;ldquo;How can I avoid getting backed out?&amp;rdquo;. This post is not so much a tip, rather an
+explanation around how &lt;code&gt;mach try&lt;/code&gt; works and its relationship to the CI system (taskgraph). Armed
+with this knowledge, I hope you&amp;rsquo;ll be able to use &lt;code&gt;mach try&lt;/code&gt; a little more effectively.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Managing Multiple Mozconfigs</title>
+      <link>https://ahal.ca/blog/2021/managing-multiple-mozconfigs/</link>
+      <pubDate>Tue, 16 Mar 2021 09:48:48 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/managing-multiple-mozconfigs/</guid>
+      <description>&lt;p&gt;Mozilla developers often need to juggle multiple build configurations in their day to day work.
+Strategies to manage this sometimes include complex shell scripting built into their mozconfig, or a
+topsrcdir littered with &lt;code&gt;mozconfig-*&lt;/code&gt; files and then calls to the build system like
+&lt;code&gt;MOZCONFIG=mozconfig-debug ./mach build&lt;/code&gt;. But there&amp;rsquo;s another method (which is basically just a
+variant on the latter), that might help make managing mozconfigs a teensy bit easier:
+&lt;a href=&#34;https://github.com/ahal/mozconfigwrapper&#34;&gt;mozconfigwrapper&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the interest of not documenting things in blog posts (and because I&amp;rsquo;m short on time this
+morning), I invite you to read the README file of the repo for installation and usage instructions.
+Please file issues and don&amp;rsquo;t hesitate to reach out if the README is not clear or you have any
+problems.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hide Your Lint Errors</title>
+      <link>https://ahal.ca/blog/2021/hide-your-lint-errors/</link>
+      <pubDate>Tue, 09 Mar 2021 09:15:07 -0500</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/hide-your-lint-errors/</guid>
+      <description>&lt;p&gt;Have you ever submitted a patch to Phabricator only to have reviewbot reveal dozens of lint errors
+all over? Or worse yet, have you landed before reviewbot had a chance to analyze your patch and been
+backed out over lint failures? If so fear not, we&amp;rsquo;ve all been there. Still, it&amp;rsquo;s hard not to feel a
+little embarrassed when it happens. Luckily for you, it&amp;rsquo;s pretty easy to eliminate the possibility
+of it ever happening again!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Better Terminal for Mozilla Build</title>
+      <link>https://ahal.ca/blog/2021/mozilla-build-windows-terminal/</link>
+      <pubDate>Tue, 02 Mar 2021 09:00:00 -0500</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/mozilla-build-windows-terminal/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re working with mozilla-central on Windows and followed the &lt;a href=&#34;https://firefox-source-docs.mozilla.org/setup/windows_build.html&#34;&gt;official
+documentation&lt;/a&gt;, there&amp;rsquo;s a good
+chance the MozillaBuild shell is running in the default &lt;code&gt;cmd.exe&lt;/code&gt; console. If you&amp;rsquo;ve spent any
+amount of time in this console you&amp;rsquo;ve also likely noticed it leaves a bit to be desired. Standard
+terminal features such as tabs, splits and themes are missing. More importantly, it doesn&amp;rsquo;t render
+unicode characters (at least out of the box).&lt;/p&gt;
+&lt;p&gt;Luckily Microsoft has developed a &lt;a href=&#34;https://www.microsoft.com/en-ca/p/windows-terminal/9n0dx20hk701&#34;&gt;modern
+terminal&lt;/a&gt; that can replace cmd.exe,
+and getting it set up with MozillaBuild shell is simple.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

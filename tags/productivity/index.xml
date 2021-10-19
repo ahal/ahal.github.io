@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>productivity on Hunting the Shmoo</title>
+    <link>https://ahal.ca/tags/productivity/</link>
+    <description>Recent content in productivity on Hunting the Shmoo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2018 Andrew Halberstadt</copyright>
+    <lastBuildDate>Tue, 09 Mar 2021 09:15:07 -0500</lastBuildDate><atom:link href="https://ahal.ca/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hide Your Lint Errors</title>
+      <link>https://ahal.ca/blog/2021/hide-your-lint-errors/</link>
+      <pubDate>Tue, 09 Mar 2021 09:15:07 -0500</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/hide-your-lint-errors/</guid>
+      <description>&lt;p&gt;Have you ever submitted a patch to Phabricator only to have reviewbot reveal dozens of lint errors
+all over? Or worse yet, have you landed before reviewbot had a chance to analyze your patch and been
+backed out over lint failures? If so fear not, we&amp;rsquo;ve all been there. Still, it&amp;rsquo;s hard not to feel a
+little embarrassed when it happens. Luckily for you, it&amp;rsquo;s pretty easy to eliminate the possibility
+of it ever happening again!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Better Terminal for Mozilla Build</title>
+      <link>https://ahal.ca/blog/2021/mozilla-build-windows-terminal/</link>
+      <pubDate>Tue, 02 Mar 2021 09:00:00 -0500</pubDate>
+      
+      <guid>https://ahal.ca/blog/2021/mozilla-build-windows-terminal/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re working with mozilla-central on Windows and followed the &lt;a href=&#34;https://firefox-source-docs.mozilla.org/setup/windows_build.html&#34;&gt;official
+documentation&lt;/a&gt;, there&amp;rsquo;s a good
+chance the MozillaBuild shell is running in the default &lt;code&gt;cmd.exe&lt;/code&gt; console. If you&amp;rsquo;ve spent any
+amount of time in this console you&amp;rsquo;ve also likely noticed it leaves a bit to be desired. Standard
+terminal features such as tabs, splits and themes are missing. More importantly, it doesn&amp;rsquo;t render
+unicode characters (at least out of the box).&lt;/p&gt;
+&lt;p&gt;Luckily Microsoft has developed a &lt;a href=&#34;https://www.microsoft.com/en-ca/p/windows-terminal/9n0dx20hk701&#34;&gt;modern
+terminal&lt;/a&gt; that can replace cmd.exe,
+and getting it set up with MozillaBuild shell is simple.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
