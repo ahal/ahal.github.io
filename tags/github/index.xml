@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Wed, 10 Aug 2022 11:58:24 -0400</lastBuildDate><atom:link href="https://ahal.ca/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Oct 2022 16:45:00 -0400</lastBuildDate><atom:link href="https://ahal.ca/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Work on Taskcluster Github</title>
-      <link>https://ahal.ca/blog/2022/work-on-taskcluster-github/</link>
-      <pubDate>Wed, 10 Aug 2022 11:58:24 -0400</pubDate>
+      <link>https://ahal.ca/blog/2022/taskcluster-github-dev/</link>
+      <pubDate>Mon, 31 Oct 2022 16:45:00 -0400</pubDate>
       
-      <guid>https://ahal.ca/blog/2022/work-on-taskcluster-github/</guid>
+      <guid>https://ahal.ca/blog/2022/taskcluster-github-dev/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://docs.taskcluster.net/docs/reference/integrations/github&#34;&gt;Taskcluster Github&lt;/a&gt; is the &lt;a href=&#34;https://taskcluster.net/&#34;&gt;Taskcluster&lt;/a&gt; service responsible for kick starting tasks on
 Github repositories. At a high level:&lt;/p&gt;
 &lt;ol&gt;
@@ -35,8 +35,8 @@ yet, you could see exactly how your Github service changes react!&lt;/p&gt;
 &lt;p&gt;Thanks to a lot of great work from Yarik, this is easier than ever and is all documented (or linked
 to) from &lt;a href=&#34;https://github.com/taskcluster/taskcluster/blob/main/dev-docs/development-process.md#running-everything-locally-using-docker-compose&#34;&gt;this page&lt;/a&gt;. If you are already familiar with Taskcluster development, or enjoy figuring
 things out yourself, you may wish to skip this post and read the docs instead. But if you are a
-Taskcluster newbie like myself, and would appreciate some hand holding, follow along for a step by
-step tutorial on how to work on and test Taskcluster Github!&lt;/p&gt;</description>
+Taskcluster newbie, and would appreciate some hand holding, follow along for a step by step tutorial
+on how to work on and test Taskcluster Github!&lt;/p&gt;</description>
     </item>
     
   </channel>
