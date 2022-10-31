@@ -28,7 +28,7 @@ browsing experience, it can also be a pain in the ass to manually install them e
 Firefox profile. As a developer working on Firefox related automation tools, this is twice as
 true since I create a separate profile for each and every project I work on, installing a constant set of
 addons on each one."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -38,7 +38,7 @@ addons on each one."/>
   "@type": "BlogPosting",
   "headline": "How to bulk install Firefox Addons",
   "url": "https:\/\/ahal.ca\/blog\/2011\/bulk-installing-fx-addons\/",
-  "wordCount": "563",
+  "wordCount": "567",
   "datePublished": "2011-04-09T00:00:00\u002b00:00",
   "dateModified": "2011-04-09T00:00:00\u002b00:00",
   "author": {
@@ -148,39 +148,39 @@ Steps:</p>
 The below is an example manifest that demonstrates all of the possible methods to install Firebug.</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75715e"># install from a url</span>
-<span style="color:#66d9ef">[https://getfirebug.com/releases/firebug/1.8/firebug-1.8.0a1.xpi]</span>
-
-<span style="color:#75715e"># install from local file path, can be relative or absolute</span>
-<span style="color:#66d9ef">[path/to/firebug.xpi]</span>
-
-<span style="color:#75715e"># install from a directory containing a bunch of addons</span>
-<span style="color:#75715e"># this is more useful for automated testing</span>
-<span style="color:#66d9ef">[path/to/directory/of/addons]</span>
-
-<span style="color:#75715e"># sometimes the url or file path doesn&#39;t reveal the name of the addon</span>
-<span style="color:#75715e"># makes the manifest a bit more human readable (path can be a url or a file path)</span>
-<span style="color:#66d9ef">[firebug]</span>
-<span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">https://getfirebug.com/releases/firebug/1.8/firebug-1.8.0a1.xpi</span>
-
-<span style="color:#75715e"># install from amo id</span>
-<span style="color:#66d9ef">[firebug]</span>
-<span style="color:#a6e22e">amo_id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">1843</span>
-
-<span style="color:#75715e"># you can also specify a different locale</span>
-<span style="color:#66d9ef">[firebug]</span>
-<span style="color:#a6e22e">amo_id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">1843</span>
-<span style="color:#a6e22e">amo_locale</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">fr</span>
-
-<span style="color:#75715e"># install from amo search</span>
-<span style="color:#75715e"># this will install the top hit returned from search and isn&#39;t guaranteed to be the one you want</span>
-<span style="color:#75715e"># use one of the other methods if you need to be absolutely sure</span>
-<span style="color:#66d9ef">[firebug]</span>
-
-<span style="color:#75715e"># search with different locale</span>
-<span style="color:#66d9ef">[firebug]</span>
-<span style="color:#a6e22e">amo_locale</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">fr</span>
-</code></pre></div><ol start="3">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#75715e"># install from a url</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[https://getfirebug.com/releases/firebug/1.8/firebug-1.8.0a1.xpi]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># install from local file path, can be relative or absolute</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[path/to/firebug.xpi]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># install from a directory containing a bunch of addons</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># this is more useful for automated testing</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[path/to/directory/of/addons]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># sometimes the url or file path doesn&#39;t reveal the name of the addon</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># makes the manifest a bit more human readable (path can be a url or a file path)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[firebug]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">https://getfirebug.com/releases/firebug/1.8/firebug-1.8.0a1.xpi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># install from amo id</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[firebug]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">amo_id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">1843</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># you can also specify a different locale</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[firebug]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">amo_id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">1843</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">amo_locale</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">fr</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># install from amo search</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># this will install the top hit returned from search and isn&#39;t guaranteed to be the one you want</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># use one of the other methods if you need to be absolutely sure</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[firebug]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># search with different locale</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[firebug]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">amo_locale</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">fr</span>
+</span></span></code></pre></div><ol start="3">
 <li>
 <p>Find the path to the profile you want to install the addons to. If you don&rsquo;t know where your profile is type &lsquo;about:support&rsquo; in your location bar and look for &lsquo;Profile Directory&rsquo;.<!-- raw HTML omitted --></p>
 </li>

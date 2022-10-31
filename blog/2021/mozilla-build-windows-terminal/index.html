@@ -34,7 +34,7 @@ unicode characters (at least out of the box).
 Luckily Microsoft has developed a modern
 terminal that can replace cmd.exe,
 and getting it set up with MozillaBuild shell is simple."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -144,13 +144,13 @@ and getting it set up with MozillaBuild shell is simple.</p>
 <li>Click the dropdown arrow to the right of the current tab and choose &ldquo;Settings&rdquo;</li>
 <li>Paste the following at the end of the <code>profiles.list</code> key in the JSON file that gets opened:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">    {
-      <span style="color:#f92672">&#34;guid&#34;</span>: <span style="color:#e6db74">&#34;{6fee45ac-05f7-453c-93a3-761cd18b06ae}&#34;</span>,
-      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;MozillaBuild&#34;</span>,
-      <span style="color:#f92672">&#34;commandline&#34;</span>: <span style="color:#e6db74">&#34;&lt;mozilla-build&gt;\\start-shell.bat&#34;</span>,
-      <span style="color:#f92672">&#34;icon&#34;</span>: <span style="color:#e6db74">&#34;&lt;mozilla-central&gt;\\browser\\branding\\nightly\\firefox.ico&#34;</span>
-    }
-</code></pre></div><p>Replace <code>&lt;mozilla-build&gt;</code> with the path to your MozillaBuild directory, and <code>&lt;mozilla-central&gt;</code>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;guid&#34;</span>: <span style="color:#e6db74">&#34;{6fee45ac-05f7-453c-93a3-761cd18b06ae}&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;MozillaBuild&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;commandline&#34;</span>: <span style="color:#e6db74">&#34;&lt;mozilla-build&gt;\\start-shell.bat&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;icon&#34;</span>: <span style="color:#e6db74">&#34;&lt;mozilla-central&gt;\\browser\\branding\\nightly\\firefox.ico&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>Replace <code>&lt;mozilla-build&gt;</code> with the path to your MozillaBuild directory, and <code>&lt;mozilla-central&gt;</code>
 with the path to your mozilla-central clone. Also mind your trailing commas, it needs to be valid
 JSON.</p>
 <p>A great feature of Windows Terminal is that it can support cmd.exe, PowerShell and even WSL (which
@@ -158,10 +158,10 @@ gets added automatically if you enable WSL). So you can run WSL in one tab, Powe
 the MozillaBuild shell in a third!</p>
 <p>When you open a new tab, the first profile in the list will be chosen. If you&rsquo;d like new tabs to
 automatically open the MozillaBuild shell, you can add a top-level <code>defaultProfile</code> key like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">    {
-        <span style="color:#f92672">&#34;defaultProfile&#34;</span>: <span style="color:#e6db74">&#34;{6fee45ac-05f7-453c-93a3-761cd18b06ae}&#34;</span>,
-    }
-</code></pre></div><p>The guid just needs to match the guid you specified in the profiles list earlier. For more
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;defaultProfile&#34;</span>: <span style="color:#e6db74">&#34;{6fee45ac-05f7-453c-93a3-761cd18b06ae}&#34;</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>The guid just needs to match the guid you specified in the profiles list earlier. For more
 information on Windows Terminal including how to use panes, see the <a href="https://docs.microsoft.com/en-us/windows/terminal/">official
 docs</a>.</p>
 <p>Enjoy!</p>

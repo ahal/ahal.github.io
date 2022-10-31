@@ -34,7 +34,7 @@ Python mixins are inheritance (the only difference is that the class name usuall
 &lsquo;Mixin&rsquo;). It is up to the developer to remember this, and to manually avoid all of the common
 pitfalls of multiple inheritance. This kind of defeats the whole purpose of the mixin in the first
 place. What&rsquo;s more is that most people use python mixins improperly."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -138,18 +138,18 @@ Python mixins <em>are</em> inheritance (the only difference is that the class na
 pitfalls of multiple inheritance. This kind of defeats the whole purpose of the mixin in the first
 place. What&rsquo;s more is that most people use python mixins improperly.</p>
 <p>Consider the following example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> book <span style="color:#f92672">import</span> Book
-<span style="color:#f92672">from</span> index <span style="color:#f92672">import</span> IndexMixin
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBook</span>(Book, IndexMixin):
-    <span style="color:#66d9ef">def</span> __init__(self, name, contents, edition<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1st&#39;</span>):
-        Book<span style="color:#f92672">.</span>__init__(self, name, contents)
-        self<span style="color:#f92672">.</span>edition <span style="color:#f92672">=</span> edition
-
-t <span style="color:#f92672">=</span> TextBook(<span style="color:#e6db74">&#39;Learn Python the Hard Way&#39;</span>)
-t<span style="color:#f92672">.</span>search(<span style="color:#e6db74">&#39;python&#39;</span>)
-<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">0</span> results found
-</code></pre></div><p>Here we correctly use inheritance to denote <code>Book</code> as a base class, a textbook <em>is a</em> book. We use
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> book <span style="color:#f92672">import</span> Book
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> index <span style="color:#f92672">import</span> IndexMixin
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBook</span>(Book, IndexMixin):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, name, contents, edition<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1st&#39;</span>):
+</span></span><span style="display:flex;"><span>        Book<span style="color:#f92672">.</span>__init__(self, name, contents)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>edition <span style="color:#f92672">=</span> edition
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t <span style="color:#f92672">=</span> TextBook(<span style="color:#e6db74">&#39;Learn Python the Hard Way&#39;</span>)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>search(<span style="color:#e6db74">&#39;python&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">0</span> results found
+</span></span></code></pre></div><p>Here we correctly use inheritance to denote <code>Book</code> as a base class, a textbook <em>is a</em> book. We use
 an <code>IndexMixin</code> because textbooks aren&rsquo;t indices, they <em>have an</em> index. We then instantiate it and
 search the book for the string &lsquo;python&rsquo;. Wait a minute, how can a textbook about python not contain
 the word python? In python, the multiple inheritance chain is read <em>right to left</em>, this means
@@ -157,22 +157,22 @@ that IndexMixin is technically the base class here. It just so happens that <cod
 function called <code>search</code> which overrides the one defined in <code>Book</code>.</p>
 <p>It turns out there&rsquo;s another way to compose classes together without using inheritance. Just <em>use</em>
 the class (or module) directly:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> book <span style="color:#f92672">import</span> Book
-<span style="color:#f92672">from</span> index <span style="color:#f92672">import</span> Index
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBook</span>(Book):
-    <span style="color:#66d9ef">def</span> __init__(self, name, contents, edition<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1st&#39;</span>):    
-        Book<span style="color:#f92672">.</span>__init__(self, name, contents)
-        self<span style="color:#f92672">.</span>edition <span style="color:#f92672">=</span> edition
-        self<span style="color:#f92672">.</span>index <span style="color:#f92672">=</span> Index()
-
-t <span style="color:#f92672">=</span> TextBook(<span style="color:#e6db74">&#39;Learn Python the Hard Way&#39;</span>)
-t<span style="color:#f92672">.</span>search(<span style="color:#e6db74">&#39;python&#39;</span>)
-<span style="color:#f92672">&gt;&gt;&gt;</span> Many results found
-
-t<span style="color:#f92672">.</span>index<span style="color:#f92672">.</span>search(<span style="color:#e6db74">&#39;python&#39;</span>)
-<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">0</span> results found
-</code></pre></div><p>If the relationship between objects A and B is &ldquo;A is a B&rdquo;, then B is a base class, not a mixin. If
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> book <span style="color:#f92672">import</span> Book
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> index <span style="color:#f92672">import</span> Index
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBook</span>(Book):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, name, contents, edition<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1st&#39;</span>):    
+</span></span><span style="display:flex;"><span>        Book<span style="color:#f92672">.</span>__init__(self, name, contents)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>edition <span style="color:#f92672">=</span> edition
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>index <span style="color:#f92672">=</span> Index()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t <span style="color:#f92672">=</span> TextBook(<span style="color:#e6db74">&#39;Learn Python the Hard Way&#39;</span>)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>search(<span style="color:#e6db74">&#39;python&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> Many results found
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>index<span style="color:#f92672">.</span>search(<span style="color:#e6db74">&#39;python&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">0</span> results found
+</span></span></code></pre></div><p>If the relationship between objects A and B is &ldquo;A is a B&rdquo;, then B is a base class, not a mixin. If
 the relationship is &ldquo;A has a B&rdquo;, then why not use composition? What benefit does a mixin give you?</p>
 
   

@@ -24,7 +24,7 @@ the issues with minimal fuss while preserving the commit order?" />
 (because you are a believer in the glory of microcommits). The reviewer however has found several
 problems, and worse, they are spread across all of the commits in your series. How do you fix all
 the issues with minimal fuss while preserving the commit order?"/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -126,23 +126,23 @@ the issues with minimal fuss while preserving the commit order?</p>
 each commit that had issues. Then after running <code>hg histedit</code> you&rsquo;d <code>roll</code> them up into their
 respective parent. Or if you were using the <a href="https://www.mercurial-scm.org/wiki/EvolveExtension">evolve</a> extension (which I definitely recommend),
 you might do something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg update <span style="color:#ae81ff">1</span>
-<span style="color:#75715e"># fix issues in commit 1</span>
-$ hg amend
-$ hg evolve
-<span style="color:#75715e"># fix issues in commit 2</span>
-$ hg amend
-$ hg evolve
-etc.
-</code></pre></div><p>Both methods are serviceable, but involve some jumping around through hoops to accomplish. Enter a
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hg update <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fix issues in commit 1</span>
+</span></span><span style="display:flex;"><span>$ hg amend
+</span></span><span style="display:flex;"><span>$ hg evolve
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fix issues in commit 2</span>
+</span></span><span style="display:flex;"><span>$ hg amend
+</span></span><span style="display:flex;"><span>$ hg evolve
+</span></span><span style="display:flex;"><span>etc.
+</span></span></code></pre></div><p>Both methods are serviceable, but involve some jumping around through hoops to accomplish. Enter a
 new extension from Facebook called <a href="https://bitbucket.org/facebook/hg-experimental/src/tip/hgext3rd/absorb.py">absorb</a>. The <code>absorb</code> extension will take each change in your
 working directory, figure out which commits in your series modified that line, and automatically
 amend the change to that commit. If there is any ambiguity (i.e multiple commits modified the same
 line), then <code>absorb</code> will simply ignore that change and leave it in your working directory to be
 resolved manually. So instead of the rather convoluted processes above, you can do this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># fix all issues across all commits</span>
-$ hg absorb
-</code></pre></div><p>It&rsquo;s magic!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># fix all issues across all commits</span>
+</span></span><span style="display:flex;"><span>$ hg absorb
+</span></span></code></pre></div><p>It&rsquo;s magic!</p>
 <h2 id="installing-absorb">Installing Absorb</h2>
 <p><strong>Note</strong>: As of Mercurial 4.8, absorb is included as a core extension! Simply add <code>absorb=</code> to the
 extensions section of your hgrc.</p>
@@ -151,27 +151,27 @@ practically non-existent, and installation is a bit of a pain. So here are the s
 it working on Fedora. They won&rsquo;t hand hold you for other platforms, but they should at least point
 you in the right direction.</p>
 <p>First, clone the <code>hg-experimental</code> repo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg clone https://bitbucket.org/facebook/hg-experimental
-</code></pre></div><p>Absorb depends on a compiled python module called <code>linelog</code> which also lives in <code>hg-experimental</code>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hg clone https://bitbucket.org/facebook/hg-experimental
+</span></span></code></pre></div><p>Absorb depends on a compiled python module called <code>linelog</code> which also lives in <code>hg-experimental</code>.
 In order to compile linelog, you&rsquo;ll need some dependencies:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pip install cython
-$ sudo dnf install python-devel
-</code></pre></div><p>Make sure the <code>cython</code> dependency gets installed to the same python your mercurial install uses.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pip install cython
+</span></span><span style="display:flex;"><span>$ sudo dnf install python-devel
+</span></span></code></pre></div><p>Make sure the <code>cython</code> dependency gets installed to the same python your mercurial install uses.
 That may mean dropping the sudo from the <code>pip</code> command if you have mercurial running in user space.
 Next, compile the <code>hg-experimental</code> repo by running:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd path/to/hg-experimental
-$ sudo python setup.py install --component absorb
-</code></pre></div><p>Again, be sure to run the install with the same python mercurial is installed with. Finally, add the
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd path/to/hg-experimental
+</span></span><span style="display:flex;"><span>$ sudo python setup.py install --component absorb
+</span></span></code></pre></div><p>Again, be sure to run the install with the same python mercurial is installed with. Finally, add the
 following to your ~/.hgrc:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extensions]</span>
-<span style="color:#a6e22e">absorb</span> <span style="color:#f92672">=</span>
-</code></pre></div><p>The extension should now be installed! In the future, you can update the extension and python
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[extensions]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">absorb</span> <span style="color:#f92672">=</span>
+</span></span></code></pre></div><p>The extension should now be installed! In the future, you can update the extension and python
 modules with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd path/to/hg-experimental
-$ hg pull --rebase
-$ make clean
-$ sudo python setup.py install --component absorb
-</code></pre></div><p>Let me know if there were other steps needed to get this working on your platform.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd path/to/hg-experimental
+</span></span><span style="display:flex;"><span>$ hg pull --rebase
+</span></span><span style="display:flex;"><span>$ make clean
+</span></span><span style="display:flex;"><span>$ sudo python setup.py install --component absorb
+</span></span></code></pre></div><p>Let me know if there were other steps needed to get this working on your platform.</p>
 
   
 

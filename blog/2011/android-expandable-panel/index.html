@@ -26,7 +26,7 @@ a trivial problem. I needed to have a text view (like that in the Android market
 collapse whenever a user presses a &lsquo;More&rsquo; or &lsquo;Less&rsquo; button. It turned out that the problem was more
 difficult than I thought and I had to make my own custom widget to accomplish the task. I based it
 off a partial solution by Peteris Caune over on Stack Overflow."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -133,265 +133,265 @@ specified height. In addition, you can set an onExpand and/or onCollapse listene
 should happen when these actions are fired.</p>
 <p>Without further ado, here is the code (comments explaining the basic sections). This code should go
 into a file called ExpandablePanel.java:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.example.androidapp.widgets<span style="color:#f92672">;</span>
-
-<span style="color:#f92672">import</span> android.content.Context<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> android.content.res.TypedArray<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> android.util.AttributeSet<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> android.view.View<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> android.view.animation.Animation<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> android.view.animation.Transformation<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> android.widget.LinearLayout<span style="color:#f92672">;</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExpandablePanel</span> <span style="color:#66d9ef">extends</span> LinearLayout <span style="color:#f92672">{</span>
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> mHandleId<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> mContentId<span style="color:#f92672">;</span>
-
-    <span style="color:#75715e">// Contains references to the handle and content views
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> View mHandle<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> View mContent<span style="color:#f92672">;</span>
-
-    <span style="color:#75715e">// Does the panel start expanded?
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> mExpanded <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-    <span style="color:#75715e">// The height of the content when collapsed
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> mCollapsedHeight <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
-    <span style="color:#75715e">// The full expanded height of the content (calculated)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> mContentHeight <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
-    <span style="color:#75715e">// How long the expand animation takes
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> mAnimationDuration <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
-
-    <span style="color:#75715e">// Listener that gets fired onExpand and onCollapse
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> OnExpandListener mListener<span style="color:#f92672">;</span>
-
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ExpandablePanel</span><span style="color:#f92672">(</span>Context context<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">this</span><span style="color:#f92672">(</span>context<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * The constructor simply validates the arguments being passed in and
-</span><span style="color:#75715e">     * sets the global variables accordingly. Required attributes are 
-</span><span style="color:#75715e">     * &#39;handle&#39; and &#39;content&#39;
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ExpandablePanel</span><span style="color:#f92672">(</span>Context context<span style="color:#f92672">,</span> AttributeSet attrs<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>context<span style="color:#f92672">,</span> attrs<span style="color:#f92672">);</span>
-        mListener <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DefaultOnExpandListener<span style="color:#f92672">();</span>
-
-        TypedArray a <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">obtainStyledAttributes</span><span style="color:#f92672">(</span>
-                    attrs<span style="color:#f92672">,</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">styleable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ExpandablePanel</span><span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
-
-        <span style="color:#75715e">// How high the content should be in &#34;collapsed&#34; state
-</span><span style="color:#75715e"></span>        mCollapsedHeight <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">getDimension</span><span style="color:#f92672">(</span>
-                    R<span style="color:#f92672">.</span><span style="color:#a6e22e">styleable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ExpandablePanel_collapsedHeight</span><span style="color:#f92672">,</span> 0<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">);</span>
-
-        <span style="color:#75715e">// How long the animation should take
-</span><span style="color:#75715e"></span>        mAnimationDuration <span style="color:#f92672">=</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">getInteger</span><span style="color:#f92672">(</span>
-                    R<span style="color:#f92672">.</span><span style="color:#a6e22e">styleable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ExpandablePanel_animationDuration</span><span style="color:#f92672">,</span> 500<span style="color:#f92672">);</span>
-
-        <span style="color:#66d9ef">int</span> handleId <span style="color:#f92672">=</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">getResourceId</span><span style="color:#f92672">(</span>
-                    R<span style="color:#f92672">.</span><span style="color:#a6e22e">styleable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ExpandablePanel_handle</span><span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
-						
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>handleId <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span>
-                <span style="color:#e6db74">&#34;The handle attribute is required and must refer &#34;</span>
-                    <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;to a valid child.&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
-
-        <span style="color:#66d9ef">int</span> contentId <span style="color:#f92672">=</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">getResourceId</span><span style="color:#f92672">(</span>
-                        R<span style="color:#f92672">.</span><span style="color:#a6e22e">styleable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ExpandablePanel_content</span><span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>contentId <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span>
-                        <span style="color:#e6db74">&#34;The content attribute is required and must &#34;</span> <span style="color:#f92672">+</span>
-                        <span style="color:#e6db74">&#34;refer to a valid child.&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
-
-        mHandleId <span style="color:#f92672">=</span> handleId<span style="color:#f92672">;</span>
-        mContentId <span style="color:#f92672">=</span> contentId<span style="color:#f92672">;</span>
-
-        a<span style="color:#f92672">.</span><span style="color:#a6e22e">recycle</span><span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#75715e">// Some public setters for manipulating the
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// ExpandablePanel programmatically
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setOnExpandListener</span><span style="color:#f92672">(</span>OnExpandListener listener<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        mListener <span style="color:#f92672">=</span> listener<span style="color:#f92672">;</span> 
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setCollapsedHeight</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> collapsedHeight<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        mCollapsedHeight <span style="color:#f92672">=</span> collapsedHeight<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setAnimationDuration</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> animationDuration<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        mAnimationDuration <span style="color:#f92672">=</span> animationDuration<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * This method gets called when the View is physically
-</span><span style="color:#75715e">     * visible to the user
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onFinishInflate</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onFinishInflate</span><span style="color:#f92672">();</span>
-
-        mHandle <span style="color:#f92672">=</span> findViewById<span style="color:#f92672">(</span>mHandleId<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mHandle <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span>
-                <span style="color:#e6db74">&#34;The handle attribute is must refer to an&#34;</span>
-                    <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; existing child.&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
-
-        mContent <span style="color:#f92672">=</span> findViewById<span style="color:#f92672">(</span>mContentId<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mContent <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span>
-                <span style="color:#e6db74">&#34;The content attribute must refer to an&#34;</span>
-                    <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; existing child.&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
-
-	    <span style="color:#75715e">// This changes the height of the content such that it
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// starts off collapsed
-</span><span style="color:#75715e"></span>        android<span style="color:#f92672">.</span><span style="color:#a6e22e">view</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ViewGroup</span><span style="color:#f92672">.</span><span style="color:#a6e22e">LayoutParams</span> lp <span style="color:#f92672">=</span> 
-                                    mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">getLayoutParams</span><span style="color:#f92672">();</span>
-        lp<span style="color:#f92672">.</span><span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> mCollapsedHeight<span style="color:#f92672">;</span>
-        mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">setLayoutParams</span><span style="color:#f92672">(</span>lp<span style="color:#f92672">);</span>
-
-		<span style="color:#75715e">// Set the OnClickListener of the handle view
-</span><span style="color:#75715e"></span>        mHandle<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnClickListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> PanelToggler<span style="color:#f92672">());</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * This is where the magic happens for measuring the actual
-</span><span style="color:#75715e">     * (un-expanded) height of the content. If the actual height
-</span><span style="color:#75715e">     * is less than the collapsedHeight, the handle will be hidden.
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onMeasure</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> widthMeasureSpec<span style="color:#f92672">,</span>
-                                            <span style="color:#66d9ef">int</span> heightMeasureSpec<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#75715e">// First, measure how high content wants to be
-</span><span style="color:#75715e"></span>        mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">measure</span><span style="color:#f92672">(</span>widthMeasureSpec<span style="color:#f92672">,</span> MeasureSpec<span style="color:#f92672">.</span><span style="color:#a6e22e">UNSPECIFIED</span><span style="color:#f92672">);</span>
-        mContentHeight <span style="color:#f92672">=</span> mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">getMeasuredHeight</span><span style="color:#f92672">();</span>
-
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mContentHeight <span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span> mCollapsedHeight<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            mHandle<span style="color:#f92672">.</span><span style="color:#a6e22e">setVisibility</span><span style="color:#f92672">(</span>View<span style="color:#f92672">.</span><span style="color:#a6e22e">GONE</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-            mHandle<span style="color:#f92672">.</span><span style="color:#a6e22e">setVisibility</span><span style="color:#f92672">(</span>View<span style="color:#f92672">.</span><span style="color:#a6e22e">VISIBLE</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
-
-        <span style="color:#75715e">// Then let the usual thing happen
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onMeasure</span><span style="color:#f92672">(</span>widthMeasureSpec<span style="color:#f92672">,</span> heightMeasureSpec<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * This is the on click listener for the handle.
-</span><span style="color:#75715e">     * It basically just creates a new animation instance and fires
-</span><span style="color:#75715e">     * animation.
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PanelToggler</span> <span style="color:#66d9ef">implements</span> OnClickListener <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">(</span>View v<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            Animation a<span style="color:#f92672">;</span>
-            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mExpanded<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-               a <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ExpandAnimation<span style="color:#f92672">(</span>mContentHeight<span style="color:#f92672">,</span> mCollapsedHeight<span style="color:#f92672">);</span>
-               mListener<span style="color:#f92672">.</span><span style="color:#a6e22e">onCollapse</span><span style="color:#f92672">(</span>mHandle<span style="color:#f92672">,</span> mContent<span style="color:#f92672">);</span>
-            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-               a <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ExpandAnimation<span style="color:#f92672">(</span>mCollapsedHeight<span style="color:#f92672">,</span> mContentHeight<span style="color:#f92672">);</span>
-               mListener<span style="color:#f92672">.</span><span style="color:#a6e22e">onExpand</span><span style="color:#f92672">(</span>mHandle<span style="color:#f92672">,</span> mContent<span style="color:#f92672">);</span>
-            <span style="color:#f92672">}</span>
-            a<span style="color:#f92672">.</span><span style="color:#a6e22e">setDuration</span><span style="color:#f92672">(</span>mAnimationDuration<span style="color:#f92672">);</span>
-            mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">startAnimation</span><span style="color:#f92672">(</span>a<span style="color:#f92672">);</span>
-            mExpanded <span style="color:#f92672">=</span> <span style="color:#f92672">!</span>mExpanded<span style="color:#f92672">;</span>
-        <span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * This is a private animation class that handles the expand/collapse
-</span><span style="color:#75715e">     * animations. It uses the animationDuration attribute for the length 
-</span><span style="color:#75715e">     * of time it takes.
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExpandAnimation</span> <span style="color:#66d9ef">extends</span> Animation <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> mStartHeight<span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> mDeltaHeight<span style="color:#f92672">;</span>
-
-        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ExpandAnimation</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> startHeight<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> endHeight<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            mStartHeight <span style="color:#f92672">=</span> startHeight<span style="color:#f92672">;</span>
-            mDeltaHeight <span style="color:#f92672">=</span> endHeight <span style="color:#f92672">-</span> startHeight<span style="color:#f92672">;</span>
-        <span style="color:#f92672">}</span>
-
-        <span style="color:#a6e22e">@Override</span>
-        <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">applyTransformation</span><span style="color:#f92672">(</span><span style="color:#66d9ef">float</span> interpolatedTime<span style="color:#f92672">,</span> 
-                                                 Transformation t<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            android<span style="color:#f92672">.</span><span style="color:#a6e22e">view</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ViewGroup</span><span style="color:#f92672">.</span><span style="color:#a6e22e">LayoutParams</span> lp <span style="color:#f92672">=</span> 
-                                          mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">getLayoutParams</span><span style="color:#f92672">();</span>
-            lp<span style="color:#f92672">.</span><span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> <span style="color:#f92672">(</span>mStartHeight <span style="color:#f92672">+</span> mDeltaHeight <span style="color:#f92672">*</span>
-                                                   interpolatedTime<span style="color:#f92672">);</span>
-            mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">setLayoutParams</span><span style="color:#f92672">(</span>lp<span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
-
-        <span style="color:#a6e22e">@Override</span>
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">willChangeBounds</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-        <span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * Simple OnExpandListener interface
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">OnExpandListener</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onExpand</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">);</span> 
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCollapse</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DefaultOnExpandListener</span> <span style="color:#66d9ef">implements</span> OnExpandListener <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCollapse</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">)</span> <span style="color:#f92672">{}</span>
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onExpand</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">)</span> <span style="color:#f92672">{}</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>In addition to this file, Android requires you to define any attributes that can be specified from
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.androidapp.widgets<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> android.content.Context<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> android.content.res.TypedArray<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> android.util.AttributeSet<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> android.view.View<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> android.view.animation.Animation<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> android.view.animation.Transformation<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> android.widget.LinearLayout<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExpandablePanel</span> <span style="color:#66d9ef">extends</span> LinearLayout <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> mHandleId<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> mContentId<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Contains references to the handle and content views
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> View mHandle<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> View mContent<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Does the panel start expanded?
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> mExpanded <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// The height of the content when collapsed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> mCollapsedHeight <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// The full expanded height of the content (calculated)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> mContentHeight <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// How long the expand animation takes
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> mAnimationDuration <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Listener that gets fired onExpand and onCollapse
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> OnExpandListener mListener<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ExpandablePanel</span><span style="color:#f92672">(</span>Context context<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">(</span>context<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * The constructor simply validates the arguments being passed in and
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * sets the global variables accordingly. Required attributes are 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * &#39;handle&#39; and &#39;content&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ExpandablePanel</span><span style="color:#f92672">(</span>Context context<span style="color:#f92672">,</span> AttributeSet attrs<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>context<span style="color:#f92672">,</span> attrs<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        mListener <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DefaultOnExpandListener<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        TypedArray a <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">obtainStyledAttributes</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                    attrs<span style="color:#f92672">,</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">styleable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ExpandablePanel</span><span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// How high the content should be in &#34;collapsed&#34; state
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        mCollapsedHeight <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">getDimension</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                    R<span style="color:#f92672">.</span><span style="color:#a6e22e">styleable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ExpandablePanel_collapsedHeight</span><span style="color:#f92672">,</span> 0<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// How long the animation should take
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        mAnimationDuration <span style="color:#f92672">=</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">getInteger</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                    R<span style="color:#f92672">.</span><span style="color:#a6e22e">styleable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ExpandablePanel_animationDuration</span><span style="color:#f92672">,</span> 500<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> handleId <span style="color:#f92672">=</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">getResourceId</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                    R<span style="color:#f92672">.</span><span style="color:#a6e22e">styleable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ExpandablePanel_handle</span><span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>						
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>handleId <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;The handle attribute is required and must refer &#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;to a valid child.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> contentId <span style="color:#f92672">=</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">getResourceId</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                        R<span style="color:#f92672">.</span><span style="color:#a6e22e">styleable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ExpandablePanel_content</span><span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>contentId <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#e6db74">&#34;The content attribute is required and must &#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#e6db74">&#34;refer to a valid child.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        mHandleId <span style="color:#f92672">=</span> handleId<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        mContentId <span style="color:#f92672">=</span> contentId<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        a<span style="color:#f92672">.</span><span style="color:#a6e22e">recycle</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Some public setters for manipulating the
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// ExpandablePanel programmatically
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setOnExpandListener</span><span style="color:#f92672">(</span>OnExpandListener listener<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        mListener <span style="color:#f92672">=</span> listener<span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setCollapsedHeight</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> collapsedHeight<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        mCollapsedHeight <span style="color:#f92672">=</span> collapsedHeight<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setAnimationDuration</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> animationDuration<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        mAnimationDuration <span style="color:#f92672">=</span> animationDuration<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * This method gets called when the View is physically
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * visible to the user
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onFinishInflate</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onFinishInflate</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        mHandle <span style="color:#f92672">=</span> findViewById<span style="color:#f92672">(</span>mHandleId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mHandle <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;The handle attribute is must refer to an&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; existing child.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        mContent <span style="color:#f92672">=</span> findViewById<span style="color:#f92672">(</span>mContentId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mContent <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;The content attribute must refer to an&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; existing child.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#75715e">// This changes the height of the content such that it
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// starts off collapsed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        android<span style="color:#f92672">.</span><span style="color:#a6e22e">view</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ViewGroup</span><span style="color:#f92672">.</span><span style="color:#a6e22e">LayoutParams</span> lp <span style="color:#f92672">=</span> 
+</span></span><span style="display:flex;"><span>                                    mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">getLayoutParams</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        lp<span style="color:#f92672">.</span><span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> mCollapsedHeight<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">setLayoutParams</span><span style="color:#f92672">(</span>lp<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Set the OnClickListener of the handle view
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        mHandle<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnClickListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> PanelToggler<span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * This is where the magic happens for measuring the actual
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * (un-expanded) height of the content. If the actual height
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * is less than the collapsedHeight, the handle will be hidden.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onMeasure</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> widthMeasureSpec<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                                            <span style="color:#66d9ef">int</span> heightMeasureSpec<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// First, measure how high content wants to be
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">measure</span><span style="color:#f92672">(</span>widthMeasureSpec<span style="color:#f92672">,</span> MeasureSpec<span style="color:#f92672">.</span><span style="color:#a6e22e">UNSPECIFIED</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        mContentHeight <span style="color:#f92672">=</span> mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">getMeasuredHeight</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mContentHeight <span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span> mCollapsedHeight<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            mHandle<span style="color:#f92672">.</span><span style="color:#a6e22e">setVisibility</span><span style="color:#f92672">(</span>View<span style="color:#f92672">.</span><span style="color:#a6e22e">GONE</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            mHandle<span style="color:#f92672">.</span><span style="color:#a6e22e">setVisibility</span><span style="color:#f92672">(</span>View<span style="color:#f92672">.</span><span style="color:#a6e22e">VISIBLE</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Then let the usual thing happen
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onMeasure</span><span style="color:#f92672">(</span>widthMeasureSpec<span style="color:#f92672">,</span> heightMeasureSpec<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * This is the on click listener for the handle.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * It basically just creates a new animation instance and fires
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * animation.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PanelToggler</span> <span style="color:#66d9ef">implements</span> OnClickListener <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">(</span>View v<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            Animation a<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mExpanded<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>               a <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ExpandAnimation<span style="color:#f92672">(</span>mContentHeight<span style="color:#f92672">,</span> mCollapsedHeight<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>               mListener<span style="color:#f92672">.</span><span style="color:#a6e22e">onCollapse</span><span style="color:#f92672">(</span>mHandle<span style="color:#f92672">,</span> mContent<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>               a <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ExpandAnimation<span style="color:#f92672">(</span>mCollapsedHeight<span style="color:#f92672">,</span> mContentHeight<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>               mListener<span style="color:#f92672">.</span><span style="color:#a6e22e">onExpand</span><span style="color:#f92672">(</span>mHandle<span style="color:#f92672">,</span> mContent<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            a<span style="color:#f92672">.</span><span style="color:#a6e22e">setDuration</span><span style="color:#f92672">(</span>mAnimationDuration<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">startAnimation</span><span style="color:#f92672">(</span>a<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            mExpanded <span style="color:#f92672">=</span> <span style="color:#f92672">!</span>mExpanded<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * This is a private animation class that handles the expand/collapse
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * animations. It uses the animationDuration attribute for the length 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * of time it takes.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExpandAnimation</span> <span style="color:#66d9ef">extends</span> Animation <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> mStartHeight<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> mDeltaHeight<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ExpandAnimation</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> startHeight<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> endHeight<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            mStartHeight <span style="color:#f92672">=</span> startHeight<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            mDeltaHeight <span style="color:#f92672">=</span> endHeight <span style="color:#f92672">-</span> startHeight<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">applyTransformation</span><span style="color:#f92672">(</span><span style="color:#66d9ef">float</span> interpolatedTime<span style="color:#f92672">,</span> 
+</span></span><span style="display:flex;"><span>                                                 Transformation t<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            android<span style="color:#f92672">.</span><span style="color:#a6e22e">view</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ViewGroup</span><span style="color:#f92672">.</span><span style="color:#a6e22e">LayoutParams</span> lp <span style="color:#f92672">=</span> 
+</span></span><span style="display:flex;"><span>                                          mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">getLayoutParams</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            lp<span style="color:#f92672">.</span><span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> <span style="color:#f92672">(</span>mStartHeight <span style="color:#f92672">+</span> mDeltaHeight <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>                                                   interpolatedTime<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            mContent<span style="color:#f92672">.</span><span style="color:#a6e22e">setLayoutParams</span><span style="color:#f92672">(</span>lp<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">willChangeBounds</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * Simple OnExpandListener interface
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">OnExpandListener</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onExpand</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">);</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCollapse</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DefaultOnExpandListener</span> <span style="color:#66d9ef">implements</span> OnExpandListener <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCollapse</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">)</span> <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onExpand</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">)</span> <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>In addition to this file, Android requires you to define any attributes that can be specified from
 an xml layout file.  Put this code into your res/values/attrs.xml file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&amp;gt;
-&amp;lt;resources&amp;gt;
-    &amp;lt;declare-styleable name=&#34;ExpandablePanel&#34;&amp;gt;
-        &amp;lt;attr name=&#34;handle&#34; format=&#34;reference&#34; /&amp;gt;
-        &amp;lt;attr name=&#34;content&#34; format=&#34;reference&#34; /&amp;gt;
-        &amp;lt;attr name=&#34;collapsedHeight&#34; format=&#34;dimension&#34;/&amp;gt;
-        &amp;lt;attr name=&#34;animationDuration&#34; format=&#34;integer&#34;/&amp;gt;
-    &amp;lt;/declare-styleable&amp;gt;
-&amp;lt;/resources&amp;gt;
-</code></pre></div><p>That&rsquo;s all you need to start using the ExpandablePanel.  Let&rsquo;s see how it works.  The first step is
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&amp;gt;
+</span></span><span style="display:flex;"><span>&amp;lt;resources&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;declare-styleable name=&#34;ExpandablePanel&#34;&amp;gt;
+</span></span><span style="display:flex;"><span>        &amp;lt;attr name=&#34;handle&#34; format=&#34;reference&#34; /&amp;gt;
+</span></span><span style="display:flex;"><span>        &amp;lt;attr name=&#34;content&#34; format=&#34;reference&#34; /&amp;gt;
+</span></span><span style="display:flex;"><span>        &amp;lt;attr name=&#34;collapsedHeight&#34; format=&#34;dimension&#34;/&amp;gt;
+</span></span><span style="display:flex;"><span>        &amp;lt;attr name=&#34;animationDuration&#34; format=&#34;integer&#34;/&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;/declare-styleable&amp;gt;
+</span></span><span style="display:flex;"><span>&amp;lt;/resources&amp;gt;
+</span></span></code></pre></div><p>That&rsquo;s all you need to start using the ExpandablePanel.  Let&rsquo;s see how it works.  The first step is
 to define the ExpandablePanel in an xml layout.  Let&rsquo;s pretend we have a file called
 res/layouts/panel.xml.  It&rsquo;s contents might look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;com.example.androidapp.widgets.ExpandablePanel
-    android:id=&#34;@+id/foo&#34;
-    android:orientation=&#34;vertical&#34;
-    android:layout_height=&#34;wrap_content&#34;
-    android:layout_width=&#34;fill_parent&#34;
-    example:handle=&#34;@+id/expand&#34;
-    example:content=&#34;@+id/value&#34;
-    example:collapsedHeight=&#34;50dip&#34;
-    example:animationDuration=&#34;25&#34;&amp;gt;
-    &amp;lt;TextView
-        android:id=&#34;@id/value&#34;
-        android:layout_width=&#34;fill_parent&#34;
-        android:layout_height=&#34;wrap_content&#34;/&amp;gt;
-    &amp;lt;Button
-        android:id=&#34;@id/expand&#34;
-        android:layout_width=&#34;wrap_content&#34;
-        android:layout_height=&#34;wrap_content&#34;
-        android:text=&#34;More&#34; /&amp;gt;
-&amp;lt;/com.example.androidapp.widgets.ExpandablePanel&amp;gt;
-</code></pre></div><p>This works, but when you click the &lsquo;More&rsquo; button the text doesn&rsquo;t get changed to &lsquo;Less&rsquo;. In order to
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>&amp;lt;com.example.androidapp.widgets.ExpandablePanel
+</span></span><span style="display:flex;"><span>    android:id=&#34;@+id/foo&#34;
+</span></span><span style="display:flex;"><span>    android:orientation=&#34;vertical&#34;
+</span></span><span style="display:flex;"><span>    android:layout_height=&#34;wrap_content&#34;
+</span></span><span style="display:flex;"><span>    android:layout_width=&#34;fill_parent&#34;
+</span></span><span style="display:flex;"><span>    example:handle=&#34;@+id/expand&#34;
+</span></span><span style="display:flex;"><span>    example:content=&#34;@+id/value&#34;
+</span></span><span style="display:flex;"><span>    example:collapsedHeight=&#34;50dip&#34;
+</span></span><span style="display:flex;"><span>    example:animationDuration=&#34;25&#34;&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;TextView
+</span></span><span style="display:flex;"><span>        android:id=&#34;@id/value&#34;
+</span></span><span style="display:flex;"><span>        android:layout_width=&#34;fill_parent&#34;
+</span></span><span style="display:flex;"><span>        android:layout_height=&#34;wrap_content&#34;/&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;Button
+</span></span><span style="display:flex;"><span>        android:id=&#34;@id/expand&#34;
+</span></span><span style="display:flex;"><span>        android:layout_width=&#34;wrap_content&#34;
+</span></span><span style="display:flex;"><span>        android:layout_height=&#34;wrap_content&#34;
+</span></span><span style="display:flex;"><span>        android:text=&#34;More&#34; /&amp;gt;
+</span></span><span style="display:flex;"><span>&amp;lt;/com.example.androidapp.widgets.ExpandablePanel&amp;gt;
+</span></span></code></pre></div><p>This works, but when you click the &lsquo;More&rsquo; button the text doesn&rsquo;t get changed to &lsquo;Less&rsquo;. In order to
 accomplish this we need to set the listeners:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// Set expandable panel listener
-</span><span style="color:#75715e"></span>ExpandablePanel panel <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ExpandablePanel<span style="color:#f92672">)</span>view<span style="color:#f92672">.</span><span style="color:#a6e22e">findViewById</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">foo</span><span style="color:#f92672">);</span>
-panel<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnExpandListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ExpandablePanel<span style="color:#f92672">.</span><span style="color:#a6e22e">OnExpandListener</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCollapse</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        Button btn <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Button<span style="color:#f92672">)</span>handle<span style="color:#f92672">;</span>
-        btn<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;More&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onExpand</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        Button btn <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Button<span style="color:#f92672">)</span>handle<span style="color:#f92672">;</span>
-        btn<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Less&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">});</span>
-</code></pre></div><p>And that&rsquo;s it! If you want to get a nice text fadeout look like the one in the Android market, you
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Set expandable panel listener
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ExpandablePanel panel <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ExpandablePanel<span style="color:#f92672">)</span>view<span style="color:#f92672">.</span><span style="color:#a6e22e">findViewById</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">foo</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>panel<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnExpandListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ExpandablePanel<span style="color:#f92672">.</span><span style="color:#a6e22e">OnExpandListener</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCollapse</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Button btn <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Button<span style="color:#f92672">)</span>handle<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        btn<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;More&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onExpand</span><span style="color:#f92672">(</span>View handle<span style="color:#f92672">,</span> View content<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Button btn <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Button<span style="color:#f92672">)</span>handle<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        btn<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Less&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">});</span>
+</span></span></code></pre></div><p>And that&rsquo;s it! If you want to get a nice text fadeout look like the one in the Android market, you
 can set/remove a LinearGradient with the content TextView&rsquo;s getPaint().setShader() method. Just add
 the shader onCollapse and remove the shader onExpand.</p>
 <p>There are still lots of improvements to be made and I&rsquo;m sure there are a bunch of bugs that I

@@ -26,7 +26,7 @@ all over? Or worse yet, have you landed before reviewbot had a chance to analyze
 backed out over lint failures? If so fear not, we&rsquo;ve all been there. Still, it&rsquo;s hard not to feel a
 little embarrassed when it happens. Luckily for you, it&rsquo;s pretty easy to eliminate the possibility
 of it ever happening again!"/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -141,8 +141,8 @@ hook</a>. But
 now that the <code>moz-phab</code> tool uploads a diff of your changes rather than pushing to a review repo,
 that no longer works. And while you could still technically use a commit hook, I find <code>./mach lint</code>
 isn&rsquo;t performant enough given how often I commit things. In the end, I use a simple shell alias:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">alias review<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mach lint -o &amp;&amp; moz-phab submit&#34;</span>
-</code></pre></div><p>Add the above to your <code>~/.bashrc</code> or equivalent. Now instead of running <code>moz-phab submit</code> to submit
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias review<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mach lint -o &amp;&amp; moz-phab submit&#34;</span>
+</span></span></code></pre></div><p>Add the above to your <code>~/.bashrc</code> or equivalent. Now instead of running <code>moz-phab submit</code> to submit
 to Phabricator, run <code>review</code> and you&rsquo;ll never accidentally submit with a lint error again.</p>
 
   

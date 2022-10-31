@@ -24,7 +24,7 @@ with this knowledge, I hope you&rsquo;ll be able to use mach try a little more e
 try fuzzy?&rdquo; or &ldquo;How can I avoid getting backed out?&rdquo;. This post is not so much a tip, rather an
 explanation around how mach try works and its relationship to the CI system (taskgraph). Armed
 with this knowledge, I hope you&rsquo;ll be able to use mach try a little more effectively."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -134,12 +134,12 @@ task. A very frustrating experience!</p>
 <p>To solve this issue we decided to source the list of available tasks directly from the same command
 that is used to generate tasks in CI, <code>./mach taskgraph</code>. That&rsquo;s why sometimes when you push you&rsquo;ll
 see a message like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach try fuzzy
-Task configuration changed, generating target task set
-</code></pre></div><p>Followed by a (too long) delay while the set of tasks available on your current revision are
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./mach try fuzzy
+</span></span><span style="display:flex;"><span>Task configuration changed, generating target task set
+</span></span></code></pre></div><p>Followed by a (too long) delay while the set of tasks available on your current revision are
 generated. To illustrate the point, if you run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach taskgraph target --fast --parameters project<span style="color:#f92672">=</span>mozilla-central
-</code></pre></div><p>the command will output (almost) the exact same list that you would see in the <code>./mach try fuzzy</code>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./mach taskgraph target --fast --parameters project<span style="color:#f92672">=</span>mozilla-central
+</span></span></code></pre></div><p>the command will output (almost) the exact same list that you would see in the <code>./mach try fuzzy</code>
 interface. We&rsquo;ll get into the almost later.</p>
 <h2 id="a-brief-primer-on-task-generation">A Brief Primer on Task Generation</h2>
 <p>Establishing that <code>./mach try</code> sources its list of tasks from the taskgraph, unfortunately means
@@ -165,16 +165,16 @@ between &ldquo;target tasks&rdquo; and &ldquo;optimized tasks&rdquo;.</li>
 </ol>
 <h2 id="connecting-the-dots">Connecting the Dots</h2>
 <p>Let&rsquo;s revisit that taskgraph command that <code>./mach try</code> uses by default from earlier:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach taskgraph target --fast --parameters project<span style="color:#f92672">=</span>mozilla-central
-</code></pre></div><p>Applying our new found taskgraph knowledge, this means generate the &ldquo;target tasks&rdquo; using the
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./mach taskgraph target --fast --parameters project<span style="color:#f92672">=</span>mozilla-central
+</span></span></code></pre></div><p>Applying our new found taskgraph knowledge, this means generate the &ldquo;target tasks&rdquo; using the
 parameters file from the latest mozilla-central push. In other words, &ldquo;get me all tasks that are
 relevant on mozilla-central&rdquo;. So if you&rsquo;re searching for a task in the <code>./mach try fuzzy</code> interface
 and you don&rsquo;t see it, it most likely means that the task isn&rsquo;t configured to run there (still
 getting to that most likely).</p>
 <p>In such a case, you may have been told to run <code>./mach try fuzzy --full</code>. This runs a taskgraph
 command similar to:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach taskgraph full --fast --parameters project<span style="color:#f92672">=</span>mozilla-central
-</code></pre></div><p>The difference here is that we are generating the &ldquo;full&rdquo; set of tasks. That is, every single task
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./mach taskgraph full --fast --parameters project<span style="color:#f92672">=</span>mozilla-central
+</span></span></code></pre></div><p>The difference here is that we are generating the &ldquo;full&rdquo; set of tasks. That is, every single task
 that exists! While using this flag can be handy to run a specific task no matter the context, care
 must be taken since most of these tasks are not relevant to mozilla-central (and likely for a good
 reason). They could be release tasks, or maybe they are running on platforms we&rsquo;ve retired, or maybe
@@ -208,8 +208,8 @@ belong here and which ones don&rsquo;t. So if you feel like one of these excepti
 please file a bug about it under <code>Firefox Build System :: Task Configuration</code>.</p>
 <p>If you <em>really</em> need to see the exact set of tasks that could possibly cause you to get backed out,
 there is a special flag to disable this exception. You can run it like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach try fuzzy --disable-target-task-filter
-</code></pre></div><p>But please use this flag sparingly! There are usually good reasons these tasks have been excluded
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./mach try fuzzy --disable-target-task-filter
+</span></span></code></pre></div><p>But please use this flag sparingly! There are usually good reasons these tasks have been excluded
 and the risk of being backed out has been factored into the decision.</p>
 <h2 id="summary">Summary</h2>
 <p>To summarize, the default set of tasks you see in <code>./mach try fuzzy</code> (and other selectors) are the

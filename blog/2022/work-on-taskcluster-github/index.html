@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<meta property="og:title" content="How to Work on Taskcluster Github" />
+<meta property="og:description" content="Taskcluster Github is the Taskcluster service responsible for kick starting tasks on
+Github repositories. At a high level:
+
+You install a Taskcluster app from the Github marketplace.
+This app sends webhooks to the Github service.
+Upon receiving a webhook, the Github service processes your repository&rsquo;s .taskcluster.yml
+file.
+The Github service schedules tasks (if any) and updates the Github checks suite, or comments on
+your push / pull-request if there is an error.
+
+While the service itself is relatively simple, testing it locally can be a pain! One approach might
+be to try and synthesize Github&rsquo;s webhook events, and then intercept the network requests that the
+Github service makes in response. But this is tricky to do, and without actually seeing the
+results in a proper Github repo, it&rsquo;s hard to be sure that your changes are working as intended.
+Ideally you would have a real repo, with a development version of the app listed in the Github
+Marketplace, hooked up to a Taskcluster Github service running on your local machine. This way you could
+trigger webhooks by performing real actions in your repo (such as opening a pull-request). Better
+yet, you could see exactly how your Github service changes react!
+Thanks to a lot of great work from Yarik, this is easier than ever and is all documented (or linked
+to) from this page. If you are already familiar with Taskcluster development, or enjoy figuring
+things out yourself, you may wish to skip this post and read the docs instead. But if you are a
+Taskcluster newbie like myself, and would appreciate some hand holding, follow along for a step by
+step tutorial on how to work on and test Taskcluster Github!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahal.ca/blog/2022/work-on-taskcluster-github/" />
+<meta property="article:published_time" content="2022-08-10T11:58:24-04:00" />
+<meta property="article:modified_time" content="2022-08-10T11:58:24-04:00" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Work on Taskcluster Github"/>
+<meta name="twitter:description" content="Taskcluster Github is the Taskcluster service responsible for kick starting tasks on
+Github repositories. At a high level:
+
+You install a Taskcluster app from the Github marketplace.
+This app sends webhooks to the Github service.
+Upon receiving a webhook, the Github service processes your repository&rsquo;s .taskcluster.yml
+file.
+The Github service schedules tasks (if any) and updates the Github checks suite, or comments on
+your push / pull-request if there is an error.
+
+While the service itself is relatively simple, testing it locally can be a pain! One approach might
+be to try and synthesize Github&rsquo;s webhook events, and then intercept the network requests that the
+Github service makes in response. But this is tricky to do, and without actually seeing the
+results in a proper Github repo, it&rsquo;s hard to be sure that your changes are working as intended.
+Ideally you would have a real repo, with a development version of the app listed in the Github
+Marketplace, hooked up to a Taskcluster Github service running on your local machine. This way you could
+trigger webhooks by performing real actions in your repo (such as opening a pull-request). Better
+yet, you could see exactly how your Github service changes react!
+Thanks to a lot of great work from Yarik, this is easier than ever and is all documented (or linked
+to) from this page. If you are already familiar with Taskcluster development, or enjoy figuring
+things out yourself, you may wish to skip this post and read the docs instead. But if you are a
+Taskcluster newbie like myself, and would appreciate some hand holding, follow along for a step by
+step tutorial on how to work on and test Taskcluster Github!"/>
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Work on Taskcluster Github",
+  "url": "https:\/\/ahal.ca\/blog\/2022\/work-on-taskcluster-github\/",
+  "wordCount": "1697",
+  "datePublished": "2022-08-10T11:58:24-04:00",
+  "dateModified": "2022-08-10T11:58:24-04:00",
+  "author": {
+    "@type": "Person",
+    "name": "Andrew Halberstadt"
+  },
+  "keywords": "taskcluster, github"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://ahal.ca/blog/2022/work-on-taskcluster-github/">
+
+    <title>How to Work on Taskcluster Github | Hunting the Shmoo</title>
+
+    
+    <!-- combined, minified CSS -->
+    
+    <link href="https://ahal.ca/css/style.beb8012edc08ba10be012f079d618dc243812267efe62e11f22fe49618f976a4.css" rel="stylesheet" integrity="sha256-vrgBLtwIuhC&#43;AS8HnWGNwkOBImfv5i4R8i/klhj5dqQ=" crossorigin="anonymous">
+    
+
+    <!-- minified Font Awesome for SVG icons -->
+    
+    <script defer src="https://ahal.ca/js/fontawesome.min.ffbfea088a9a1666ec65c3a8cb4906e2a0e4f92dc70dbbf400a125ad2422123a.js" integrity="sha256-/7/qCIqaFmbsZcOoy0kG4qDk&#43;S3HDbv0AKElrSQiEjo=" crossorigin="anonymous"></script>
+
+    <!-- RSS 2.0 feed -->
+    
+
+    <link rel="shortcut icon" href="/favicon.png">
+<link href="https://ahal.ca/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://ahal.ca/css/override.css" rel="stylesheet">
+<link href="https://ahal.ca/css/debugprint.css" rel="stylesheet">
+<script type="text/javascript" src="/js/menu.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://ahal.ca/">Home</a>
+          
+          <a class="nav-link" href="/blog/" title="">Blog</a>
+          
+          
+          <a class="nav-link" href="/casts/" title="">Casts</a>
+          
+        </nav>
+      </div>
+    </div>
+    
+
+    
+    
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title" dir="auto"><a href="https://ahal.ca/" rel="home">Hunting the Shmoo</a></h1>
+        <p class="lead blog-description" dir="auto">Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy.</p>
+      </div>
+    </header>
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://ahal.ca/blog/2022/work-on-taskcluster-github/">How to Work on Taskcluster Github</a></h2>
+    <p class="blog-post-meta"><time datetime="2022-08-10T11:58:24-04:00">Aug 10, 2022</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/taskcluster/" rel="tag">taskcluster</a>, <a href="/tags/github/" rel="tag">github</a>
+
+</p>
+  </header>
+  <p><a href="https://docs.taskcluster.net/docs/reference/integrations/github">Taskcluster Github</a> is the <a href="https://taskcluster.net/">Taskcluster</a> service responsible for kick starting tasks on
+Github repositories. At a high level:</p>
+<ol>
+<li>You install a <a href="https://github.com/apps/firefoxci-taskcluster">Taskcluster app from the Github marketplace</a>.</li>
+<li>This app sends webhooks to the Github service.</li>
+<li>Upon receiving a webhook, the Github service processes your repository&rsquo;s <a href="https://docs.taskcluster.net/docs/reference/integrations/github/taskcluster-yml-v1">.taskcluster.yml</a>
+file.</li>
+<li>The Github service schedules tasks (if any) and updates the Github checks suite, or comments on
+your push / pull-request if there is an error.</li>
+</ol>
+<p>While the service itself is relatively simple, testing it locally can be a pain! One approach might
+be to try and synthesize Github&rsquo;s webhook events, and then intercept the network requests that the
+Github service makes in response. But this is tricky to do, and without actually <em>seeing</em> the
+results in a proper Github repo, it&rsquo;s hard to be sure that your changes are working as intended.</p>
+<p>Ideally you would have a real repo, with a development version of the app listed in the Github
+Marketplace, hooked up to a Taskcluster Github service running on your local machine. This way you could
+trigger webhooks by performing real actions in your repo (such as opening a pull-request). Better
+yet, you could see exactly how your Github service changes react!</p>
+<p>Thanks to a lot of great work from Yarik, this is easier than ever and is all documented (or linked
+to) from <a href="https://github.com/taskcluster/taskcluster/blob/main/dev-docs/development-process.md#running-everything-locally-using-docker-compose">this page</a>. If you are already familiar with Taskcluster development, or enjoy figuring
+things out yourself, you may wish to skip this post and read the docs instead. But if you are a
+Taskcluster newbie like myself, and would appreciate some hand holding, follow along for a step by
+step tutorial on how to work on and test Taskcluster Github!</p>
+<h1 id="running-taskcluster-github-locally">Running Taskcluster Github Locally</h1>
+<p>Before going too far down the rabbit hole, let&rsquo;s make sure you can run Taskcluster Github
+locally in the first place.</p>
+<h2 id="pre-requisites">Pre-requisites</h2>
+<p>If you don&rsquo;t have the [Taskcluster monorepo][5] cloned already, start by cloning it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/taskcluster/taskcluster
+</span></span><span style="display:flex;"><span>cd taskcluster
+</span></span></code></pre></div><p>You&rsquo;ll need a specific version of <code>node</code> to run various operations in the repo. You can inspect
+<code>.nvmrc</code> to see the current required version, but as of the time of this writing it&rsquo;s <code>16.18.0</code>.
+It&rsquo;s recommended to use <a href="https://github.com/taskcluster/taskcluster/blob/c403ef448e04819b9f04f997434f2c20d570a07c/package.json#L189">nvm</a> to facilitate this. Follow the installation instructions, then run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nvm install 16.18.0
+</span></span><span style="display:flex;"><span>nvm use 16.18.0
+</span></span></code></pre></div><p>You&rsquo;ll also want <code>yarn</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g yarn
+</span></span></code></pre></div><p>Services can be run with Docker. So if you don&rsquo;t already, make sure both <a href="https://docs.docker.com/get-docker/">docker</a> and the <a href="https://docs.docker.com/compose/install/">docker
+compose</a> plugin are installed and working properly.</p>
+<h2 id="edit-hosts-file">Edit <code>hosts</code> File</h2>
+<p>All Taskcluster web services are served via nginx through a single <code>taskcluster</code> service reachable
+through http://taskcluster on the localhost. To solve some authentication issues, it&rsquo;s necessary to
+add the following to your hosts file:</p>
+<pre tabindex="0"><code>127.0.0.1 taskcluster
+</code></pre><p>On Linux and Mac, the hosts file is located at <code>/etc/hosts</code>. On Windows it can be found under
+<code>C:\Windows\System32\drivers\etc\hosts</code>.</p>
+<h2 id="start-the-services">Start the Services</h2>
+<p>Now you&rsquo;re ready to start the web services:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yarn start
+</span></span></code></pre></div><p>Note that <code>yarn start</code> and <code>yarn stop</code> are <a href="https://github.com/taskcluster/taskcluster/blob/c403ef448e04819b9f04f997434f2c20d570a07c/package.json#L189">simple wrappers</a> around <code>docker compose</code>. If you are
+comfortable with <code>docker compose</code> and want more control, feel free to use it directly.</p>
+<p>Now navigate to http://taskcluster and verify that a Taskcluster instance is running.</p>
+<h2 id="start-the-github-service">Start the Github Service</h2>
+<p>By default, <code>yarn start</code> does not run any of the background services so we&rsquo;ll have to start our
+Github service explicitly:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yarn start github-background-worker
+</span></span></code></pre></div><p>To verify it is running simply check the logs and make sure there is output with no obvious errors:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker compose logs github-background-worker
+</span></span></code></pre></div><h1 id="connecting-your-service-to-github">Connecting your Service to Github</h1>
+<p>Now that you&rsquo;re confident you can run the Github service locally, we need to somehow connect it to
+Github.</p>
+<h2 id="expose-the-service-to-the-internet">Expose the Service to the Internet</h2>
+<p>First let&rsquo;s just get the service accessible to the internet. To accomplish this, we&rsquo;ll use a tool
+called <a href="https://ngrok.com/">ngrok</a>. Follow these steps to get it running:</p>
+<ol>
+<li>First <a href="https://ngrok.com/download">download and install</a> ngrok.</li>
+<li>Next <a href="https://dashboard.ngrok.com/signup">signup for a free account</a>.</li>
+<li>Then run the command <code>ngrok config add-authtoken &amp;lt;token&amp;gt;</code>. Your token can be found in your
+dashboard after logging in.</li>
+<li>Finally, run <code>ngrok http --host-header=taskcluster taskcluster:80</code>.</li>
+</ol>
+<p>To test that it&rsquo;s working, visit http://127.0.0.1:4040/, click through to the custom URL displayed
+on the main page (you may need to accept a warning first) and verify that it takes you to your
+Taskcluster instance&rsquo;s homepage.</p>
+<h2 id="create-a-github-app">Create a Github App</h2>
+<p>Now that we can access our Taskcluster instance from the web, let&rsquo;s create a Github App that sends
+webhooks to it. You can follow along the <a href="https://docs.taskcluster.net/docs/manual/deploying/github">Taskcluster documentation here</a>. But the gist is to:</p>
+<ol>
+<li>Follow Github&rsquo;s <a href="https://docs.github.com/en/developers/apps/building-github-apps/creating-a-github-app">guide for creating a new app</a> (prefer a personal app over an organization app).</li>
+<li>Select a name for your app (e.g <code>&lt;name&gt;-dev-taskcluster</code>).</li>
+<li>Paste the <code>ngrok</code> URL from earlier into the Homepage field. This URL should look something like
+<code>https://&amp;lt;unique-id&amp;gt;.ngrok.com</code>.</li>
+<li>Under webhook URL paste <code>https://&amp;lt;unique-id&amp;gt;.ngrok.com/api/github/v1/github</code>.</li>
+<li>Create an arbitrary value for the secret and save it for later.</li>
+<li>Set the permissions according to the <a href="https://docs.taskcluster.net/docs/manual/deploying/github">Taskcluster deployment guide</a>.</li>
+<li>Save the app. Github should prompt you to generate a new private key, do so and save the <code>.pem</code>
+file Github sends you for the next step.</li>
+</ol>
+<h2 id="install-the-app-into-a-test-repo">Install the App into a Test Repo</h2>
+<p>Before we configure the Github service, let&rsquo;s make sure our app is working as expected:</p>
+<ol>
+<li>Create a new empty repository that will be used to test your Github service.</li>
+<li>Navigate to the public page for your newly created Github app. This should be of the form
+<code>https://github.com/apps/&lt;name&gt;-dev-taskcluster</code>, but is also linked to from the app
+settings page.</li>
+<li>Click <code>Configure</code>.</li>
+<li>Under <code>Repository access</code> select the repo you created in step 1, then click <code>Save</code>. The app
+should now be installed in your repository. You can go to your repository settings, then click
+<code>Github apps</code> near the bottom left. Verify you see your app listed.</li>
+<li>Now in one tab, open your <a href="http://127.0.0.1:4040/">local ngrok dashboard</a>. In another perform some
+repository actions (e.g edit the README using the Github interface, then do a push or pull
+request).</li>
+<li>Hop back over to your <code>ngrok</code> tab and verify it is receiving webhook events. The responses from
+the Github service will all be &ldquo;502 Bad Gateway&rdquo; because we haven&rsquo;t configured it for your app
+yet. But this is fine, for now we&rsquo;ve verified that the webhook event from your test repo are
+being forwarded to your local ngrok instance.</li>
+</ol>
+<h2 id="configure-the-app-in-your-taskcluster-instance">Configure the App in your Taskcluster instance</h2>
+<p>For the last piece, we need to configure your local Taskcluster Github service to accept webhook
+events from your application. This <a href="https://github.com/taskcluster/taskcluster/blob/main/dev-docs/development-process.md#start-github-services-in-development-mode">also documented in the Taskcluster dev-docs</a>, but to
+summarize:</p>
+<ol>
+<li>Create a new <a href="https://docs.docker.com/compose/extends">override file</a> called <code>docker-compose.override.yml</code> at the root of the
+Taskcluster repository. This will allow you to overwrite certain docker configuration items
+without needing to commit them into the repo.</li>
+<li>Add the following as the contents:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">github-web</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#75715e">&amp;ref1</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">GITHUB_PRIVATE_PEM=&#34;-----BEGIN RSA PRIVATE KEY-----\n&lt;private key&gt;\n-----END RSA PRIVATE KEY-----\n&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">GITHUB_APP_ID=&lt;app id&gt;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">WEBHOOK_SECRET=&lt;secret&gt;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">LEVEL=debug</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">DEBUG=*</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">github-background-worker</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#75715e">*ref1</span>
+</span></span></code></pre></div><ol start="3">
+<li>Replace <code>&lt;private key&gt;</code> with the contents of the <code>.pem</code> file (between <code>BEGIN RSA PRIVATE KEY</code> and
+<code>END RSA PRIVATE KEY</code>) you downloaded from Github.</li>
+<li>Replace <code>&lt;app id&gt;</code> with the id of your Github app. This can be found in the &ldquo;About&rdquo; section on
+your app settings page.</li>
+<li>Replace <code>&lt;secret&gt;</code> with the secret you saved for later when creating the app.</li>
+</ol>
+<h1 id="testing-your-github-service">Testing your Github Service</h1>
+<p>Et voila! You should now have a Github app connected to a Taskcluster Github service
+running on your local machine. Let&rsquo;s make sure everything is working!</p>
+<h2 id="restart-the-services">Restart the Services</h2>
+<p>To pick up the new configuration in the override file, restart the services:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker stop taskcluster-github-background-worker-1
+</span></span><span style="display:flex;"><span>docker-compose down
+</span></span><span style="display:flex;"><span>yarn start
+</span></span><span style="display:flex;"><span>yarn start github-background-worker
+</span></span></code></pre></div><h2 id="generate-events-in-github">Generate Events in Github</h2>
+<p>Now go back to your test repository and generate some more pushes or pull requests. Check your
+<a href="http://127.0.0.1:4040/">ngrok dashboard</a>. This time, you should see a proper response from the server! Typically either
+<code>201</code> for events that Taskcluster Github knows how to handle, or <code>204</code> otherwise.</p>
+<h2 id="create-some-real-tasks">Create Some &ldquo;Real&rdquo; Tasks</h2>
+<p>While your server is now responding to webhooks as expected, your test repository still isn&rsquo;t
+configured to run any actual tasks. Configuring and setting up worker pools is out of scope for this
+tutorial, but luckily the <code>docker-compose</code> environment comes with a pool you can use out of the
+box!</p>
+<ol>
+<li>Create a file called <code>.taskcluster.yml</code> at the root of your test repository.</li>
+<li>Add the following contents:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">reporting</span>: <span style="color:#ae81ff">checks-v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">policy</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pullRequests</span>: <span style="color:#ae81ff">public</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">tasks</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">taskQueueId</span>: <span style="color:#ae81ff">docker-compose/generic-worker</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">schedulerId</span>: <span style="color:#ae81ff">taskcluster-ui</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">created</span>: {<span style="color:#f92672">$fromNow</span>: <span style="color:#e6db74">&#39;&#39;</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">deadline</span>: {<span style="color:#f92672">$fromNow</span>: <span style="color:#e6db74">&#39;1 day&#39;</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">payload</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">command</span>:
+</span></span><span style="display:flex;"><span>        - - <span style="color:#ae81ff">/bin/bash</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#39;-c&#39;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">echo &#34;Hello World!&#34;; exit 1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">maxRunTime</span>: <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-task</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">An **example** task</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">owner</span>: <span style="color:#ae81ff">user@example.com</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">source</span>: <span style="color:#ae81ff">http://taskcluster/tasks/create</span>
+</span></span></code></pre></div><ol start="3">
+<li>Now go and create some more pushes or pull requests. This time you should see your Taskcluster
+Github service adding a comment about missing scopes!</li>
+</ol>
+<h2 id="create-the-missing-scopes">Create the Missing Scopes</h2>
+<ol>
+<li>First navigate to the web UI of your instance at http://taskcluster</li>
+<li>Click Sign In at the top right</li>
+<li>Use <code>static/taskcluster/root</code> as the Client ID, the Access Token can be found in the <a href="https://github.com/taskcluster/taskcluster/blob/main/docker/env/.auth">docker
+compose env</a> for the <code>auth-web</code> service. Search for <code>static/taskcluster/root</code> then copy the
+associated <code>accessToken</code> into the login page.</li>
+<li>Leave <code>json-certificate</code> blank and login.</li>
+<li>Open the side bar (top left), then select &ldquo;Authorization&rdquo; -&gt; &ldquo;Roles&rdquo;.</li>
+<li>Use the plus button (bottom right) to create a new role.</li>
+<li>For the &ldquo;Role ID&rdquo; use <code>repo:github.com/&lt;user&gt;/&lt;repo&gt;:*</code>. Replace <code>&lt;user&gt;</code> and <code>&lt;repo&gt;</code> to point
+at your test repository.</li>
+<li>Under &ldquo;Scopes&rdquo; add the following:</li>
+</ol>
+<pre tabindex="0"><code>queue:create-task:highest:docker-compose/generic-worker
+queue:create-task:project:none
+queue:scheduler-id:taskcluster-ui
+</code></pre><ol start="9">
+<li>Finally go and generate some more events in your repository. This time, Taskcluster Github should
+schedule an actual task which prints &ldquo;Hello World&rdquo;!</li>
+</ol>
+<h2 id="run-the-github-service-in-development-mode">Run the Github Service in Development mode</h2>
+<p>While testing, you may notice that changes to your local Taskcluster Github service aren&rsquo;t reflected
+automatically in your deployment. Luckily this is easily remedied by starting the Github service in
+development mode:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker stop taskcluster-github-background-worker-1
+</span></span><span style="display:flex;"><span>yarn dev:start github-background-worker
+</span></span></code></pre></div><p>Now you&rsquo;ll no longer need to restart the service to pick up changes! Try it out by tailing the log,
+adding some print statements and re-generating an event in Github. You should see your print
+statements in the console output!</p>
+<p>Whew, that was quite a journey. But once everything is in place, it makes iterating on Taskcluster
+Github <em>so</em> much faster, while also giving you confidence that your changes are doing what you
+expect without testing in production.</p>
+<p>Good luck!</p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fahal.ca%2fblog%2f2022%2fwork-on-taskcluster-github%2f" title="Share on Facebook"><span class="fab fa-facebook-f fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fahal.ca%2fblog%2f2022%2fwork-on-taskcluster-github%2f" title="Share on LinkedIn"><span class="fab fa-linkedin-in fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fahal.ca%2fblog%2f2022%2fwork-on-taskcluster-github%2f&amp;text=How%20to%20Work%20on%20Taskcluster%20Github" title="Tweet this"><span class="fab fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+    <section class="post-comments">
+      <script src="https://utteranc.es/client.js"
+        repo="ahal/hunting-the-shmoo"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+    </section>
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/blog/2022/work-on-taskcluster-github/">How to Work on Taskcluster Github</a></li>
+
+<li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
+
+<li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
+
+<li><a href="/blog/2021/phabricator-etiquette-part-1-the-reviewer/">Phabricator Etiquette Part 1: The Reviewer</a></li>
+
+<li><a href="/blog/2021/ls-replacement/">A Better Replacement for ls</a></li>
+
+<li><a href="/blog/2021/advanced-mach-try/">Advanced Mach Try</a></li>
+
+<li><a href="/blog/2021/understanding-mach-try/">Understanding Mach Try</a></li>
+
+<li><a href="/blog/2021/managing-multiple-mozconfigs/">Managing Multiple Mozconfigs</a></li>
+
+<li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
+
+<li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+
+  
+  <section class="sidebar-module tag-cloud">
+    <h4>Tag Cloud</h4>
+    
+    
+        
+            
+            <a href="/tags/mozilla">mozilla</a>
+        
+    
+        
+            
+            <a href="/tags/ateam">ateam</a>
+        
+    
+        
+            
+            <a href="/tags/tips-and-tricks">tips-and-tricks</a>
+        
+    
+        
+            
+            <a href="/tags/b2g">b2g</a>
+        
+    
+        
+            
+            <a href="/tags/mercurial">mercurial</a>
+        
+    
+        
+            
+            <a href="/tags/try">try</a>
+        
+    
+        
+            
+            <a href="/tags/mach">mach</a>
+        
+    
+        
+            
+            <a href="/tags/fzf">fzf</a>
+        
+    
+        
+            
+            <a href="/tags/mozconfigwrapper">mozconfigwrapper</a>
+        
+    
+        
+            
+            <a href="/tags/programming">programming</a>
+        
+    
+        
+            
+            <a href="/tags/python">python</a>
+        
+    
+        
+            
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
+            <a href="/tags/taskgraph">taskgraph</a>
+        
+    
+        
+            
+            <a href="/tags/mozmill">mozmill</a>
+        
+    
+        
+            
+            <a href="/tags/phabricator">phabricator</a>
+        
+    
+        
+            
+            <a href="/tags/productivity">productivity</a>
+        
+    
+        
+            
+            <a href="/tags/website">website</a>
+        
+    
+        
+            
+            <a href="/tags/absorb">absorb</a>
+        
+    
+        
+            
+            <a href="/tags/addon">addon</a>
+        
+    
+        
+            
+            <a href="/tags/android">android</a>
+        
+    
+        
+            
+            <a href="/tags/bookbinder">bookbinder</a>
+        
+    
+        
+            
+            <a href="/tags/ci">ci</a>
+        
+    
+        
+            
+            <a href="/tags/cycling">cycling</a>
+        
+    
+        
+            
+            <a href="/tags/devops">devops</a>
+        
+    
+        
+            
+            <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/github">github</a>
+        
+    
+        
+            
+            <a href="/tags/hugo">hugo</a>
+        
+    
+        
+            
+            <a href="/tags/jetty">jetty</a>
+        
+    
+        
+            
+            <a href="/tags/machine-learning">machine-learning</a>
+        
+    
+        
+            
+            <a href="/tags/mozharness">mozharness</a>
+        
+    
+        
+            
+            <a href="/tags/mozprofile">mozprofile</a>
+        
+    
+        
+            
+            <a href="/tags/music">music</a>
+        
+    
+        
+            
+            <a href="/tags/peptest">peptest</a>
+        
+    
+        
+            
+            <a href="/tags/qqver">qqver</a>
+        
+    
+        
+            
+            <a href="/tags/reddit">reddit</a>
+        
+    
+        
+            
+            <a href="/tags/reftest">reftest</a>
+        
+    
+        
+            
+            <a href="/tags/staticman">staticman</a>
+        
+    
+        
+            
+            <a href="/tags/test-informant">test-informant</a>
+        
+    
+        
+            
+            <a href="/tags/toronto">toronto</a>
+        
+    
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+      <p dir="auto">
+      
+      © 2018 Andrew Halberstadt
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+    
+
+  </body>
+
+</html>

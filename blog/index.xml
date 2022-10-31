@@ -220,15 +220,15 @@ them.&lt;/p&gt;</description>
       <description>&lt;p&gt;It&amp;rsquo;s no secret that I&amp;rsquo;m not a fan of try syntax, it&amp;rsquo;s a topic I&amp;rsquo;ve blogged about on &lt;a href=&#34;https://ahal.ca/blog/2015/try-syntax/&#34;&gt;several&lt;/a&gt;
 &lt;a href=&#34;https://ahal.ca/blog/2017/fuzzy-try-chooser/&#34;&gt;occasions&lt;/a&gt; before. Today, I&amp;rsquo;m pleased to announce that there&amp;rsquo;s a real alternative now landed on
 mozilla-central. It works on all platforms with mercurial and git. For those who just like to dive in:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach mercurial-setup --update  &lt;span style=&#34;color:#75715e&#34;&gt;# only if using hg&lt;/span&gt;
-$ mach try fuzzy
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will prompt you to install &lt;a href=&#34;https://github.com/junegunn/fzf&#34;&gt;fzf&lt;/a&gt;. After bootstrapping is finished, you&amp;rsquo;ll enter an interface
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mach mercurial-setup --update  &lt;span style=&#34;color:#75715e&#34;&gt;# only if using hg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mach try fuzzy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will prompt you to install &lt;a href=&#34;https://github.com/junegunn/fzf&#34;&gt;fzf&lt;/a&gt;. After bootstrapping is finished, you&amp;rsquo;ll enter an interface
 populated with a list of all possible taskcluster tasks. Start typing and the list will be filtered
 down using a fuzzy matching algorithm. I won&amp;rsquo;t go into details on how to use this tool in this blog
 post, for that see:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ mach try fuzzy --help  &lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
-$ man fzf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mach try fuzzy --help  &lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ man fzf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -302,8 +302,8 @@ with having a toolbox?&lt;/p&gt;</description>
       <description>&lt;p&gt;Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
 you put into your commit message which a &lt;a href=&#34;http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py&#34;&gt;parser&lt;/a&gt; then uses to determine the set of builds and
 tests to run on your try push. A common try syntax might look like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;try: -b o -p linux -u mochitest -t none
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Since inception, it has been a core part of the Mozilla development workflow.
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;try: -b o -p linux -u mochitest -t none
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Since inception, it has been a core part of the Mozilla development workflow.
 For many years it has served us well, and even today it serves us passably. But it is almost time
 for try syntax to don the wooden overcoat, and this post will explain why.&lt;/p&gt;</description>
     </item>
@@ -357,7 +357,7 @@ the same log format you&amp;rsquo;re already familiar with (which is why you may
       
       <guid>https://ahal.ca/blog/2014/new-mercurial-workflow/</guid>
       <description>&lt;p&gt;There&amp;rsquo;s a good chance you&amp;rsquo;ve heard something about a new review tool coming to Mozilla and how it will &lt;em&gt;change
-everything&lt;/em&gt;. There&amp;rsquo;s an even better chance you&amp;rsquo;ve stumbled across one of gps&#39; &lt;a href=&#34;http://gregoryszorc.com/blog/category/mercurial/&#34;&gt;blog posts&lt;/a&gt; on how
+everything&lt;/em&gt;. There&amp;rsquo;s an even better chance you&amp;rsquo;ve stumbled across one of gps&amp;rsquo; &lt;a href=&#34;http://gregoryszorc.com/blog/category/mercurial/&#34;&gt;blog posts&lt;/a&gt; on how
 we use mercurial at Mozilla.&lt;/p&gt;
 &lt;p&gt;With &lt;a href=&#34;https://groups.google.com/forum/#!topic/mozilla.dev.platform/RMkSXq2ckFk&#34;&gt;mozreview entering beta&lt;/a&gt;, I decided to throw out my old mq based workflow and
 try to use all the latest and greatest tools. That means &lt;a href=&#34;http://mercurial.selenic.com/wiki/Bookmarks&#34;&gt;mercurial bookmarks&lt;/a&gt;, a &lt;a href=&#34;http://gregoryszorc.com/blog/2014/06/30/track-firefox-repositories-with-local-only-mercurial-tags/&#34;&gt;unified
@@ -433,14 +433,14 @@ I will make a claim that a WET approach can actually work better.&lt;/p&gt;</des
       <guid>https://ahal.ca/blog/2014/b2g-commands/</guid>
       <description>&lt;h4 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h4&gt;
 &lt;p&gt;tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install b2g-commands:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install b2g-commands
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To play around with it, cd to your &lt;a href=&#34;https://github.com/mozilla-b2g/B2G&#34;&gt;B2G repo&lt;/a&gt; and run:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git pull                 &lt;span style=&#34;color:#75715e&#34;&gt;# make sure repo is up to date&lt;/span&gt;
-$ ./mach help              &lt;span style=&#34;color:#75715e&#34;&gt;# see all available commands&lt;/span&gt;
-$ ./mach help &amp;amp;lt;command&amp;amp;gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# see additional info about a command&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;details&#34;&gt;Details&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install b2g-commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pip install b2g-commands
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To play around with it, cd to your &lt;a href=&#34;https://github.com/mozilla-b2g/B2G&#34;&gt;B2G repo&lt;/a&gt; and run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git pull                 &lt;span style=&#34;color:#75715e&#34;&gt;# make sure repo is up to date&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./mach help              &lt;span style=&#34;color:#75715e&#34;&gt;# see all available commands&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./mach help &amp;amp;lt;command&amp;amp;gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# see additional info about a command&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;details&#34;&gt;Details&lt;/h4&gt;
 &lt;p&gt;Most people who spend the majority of their time working within mozilla-central have probably been
 acquainted with &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Developer_Guide/mach&#34;&gt;mach&lt;/a&gt;. In case you aren&amp;rsquo;t acquainted, mach is a generic command dispatching
 tool. It is possible to write scripts called &amp;lsquo;mach targets&amp;rsquo; which get registered with mach core and

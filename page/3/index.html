@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hunting the Shmoo"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -142,8 +142,8 @@ with having a toolbox?</p>
   <p>Today marks the 5 year anniversary of try syntax. For the uninitiated, try syntax is a string that
 you put into your commit message which a <a href="http://hg.mozilla.org/build/buildbotcustom/file/tip/try_parser.py">parser</a> then uses to determine the set of builds and
 tests to run on your try push. A common try syntax might look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">try: -b o -p linux -u mochitest -t none
-</code></pre></div><p>Since inception, it has been a core part of the Mozilla development workflow.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>try: -b o -p linux -u mochitest -t none
+</span></span></code></pre></div><p>Since inception, it has been a core part of the Mozilla development workflow.
 For many years it has served us well, and even today it serves us passably. But it is almost time
 for try syntax to don the wooden overcoat, and this post will explain why.</p>
   <a href='https://ahal.ca/blog/2015/try-syntax/'>Read more →</a>
@@ -233,7 +233,7 @@ the same log format you&rsquo;re already familiar with (which is why you may not
 </p>
   </header>
   <p>There&rsquo;s a good chance you&rsquo;ve heard something about a new review tool coming to Mozilla and how it will <em>change
-everything</em>. There&rsquo;s an even better chance you&rsquo;ve stumbled across one of gps' <a href="http://gregoryszorc.com/blog/category/mercurial/">blog posts</a> on how
+everything</em>. There&rsquo;s an even better chance you&rsquo;ve stumbled across one of gps&rsquo; <a href="http://gregoryszorc.com/blog/category/mercurial/">blog posts</a> on how
 we use mercurial at Mozilla.</p>
 <p>With <a href="https://groups.google.com/forum/#!topic/mozilla.dev.platform/RMkSXq2ckFk">mozreview entering beta</a>, I decided to throw out my old mq based workflow and
 try to use all the latest and greatest tools. That means <a href="http://mercurial.selenic.com/wiki/Bookmarks">mercurial bookmarks</a>, a <a href="http://gregoryszorc.com/blog/2014/06/30/track-firefox-repositories-with-local-only-mercurial-tags/">unified

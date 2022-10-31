@@ -24,7 +24,7 @@ A browser is an incredibly complex piece of software. With such enormous complex
 posted to the Mozilla Hacks
 Blog.
 A browser is an incredibly complex piece of software. With such enormous complexity, the only way to maintain a rapid pace of development is through an extensive CI system that can give developers confidence that their changes won&rsquo;t introduce bugs. Given the scale of our CI, we’re always looking for ways to reduce load while maintaining a high standard of product quality. We wondered if we could use machine learning to reach a higher degree of efficiency."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -34,7 +34,7 @@ A browser is an incredibly complex piece of software. With such enormous complex
   "@type": "BlogPosting",
   "headline": "Testing Firefox More Efficiently With Machine Learning",
   "url": "https:\/\/ahal.ca\/blog\/2020\/testing-firefox-more-efficiently-with-machine-learning\/",
-  "wordCount": "2707",
+  "wordCount": "2709",
   "datePublished": "2020-07-10T12:08:34-04:00",
   "dateModified": "2020-07-10T12:08:34-04:00",
   "author": {
@@ -167,7 +167,7 @@ Blog</a>.</em></p>
 <h3 id="our-heuristics">Our heuristics</h3>
 <p>In order to solve these problems, we have built quite a <a href="https://github.com/mozilla/mozci/blob/77d54c532612c7aba42185228112d6bb1f53d3ca/tests/test_regressions.py">large and complicated set of heuristics</a> to predict which regressions are caused by which patch. For example, if a patch is later backed out, we check the status of the tests on the backout push. If they’re still failing, we can be pretty sure the failures were not due to the patch. Conversely, if they start passing we can be pretty sure that the patch was at fault.</p>
 <p>Some failures are classified by humans. This can work to our advantage. Part of the code sheriff’s job is annotating failures (e.g. &ldquo;intermittent&rdquo; or &ldquo;fixed by commit&rdquo; for failures fixed at some later point). These classifications are a huge help finding regressions in the face of missing or intermittent tests. Unfortunately, due to the sheer number of patches and failures happening continuously, 100% accuracy is not attainable. So we even have heuristics to evaluate the accuracy of the classifications!</p>
-<p><img src="https://hacks.mozilla.org/files/2020/07/pasted-image-1-250x38.png" alt="tweet from @MozSherifMemes &quot;Today&rsquo;s menu: Intermittent code linting failures based on the same revision."></p>
+<p><img src="https://hacks.mozilla.org/files/2020/07/pasted-image-1-250x38.png" alt="tweet from @MozSherifMemes &amp;quot;Today&amp;rsquo;s menu: Intermittent code linting failures based on the same revision."></p>
 <p><em>Sheriffs complaining about intermittent failures.</em></p>
 <p>Another trick for handling missing data is to <a href="https://wiki.mozilla.org/Sheriffing/How_To/Retrigger_Jobs#Backfills">backfill</a> missing tests. We select tests to run on older pushes where they didn’t initially run, for the purpose of finding which push caused a regression. Currently, sheriffs do this manually. However, there are plans to automate it in certain circumstances in the future.</p>
 <h3 id="collecting-data-about-patches">Collecting data about patches</h3>

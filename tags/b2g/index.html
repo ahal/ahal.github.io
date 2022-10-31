@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="b2g"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -102,14 +102,14 @@
   </header>
   <h4 id="getting-started">Getting Started</h4>
 <p>tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
-</code></pre></div><p>Install b2g-commands:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pip install b2g-commands
-</code></pre></div><p>To play around with it, cd to your <a href="https://github.com/mozilla-b2g/B2G">B2G repo</a> and run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git pull                 <span style="color:#75715e"># make sure repo is up to date</span>
-$ ./mach help              <span style="color:#75715e"># see all available commands</span>
-$ ./mach help &amp;lt;command&amp;gt;    <span style="color:#75715e"># see additional info about a command</span>
-</code></pre></div><h4 id="details">Details</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
+</span></span></code></pre></div><p>Install b2g-commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip install b2g-commands
+</span></span></code></pre></div><p>To play around with it, cd to your <a href="https://github.com/mozilla-b2g/B2G">B2G repo</a> and run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git pull                 <span style="color:#75715e"># make sure repo is up to date</span>
+</span></span><span style="display:flex;"><span>$ ./mach help              <span style="color:#75715e"># see all available commands</span>
+</span></span><span style="display:flex;"><span>$ ./mach help &amp;lt;command&amp;gt;    <span style="color:#75715e"># see additional info about a command</span>
+</span></span></code></pre></div><h4 id="details">Details</h4>
 <p>Most people who spend the majority of their time working within mozilla-central have probably been
 acquainted with <a href="https://developer.mozilla.org/en-US/docs/Developer_Guide/mach">mach</a>. In case you aren&rsquo;t acquainted, mach is a generic command dispatching
 tool. It is possible to write scripts called &lsquo;mach targets&rsquo; which get registered with mach core and

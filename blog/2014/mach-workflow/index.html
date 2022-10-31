@@ -26,7 +26,7 @@ source tree. You can perform initial setup, execute a build, run tests, examine 
 search Google. Many of these things require an object directory. This can potentially lead to some
 confusion if you typically have more than one object directory at any given time. How does mach know
 which object directory to operate on?"/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -141,11 +141,11 @@ into their objdirs before invoking related mach commands.</p>
 called &lsquo;regular&rsquo; and &lsquo;debug&rsquo; respectively.  Now let&rsquo;s say I wanted to run the &lsquo;mochitest-plain&rsquo; test
 suite on each build, one after the other. My workflow would be (from any directory other than an
 objdir):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ buildwith regular
-$ mach mochitest-plain
-$ buildwith debug
-$ mach mochitest-plain
-</code></pre></div><p>How does this work? Very simply, mozconfigwrapper is exporting the $MOZCONFIG environment variable
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ buildwith regular
+</span></span><span style="display:flex;"><span>$ mach mochitest-plain
+</span></span><span style="display:flex;"><span>$ buildwith debug
+</span></span><span style="display:flex;"><span>$ mach mochitest-plain
+</span></span></code></pre></div><p>How does this work? Very simply, mozconfigwrapper is exporting the $MOZCONFIG environment variable
 under the hood anytime you call &lsquo;buildwith&rsquo;. Mach will then pick up on this due to the second step
 listed above.</p>
 <p>Your second question might be why bother installing mozconfigwrapper when you can just export

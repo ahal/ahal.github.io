@@ -28,7 +28,7 @@ questions in a bit more detail. Specifically, I want to return to the two case s
 why our test harnesses don&rsquo;t work and why mozharness does work even though both have IFFY (in flux
 for years) requirements. Then I will explore how to use the lessons learned to improve our general
 test harness design."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -207,7 +207,7 @@ environment) and there are clear and distinct responsibilities between managing 
 actually launching them. In fact this how the gaia team implemented their <a href="https://github.com/mozilla-b2g/marionette-js-runner">marionette-js-runner</a>.
 I&rsquo;m not sure if that pattern is common to node&rsquo;s <a href="http://visionmedia.github.io/mocha">mocha runner</a> or something of their design, but
 I like it.</p>
-<p>I&rsquo;d also like our test harnesses to employ mozharness' concept of actions. Each action could be
+<p>I&rsquo;d also like our test harnesses to employ mozharness&rsquo; concept of actions. Each action could be
 an atomic as possible setup step. For example, setting preferences in the profile is a single action.
 Setting environment is another. Parsing a manifest could be a third. Each target environment would
 consist of a list of actions that are run in a particular order. If code needs to be shared, simply

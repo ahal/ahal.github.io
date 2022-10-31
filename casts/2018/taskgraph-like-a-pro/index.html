@@ -28,7 +28,7 @@ the taskgraph like a PRO. For the impatient skip to the installation instruction
 
   
 "/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -133,18 +133,18 @@ the taskgraph like a PRO. For the impatient skip to the installation instruction
 <p>First you&rsquo;ll need to install <a href="https://github.com/junegunn/fzf">fzf</a>, if you&rsquo;ve used <code>mach try fuzzy</code> before, it&rsquo;s already
 on your system under <code>~/.mozbuild/fzf</code>, just make sure it&rsquo;s on your <code>$PATH</code>.</p>
 <p>Next install <code>fx</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm install fx
-</code></pre></div><p>Finally, add the following shell function to your <code>~/.bashrc</code> or equivalent:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tf <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-	fx <span style="color:#e6db74">&#34;tg =&gt; String(require(\&#34;child_process\&#34;).spawnSync(\&#34;fzf\&#34;, [\&#34;-f\&#34;, \&#34;</span>$1<span style="color:#e6db74">\&#34;], {\&#34;input\&#34;: Object.keys(tg).join(\&#34;\n\&#34;)}).output).split(\&#34;\n\&#34;).reduce((obj, key) =&gt; { obj[key] = tg[key]; return obj; }, {})&#34;</span> | fx
-<span style="color:#f92672">}</span>
-</code></pre></div><p>That&rsquo;s it!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm install fx
+</span></span></code></pre></div><p>Finally, add the following shell function to your <code>~/.bashrc</code> or equivalent:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tf <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	fx <span style="color:#e6db74">&#34;tg =&gt; String(require(\&#34;child_process\&#34;).spawnSync(\&#34;fzf\&#34;, [\&#34;-f\&#34;, \&#34;</span>$1<span style="color:#e6db74">\&#34;], {\&#34;input\&#34;: Object.keys(tg).join(\&#34;\n\&#34;)}).output).split(\&#34;\n\&#34;).reduce((obj, key) =&gt; { obj[key] = tg[key]; return obj; }, {})&#34;</span> | fx
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>That&rsquo;s it!</p>
 <h4 id="usage">Usage</h4>
 <p>Simply pipe the output of <code>mach taskgraph full -J</code> into the <code>tf</code> function (preferably saving it to a
 file first:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./mach taskgraph full -J &gt; full.taskgraph
-$ cat full.taskgraph | tf <span style="color:#e6db74">&#34;win64 mochitest | reftest -1</span>$<span style="color:#e6db74">&#34;</span>
-</code></pre></div><p>The above will filter down all chunk 1 mochitest and reftest tasks on win64. The query syntax is
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./mach taskgraph full -J &gt; full.taskgraph
+</span></span><span style="display:flex;"><span>$ cat full.taskgraph | tf <span style="color:#e6db74">&#34;win64 mochitest | reftest -1</span>$<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>The above will filter down all chunk 1 mochitest and reftest tasks on win64. The query syntax is
 identical to the one used with <code>mach try fuzzy</code>. See <code>man fzf</code> for more details.</p>
 <p>Happy inspecting!</p>
 

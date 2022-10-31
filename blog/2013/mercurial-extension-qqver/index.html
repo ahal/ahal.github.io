@@ -24,7 +24,7 @@ with stock queue repos, new and existing patches are added automatically." />
 repository. The syntax is the exact same as when doing normal patch queue versioning (i.e &lsquo;hg init
 &ndash;mq&rsquo;), except the repo is created one directory higher so it is able to track all patch queues. As
 with stock queue repos, new and existing patches are added automatically."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -133,21 +133,21 @@ repos, e.g on an hg.m.o <a href="https://developer.mozilla.org/en-US/docs/Creati
 patch queues, you only need to create one.</p>
 <p>qqver works by monkeypatching the mq extension in an unobtrusive way. This gives it some nice
 properties. First, the syntax is the exact same as what you are already used to:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># create queue repo and push remote</span>
-hg init --mq
-hg commit --mq
-hg push --mq
-</code></pre></div><p>Another nice property is that it is fully compatible with Steve Fink&rsquo;s <a href="https://bitbucket.org/sfink/mqext">mqext</a> extension. This
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># create queue repo and push remote</span>
+</span></span><span style="display:flex;"><span>hg init --mq
+</span></span><span style="display:flex;"><span>hg commit --mq
+</span></span><span style="display:flex;"><span>hg push --mq
+</span></span></code></pre></div><p>Another nice property is that it is fully compatible with Steve Fink&rsquo;s <a href="https://bitbucket.org/sfink/mqext">mqext</a> extension. This
 means if you want to autocommit your patch queue anytime you make a change, you can easily do so by
 configuring mqext. One thing I&rsquo;d still like to implement, is to monkeypatch mqext so it adds the
 current patch queue to the commit messages (in addition to the patch name).</p>
 <h3 id="installation">Installation</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hg clone http://hg.mozilla.org/users/ahalberstadt_mozilla.com/qqver/
-</code></pre></div><p>Then edit your ~/.hgrc file and add:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extensions]</span>
-<span style="color:#a6e22e">mq</span><span style="color:#f92672">=</span>
-<span style="color:#a6e22e">qqver</span><span style="color:#f92672">=</span><span style="color:#e6db74">&amp;lt;path/to/qqver&amp;gt;</span>
-</code></pre></div><p>Note that the mq extension needs to be installed, otherwise qqver makes no sense! Also note that
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hg clone http://hg.mozilla.org/users/ahalberstadt_mozilla.com/qqver/
+</span></span></code></pre></div><p>Then edit your ~/.hgrc file and add:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[extensions]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mq</span><span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">qqver</span><span style="color:#f92672">=</span><span style="color:#e6db74">&amp;lt;path/to/qqver&amp;gt;</span>
+</span></span></code></pre></div><p>Note that the mq extension needs to be installed, otherwise qqver makes no sense! Also note that
 this is still fairly untested, so please let me know of any problems you encounter or features you&rsquo;d
 like implemented. Or feel free to send me a patch ;).</p>
 

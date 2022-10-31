@@ -26,7 +26,7 @@ too many tests simply because we didn&rsquo;t have enough capacity on our test s
 Regardless it was still bad enough as it was (many of you probably experienced very long wait times
 for results). Thanks to releng (and especially Rail Aliiev) we are now running most of our B2G tests
 in Amazon AWS which means we can be much more flexible in accomodating load."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -132,7 +132,7 @@ would like to see running on B2G emulators, now is the time to make sure it&rsqu
 <p>Unfortunately not all harnesses have the same manifest format, so here is a quick guide for finding
 them:</p>
 <ul>
-<li>Mochitest: look at <strong>testing/mochitest/b2g.json</strong>. Make sure the test is contained within a manifest specified by the &lsquo;runtests&rsquo; attribute and that it isn&rsquo;t listed in the &lsquo;excludetests&rsquo; attribute</li>
+<li>Mochitest: look at <strong>testing/mochitest/b2g.json</strong>. Make sure the test is contained within a manifest specified by the &lsquo;runtests&rsquo; attribute and that it isn&rsquo;t listed in the &rsquo;excludetests&rsquo; attribute</li>
 <li>Xpcshell: look at <strong>testing/xpcshell/xpcshell_b2g.ini</strong>. Make sure your test&rsquo;s root manifest is listed there and that it isn&rsquo;t skipped further down in a child manifest</li>
 <li>Marionette/Webapi: look at <strong>testing/marionette/client/marionette/tests/unit-tests.ini</strong>. Once again make sure the test&rsquo;s root manifest is listed and the test isn&rsquo;t skipped in a child manifest</li>
 <li>Reftest: look at <strong>layout/reftests/reftest.list</strong>. Same as above.</li>

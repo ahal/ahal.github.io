@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="mozilla"/>
 <meta name="twitter:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -232,15 +232,15 @@ the taskgraph like a PRO. For the impatient skip to the installation instruction
   <p>It&rsquo;s no secret that I&rsquo;m not a fan of try syntax, it&rsquo;s a topic I&rsquo;ve blogged about on <a href="https://ahal.ca/blog/2015/try-syntax/">several</a>
 <a href="https://ahal.ca/blog/2017/fuzzy-try-chooser/">occasions</a> before. Today, I&rsquo;m pleased to announce that there&rsquo;s a real alternative now landed on
 mozilla-central. It works on all platforms with mercurial and git. For those who just like to dive in:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach mercurial-setup --update  <span style="color:#75715e"># only if using hg</span>
-$ mach try fuzzy
-</code></pre></div><p>This will prompt you to install <a href="https://github.com/junegunn/fzf">fzf</a>. After bootstrapping is finished, you&rsquo;ll enter an interface
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mach mercurial-setup --update  <span style="color:#75715e"># only if using hg</span>
+</span></span><span style="display:flex;"><span>$ mach try fuzzy
+</span></span></code></pre></div><p>This will prompt you to install <a href="https://github.com/junegunn/fzf">fzf</a>. After bootstrapping is finished, you&rsquo;ll enter an interface
 populated with a list of all possible taskcluster tasks. Start typing and the list will be filtered
 down using a fuzzy matching algorithm. I won&rsquo;t go into details on how to use this tool in this blog
 post, for that see:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach try fuzzy --help  <span style="color:#75715e"># or</span>
-$ man fzf
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mach try fuzzy --help  <span style="color:#75715e"># or</span>
+</span></span><span style="display:flex;"><span>$ man fzf
+</span></span></code></pre></div>
   <a href='https://ahal.ca/blog/2017/mach-try-fuzzy/'>Read more →</a>
 </article> 
 

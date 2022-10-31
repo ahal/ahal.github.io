@@ -28,7 +28,7 @@ that I&rsquo;m trying to convert into a concrete plan of action to bring this ab
 Intent to Implement or anything like that, but my hope is that this outline is detailed enough
 that it could be used as a solid starting point by someone with enough time and motivation to
 work on it."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -137,7 +137,7 @@ changes get pushed to try.</p>
 from. This is a high level explanation of how a try syntax string currently gets turned into running
 tasks:</p>
 <ol>
-<li>A developer pushes a commit to try with a &lsquo;try:&rsquo; token somewhere in the commit message.</li>
+<li>A developer pushes a commit to try with a &rsquo;try:&rsquo; token somewhere in the commit message.</li>
 <li>The pushlog mercurial extension picks this up on the server, and publishes a <a href="https://hg.mozilla.org/try/json-pushes?full=1">JSON stream</a>.</li>
 <li>After getting triggered via a pulse message, the <a href="https://github.com/taskcluster/mozilla-taskcluster">mozilla-taskcluster</a> module <a href="https://github.com/taskcluster/mozilla-taskcluster/blob/4c45d5d0d1da012fcc541998ec7f611175464189/src/pushlog/client.js#L109">queries</a>
 this URL and <a href="https://github.com/taskcluster/mozilla-taskcluster/blob/4c45d5d0d1da012fcc541998ec7f611175464189/src/jobs/taskcluster_graph.js#L82">pulls in</a> the relevant push.</li>
@@ -170,8 +170,8 @@ message at all. We could instead stuff it into the commit as arbitrary metadata 
 <code>extra</code> field. To get this working, we could use the <a href="https://hg.mozilla.org/hgcustom/version-control-tools/file/tip/hgext/push-to-try">push-to-try</a> extension to stuff the try
 syntax into the <code>extra</code> field like <a href="https://hg.mozilla.org/hgcustom/version-control-tools/file/6a5b4c985ffc/hgext/overlay/__init__.py#l130">this</a>. Then the decision task could extract that syntax out
 of the commit metadata like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hg log -r $GECKO_HEAD_REV -T <span style="color:#e6db74">&#34;{extras}&#34;</span>
-</code></pre></div><h2 id="an-improved-data-format">An Improved Data Format</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hg log -r $GECKO_HEAD_REV -T <span style="color:#e6db74">&#34;{extras}&#34;</span>
+</span></span></code></pre></div><h2 id="an-improved-data-format">An Improved Data Format</h2>
 <p>Again, these changes mostly amount to a refactoring and wouldn&rsquo;t be worth making just for the sake
 of it. But once we are using arbitrary commit metadata to pass information to the decision task,
 there&rsquo;s no reason for us to limit ourselves to a single line syntax string. We could use data
@@ -207,17 +207,17 @@ in useful here.</p>
 user to select one or more of them using the fuzzy finding algorithm and a text based gui, then
 prints all selected strings to <code>stdout</code>. The input is completely arbitrary, for example, I could
 fuzzy select running processes with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ps -ef | fzf
-</code></pre></div><p>Or lines in a file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat foo.txt | fzf
-</code></pre></div><p>Or the numbers 1-100:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ seq <span style="color:#ae81ff">100</span> | fzf
-</code></pre></div><p>You get the idea. The other day I was thinking, what if we could pipe a list of every single task,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ps -ef | fzf
+</span></span></code></pre></div><p>Or lines in a file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cat foo.txt | fzf
+</span></span></code></pre></div><p>Or the numbers 1-100:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ seq <span style="color:#ae81ff">100</span> | fzf
+</span></span></code></pre></div><p>You get the idea. The other day I was thinking, what if we could pipe a list of every single task,
 expanded over both chunks and platforms, into <code>fzf</code>? How useful would that be? Luckily, a list of
 all taskcluster tasks can be generated with a mach command, so it was easy to test this out:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mach taskgraph tasks -p artifacts/parameters.yml -q &gt; all-tasks.json
-$ cat all-tasks.json | fzf -m
-</code></pre></div><p>The <code>parameters.yml</code> file can be downloaded from any decision task on treeherder. I piped it into a
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mach taskgraph tasks -p artifacts/parameters.yml -q &gt; all-tasks.json
+</span></span><span style="display:flex;"><span>$ cat all-tasks.json | fzf -m
+</span></span></code></pre></div><p>The <code>parameters.yml</code> file can be downloaded from any decision task on treeherder. I piped it into a
 file because the <code>mach taskgraph</code> command takes a bit of time to complete, it&rsquo;s not a penalty we&rsquo;d
 want to incur on subsequent runs unless it was necessary. The <code>-m</code> tells <code>fzf</code> to allow
 multi-selection.</p>

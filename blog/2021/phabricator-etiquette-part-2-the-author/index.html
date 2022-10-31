@@ -22,7 +22,7 @@ hats and do the same thing." />
 <meta name="twitter:description" content="Last time we looked at some
 ways reviewers can keep the review process moving efficiently. This week, let&rsquo;s put on our author
 hats and do the same thing."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -150,16 +150,16 @@ reviews are needed. So if you need more than one review, make sure to set it as 
 by choosing the <code>blocking: &lt;nick&gt;</code> variant from the Phabricator UI, or by appending <code>!</code> to the nick
 in the commit message.</p>
 <p>Another reason some authors request multiple non-blocking reviews is if they aren&rsquo;t sure who to ask.
-But this should also be avoided because it can waste reviewers' time. There is a good chance
+But this should also be avoided because it can waste reviewers&rsquo; time. There is a good chance
 both reviewers will start reviewing it at the same time, when only a single review would have
 sufficed. Instead authors should make a guess and if the reviewer isn&rsquo;t a suitable for the patch
 they should ideally re-assign the review on your behalf (see previous post).</p>
 <p>Personally I can&rsquo;t think of any scenario to request a non-blocking review over a blocking one.
 Thankfully, <code>moz-phab</code> has a configuration that can make all your reviews blocking by default. Open
 your config file (default <code>~/.moz-phab-config</code>) and set:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[submit]</span>
-<span style="color:#a6e22e">always_blocking</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">true</span>
-</code></pre></div><p>When this is set to <code>true</code> adding <code>r?&lt;nick&gt;</code> will request a blocking review and <code>r?&lt;nick&gt;!</code> will
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[submit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">always_blocking</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">true</span>
+</span></span></code></pre></div><p>When this is set to <code>true</code> adding <code>r?&lt;nick&gt;</code> will request a blocking review and <code>r?&lt;nick&gt;!</code> will
 request a non-blocking one.</p>
 <h3 id="mark-in-line-comments-as-done">Mark In-Line Comments as Done</h3>
 <p>When a reviewer leaves an in-line comment, the author will have the option of checking a little

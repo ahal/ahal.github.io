@@ -32,14 +32,14 @@ with having a toolbox?&lt;/p&gt;</description>
       <guid>https://ahal.ca/blog/2014/b2g-commands/</guid>
       <description>&lt;h4 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h4&gt;
 &lt;p&gt;tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install b2g-commands:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install b2g-commands
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To play around with it, cd to your &lt;a href=&#34;https://github.com/mozilla-b2g/B2G&#34;&gt;B2G repo&lt;/a&gt; and run:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git pull                 &lt;span style=&#34;color:#75715e&#34;&gt;# make sure repo is up to date&lt;/span&gt;
-$ ./mach help              &lt;span style=&#34;color:#75715e&#34;&gt;# see all available commands&lt;/span&gt;
-$ ./mach help &amp;amp;lt;command&amp;amp;gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# see additional info about a command&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;details&#34;&gt;Details&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install b2g-commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pip install b2g-commands
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To play around with it, cd to your &lt;a href=&#34;https://github.com/mozilla-b2g/B2G&#34;&gt;B2G repo&lt;/a&gt; and run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git pull                 &lt;span style=&#34;color:#75715e&#34;&gt;# make sure repo is up to date&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./mach help              &lt;span style=&#34;color:#75715e&#34;&gt;# see all available commands&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./mach help &amp;amp;lt;command&amp;amp;gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# see additional info about a command&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;details&#34;&gt;Details&lt;/h4&gt;
 &lt;p&gt;Most people who spend the majority of their time working within mozilla-central have probably been
 acquainted with &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Developer_Guide/mach&#34;&gt;mach&lt;/a&gt;. In case you aren&amp;rsquo;t acquainted, mach is a generic command dispatching
 tool. It is possible to write scripts called &amp;lsquo;mach targets&amp;rsquo; which get registered with mach core and

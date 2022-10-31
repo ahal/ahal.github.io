@@ -24,7 +24,7 @@ Unix only for now." />
 nutshell, mozconfigwrapper hides all of your mozconfigs into a configurable directory (defaults to
 ~/.mozconfigs), and lets you easily switch, create, remove, edit and list them. Mozconfigwrapper is
 Unix only for now."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -126,44 +126,44 @@ Unix only for now.</p>
 So if you have any problems installing or using it, please let me know or <a href="https://github.com/ahal/mozconfigwrapper/issues">file an issue</a>.</p>
 <h2 id="installation">Installation</h2>
 <p>To install first make sure you have <a href="http://pypi.python.org/pypi/pip">pip</a>. Then run the command</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pip install mozconfigwrapper
-</code></pre></div><p>Next open up your ~/.bashrc file and add the line</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">source /usr/local/bin/mozconfigwrapper.sh
-</code></pre></div><p>Note that it may have been installed to a different location on your system. You can use the command &lsquo;which mozconfigwrapper.sh&rsquo;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pip install mozconfigwrapper
+</span></span></code></pre></div><p>Next open up your ~/.bashrc file and add the line</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source /usr/local/bin/mozconfigwrapper.sh
+</span></span></code></pre></div><p>Note that it may have been installed to a different location on your system. You can use the command &lsquo;which mozconfigwrapper.sh&rsquo;
 to find it.</p>
 <p>Finally run the command</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">source ~/.bashrc
-</code></pre></div><p>Mozconfigwrapper is now installed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source ~/.bashrc
+</span></span></code></pre></div><p>Mozconfigwrapper is now installed.</p>
 <h2 id="usage">Usage</h2>
 <p>Mozconfigwrapper allows you to create, remove, switch, list and edit mozconfigs.</p>
 <p>To build with (activate) a mozconfig named foo, run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">buildwith foo
-</code></pre></div><p>To create a mozconfig named foo, run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkmozconfig foo
-</code></pre></div><p>To delete a mozconfig named foo, run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rmmozconfig foo
-</code></pre></div><p>To see the currently active mozconfig, run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mozconfig
-</code></pre></div><p>To list all mozconfigs, run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mozconfig -l
-</code></pre></div><p>To edit the currently active mozconfig, run (the $EDITOR variable must be set):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mozconfig -e
-</code></pre></div><h2 id="configuration">Configuration</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>buildwith foo
+</span></span></code></pre></div><p>To create a mozconfig named foo, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkmozconfig foo
+</span></span></code></pre></div><p>To delete a mozconfig named foo, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rmmozconfig foo
+</span></span></code></pre></div><p>To see the currently active mozconfig, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mozconfig
+</span></span></code></pre></div><p>To list all mozconfigs, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mozconfig -l
+</span></span></code></pre></div><p>To edit the currently active mozconfig, run (the $EDITOR variable must be set):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mozconfig -e
+</span></span></code></pre></div><h2 id="configuration">Configuration</h2>
 <p>By default mozconfigs are stored in the ~/.mozconfigs directory, but you can override this by
 setting the $BUILDWITH_HOME environment variable.
 e.g, add:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export BUILDWITH_HOME<span style="color:#f92672">=</span>~/my/custom/mozconfig/path 
-</code></pre></div><p>to your ~/.bashrc file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export BUILDWITH_HOME<span style="color:#f92672">=</span>~/my/custom/mozconfig/path 
+</span></span></code></pre></div><p>to your ~/.bashrc file.</p>
 <p>When you make a new mozconfig, it will be populated with some basic build commands and the name of
 the mozconfig will be appended to the end of the OBJDIR instruction. You can modify what gets
 populated by default by editing the ~/.mozconfigs/.template file. For example, if I wanted my
 default configuration to store object directories in a folder called objdirs and enable debugging
 and tests, I&rsquo;d edit the ~/.mozconfigs/.template file to look like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mk_add_options MOZ_OBJDIR<span style="color:#f92672">=</span>@TOPSRCDIR@/objdirs/
-ac_add_options --enable-application<span style="color:#f92672">=</span>browser
-ac_add_options --enable-debug
-ac_add_options --enable-tests
-</code></pre></div><p>Now if I ran the command &lsquo;mkmozconfig foo&rsquo;, foo would be populated with the above and have the word
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mk_add_options MOZ_OBJDIR<span style="color:#f92672">=</span>@TOPSRCDIR@/objdirs/
+</span></span><span style="display:flex;"><span>ac_add_options --enable-application<span style="color:#f92672">=</span>browser
+</span></span><span style="display:flex;"><span>ac_add_options --enable-debug
+</span></span><span style="display:flex;"><span>ac_add_options --enable-tests
+</span></span></code></pre></div><p>Now if I ran the command &lsquo;mkmozconfig foo&rsquo;, foo would be populated with the above and have the word
 &lsquo;foo&rsquo; appended to the first line.</p>
 
   

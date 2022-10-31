@@ -30,7 +30,7 @@ here for more details.
 Have you ever wanted to see the test results of a custom command line in try? Things like
 &ndash;test-manifest, &ndash;shuffle or &ndash;run-slower?  Now you can! The process isn&rsquo;t exactly optimized for
 the developer use case, but neither is it really difficult to do once you know how."/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -40,7 +40,7 @@ the developer use case, but neither is it really difficult to do once you know h
   "@type": "BlogPosting",
   "headline": "How to Push a Custom Test Command Line to Try",
   "url": "https:\/\/ahal.ca\/blog\/2013\/push-custom-test-command-line-try\/",
-  "wordCount": "310",
+  "wordCount": "311",
   "datePublished": "2013-07-24T00:00:00\u002b00:00",
   "dateModified": "2013-07-24T00:00:00\u002b00:00",
   "author": {
@@ -131,7 +131,7 @@ the developer use case, but neither is it really difficult to do once you know h
 <p>Have you ever wanted to see the test results of a custom command line in try? Things like
 &ndash;test-manifest, &ndash;shuffle or &ndash;run-slower?  Now you can! The process isn&rsquo;t exactly optimized for
 the developer use case, but neither is it really difficult to do once you know how.</p>
-<p>Basically, you just edit the &lsquo;testing/config/mozharness_config.py&rsquo; file. Add a new key called
+<p>Basically, you just edit the &rsquo;testing/config/mozharness_config.py&rsquo; file. Add a new key called
 &lsquo;&lt;test_suite&gt;_options&rsquo; and set its value to a list containing the <!-- raw HTML omitted -->full command line<!-- raw HTML omitted --> you
 want to pass into the test suite. Substitute &lsquo;&lt;test_suite&gt;&rsquo; with the name of the test suite
 (e.g mochitest, reftest, xpcshell etc). It&rsquo;s important to note that there is no way to simply extend
@@ -145,15 +145,15 @@ the official list, doing this will replace the original list wholesale.</p>
  You must also provide the complete command line to avoid errors. The official
  configuration files containing the default values live in:
      https://hg.mozilla.org/build/mozharness/configs
- &quot;&quot;&quot;
+ &#34;&#34;&#34;
  
  config = {
      # Add custom mozharness config options here
-+    &quot;mochitest_options&quot;: [
-+        &quot;--appname=%(binary_path)s&quot;, &quot;--utility-path=tests/bin&quot;,
-+        &quot;--extra-profile-file=tests/bin/plugins&quot;, &quot;--symbols-path=%(symbols_path)s&quot;,
-+        &quot;--certificate-path=tests/certs&quot;, &quot;--autorun&quot;, &quot;--close-when-done&quot;,
-+        &quot;--console-level=INFO&quot;, &quot;--setpref=webgl.force-enabled=true&quot;, &quot;--shuffle&quot;,
++    &#34;mochitest_options&#34;: [
++        &#34;--appname=%(binary_path)s&#34;, &#34;--utility-path=tests/bin&#34;,
++        &#34;--extra-profile-file=tests/bin/plugins&#34;, &#34;--symbols-path=%(symbols_path)s&#34;,
++        &#34;--certificate-path=tests/certs&#34;, &#34;--autorun&#34;, &#34;--close-when-done&#34;,
++        &#34;--console-level=INFO&#34;, &#34;--setpref=webgl.force-enabled=true&#34;, &#34;--shuffle&#34;,
 +    ],
  }
 </code></pre><p>There are a few limitatons to this system I want to call out.</p>

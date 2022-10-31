@@ -32,7 +32,7 @@ Configure an emulator: BRANCH=master ./config.sh emulator
 Build: ./build.sh
 Run: ./mach mochitest-remote
 "/>
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
     
@@ -136,11 +136,11 @@ been a massive pain. The new recommended way of running them is through mach.</p
 </ol>
 <p>Substitute &lsquo;mochitest&rsquo; with &lsquo;reftest&rsquo;, &lsquo;crashtest&rsquo; or &lsquo;xpcshell&rsquo; to run those test suites instead.
 By default all tests will be run, but you can pass in a test path like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./mach mochitest-remote gecko/dom/tests/mochitest/dom-level0
-</code></pre></div><p>For more details and a full list of command arguments, run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./mach help
-./mach help mochitest-remote
-</code></pre></div><p>Currently, these commands will not be available if your B2G repo is configured for anything other than an
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./mach mochitest-remote gecko/dom/tests/mochitest/dom-level0
+</span></span></code></pre></div><p>For more details and a full list of command arguments, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./mach help
+</span></span><span style="display:flex;"><span>./mach help mochitest-remote
+</span></span></code></pre></div><p>Currently, these commands will not be available if your B2G repo is configured for anything other than an
 emulator. <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=915810">Bug 915810</a> tracks progress
 towards getting them working on a device, but I&rsquo;m not sure when the ETA of that will be. For more
 information on running these tests, see <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS/Platform/Automated_testing">Firefox OS automated testing</a>.</p>
