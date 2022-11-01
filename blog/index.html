@@ -10,7 +10,7 @@
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/blog/" />
-<meta property="og:updated_time" content="2021-04-27T09:33:31-04:00" />
+<meta property="og:updated_time" content="2022-10-31T16:45:00-04:00" />
 
 
 
@@ -31,8 +31,8 @@
     "@type": "Person",
     "name": "Andrew Halberstadt"
   },
-  "dateModified": "2021-04-27T09:33:31-04:00",
-  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,ci,cycling,devops,django,fzf,hugo,jetty,mach,machine-learning,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,phabricator,productivity,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,tips-and-tricks,toronto,try,website,",
+  "dateModified": "2022-10-31T16:45:00-04:00",
+  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,ci,cycling,devops,django,fzf,github,hugo,jetty,mach,machine-learning,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,phabricator,productivity,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,tips-and-tricks,toronto,try,website,",
   "description": "Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."
 }
 </script>
@@ -93,6 +93,46 @@
         <div class="col-sm-8 blog-main">
 
           
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2022/taskcluster-github-dev/">How to Work on Taskcluster Github</a></h2>
+    <p class="blog-post-meta"><time datetime="2022-10-31T16:45:00-04:00">Oct 31, 2022</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/taskcluster/" rel="tag">taskcluster</a>, <a href="/tags/github/" rel="tag">github</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
+
+</p>
+  </header>
+  <p><a href="https://docs.taskcluster.net/docs/reference/integrations/github">Taskcluster Github</a> is the <a href="https://taskcluster.net/">Taskcluster</a> service responsible for kick starting tasks on
+Github repositories. At a high level:</p>
+<ol>
+<li>You install a <a href="https://github.com/apps/firefoxci-taskcluster">Taskcluster app from the Github marketplace</a>.</li>
+<li>This app sends webhooks to the Github service.</li>
+<li>Upon receiving a webhook, the Github service processes your repository&rsquo;s <a href="https://docs.taskcluster.net/docs/reference/integrations/github/taskcluster-yml-v1">.taskcluster.yml</a>
+file.</li>
+<li>The Github service schedules tasks (if any) and updates the Github checks suite, or comments on
+your push / pull-request if there is an error.</li>
+</ol>
+<p>While the service itself is relatively simple, testing it locally can be a pain! One approach might
+be to try and synthesize Github&rsquo;s webhook events, and then intercept the network requests that the
+Github service makes in response. But this is tricky to do, and without actually <em>seeing</em> the
+results in a proper Github repo, it&rsquo;s hard to be sure that your changes are working as intended.</p>
+<p>Ideally you would have a real repo, with a development version of the app listed in the Github
+Marketplace, hooked up to a Taskcluster Github service running on your local machine. This way you could
+trigger webhooks by performing real actions in your repo (such as opening a pull-request). Better
+yet, you could see exactly how your Github service changes react!</p>
+<p>Thanks to a lot of great work from Yarik, this is easier than ever and is all documented (or linked
+to) from <a href="https://github.com/taskcluster/taskcluster/blob/main/dev-docs/development-process.md#running-everything-locally-using-docker-compose">this page</a>. If you are already familiar with Taskcluster development, or enjoy figuring
+things out yourself, you may wish to skip this post and read the docs instead. But if you are a
+Taskcluster newbie, and would appreciate some hand holding, follow along for a step by step tutorial
+on how to work on and test Taskcluster Github!</p>
+  <a href='https://ahal.ca/blog/2022/taskcluster-github-dev/'>Read more →</a>
+</article> 
 
 
 
@@ -316,27 +356,6 @@ and getting it set up with MozillaBuild shell is simple.</p>
 
 
 
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></h2>
-    <p class="blog-post-meta"><time datetime="2020-07-10T12:08:34-04:00">Jul 10, 2020</time> by Andrew Halberstadt in 
-
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/taskcluster/" rel="tag">taskcluster</a>, <a href="/tags/ci/" rel="tag">ci</a>, <a href="/tags/machine-learning/" rel="tag">machine-learning</a>
-
-</p>
-  </header>
-  <p><em>This post was co-authored with <a href="https://marco-c.github.io/">Marco Castelluccio</a>, and was originally
-posted to the <a href="https://hacks.mozilla.org/2020/07/testing-firefox-more-efficiently-with-machine-learning/">Mozilla Hacks
-Blog</a>.</em></p>
-<p>A browser is an incredibly complex piece of software. With such enormous complexity, the only way to maintain a rapid pace of development is through an extensive <a href="https://en.wikipedia.org/wiki/Continuous_integration">CI</a> system that can give developers confidence that their changes won&rsquo;t introduce bugs. Given the scale of our CI, we’re always looking for ways to reduce load while maintaining a high standard of product quality. We wondered if we could use machine learning to reach a higher degree of efficiency.</p>
-  <a href='https://ahal.ca/blog/2020/testing-firefox-more-efficiently-with-machine-learning/'>Read more →</a>
-</article> 
-
-
-
-
-
 <nav class="blog-pagination">
   
   
@@ -361,6 +380,8 @@ Blog</a>.</em></p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/2022/taskcluster-github-dev/">How to Work on Taskcluster Github</a></li>
+
 <li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
 <li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
@@ -378,8 +399,6 @@ Blog</a>.</em></p>
 <li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
 <li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
-
-<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -450,6 +469,11 @@ Blog</a>.</em></p>
     
         
             
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
             <a href="/tags/taskgraph">taskgraph</a>
         
     
@@ -466,11 +490,6 @@ Blog</a>.</em></p>
         
             
             <a href="/tags/productivity">productivity</a>
-        
-    
-        
-            
-            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -516,6 +535,11 @@ Blog</a>.</em></p>
         
             
             <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/github">github</a>
         
     
         

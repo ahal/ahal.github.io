@@ -2,16 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ahal.ca/casts/</loc>
-    <lastmod>2021-10-08T16:57:22-04:00</lastmod>
+    <loc>https://ahal.ca/blog/</loc>
+    <lastmod>2022-10-31T16:45:00-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/github/</loc>
+    <lastmod>2022-10-31T16:45:00-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/blog/2022/taskcluster-github-dev/</loc>
+    <lastmod>2022-10-31T16:45:00-04:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/</loc>
-    <lastmod>2021-10-08T16:57:22-04:00</lastmod>
+    <lastmod>2022-10-31T16:45:00-04:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/tags/mozilla/</loc>
-    <lastmod>2021-10-08T16:57:22-04:00</lastmod>
+    <lastmod>2022-10-31T16:45:00-04:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/tags/</loc>
+    <lastmod>2022-10-31T16:45:00-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/tags/taskcluster/</loc>
+    <lastmod>2022-10-31T16:45:00-04:00</lastmod>
+  </url><url>
+    <loc>https://ahal.ca/casts/</loc>
     <lastmod>2021-10-08T16:57:22-04:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/tags/taskgraph/</loc>
@@ -19,9 +31,6 @@
   </url><url>
     <loc>https://ahal.ca/casts/2021/taskgraph-diff/</loc>
     <lastmod>2021-10-08T16:57:22-04:00</lastmod>
-  </url><url>
-    <loc>https://ahal.ca/blog/</loc>
-    <lastmod>2021-04-27T09:33:31-04:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/tags/phabricator/</loc>
     <lastmod>2021-04-27T09:33:31-04:00</lastmod>
@@ -72,9 +81,6 @@
     <lastmod>2020-07-10T12:08:34-04:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/tags/machine-learning/</loc>
-    <lastmod>2020-07-10T12:08:34-04:00</lastmod>
-  </url><url>
-    <loc>https://ahal.ca/tags/taskcluster/</loc>
     <lastmod>2020-07-10T12:08:34-04:00</lastmod>
   </url><url>
     <loc>https://ahal.ca/blog/2020/testing-firefox-more-efficiently-with-machine-learning/</loc>

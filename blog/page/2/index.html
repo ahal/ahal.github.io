@@ -10,7 +10,7 @@
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/blog/" />
-<meta property="og:updated_time" content="2021-04-27T09:33:31-04:00" />
+<meta property="og:updated_time" content="2022-10-31T16:45:00-04:00" />
 
 
 
@@ -31,8 +31,8 @@
     "@type": "Person",
     "name": "Andrew Halberstadt"
   },
-  "dateModified": "2021-04-27T09:33:31-04:00",
-  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,ci,cycling,devops,django,fzf,hugo,jetty,mach,machine-learning,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,phabricator,productivity,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,tips-and-tricks,toronto,try,website,",
+  "dateModified": "2022-10-31T16:45:00-04:00",
+  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,ci,cycling,devops,django,fzf,github,hugo,jetty,mach,machine-learning,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,phabricator,productivity,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,tips-and-tricks,toronto,try,website,",
   "description": "Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."
 }
 </script>
@@ -93,6 +93,27 @@
         <div class="col-sm-8 blog-main">
 
           
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2020/testing-firefox-more-efficiently-with-machine-learning/">Testing Firefox More Efficiently With Machine Learning</a></h2>
+    <p class="blog-post-meta"><time datetime="2020-07-10T12:08:34-04:00">Jul 10, 2020</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/taskcluster/" rel="tag">taskcluster</a>, <a href="/tags/ci/" rel="tag">ci</a>, <a href="/tags/machine-learning/" rel="tag">machine-learning</a>
+
+</p>
+  </header>
+  <p><em>This post was co-authored with <a href="https://marco-c.github.io/">Marco Castelluccio</a>, and was originally
+posted to the <a href="https://hacks.mozilla.org/2020/07/testing-firefox-more-efficiently-with-machine-learning/">Mozilla Hacks
+Blog</a>.</em></p>
+<p>A browser is an incredibly complex piece of software. With such enormous complexity, the only way to maintain a rapid pace of development is through an extensive <a href="https://en.wikipedia.org/wiki/Continuous_integration">CI</a> system that can give developers confidence that their changes won&rsquo;t introduce bugs. Given the scale of our CI, we’re always looking for ways to reduce load while maintaining a high standard of product quality. We wondered if we could use machine learning to reach a higher degree of efficiency.</p>
+  <a href='https://ahal.ca/blog/2020/testing-firefox-more-efficiently-with-machine-learning/'>Read more →</a>
+</article> 
 
 
 
@@ -330,33 +351,6 @@ for try syntax to don the wooden overcoat, and this post will explain why.</p>
 
 
 
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/">Making mercurial bookmarks more git-like</a></h2>
-    <p class="blog-post-meta"><time datetime="2015-03-30T00:00:00Z">Mar 30, 2015</time> by Andrew Halberstadt in 
-
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/bookbinder/" rel="tag">bookbinder</a>, <a href="/tags/mercurial/" rel="tag">mercurial</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
-
-</p>
-  </header>
-  <p>I mentioned in my previous post a mercurial extension I wrote for making bookmarks easier to
-manipulate. Since then it has undergone a large overhaul, and I believe it is now stable and
-intuitive enough to advertise a bit more widely.</p>
-<h2 id="introducing-bookbinder">Introducing bookbinder</h2>
-<p>When working with bookmarks (or anonymous heads) I often wanted to operate on the
-entire series of commits within the feature I was working on. I often found myself digging out
-revision numbers to find the first commit in a bookmark to do things like rebasing, grafting or
-diffing. This was annoying. I wanted bookmarks to work more like a git-style branch, that has a
-definite start as well as an end. And I wanted to be able to easily refer to the set of commits
-contained within. Enter <a href="https://hg.sr.ht/~ahal/bookbinder">bookbinder</a>.</p>
-  <a href='https://ahal.ca/blog/2015/making-mercurial-bookmarks-more-git-like/'>Read more →</a>
-</article> 
-
-
-
-
-
 <nav class="blog-pagination">
   
   <a class="btn btn-outline-primary" href="/blog/" rel="prev" role="button">Previous page</a>
@@ -381,6 +375,8 @@ contained within. Enter <a href="https://hg.sr.ht/~ahal/bookbinder">bookbinder</
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/2022/taskcluster-github-dev/">How to Work on Taskcluster Github</a></li>
+
 <li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
 <li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
@@ -398,8 +394,6 @@ contained within. Enter <a href="https://hg.sr.ht/~ahal/bookbinder">bookbinder</
 <li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
 <li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
-
-<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -470,6 +464,11 @@ contained within. Enter <a href="https://hg.sr.ht/~ahal/bookbinder">bookbinder</
     
         
             
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
             <a href="/tags/taskgraph">taskgraph</a>
         
     
@@ -486,11 +485,6 @@ contained within. Enter <a href="https://hg.sr.ht/~ahal/bookbinder">bookbinder</
         
             
             <a href="/tags/productivity">productivity</a>
-        
-    
-        
-            
-            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -536,6 +530,11 @@ contained within. Enter <a href="https://hg.sr.ht/~ahal/bookbinder">bookbinder</
         
             
             <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/github">github</a>
         
     
         

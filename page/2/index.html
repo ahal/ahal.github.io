@@ -10,7 +10,7 @@
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/" />
-<meta property="og:updated_time" content="2021-10-08T16:57:22-04:00" />
+<meta property="og:updated_time" content="2022-10-31T16:45:00-04:00" />
 
 
 
@@ -31,8 +31,8 @@
     "@type": "Person",
     "name": "Andrew Halberstadt"
   },
-  "dateModified": "2021-10-08T16:57:22-04:00",
-  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,ci,cycling,devops,django,fzf,hugo,jetty,mach,machine-learning,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,phabricator,productivity,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,tips-and-tricks,toronto,try,website,",
+  "dateModified": "2022-10-31T16:45:00-04:00",
+  "keywords": "absorb,addon,android,ateam,b2g,bookbinder,ci,cycling,devops,django,fzf,github,hugo,jetty,mach,machine-learning,mercurial,mozconfigwrapper,mozharness,mozilla,mozmill,mozprofile,music,peptest,phabricator,productivity,programming,python,qqver,reddit,reftest,staticman,taskcluster,taskgraph,test-informant,tips-and-tricks,toronto,try,website,",
   "description": "Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy."
 }
 </script>
@@ -99,6 +99,32 @@
         <div class="col-sm-8 blog-main">
 
           
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></h2>
+    <p class="blog-post-meta"><time datetime="2021-03-02T09:00:00-05:00">Mar 02, 2021</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/productivity/" rel="tag">productivity</a>, <a href="/tags/tips-and-tricks/" rel="tag">tips-and-tricks</a>
+
+</p>
+  </header>
+  <p>If you&rsquo;re working with mozilla-central on Windows and followed the <a href="https://firefox-source-docs.mozilla.org/setup/windows_build.html">official
+documentation</a>, there&rsquo;s a good
+chance the MozillaBuild shell is running in the default <code>cmd.exe</code> console. If you&rsquo;ve spent any
+amount of time in this console you&rsquo;ve also likely noticed it leaves a bit to be desired. Standard
+terminal features such as tabs, splits and themes are missing. More importantly, it doesn&rsquo;t render
+unicode characters (at least out of the box).</p>
+<p>Luckily Microsoft has developed a <a href="https://www.microsoft.com/en-ca/p/windows-terminal/9n0dx20hk701">modern
+terminal</a> that can replace cmd.exe,
+and getting it set up with MozillaBuild shell is simple.</p>
+  <a href='https://ahal.ca/blog/2021/mozilla-build-windows-terminal/'>Read more →</a>
+</article> 
 
 
 
@@ -325,35 +351,6 @@ work on it.</p>
 
 
 
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2016/taskcluster-interactive-loaner/">Using One Click Loaner to Debug Failures</a></h2>
-    <p class="blog-post-meta"><time datetime="2016-08-04T00:00:00Z">Aug 04, 2016</time> by Andrew Halberstadt in 
-
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/taskcluster/" rel="tag">taskcluster</a>
-
-</p>
-  </header>
-  <p>One of the most painful aspects of a developer&rsquo;s work cycle is trying to fix failures that show up
-on try, but which can&rsquo;t be reproduced locally. When this happens, there were really only two
-options (neither of them nice):</p>
-<ol>
-<li>You could spam try with print debugging. But this isn&rsquo;t very powerful, and takes forever to get
-feedback.</li>
-<li>You could request a loaner from releng. But this is a heavy handed process, and once you have the
-loaner it is very hard to get tests up and running.</li>
-</ol>
-<p>I&rsquo;m pleased to announce there is now a third option, which is easy, powerful and 100% self-serve.
-Rather than trying to explain it in words, here is a ~5 minute demo:</p>
-<!-- raw HTML omitted -->
-  <a href='https://ahal.ca/blog/2016/taskcluster-interactive-loaner/'>Read more →</a>
-</article> 
-
-
-
-
-
 <nav class="blog-pagination">
   
   <a class="btn btn-outline-primary" href="/" rel="prev" role="button">Previous page</a>
@@ -378,6 +375,8 @@ Rather than trying to explain it in words, here is a ~5 minute demo:</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/2022/taskcluster-github-dev/">How to Work on Taskcluster Github</a></li>
+
 <li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
 <li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
@@ -395,8 +394,6 @@ Rather than trying to explain it in words, here is a ~5 minute demo:</p>
 <li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
 <li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
-
-<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -467,6 +464,11 @@ Rather than trying to explain it in words, here is a ~5 minute demo:</p>
     
         
             
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
             <a href="/tags/taskgraph">taskgraph</a>
         
     
@@ -483,11 +485,6 @@ Rather than trying to explain it in words, here is a ~5 minute demo:</p>
         
             
             <a href="/tags/productivity">productivity</a>
-        
-    
-        
-            
-            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -533,6 +530,11 @@ Rather than trying to explain it in words, here is a ~5 minute demo:</p>
         
             
             <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/github">github</a>
         
     
         

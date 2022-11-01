@@ -7,7 +7,38 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 Andrew Halberstadt</copyright>
-    <lastBuildDate>Fri, 08 Oct 2021 16:57:22 -0400</lastBuildDate><atom:link href="https://ahal.ca/tags/mozilla/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Oct 2022 16:45:00 -0400</lastBuildDate><atom:link href="https://ahal.ca/tags/mozilla/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Work on Taskcluster Github</title>
+      <link>https://ahal.ca/blog/2022/taskcluster-github-dev/</link>
+      <pubDate>Mon, 31 Oct 2022 16:45:00 -0400</pubDate>
+      
+      <guid>https://ahal.ca/blog/2022/taskcluster-github-dev/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://docs.taskcluster.net/docs/reference/integrations/github&#34;&gt;Taskcluster Github&lt;/a&gt; is the &lt;a href=&#34;https://taskcluster.net/&#34;&gt;Taskcluster&lt;/a&gt; service responsible for kick starting tasks on
+Github repositories. At a high level:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You install a &lt;a href=&#34;https://github.com/apps/firefoxci-taskcluster&#34;&gt;Taskcluster app from the Github marketplace&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;This app sends webhooks to the Github service.&lt;/li&gt;
+&lt;li&gt;Upon receiving a webhook, the Github service processes your repository&amp;rsquo;s &lt;a href=&#34;https://docs.taskcluster.net/docs/reference/integrations/github/taskcluster-yml-v1&#34;&gt;.taskcluster.yml&lt;/a&gt;
+file.&lt;/li&gt;
+&lt;li&gt;The Github service schedules tasks (if any) and updates the Github checks suite, or comments on
+your push / pull-request if there is an error.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;While the service itself is relatively simple, testing it locally can be a pain! One approach might
+be to try and synthesize Github&amp;rsquo;s webhook events, and then intercept the network requests that the
+Github service makes in response. But this is tricky to do, and without actually &lt;em&gt;seeing&lt;/em&gt; the
+results in a proper Github repo, it&amp;rsquo;s hard to be sure that your changes are working as intended.&lt;/p&gt;
+&lt;p&gt;Ideally you would have a real repo, with a development version of the app listed in the Github
+Marketplace, hooked up to a Taskcluster Github service running on your local machine. This way you could
+trigger webhooks by performing real actions in your repo (such as opening a pull-request). Better
+yet, you could see exactly how your Github service changes react!&lt;/p&gt;
+&lt;p&gt;Thanks to a lot of great work from Yarik, this is easier than ever and is all documented (or linked
+to) from &lt;a href=&#34;https://github.com/taskcluster/taskcluster/blob/main/dev-docs/development-process.md#running-everything-locally-using-docker-compose&#34;&gt;this page&lt;/a&gt;. If you are already familiar with Taskcluster development, or enjoy figuring
+things out yourself, you may wish to skip this post and read the docs instead. But if you are a
+Taskcluster newbie, and would appreciate some hand holding, follow along for a step by step tutorial
+on how to work on and test Taskcluster Github!&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Taskgraph Diff</title>
       <link>https://ahal.ca/casts/2021/taskgraph-diff/</link>

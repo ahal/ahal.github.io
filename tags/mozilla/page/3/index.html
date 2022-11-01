@@ -10,7 +10,7 @@
 <meta property="og:description" content="Screencasts and blog posts on workflow, productivity, tools, Mozilla and whatever else tickles my fancy." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ahal.ca/tags/mozilla/" />
-<meta property="og:updated_time" content="2021-10-08T16:57:22-04:00" />
+<meta property="og:updated_time" content="2022-10-31T16:45:00-04:00" />
 
 
 
@@ -85,6 +85,31 @@
         <div class="col-sm-8 blog-main">
 
           
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2016/zen-of-mach/">The Zen of Mach</a></h2>
+    <p class="blog-post-meta"><time datetime="2016-02-12T00:00:00Z">Feb 12, 2016</time> by Andrew Halberstadt in 
+
+<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/mach/" rel="tag">mach</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>
+
+</p>
+  </header>
+  <p>Mach is the Mozilla developer&rsquo;s swiss army knife. It gathers all the important commands you&rsquo;ll ever
+need to run, and puts them in one convenient place. Instead of hunting down documentation, or asking
+for help on irc, often a simple |mach help| is all that&rsquo;s needed to get you started. Mach is great.
+But lately, mach is becoming more like the Mozilla developer&rsquo;s toolbox. It still has everything you
+need but it weighs a ton, and it takes a good deal of rummaging around to find anything.</p>
+<p>Frankly, a good deal of the mach commands that exist now are either poorly written, confusing to use,
+or even have no business being mach commands in the first place. Why is this important? What&rsquo;s wrong
+with having a toolbox?</p>
+  <a href='https://ahal.ca/blog/2016/zen-of-mach/'>Read more →</a>
+</article> 
 
 
 
@@ -303,39 +328,6 @@ I will make a claim that a WET approach can actually work better.</p>
 
 
 
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://ahal.ca/blog/2014/b2g-commands/">Add more mach to your B2G</a></h2>
-    <p class="blog-post-meta"><time datetime="2014-03-06T00:00:00Z">Mar 06, 2014</time> by Andrew Halberstadt in 
-
-<span class="fas fa-tag" aria-hidden="true"></span>&nbsp;<a href="/tags/ateam/" rel="tag">ateam</a>, <a href="/tags/b2g/" rel="tag">b2g</a>, <a href="/tags/mozilla/" rel="tag">mozilla</a>, <a href="/tags/mach/" rel="tag">mach</a>
-
-</p>
-  </header>
-  <h4 id="getting-started">Getting Started</h4>
-<p>tl;dr - It is possible to add more mach to your B2G repo! To get started, install pip:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | python
-</span></span></code></pre></div><p>Install b2g-commands:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pip install b2g-commands
-</span></span></code></pre></div><p>To play around with it, cd to your <a href="https://github.com/mozilla-b2g/B2G">B2G repo</a> and run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git pull                 <span style="color:#75715e"># make sure repo is up to date</span>
-</span></span><span style="display:flex;"><span>$ ./mach help              <span style="color:#75715e"># see all available commands</span>
-</span></span><span style="display:flex;"><span>$ ./mach help &amp;lt;command&amp;gt;    <span style="color:#75715e"># see additional info about a command</span>
-</span></span></code></pre></div><h4 id="details">Details</h4>
-<p>Most people who spend the majority of their time working within mozilla-central have probably been
-acquainted with <a href="https://developer.mozilla.org/en-US/docs/Developer_Guide/mach">mach</a>. In case you aren&rsquo;t acquainted, mach is a generic command dispatching
-tool. It is possible to write scripts called &lsquo;mach targets&rsquo; which get registered with mach core and
-transformed into commands. Mach targets in mozilla-central have access to all sorts of powerful
-hooks into the build and test infrastructure which allow them to do some really cool things, such as
-bootstrapping your environment, running builds and tests, and generating diagnostics.</p>
-  <a href='https://ahal.ca/blog/2014/b2g-commands/'>Read more →</a>
-</article> 
-
-
-
-
-
 <nav class="blog-pagination">
   
   <a class="btn btn-outline-primary" href="/tags/mozilla/page/2/" rel="prev" role="button">Previous page</a>
@@ -360,6 +352,8 @@ bootstrapping your environment, running builds and tests, and generating diagnos
     <ol class="list-unstyled">
 
 
+<li><a href="/blog/2022/taskcluster-github-dev/">How to Work on Taskcluster Github</a></li>
+
 <li><a href="/casts/2021/taskgraph-diff/">Taskgraph Diff</a></li>
 
 <li><a href="/blog/2021/phabricator-etiquette-part-2-the-author/">Phabricator Etiquette Part 2: The Author</a></li>
@@ -377,8 +371,6 @@ bootstrapping your environment, running builds and tests, and generating diagnos
 <li><a href="/blog/2021/hide-your-lint-errors/">Hide Your Lint Errors</a></li>
 
 <li><a href="/blog/2021/mozilla-devops/">DevOps at Mozilla</a></li>
-
-<li><a href="/blog/2021/mozilla-build-windows-terminal/">A Better Terminal for Mozilla Build</a></li>
 
     </ol>
   </section>
@@ -449,6 +441,11 @@ bootstrapping your environment, running builds and tests, and generating diagnos
     
         
             
+            <a href="/tags/taskcluster">taskcluster</a>
+        
+    
+        
+            
             <a href="/tags/taskgraph">taskgraph</a>
         
     
@@ -465,11 +462,6 @@ bootstrapping your environment, running builds and tests, and generating diagnos
         
             
             <a href="/tags/productivity">productivity</a>
-        
-    
-        
-            
-            <a href="/tags/taskcluster">taskcluster</a>
         
     
         
@@ -515,6 +507,11 @@ bootstrapping your environment, running builds and tests, and generating diagnos
         
             
             <a href="/tags/django">django</a>
+        
+    
+        
+            
+            <a href="/tags/github">github</a>
         
     
         
