@@ -72,7 +72,7 @@ on how to work on and test Taskcluster Github!"/>
   "@type": "BlogPosting",
   "headline": "How to Work on Taskcluster Github",
   "url": "https:\/\/ahal.ca\/blog\/2022\/taskcluster-github-dev\/",
-  "wordCount": "1808",
+  "wordCount": "1796",
   "datePublished": "2022-10-31T16:45:00-04:00",
   "dateModified": "2022-10-31T16:45:00-04:00",
   "author": {
@@ -186,12 +186,11 @@ locally in the first place.</p>
 <p>If you don&rsquo;t have the <a href="https://github.com/taskcluster/taskcluster">Taskcluster monorepo</a> cloned already, start by cloning it:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/taskcluster/taskcluster
 </span></span><span style="display:flex;"><span>cd taskcluster
-</span></span></code></pre></div><p>You&rsquo;ll need a specific version of <code>node</code> to run various operations in the repo. You can inspect
-<code>.nvmrc</code> to see the current required version, but as of the time of this writing it&rsquo;s <code>16.18.0</code>.
-It&rsquo;s recommended to use <a href="https://github.com/nvm-sh/nvm">nvm</a> to facilitate this. Follow the installation instructions, then run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nvm install 16.18.0
-</span></span><span style="display:flex;"><span>nvm use 16.18.0
-</span></span></code></pre></div><p>You&rsquo;ll also want <code>yarn</code>:</p>
+</span></span></code></pre></div><p>You&rsquo;ll need a specific version of <code>node</code> to run various operations in the repo. It&rsquo;s recommended to
+use <a href="https://github.com/nvm-sh/nvm">nvm</a> to facilitate this. Follow the installation instructions, then run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nvm install
+</span></span><span style="display:flex;"><span>nvm use
+</span></span></code></pre></div><p>This will automatically install the correct version defined in <code>.nvmrc</code>. You&rsquo;ll also want <code>yarn</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g yarn
 </span></span></code></pre></div><p>Services can be run with Docker. So if you don&rsquo;t already, make sure both <a href="https://docs.docker.com/get-docker/">docker</a> and the <a href="https://docs.docker.com/compose/install/">docker
 compose</a> plugin are installed and working properly.</p>
