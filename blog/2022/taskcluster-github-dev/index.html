@@ -72,7 +72,7 @@ on how to work on and test Taskcluster Github!"/>
   "@type": "BlogPosting",
   "headline": "How to Work on Taskcluster Github",
   "url": "https:\/\/ahal.ca\/blog\/2022\/taskcluster-github-dev\/",
-  "wordCount": "1697",
+  "wordCount": "1808",
   "datePublished": "2022-10-31T16:45:00-04:00",
   "dateModified": "2022-10-31T16:45:00-04:00",
   "author": {
@@ -197,7 +197,7 @@ It&rsquo;s recommended to use <a href="https://github.com/nvm-sh/nvm">nvm</a> to
 compose</a> plugin are installed and working properly.</p>
 <h2 id="edit-hosts-file">Edit <code>hosts</code> File</h2>
 <p>All Taskcluster web services are served via nginx through a single <code>taskcluster</code> proxy reachable
-through http://taskcluster on the localhost. To solve some authentication issues, it&rsquo;s necessary to
+through <a href="http://taskcluster">http://taskcluster</a> on the localhost. To solve some authentication issues, it&rsquo;s necessary to
 add the following to your hosts file:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>127.0.0.1 taskcluster
 </span></span></code></pre></div><p>On Linux and Mac, the hosts file is located at <code>/etc/hosts</code>. On Windows it can be found under
@@ -265,7 +265,7 @@ forwarded to your local machine.</li>
 </ol>
 <h2 id="configure-the-app-in-your-taskcluster-instance">Configure the App in your Taskcluster instance</h2>
 <p>For the last piece, we need to configure your local Taskcluster Github service to accept webhook
-events from your application. This <a href="https://github.com/taskcluster/taskcluster/blob/main/dev-docs/development-process.md#start-github-services-in-development-mode">also documented in the Taskcluster dev-docs</a>, but to
+events from your application. This is <a href="https://github.com/taskcluster/taskcluster/blob/main/dev-docs/development-process.md#start-github-services-in-development-mode">also documented in the Taskcluster dev-docs</a>, but to
 summarize:</p>
 <ol>
 <li>Create a new <a href="https://docs.docker.com/compose/extends">override file</a> called <code>docker-compose.override.yml</code> at the root of the
@@ -338,7 +338,7 @@ Github service adding a comment about missing scopes!</li>
 </ol>
 <h2 id="create-the-missing-scopes">Create the Missing Scopes</h2>
 <ol>
-<li>First navigate to the web UI of your instance at http://taskcluster</li>
+<li>First navigate to the web UI of your instance at <a href="http://taskcluster">http://taskcluster</a></li>
 <li>Click Sign In at the top right</li>
 <li>Use <code>static/taskcluster/root</code> as the Client ID, the Access Token can be found in the <a href="https://github.com/taskcluster/taskcluster/blob/main/docker/env/.auth">docker
 compose env</a> for the <code>auth-web</code> service. Search for <code>static/taskcluster/root</code> then copy the
@@ -367,10 +367,19 @@ development mode:</p>
 </span></span></code></pre></div><p>Now you&rsquo;ll no longer need to restart the service to pick up changes! Try it out by tailing the log,
 adding some print statements and re-generating an event in Github. You should see your print
 statements in the console output!</p>
+<h2 id="replaying-webhook-events">Replaying Webhook Events</h2>
+<p>Manually creating pull requests or pushes to trigger webhook events on every single code iteration
+can be tedious! Luckily ngrok has a replay feature that will let you replay an incoming request.
+This way, you only need to generate the event in Github once, then simply press the <code>Replay</code> button
+in your ngrok dashboard to send it again! Just beware that the Github service may only take certain
+actions once (e.g, if a comment about missing scopes already exists, it won&rsquo;t add a second one). In
+those cases, you may need to re-create a fresh pull-request / push to reproduce the behaviour you
+want.</p>
+<h1 id="conclusion">Conclusion</h1>
 <p>Whew, that was quite a journey. But once everything is in place, it makes iterating on Taskcluster
 Github <em>so</em> much faster, while also giving you confidence that your changes are doing what you
-expect without testing in production.</p>
-<p>Good luck!</p>
+expect, before hitting production!</p>
+<p>Happy developing and good luck!</p>
 
   
 
